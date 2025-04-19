@@ -1,1 +1,3 @@
-
+Change multiplicity of radiocommunicationIdentifier from 1,1 to 0,*
+Add 'Loran C' to categoryOfRadioStation as a permittedValue for RadioStation (Feature Type)
+Add dataTransmissionRate to radioChannelDetails for TransmissionDetails (Information Type)
