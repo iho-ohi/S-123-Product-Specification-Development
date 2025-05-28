@@ -1,0 +1,2369 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-model href="../../../schemas/S123/1.0/20170831/S123Basic.sch" type="application/xml" schematypens="http://purl.oclc.org/dsdl/schematron"?>
+<S123:Dataset xmlns:S123="http://www.iho.int/S123/gml/1.0"
+	xsi:schemaLocation="http://www.iho.int/S-123/gml/1.0 ../../../schemas/S123/1.0/20170831/S123.xsd"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:gml="http://www.opengis.net/gml/3.2"
+	xmlns:S100="http://www.iho.int/s100gml/1.0"
+	xmlns:s100_profile="http://www.iho.int/S-100/profile/s100_gmlProfile"
+	xmlns:xlink="http://www.w3.org/1999/xlink"  gml:id="JSNPI123EX_A0001">
+	<gml:boundedBy><gml:Envelope srsName="EPSG:4326">
+		<gml:lowerCorner>55.000000 -36.000000</gml:lowerCorner>
+		<gml:upperCorner>71.000000 -22.000000</gml:upperCorner>
+	</gml:Envelope></gml:boundedBy>
+	<DatasetIdentificationInformation>
+		<S100:encodingSpecification>S-100 Part 10b</S100:encodingSpecification>
+		<S100:encodingSpecificationEdition>1.0</S100:encodingSpecificationEdition>
+		<S100:productIdentifier>S-123</S100:productIdentifier>
+		<S100:productEdition>1.0</S100:productEdition>
+		<S100:applicationProfile/>
+		<S100:datasetFileIdentifier>JSNPI123EX_A0001</S100:datasetFileIdentifier>
+		<S100:datasetTitle>Sample dataset for S-123 - Jussland data sample</S100:datasetTitle>
+		<S100:datasetReferenceDate>2017-08-20</S100:datasetReferenceDate>
+		<S100:datasetLanguage>en</S100:datasetLanguage>
+		<S100:datasetTopicCategory>transportation</S100:datasetTopicCategory>
+	</DatasetIdentificationInformation>
+	<DatasetStructureInformation>
+		<S100:datasetCoordOriginX>0.0</S100:datasetCoordOriginX>
+		<S100:datasetCoordOriginY>0.0</S100:datasetCoordOriginY>
+		<S100:datasetCoordOriginZ>0.0</S100:datasetCoordOriginZ>
+		<S100:coordMultFactorX>1</S100:coordMultFactorX>
+		<S100:coordMultFactorY>1</S100:coordMultFactorY>
+		<S100:coordMultFactorZ>1</S100:coordMultFactorZ>
+	</DatasetStructureInformation>
+	<member>
+		<S123:DataCoverage gml:id="JS.0">
+			<S100:featureObjectIdentifier>
+				<S100:agency>JS</S100:agency>
+				<S100:featureIdentificationNumber>110037</S100:featureIdentificationNumber>
+				<S100:featureIdentificationSubdivision>1</S100:featureIdentificationSubdivision>
+			</S100:featureObjectIdentifier>
+			<maximumDisplayScale>999</maximumDisplayScale>
+			<minimumDisplayScale>14999999</minimumDisplayScale>
+			<geometry><S100:surfaceProperty><gml:Surface gml:id="SURFACE000">
+				<gml:patches>
+					<gml:PolygonPatch><gml:exterior><gml:LinearRing>
+						<gml:posList>55 -36 55 -22 71 -22 71 -36 55 -36</gml:posList>
+					</gml:LinearRing></gml:exterior></gml:PolygonPatch>
+				</gml:patches>
+			</gml:Surface></S100:surfaceProperty>
+			</geometry>
+		</S123:DataCoverage>
+	</member>
+	<member>
+		<S123:QualityOfNonBathymetricData gml:id="JS.1">
+			<S100:featureObjectIdentifier>
+				<S100:agency>JS</S100:agency>
+				<S100:featureIdentificationNumber>110056</S100:featureIdentificationNumber>
+				<S100:featureIdentificationSubdivision>1</S100:featureIdentificationSubdivision>
+			</S100:featureObjectIdentifier>
+			<categoryOfTemporalVariation>unassessed</categoryOfTemporalVariation>
+			<dataAssessment>unassessed</dataAssessment>
+			<sourceIndication>
+				<categoryOfAuthority>maritime</categoryOfAuthority>
+				<country>USA</country>
+				<reportedDate><date>2017-01-01</date></reportedDate>
+				<source>Jussland Hydrographic Offic</source>
+			</sourceIndication>
+			<geometry><S100:surfaceProperty><gml:Surface gml:id="SURFACE001">
+				<gml:patches>
+					<gml:PolygonPatch><gml:exterior><gml:LinearRing>
+						<gml:posList>55 -36 55 -22 71 -22 71 -36 55 -36</gml:posList>
+					</gml:LinearRing></gml:exterior></gml:PolygonPatch>
+				</gml:patches>
+			</gml:Surface></S100:surfaceProperty>
+			</geometry>
+		</S123:QualityOfNonBathymetricData>
+	</member>
+	<imember>
+		<S123:Authority gml:id="JS.AUTORI.01">
+			<featureName>
+				<name>Jussland Transport Agency</name>
+			</featureName>
+			<categoryOfAuthority>maritime</categoryOfAuthority>
+		</S123:Authority>
+	</imember>
+	<imember><S123:Authority gml:id="JS.AUTORI.02">
+		<featureName>
+			<language>eng</language>
+			<name>Jussland Met Office</name>
+		</featureName>
+		<categoryOfAuthority xsi:nil="true"/>
+	</S123:Authority></imember>
+	<imember>
+		<S123:Authority gml:id="JS.AUTORI.03">
+			<featureName>
+				<language>eng</language>
+				<name>The Hydrographer, S.A. Navy, Hydrographic Office</name>
+			</featureName>
+			<categoryOfAuthority>maritime</categoryOfAuthority>
+			<theContactDetails xlink:href="#JS.CONDET.05" xlink:arcrole="http://www.iho.int/S-123/gml/1.0/roles/theContactDetails"/>
+		</S123:Authority>
+	</imember>
+	
+	<imember>
+		<S123:ContactDetails gml:id="JS.CONDET.01">
+			<featureName>
+				<name>JUSSLAND MRCC</name>
+			</featureName>
+			<contactInstructions>(1) This station does not accept public correspondence, accepting Distress, Urgency and Safety traffic only. (2) Station accepts JUSSREP messages.</contactInstructions>
+			<mMSICode>005742029</mMSICode>
+			<onlineResource>
+				<linkage>www.jussland.mrcc.js</linkage>
+				<protocol>http</protocol>
+				<nameOfResource>JUSSLAND MRCC WEBSITE</nameOfResource>
+			</onlineResource>
+			<telecommunications>
+				<telecommunicationIdentifier>mrcc.jussland@jussland.gov.js</telecommunicationIdentifier>
+				<telecommunicationService>email</telecommunicationService>
+			</telecommunications>
+			<telecommunications>
+				<telecommunicationIdentifier>+999(0)1 23456788</telecommunicationIdentifier>
+				<telecommunicationService>facsimile</telecommunicationService>
+			</telecommunications>
+			<telecommunications>
+				<telecommunicationIdentifier>+583 422123456</telecommunicationIdentifier>
+				<telcomCarrier>Inmarsat C</telcomCarrier>
+				<telecommunicationService>voice</telecommunicationService>
+			</telecommunications>
+			<telecommunications>
+				<telecommunicationIdentifier>+999(0)1 23456789</telecommunicationIdentifier>
+				<telecommunicationService>voice</telecommunicationService>
+			</telecommunications>
+			<telecommunications>
+				<telecommunicationIdentifier>+998 123456</telecommunicationIdentifier>
+				<telecommunicationService>telex</telecommunicationService>
+			</telecommunications>
+		</S123:ContactDetails>
+	</imember>
+	
+	<imember>
+		<S123:ContactDetails gml:id="JS.CONDET.02">
+			<featureName>
+				<name>Jusslandcity Hospital, Jussland City</name>
+			</featureName>
+			<telecommunications>
+				<telecommunicationIdentifier>+999(0)1 23456755-59</telecommunicationIdentifier>
+				<telecommunicationService>voice</telecommunicationService>
+			</telecommunications>
+			<telecommunications>
+				<telecommunicationIdentifier>+999(0)1 23456760</telecommunicationIdentifier>
+				<telecommunicationService>facsimile</telecommunicationService>
+			</telecommunications>
+		</S123:ContactDetails>
+	</imember>
+	<imember>
+		<S123:ContactDetails gml:id="JS.CONDET.03">
+			<featureName>
+				<name>BONBONKREMA MRSC contact information</name>
+			</featureName>
+			<contactInstructions>(1) This station does not accept public correspondence, accepting Distress, Urgency and Safety traffic only. (2) Station accepts JUSSREP messages.</contactInstructions>
+			<mMSICode>005742030</mMSICode>
+			<telecommunications>
+				<telecommunicationIdentifier>mrsc.jussland@jussland.gov.js</telecommunicationIdentifier>
+				<telecommunicationService>email</telecommunicationService>
+			</telecommunications>
+			<telecommunications>
+				<telecommunicationIdentifier>+999(0)1 23456789</telecommunicationIdentifier>
+				<telecommunicationService>facsimile</telecommunicationService>
+			</telecommunications>
+			<telecommunications>
+				<telecommunicationIdentifier>+999(0)1 23456790</telecommunicationIdentifier>
+				<telecommunicationService>voice</telecommunicationService>
+			</telecommunications>
+		</S123:ContactDetails>
+	</imember>
+	
+	<imember>
+		<S123:ContactDetails gml:id="JS.CONDET.04">
+			<featureName>
+				<name>BONBONKREMA</name>
+			</featureName>
+			<callName>Krema Radio</callName>
+			<callSign>ZZZ</callSign>
+			<contactInstructions>1. Accepts Ship’s Weather Reports adressed to CENMETEOKREM. 2. Station accepts AMVER messages. 3. Station accepts JUSSREP messages.</contactInstructions>
+			<mMSICode>005742031</mMSICode>
+			<telecommunications>
+				<telecommunicationIdentifier>mickleradio@jussland.js</telecommunicationIdentifier>
+				<telecommunicationService>email</telecommunicationService>
+			</telecommunications>
+			<telecommunications>
+				<telecommunicationIdentifier>+999(0)1 51136501</telecommunicationIdentifier>
+				<telecommunicationService>facsimile</telecommunicationService>
+			</telecommunications>
+			<telecommunications>
+				<telecommunicationIdentifier>+999(0)1 51365017</telecommunicationIdentifier>
+				<telecommunicationService>voice</telecommunicationService>
+			</telecommunications>
+			<telecommunications>
+				<telecommunicationIdentifier>+999(0)1 36502642</telecommunicationIdentifier>
+				<telecommunicationService>voice</telecommunicationService>
+			</telecommunications>
+			<telecommunications>
+				<telecommunicationIdentifier>+998 441200 BBKRM</telecommunicationIdentifier>
+				<telecommunicationService>telex</telecommunicationService>
+			</telecommunications>
+			<telecommunications>
+				<telecommunicationIdentifier>+583 422123457</telecommunicationIdentifier>
+				<contactInstructions>Inmarsat C</contactInstructions>
+			</telecommunications>
+			<telecommunications>
+				<telecommunicationIdentifier>+991 621461635</telecommunicationIdentifier>
+				<contactInstructions>Iridium phone</contactInstructions>
+			</telecommunications>
+		</S123:ContactDetails>
+	</imember>
+	<imember>
+		<S123:ContactDetails gml:id="JS.CONDET.05">
+			<contactAddress>
+				<deliveryPoint>private Bag X1, Tokai</deliveryPoint>
+				<cityName>CAPE TOWN</cityName>
+				<country>South Africa</country>
+				<postalCode>7966</postalCode>
+			</contactAddress>
+			<onlineResource>
+				<linkage>http://www.sanho.co.za</linkage>
+				<onlineDescription>Web site home page</onlineDescription>
+			</onlineResource>
+			<telecommunications>
+				<telecommunicationIdentifier>+27 21 7872408</telecommunicationIdentifier>
+				<telecommunicationService>voice</telecommunicationService>
+			</telecommunications>
+			<telecommunications>
+				<telecommunicationIdentifier>+27 21 7872228</telecommunicationIdentifier>
+				<telecommunicationService>facsimile</telecommunicationService>
+			</telecommunications>
+			<telecommunications>
+				<telecommunicationIdentifier>hydrosan@iafrica.com</telecommunicationIdentifier>
+				<telecommunicationService>email</telecommunicationService>
+			</telecommunications>
+		</S123:ContactDetails>
+	</imember>
+	
+	<member>
+		<S123:RadioServiceArea gml:id="JS.RDOSVC.09">
+			<S100:featureObjectIdentifier>
+				<S100:agency>JS</S100:agency>
+				<S100:featureIdentificationNumber>111246</S100:featureIdentificationNumber>
+				<S100:featureIdentificationSubdivision>1</S100:featureIdentificationSubdivision>
+			</S100:featureObjectIdentifier>
+			<featureName>
+				<language>eng</language>
+				<name>MARITIME TELEMEDICAL ASSISTANCE SERVICE (TMAS)</name>
+			</featureName>
+			<textContent><information><language>eng</language>
+				<text>The Maritime Search and Rescue Service is under the command of the Jusslander NAVY. Attention is drawn to the International Code of Signals, Medical Section.</text>
+			</information></textContent>
+			<categoryOfBroadcastCommunication>non-commercial</categoryOfBroadcastCommunication>
+			<languageInformation>Jusslandish, English</languageInformation>
+			<radiocommunications>
+				<categoryOfRadioMethods>Very High Frequency (VHF) Digital Selective Call traffic</categoryOfRadioMethods>
+				<categoryOfRadioMethods>High Frequency (HF) Digital Selective Call traffic</categoryOfRadioMethods>
+				<categoryOfRadioMethods>Medium Frequency (MF) Digital Selective Call traffic</categoryOfRadioMethods>
+				<contactInstructions>Jussland MRCC : DSC A1 A2 A3 MMSI 005742029</contactInstructions>
+				<transmissionContent>Maritime telemedical assistance</transmissionContent>
+			</radiocommunications>
+			<radiocommunications>
+				<categoryOfRadioMethods>Very High Frequency (VHF) Digital Selective Call traffic</categoryOfRadioMethods>
+				<categoryOfRadioMethods>High Frequency (HF) Digital Selective Call traffic</categoryOfRadioMethods>
+				<categoryOfRadioMethods>Medium Frequency (MF) Digital Selective Call traffic</categoryOfRadioMethods>
+				<contactInstructions>Bonbonkrema MRSC : DSC A1 A2 A3 MMSI 005742030</contactInstructions>
+				<transmissionContent>Maritime telemedical assistance</transmissionContent>
+			</radiocommunications>
+			<radiocommunications>
+				<categoryOfRadioMethods>Very High Frequency (VHF) Digital Selective Call traffic</categoryOfRadioMethods>
+				<categoryOfRadioMethods>High Frequency (HF) Digital Selective Call traffic</categoryOfRadioMethods>
+				<categoryOfRadioMethods>Medium Frequency (MF) Digital Selective Call traffic</categoryOfRadioMethods>
+				<contactInstructions>Bonbonkrema (ZZZ) : DSC A1 A2 A3 MMSI 005742031</contactInstructions>
+				<transmissionContent>Maritime telemedical assistance</transmissionContent>
+			</radiocommunications>
+			<serviceProvider xlink:href="#JS.RDOSTA.01" xlink:arcrole="http://www.iho.int/S-123/gml/1.0/roles/serviceProvider"/>
+			<serviceProvider xlink:href="#JS.RDOSTA.02" xlink:arcrole="http://www.iho.int/S-123/gml/1.0/roles/serviceProvider"/>
+			<serviceProvider xlink:href="#JS.RDOSTA.03" xlink:arcrole="http://www.iho.int/S-123/gml/1.0/roles/serviceProvider"/>
+			<theContactDetails xlink:href="#JS.CONDET.01" xlink:arcrole="http://www.iho.int/S-123/gml/1.0/roles/serviceProvider"/>
+			<theContactDetails xlink:href="#JS.CONDET.02" xlink:arcrole="http://www.iho.int/S-123/gml/1.0/roles/serviceProvider"/>
+			<geometry>
+				<S100:surfaceProperty>
+					<S100:Polygon gml:id="a01">
+						<!-- Areas A1 + A2 + A3 clipped to dataset limits covers all marine areas in the dataset-->
+						<gml:exterior>
+							<gml:LinearRing>
+								<gml:posList>55 -36 55 -22 71 -22 71 -36 55 -36</gml:posList>
+							</gml:LinearRing>
+						</gml:exterior>
+					</S100:Polygon>
+				</S100:surfaceProperty>
+			</geometry>
+		</S123:RadioServiceArea>
+	</member>
+	<member>
+		<S123:RadioServiceArea gml:id="JS.RDOSVC.01">
+			<S100:featureObjectIdentifier>
+				<S100:agency>JS</S100:agency>
+				<S100:featureIdentificationNumber>111302</S100:featureIdentificationNumber>
+				<S100:featureIdentificationSubdivision>1</S100:featureIdentificationSubdivision>
+			</S100:featureObjectIdentifier>
+			<featureName>
+				<name>JUSSLAND MRCC service area</name>
+			</featureName>
+			<categoryOfBroadcastCommunication>non-commercial</categoryOfBroadcastCommunication>
+			<radiocommunications><categoryOfCommPref>preferred calling</categoryOfCommPref>
+				<categoryOfRadioMethods>Very High Frequency (VHF) Digital Selective Call traffic</categoryOfRadioMethods>
+				<communicationChannel>70</communicationChannel>
+			</radiocommunications>
+			<radiocommunications><categoryOfCommPref>preferred calling</categoryOfCommPref>
+				<categoryOfRadioMethods>Medium Frequency (MF) Digital Selective Call traffic</categoryOfRadioMethods>
+				<signalFrequency>2187500</signalFrequency>
+			</radiocommunications>
+			<radiocommunications><categoryOfCommPref>preferred calling</categoryOfCommPref>
+				<categoryOfRadioMethods>High Frequency (HF) Digital Selective Call traffic</categoryOfRadioMethods>
+				<communicationChannel>4</communicationChannel>
+				<signalFrequency>4207500</signalFrequency>
+			</radiocommunications>
+			<radiocommunications><categoryOfCommPref>preferred calling</categoryOfCommPref>
+				<categoryOfRadioMethods>High Frequency (HF) Digital Selective Call traffic</categoryOfRadioMethods>
+				<communicationChannel>6</communicationChannel>
+				<signalFrequency>6312000</signalFrequency>
+			</radiocommunications>
+			<radiocommunications><categoryOfCommPref>preferred calling</categoryOfCommPref>
+				<categoryOfRadioMethods>High Frequency (HF) Digital Selective Call traffic</categoryOfRadioMethods>
+				<communicationChannel>8</communicationChannel>
+				<signalFrequency>8414500</signalFrequency>
+			</radiocommunications>
+			<radiocommunications><categoryOfCommPref>preferred calling</categoryOfCommPref>
+				<categoryOfRadioMethods>High Frequency (HF) Digital Selective Call traffic</categoryOfRadioMethods>
+				<communicationChannel>12</communicationChannel>
+				<signalFrequency>12577000</signalFrequency>
+			</radiocommunications>
+			<radiocommunications><categoryOfCommPref>preferred calling</categoryOfCommPref>
+				<categoryOfRadioMethods>High Frequency (HF) Digital Selective Call traffic</categoryOfRadioMethods>
+				<communicationChannel>16</communicationChannel>
+				<signalFrequency>16804500</signalFrequency>
+			</radiocommunications>
+			<radiocommunications>
+				<categoryOfRadioMethods>Very High Frequency (VHF) voice traffic</categoryOfRadioMethods>
+				<communicationChannel>16</communicationChannel>
+			</radiocommunications>
+			<radiocommunications>
+				<categoryOfRadioMethods>Medium Frequency (MF) voice traffic</categoryOfRadioMethods>
+				<contactInstructions>RT (MF)</contactInstructions>
+				<frequencyPair>
+					<frequencyShoreStationTransmits>2182000</frequencyShoreStationTransmits>
+					<frequencyShoreStationReceives>2182000</frequencyShoreStationReceives>
+				</frequencyPair>
+				<frequencyPair>
+					<frequencyShoreStationTransmits>8291000</frequencyShoreStationTransmits>
+					<frequencyShoreStationReceives>8291000</frequencyShoreStationReceives>
+				</frequencyPair>
+			</radiocommunications>
+			<serviceProvider xlink:href="#JS.RDOSTA.01" xlink:arcrole="http://www.iho.int/S-123/gml/1.0/roles/serviceProvider" xlink:title="serviceProvisionArea"/>
+			<theContactDetails xlink:href="#JS.CONDET.01" xlink:arcrole="http://www.iho.int/S-123/gml/1.0/roles/theContactDetails" xlink:title="srvContact"/>
+			<geometry>
+				<S100:surfaceProperty nilReason="unknown"/>
+			</geometry>
+		</S123:RadioServiceArea>
+	</member>
+	<member>
+		<S123:RadioStation gml:id="JS.RDOSTA.01">
+			<S100:featureObjectIdentifier>
+				<S100:agency>JS</S100:agency>
+				<S100:featureIdentificationNumber>111369</S100:featureIdentificationNumber>				<S100:featureIdentificationSubdivision>1</S100:featureIdentificationSubdivision>
+			</S100:featureObjectIdentifier>
+			<featureName>
+				<name>JUSSLAND MRCC</name>
+			</featureName>
+			<textContent>
+				<information>
+					<text>(1) This station does not accept public correspondence, accepting Distress, Urgency and Safety traffic only. (2) Station accepts JUSSREP messages</text>
+				</information>
+			</textContent>
+			<serviceArea xlink:href="#JS.RDOSVC.01" xlink:arcrole="http://www.iho.int/S-123/gml/1.0/roles/serviceArea" xlink:title="serviceProvisionArea"/>
+			<serviceArea xlink:href="#JS.RDOSVC.09" xlink:arcrole="http://www.iho.int/S-123/gml/1.0/roles/serviceArea" xlink:title="serviceProvisionArea"/>
+			<serviceArea xlink:href="#JS.GMDSSA.01" xlink:arcrole="http://www.iho.int/S-123/gml/1.0/roles/serviceArea" xlink:title="serviceProvisionArea"/>
+			<serviceArea xlink:href="#JS.GMDSSA.02" xlink:arcrole="http://www.iho.int/S-123/gml/1.0/roles/serviceArea" xlink:title="serviceProvisionArea"/>
+			<serviceArea xlink:href="#JS.GMDSSA.03" xlink:arcrole="http://www.iho.int/S-123/gml/1.0/roles/serviceArea" xlink:title="serviceProvisionArea"/>
+			<serviceArea xlink:href="#JS.GMDSSA.04" xlink:arcrole="http://www.iho.int/S-123/gml/1.0/roles/serviceArea" xlink:title="serviceProvisionArea"/>
+			<serviceArea xlink:href="#JS.RDOSVC.99" xlink:arcrole="http://www.iho.int/S-123/gml/1.0/roles/serviceArea" xlink:title="serviceProvisionArea"/>
+			<theContactDetails xlink:href="#JS.CONDET.04" xlink:arcrole="http://www.iho.int/S-123/gml/1.0/roles/theContactDetails"/>
+			<theContactDetails xlink:href="#JS.CONDET.01" xlink:arcrole="http://www.iho.int/S-123/gml/1.0/roles/theContactDetails" xlink:title="srvContact"/>
+			<geometry>
+				<S100:pointProperty><S100:Point gml:id="P1A">
+					<gml:pos>60.9011667 -32.5250000</gml:pos>
+				</S100:Point></S100:pointProperty>
+			</geometry>
+		</S123:RadioStation>
+	</member>
+	<member>						
+		<S123:CoastguardStation gml:id="JS.CGUSTA.01">
+			<S100:featureObjectIdentifier>
+				<S100:agency>JS</S100:agency>
+				<S100:featureIdentificationNumber>111398</S100:featureIdentificationNumber>				<S100:featureIdentificationSubdivision>1</S100:featureIdentificationSubdivision>
+			</S100:featureObjectIdentifier>
+			<featureName>
+				<name>JUSSLAND MRCC</name>
+			</featureName>
+			<isMRCC>true</isMRCC>
+			<theContactDetails xlink:href="#JS.CONDET.01" xlink:arcrole="http://www.iho.int/S-123/gml/1.0/roles/theContactDetails" xlink:title="srvContact"/>
+			<geometry>
+				<S100:pointProperty><S100:Point gml:id="P1B">
+					<gml:pos>60.9011667 -32.5250000</gml:pos>
+				</S100:Point></S100:pointProperty>
+			</geometry>
+		</S123:CoastguardStation>
+	</member>
+
+	<member>			
+		<S123:RadioServiceArea gml:id="JS.RDOSVC.02">
+			<S100:featureObjectIdentifier>
+				<S100:agency>JS</S100:agency>
+				<S100:featureIdentificationNumber>111417</S100:featureIdentificationNumber>				<S100:featureIdentificationSubdivision>1</S100:featureIdentificationSubdivision>
+			</S100:featureObjectIdentifier>
+			<featureName>
+				<name>BONBONKREMA MRSC service area</name>
+			</featureName>
+			<categoryOfBroadcastCommunication>non-commercial</categoryOfBroadcastCommunication>
+			<radiocommunications><categoryOfCommPref>preferred calling</categoryOfCommPref>
+				<categoryOfRadioMethods>Very High Frequency (VHF) Digital Selective Call traffic</categoryOfRadioMethods>
+				<communicationChannel>70</communicationChannel>
+			</radiocommunications>
+			<radiocommunications><categoryOfCommPref>preferred calling</categoryOfCommPref>
+				<categoryOfRadioMethods>Medium Frequency (MF) Digital Selective Call traffic</categoryOfRadioMethods>
+				<signalFrequency>2187500</signalFrequency>
+			</radiocommunications>
+			<radiocommunications><categoryOfCommPref>preferred calling</categoryOfCommPref>
+				<categoryOfRadioMethods>High Frequency (HF) Digital Selective Call traffic</categoryOfRadioMethods>
+				<communicationChannel>4</communicationChannel>
+				<signalFrequency>4207500</signalFrequency>
+			</radiocommunications>
+			<radiocommunications><categoryOfCommPref>preferred calling</categoryOfCommPref>
+				<categoryOfRadioMethods>High Frequency (HF) Digital Selective Call traffic</categoryOfRadioMethods>
+				<communicationChannel>6</communicationChannel>
+				<signalFrequency>6312000</signalFrequency>
+			</radiocommunications>
+			<radiocommunications><categoryOfCommPref>preferred calling</categoryOfCommPref>
+				<categoryOfRadioMethods>High Frequency (HF) Digital Selective Call traffic</categoryOfRadioMethods>
+				<communicationChannel>8</communicationChannel>
+				<signalFrequency>8414500</signalFrequency>
+			</radiocommunications>
+			<radiocommunications><categoryOfCommPref>preferred calling</categoryOfCommPref>
+				<categoryOfRadioMethods>High Frequency (HF) Digital Selective Call traffic</categoryOfRadioMethods>
+				<communicationChannel>12</communicationChannel>
+				<signalFrequency>12577000</signalFrequency>
+			</radiocommunications>
+			<radiocommunications><categoryOfCommPref>preferred calling</categoryOfCommPref>
+				<categoryOfRadioMethods>High Frequency (HF) Digital Selective Call traffic</categoryOfRadioMethods>
+				<communicationChannel>16</communicationChannel>
+				<signalFrequency>16804500</signalFrequency>
+			</radiocommunications>
+			<radiocommunications>
+				<categoryOfRadioMethods>Very High Frequency (VHF) voice traffic</categoryOfRadioMethods>
+				<communicationChannel>16</communicationChannel>
+				<communicationChannel>74</communicationChannel>
+				<!-- 24-hour operation, so no times encoded -->
+			</radiocommunications>
+			<serviceProvider xlink:href="#JS.RDOSTA.02" xlink:arcrole="http://www.iho.int/S-123/gml/1.0/roles/serviceProvider" xlink:title="serviceProvisionArea"/>
+			<serviceProvider xlink:href="#JS.RDOSTA.02A" xlink:arcrole="http://www.iho.int/S-123/gml/1.0/roles/serviceProvider" xlink:title="serviceProvisionArea"/>
+			<serviceProvider xlink:href="#JS.RDOSTA.02B" xlink:arcrole="http://www.iho.int/S-123/gml/1.0/roles/serviceProvider" xlink:title="serviceProvisionArea"/>
+			<theContactDetails xlink:href="#JS.CONDET.03" xlink:arcrole="http://www.iho.int/S-123/gml/1.0/roles/theContactDetails"/>
+			<geometry>
+				<S100:surfaceProperty nilReason="unknown"/>
+			</geometry>
+		</S123:RadioServiceArea>
+	</member>
+	<member>
+		<S123:CoastguardStation gml:id="JS.CGUSTA.02">
+			<S100:featureObjectIdentifier>
+				<S100:agency>JS</S100:agency>
+				<S100:featureIdentificationNumber>111475</S100:featureIdentificationNumber>				<S100:featureIdentificationSubdivision>1</S100:featureIdentificationSubdivision>
+			</S100:featureObjectIdentifier>
+			<featureName>
+				<name>BONBONKREMA MRSC</name>
+			</featureName>
+			<isMRCC>true</isMRCC>
+			<theContactDetails xlink:href="#JS.CONDET.03" xlink:arcrole="http://www.iho.int/S-123/gml/1.0/roles/theContactDetails" xlink:title="srvContact"/>
+			<geometry>
+				<S100:pointProperty><S100:Point gml:id="p2A">
+					<gml:pos>60.9316667 -32.3616667</gml:pos>
+				</S100:Point></S100:pointProperty>
+			</geometry>
+		</S123:CoastguardStation>
+	</member>
+	<member>			
+		<S123:RadioStation gml:id="JS.RDOSTA.02">
+			<S100:featureObjectIdentifier>
+				<S100:agency>JS</S100:agency>
+				<S100:featureIdentificationNumber>111493</S100:featureIdentificationNumber>
+				<S100:featureIdentificationSubdivision>1</S100:featureIdentificationSubdivision>
+			</S100:featureObjectIdentifier>
+			<featureName>
+				<name>BONBONKREMA MRSC</name>
+			</featureName>
+			<textContent>
+				<information>
+					<text>(1) This station does not accept public correspondence, accepting Distress, Urgency and Safety traffic only. (2) Station accepts JUSSREP messages</text>
+				</information>
+			</textContent>
+			<serviceArea xlink:href="#JS.RDOSVC.02" xlink:arcrole="http://www.iho.int/S-123/gml/1.0/roles/serviceArea" xlink:title="serviceProvisionArea"/>
+			<serviceArea xlink:href="#JS.RDOSVC.09" xlink:arcrole="http://www.iho.int/S-123/gml/1.0/roles/serviceArea" xlink:title="serviceProvisionArea"/>
+			<serviceArea xlink:href="#JS.RDOSVC.45" xlink:arcrole="http://www.iho.int/S-123/gml/1.0/roles/serviceArea" xlink:title="serviceProvisionArea"/>
+			<serviceArea xlink:href="#JS.GMDSSA.01" xlink:arcrole="http://www.iho.int/S-123/gml/1.0/roles/serviceArea" xlink:title="serviceProvisionArea"/>
+			<serviceArea xlink:href="#JS.GMDSSA.02" xlink:arcrole="http://www.iho.int/S-123/gml/1.0/roles/serviceArea" xlink:title="serviceProvisionArea"/>
+			<serviceArea xlink:href="#JS.GMDSSA.03" xlink:arcrole="http://www.iho.int/S-123/gml/1.0/roles/serviceArea" xlink:title="serviceProvisionArea"/>
+			<serviceArea xlink:href="#JS.GMDSSA.04" xlink:arcrole="http://www.iho.int/S-123/gml/1.0/roles/serviceArea" xlink:title="serviceProvisionArea"/>
+			<serviceArea xlink:href="#JS.RDOSVC.99" xlink:arcrole="http://www.iho.int/S-123/gml/1.0/roles/serviceArea" xlink:title="serviceProvisionArea"/>
+			<theContactDetails xlink:href="#JS.CONDET.04" xlink:arcrole="http://www.iho.int/S-123/gml/1.0/roles/theContactDetails"/>
+			<theContactDetails xlink:href="#JS.CONDET.03" xlink:arcrole="http://www.iho.int/S-123/gml/1.0/roles/theContactDetails"/>
+			<geometry>
+				<S100:pointProperty><S100:Point gml:id="p2B">
+					<gml:pos>60.9316667 -32.3616667</gml:pos>
+				</S100:Point></S100:pointProperty>
+			</geometry>
+		</S123:RadioStation>
+	</member>
+	
+	<member>
+		<S123:RadioServiceArea gml:id="JS.RDOSVC.02A">
+			<S100:featureObjectIdentifier>
+				<S100:agency>JS</S100:agency>
+				<S100:featureIdentificationNumber>111525</S100:featureIdentificationNumber>
+				<S100:featureIdentificationSubdivision>1</S100:featureIdentificationSubdivision>
+			</S100:featureObjectIdentifier>
+			<categoryOfBroadcastCommunication>non-commercial</categoryOfBroadcastCommunication>
+			<radiocommunications>
+				<categoryOfRadioMethods>Medium Frequency (MF) voice traffic</categoryOfRadioMethods>
+				<frequencyPair>
+					<frequencyShoreStationTransmits>1698000</frequencyShoreStationTransmits>
+				</frequencyPair>
+				<frequencyPair>
+					<frequencyShoreStationTransmits>4506000</frequencyShoreStationTransmits>
+				</frequencyPair>
+			</radiocommunications>
+			<serviceProvider xlink:href="#JS.RDOSTA.02B" xlink:arcrole="http://www.iho.int/S-123/gml/1.0/roles/serviceProvider"/>
+			<geometry>
+				<S100:surfaceProperty nilReason="unknown"/>
+			</geometry>
+	</S123:RadioServiceArea></member>
+
+	<member>			
+		<S123:RadioStation gml:id="JS.RDOSTA.02A">
+			<S100:featureObjectIdentifier>
+				<S100:agency>JS</S100:agency>
+				<S100:featureIdentificationNumber>111548</S100:featureIdentificationNumber>
+				<S100:featureIdentificationSubdivision>1</S100:featureIdentificationSubdivision>
+			</S100:featureObjectIdentifier>
+			<featureName>
+				<name>Kipassebien</name>
+			</featureName>
+			<radiocommunications>
+				<categoryOfRadioMethods>Medium Frequency (MF) voice traffic</categoryOfRadioMethods>
+			</radiocommunications>
+			<serviceArea xlink:href="#JS.RDOSVC.02A" xlink:arcrole="http://www.iho.int/S-123/gml/1.0/roles/serviceArea" xlink:title="serviceProvisionArea"/>
+			<geometry>
+				<S100:pointProperty>
+					<S100:Point gml:id="P.RDOSTA.02A">
+						<gml:pos>60.9283333 -32.4466667</gml:pos>
+					</S100:Point>
+				</S100:pointProperty>
+			</geometry>
+		</S123:RadioStation>
+	</member>
+	<member>
+		<S123:RadioServiceArea gml:id="JS.RDOSVC.02B">
+			<S100:featureObjectIdentifier>
+				<S100:agency>JS</S100:agency>
+				<S100:featureIdentificationNumber>111571</S100:featureIdentificationNumber>
+				<S100:featureIdentificationSubdivision>1</S100:featureIdentificationSubdivision>
+			</S100:featureObjectIdentifier>
+		<categoryOfBroadcastCommunication>non-commercial</categoryOfBroadcastCommunication>
+		<radiocommunications>
+			<categoryOfRadioMethods>Medium Frequency (MF) voice traffic</categoryOfRadioMethods>
+			<frequencyPair>
+				<frequencyShoreStationReceives>1787000</frequencyShoreStationReceives>
+			</frequencyPair>
+			<frequencyPair>
+				<frequencyShoreStationReceives>4605000</frequencyShoreStationReceives>
+			</frequencyPair>
+		</radiocommunications>
+		<serviceProvider xlink:href="#JS.RDOSTA.02B" xlink:arcrole="http://www.iho.int/S-123/gml/1.0/roles/serviceProvider"/>
+		<geometry>
+			<S100:surfaceProperty nilReason="unknown"/>
+		</geometry>
+	</S123:RadioServiceArea></member>
+	<member>			
+		<S123:RadioStation gml:id="JS.RDOSTA.02B">
+			<S100:featureObjectIdentifier>
+				<S100:agency>JS</S100:agency>
+				<S100:featureIdentificationNumber>111593</S100:featureIdentificationNumber>
+				<S100:featureIdentificationSubdivision>1</S100:featureIdentificationSubdivision>
+			</S100:featureObjectIdentifier>
+			<featureName>
+				<name>Jentendlamer</name>
+			</featureName>
+			<radiocommunications>
+				<categoryOfRadioMethods>Medium Frequency (MF) voice traffic</categoryOfRadioMethods>
+			</radiocommunications>
+			<serviceArea xlink:href="#JS.RDOSVC.02B" xlink:arcrole="http://www.iho.int/S-123/gml/1.0/roles/serviceArea"/>
+			<geometry>
+				<S100:pointProperty>
+					<S100:Point gml:id="p2b">
+						<gml:pos>60.8250000 -32.5566667</gml:pos>
+					</S100:Point>
+				</S100:pointProperty>
+			</geometry>
+		</S123:RadioStation>
+	</member>
+
+	<member>
+		<S123:RadioServiceArea gml:id="JS.RDOSVC.03">
+			<S100:featureObjectIdentifier>
+				<S100:agency>JS</S100:agency>
+				<S100:featureIdentificationNumber>111617</S100:featureIdentificationNumber>
+				<S100:featureIdentificationSubdivision>1</S100:featureIdentificationSubdivision>
+			</S100:featureObjectIdentifier>
+			<featureName>
+				<name>BONBONKREMA</name>
+			</featureName>
+			<textContent><information><language>eng</language><text>To do: split by radio method, the service areas would be different</text></information></textContent>
+			<callSign>ZZZ</callSign>
+			<categoryOfBroadcastCommunication>non-commercial</categoryOfBroadcastCommunication>
+			<!-- DSC VHF/MF/HF channels -->
+			<radiocommunications>
+				<categoryOfRadioMethods>Very High Frequency (VHF) Digital Selective Call traffic</categoryOfRadioMethods>
+				<communicationChannel>70</communicationChannel>
+			</radiocommunications>
+			<radiocommunications>
+				<categoryOfRadioMethods>Medium Frequency (MF) Digital Selective Call traffic</categoryOfRadioMethods>
+				<signalFrequency>2187500</signalFrequency>
+			</radiocommunications>
+			<radiocommunications>
+				<categoryOfRadioMethods>High Frequency (HF) Digital Selective Call traffic</categoryOfRadioMethods>
+				<communicationChannel>6</communicationChannel>
+				<signalFrequency>6312000</signalFrequency>
+			</radiocommunications>
+			<radiocommunications>
+				<categoryOfRadioMethods>High Frequency (HF) Digital Selective Call traffic</categoryOfRadioMethods>
+				<communicationChannel>8</communicationChannel>
+				<signalFrequency>8414500</signalFrequency>
+			</radiocommunications>
+			<radiocommunications>
+				<selectiveCallNumber>9999</selectiveCallNumber>
+			</radiocommunications>
+			<!-- DSC (Public correspondence) -->
+			<radiocommunications>
+				<categoryOfRadioMethods>Medium Frequency (MF) Digital Selective Call traffic</categoryOfRadioMethods>
+				<frequencyPair>
+					<frequencyShoreStationTransmits>2189500</frequencyShoreStationTransmits>
+					<frequencyShoreStationReceives>2177000</frequencyShoreStationReceives>
+				</frequencyPair>
+				<transmissionContent>Public correspondence</transmissionContent>
+				<tmIntervalsByDoW>
+					<dayOfWeekIsRanges xsi:nil="true"/>
+					<timeReference>LT</timeReference>
+					<timeOfDayStart>23:00:00</timeOfDayStart>
+					<timeOfDayEnd>15:00:00</timeOfDayEnd>
+				</tmIntervalsByDoW>
+			</radiocommunications>
+			<!-- RT (MF) -->
+			<radiocommunications>
+				<categoryOfRadioMethods>Medium Frequency (MF) voice traffic</categoryOfRadioMethods>
+				<frequencyPair>
+					<frequencyShoreStationTransmits>2182000</frequencyShoreStationTransmits>
+					<frequencyShoreStationReceives>2182000</frequencyShoreStationReceives>
+				</frequencyPair>
+				<tmIntervalsByDoW>
+					<dayOfWeekIsRanges xsi:nil="true"/>
+					<timeReference>LT</timeReference>
+					<timeOfDayStart>22:00:00</timeOfDayStart>
+					<timeOfDayEnd>10:00:00</timeOfDayEnd>
+				</tmIntervalsByDoW>
+			</radiocommunications>
+			<radiocommunications>
+				<categoryOfRadioMethods>Medium Frequency (MF) voice traffic</categoryOfRadioMethods>
+				<frequencyPair>
+					<frequencyShoreStationTransmits>3180000</frequencyShoreStationTransmits>
+					<frequencyShoreStationReceives>2080000</frequencyShoreStationReceives>
+				</frequencyPair>
+			</radiocommunications>
+			<!-- RT (HF) without traffic lists -->
+			<radiocommunications>
+				<categoryOfRadioMethods>High Frequency (HF) voice traffic</categoryOfRadioMethods>
+				<frequencyPair>
+					<frequencyShoreStationTransmits>7903000</frequencyShoreStationTransmits>
+					<frequencyShoreStationReceives>7903000</frequencyShoreStationReceives>
+				</frequencyPair>
+				<frequencyPair>
+					<frequencyShoreStationTransmits>7972000</frequencyShoreStationTransmits>
+					<frequencyShoreStationReceives>7972000</frequencyShoreStationReceives>
+				</frequencyPair>
+				<frequencyPair>
+					<frequencyShoreStationTransmits>8125000</frequencyShoreStationTransmits>
+					<frequencyShoreStationReceives>8125000</frequencyShoreStationReceives>
+				</frequencyPair>
+				<frequencyPair>
+					<frequencyShoreStationTransmits>8131000</frequencyShoreStationTransmits>
+					<frequencyShoreStationReceives>8131000</frequencyShoreStationReceives>
+				</frequencyPair>
+				<frequencyPair>
+					<frequencyShoreStationTransmits>8140000</frequencyShoreStationTransmits>
+					<frequencyShoreStationReceives>8140000</frequencyShoreStationReceives>
+				</frequencyPair>
+				<frequencyPair>
+					<frequencyShoreStationTransmits>8176000</frequencyShoreStationTransmits>
+					<frequencyShoreStationReceives>8176000</frequencyShoreStationReceives>
+				</frequencyPair>
+				<frequencyPair>
+					<frequencyShoreStationTransmits>8294000</frequencyShoreStationTransmits>
+					<frequencyShoreStationReceives>8294000</frequencyShoreStationReceives>
+				</frequencyPair>	
+				<frequencyPair>
+					<frequencyShoreStationTransmits>11456000</frequencyShoreStationTransmits>
+					<frequencyShoreStationReceives>11456000</frequencyShoreStationReceives>
+				</frequencyPair>
+				<frequencyPair>
+					<frequencyShoreStationTransmits>12365000</frequencyShoreStationTransmits>
+					<frequencyShoreStationReceives>12365000</frequencyShoreStationReceives>
+				</frequencyPair>
+			</radiocommunications>
+			<radiocommunications>
+				<communicationChannel>813</communicationChannel>
+				<frequencyPair>
+					<frequencyShoreStationTransmits>8755000</frequencyShoreStationTransmits>
+					<frequencyShoreStationReceives>8755000</frequencyShoreStationReceives>
+				</frequencyPair>
+			</radiocommunications>
+			<!-- RT (HF) traffic lists -->
+			<radiocommunications>
+				<categoryOfCommPref>preferred working</categoryOfCommPref>
+				<frequencyPair>
+					<frequencyShoreStationTransmits>12359000</frequencyShoreStationTransmits>
+					<frequencyShoreStationReceives>12359000</frequencyShoreStationReceives>
+				</frequencyPair>
+				<timesOfTransmission>
+					<timeReference>LT</timeReference>
+					<transmissionTime>00:03:00</transmissionTime>
+					<transmissionTime>02:03:00</transmissionTime>
+					<transmissionTime>08:03:00</transmissionTime>
+					<transmissionTime>10:03:00</transmissionTime>
+					<transmissionTime>16:03:00</transmissionTime>
+					<transmissionTime>18:03:00</transmissionTime>
+				</timesOfTransmission>
+				<transmissionContent>Transmission of traffic list</transmissionContent>
+			</radiocommunications>
+			<!-- Radiotelex [9999] -->
+			<radiocommunications>
+				<categoryOfRadioMethods>High Frequency (HF) telegraph traffic</categoryOfRadioMethods>
+				<frequencyPair>
+					<frequencyShoreStationTransmits>2174500</frequencyShoreStationTransmits>
+					<frequencyShoreStationReceives>2174500</frequencyShoreStationReceives>
+				</frequencyPair>
+				<selectiveCallNumber>9999</selectiveCallNumber>
+				<tmIntervalsByDoW>
+					<dayOfWeekIsRanges xsi:nil="true"/>
+					<timeReference>LT</timeReference>
+					<timeOfDayStart>23:00:00</timeOfDayStart><timeOfDayEnd>15:00:00</timeOfDayEnd>
+				</tmIntervalsByDoW>
+			</radiocommunications>
+			<radiocommunications>
+				<categoryOfRadioMethods>High Frequency (HF) telegraph traffic</categoryOfRadioMethods>
+				<frequencyPair>
+					<frequencyShoreStationTransmits>6317000</frequencyShoreStationTransmits>
+					<frequencyShoreStationReceives>6265000</frequencyShoreStationReceives>
+				</frequencyPair>
+				<selectiveCallNumber>9999</selectiveCallNumber>
+				<tmIntervalsByDoW>
+					<dayOfWeekIsRanges xsi:nil="true"/>
+					<timeReference>LT</timeReference>
+					<timeOfDayStart>01:00:00</timeOfDayStart><timeOfDayEnd>05:00:00</timeOfDayEnd>
+				</tmIntervalsByDoW>
+			</radiocommunications>
+			<radiocommunications>
+				<categoryOfRadioMethods>High Frequency (HF) telegraph traffic</categoryOfRadioMethods>
+				<frequencyPair>
+					<frequencyShoreStationTransmits>8376500</frequencyShoreStationTransmits>
+					<frequencyShoreStationReceives>8376500</frequencyShoreStationReceives>
+				</frequencyPair>
+				<selectiveCallNumber>9999</selectiveCallNumber>
+				<tmIntervalsByDoW>
+					<dayOfWeekIsRanges xsi:nil="true"/>
+					<timeReference>LT</timeReference>
+					<timeOfDayStart>23:00:00</timeOfDayStart><timeOfDayEnd>15:00:00</timeOfDayEnd>
+				</tmIntervalsByDoW>
+			</radiocommunications>
+			<!-- WT (MF) -->
+			<radiocommunications>
+				<categoryOfCommPref>preferred working</categoryOfCommPref>
+				<categoryOfRadioMethods>Medium Frequency (MF) telegraph traffic</categoryOfRadioMethods>
+				<frequencyPair>
+					<frequencyShoreStationTransmits>458</frequencyShoreStationTransmits>
+					<frequencyShoreStationReceives>500</frequencyShoreStationReceives>
+				</frequencyPair>
+				<timesOfTransmission>
+					<timeReference>LT</timeReference>
+					<transmissionTime>00:00:00</transmissionTime>
+					<transmissionTime>04:00:00</transmissionTime>
+					<transmissionTime>08:00:00</transmissionTime>
+					<transmissionTime>12:00:00</transmissionTime>
+					<transmissionTime>23:00:00</transmissionTime>
+				</timesOfTransmission>
+				<transmissionContent>Transmission of traffic list</transmissionContent>
+				<tmIntervalsByDoW>
+					<dayOfWeekIsRanges xsi:nil="true"/>
+					<timeReference>LT</timeReference>
+					<timeOfDayStart>23:00:00</timeOfDayStart><timeOfDayEnd>15:00:00</timeOfDayEnd>
+				</tmIntervalsByDoW>
+			</radiocommunications>
+			<radiocommunications>
+				<categoryOfRadioMethods>Medium Frequency (MF) telegraph traffic</categoryOfRadioMethods>
+				<frequencyPair>
+					<frequencyShoreStationTransmits>500</frequencyShoreStationTransmits>
+					<frequencyShoreStationReceives>500</frequencyShoreStationReceives>
+				</frequencyPair>
+				<tmIntervalsByDoW>
+					<dayOfWeekIsRanges xsi:nil="true"/>
+					<timeReference>LT</timeReference>
+					<timeOfDayStart>23:00:00</timeOfDayStart><timeOfDayEnd>15:00:00</timeOfDayEnd>
+				</tmIntervalsByDoW>
+			</radiocommunications>
+			<!-- WT (HF) -->
+			<radiocommunications>
+				<categoryOfRadioMethods>High Frequency (HF) telegraph traffic</categoryOfRadioMethods>
+				<contactInstructions>Shore station receives 6265.5 – 6267 KHz</contactInstructions>
+				<frequencyPair>
+					<frequencyShoreStationTransmits>6337000</frequencyShoreStationTransmits>
+					<frequencyShoreStationReceives>6265500</frequencyShoreStationReceives>
+				</frequencyPair>
+				<frequencyPair>
+					<frequencyShoreStationTransmits>6337000</frequencyShoreStationTransmits>
+					<frequencyShoreStationReceives>6267000</frequencyShoreStationReceives>
+				</frequencyPair>
+				<tmIntervalsByDoW>
+					<dayOfWeekIsRanges xsi:nil="true"/>
+					<timeReference>LT</timeReference>
+					<timeOfDayStart>05:00:00</timeOfDayStart><timeOfDayEnd>06:00:00</timeOfDayEnd>
+				</tmIntervalsByDoW>
+			</radiocommunications>
+			<radiocommunications>
+				<categoryOfRadioMethods>High Frequency (HF) telegraph traffic</categoryOfRadioMethods>
+				<contactInstructions>Shore station receives 8377.5 – 8380.5 KHz</contactInstructions>
+				<frequencyPair>
+					<frequencyShoreStationTransmits>8461000</frequencyShoreStationTransmits>
+					<frequencyShoreStationReceives>8377500</frequencyShoreStationReceives>
+				</frequencyPair>
+				<frequencyPair>
+					<frequencyShoreStationTransmits>8461000</frequencyShoreStationTransmits>
+					<frequencyShoreStationReceives>8380500</frequencyShoreStationReceives>
+				</frequencyPair>
+				<timesOfTransmission>
+					<timeReference>LT</timeReference>
+					<transmissionTime>00:00:00</transmissionTime>
+					<transmissionTime>04:00:00</transmissionTime>
+				</timesOfTransmission>
+				<transmissionContent>Traffic list</transmissionContent>
+				<tmIntervalsByDoW>
+					<dayOfWeekIsRanges xsi:nil="true"/>
+					<timeReference>LT</timeReference>
+					<timeOfDayStart>00:00:00</timeOfDayStart>
+					<timeOfDayStart>04:00:00</timeOfDayStart>
+					<timeOfDayEnd>01:00:00</timeOfDayEnd>
+					<timeOfDayEnd>05:00:00</timeOfDayEnd>
+				</tmIntervalsByDoW>
+			</radiocommunications>
+			<radiocommunications>
+				<categoryOfRadioMethods>High Frequency (HF) telegraph traffic</categoryOfRadioMethods>
+				<contactInstructions>Shore station receives 12478 – 12481 KHz</contactInstructions>
+				<frequencyPair>
+					<frequencyShoreStationTransmits>12970500</frequencyShoreStationTransmits>
+					<frequencyShoreStationReceives>12478000</frequencyShoreStationReceives>
+				</frequencyPair>
+				<frequencyPair>
+					<frequencyShoreStationTransmits>12970500</frequencyShoreStationTransmits>
+					<frequencyShoreStationReceives>12481000</frequencyShoreStationReceives>
+				</frequencyPair>
+				<tmIntervalsByDoW>
+					<dayOfWeekIsRanges xsi:nil="true"/>
+					<timeReference>LT</timeReference>
+					<timeOfDayStart>01:00:00</timeOfDayStart><timeOfDayEnd>02:00:00</timeOfDayEnd>
+				</tmIntervalsByDoW>
+			</radiocommunications>
+			<!-- transmission of traffic list on WT (HF) -->
+			<radiocommunications>
+				<categoryOfRadioMethods>High Frequency (HF) telegraph traffic</categoryOfRadioMethods>
+				<frequencyPair>
+					<frequencyShoreStationTransmits>8461000</frequencyShoreStationTransmits>
+				</frequencyPair>
+				<timesOfTransmission>
+					<timeReference>LT</timeReference>
+					<transmissionTime>00:00:00</transmissionTime>
+					<transmissionTime>04:00:00</transmissionTime>
+				</timesOfTransmission>
+				<transmissionContent>Transmission of traffic list</transmissionContent>
+			</radiocommunications>
+			<!-- Data service (HF) -->
+			<!-- information: Bonbonkrema provides data services in partnership with Swisscom Maritimes Communications. -->
+			<radiocommunications>
+				<communicationChannel>KREM10</communicationChannel>
+				<frequencyPair>
+					<frequencyShoreStationTransmits>8716000</frequencyShoreStationTransmits>
+					<frequencyShoreStationReceives>8716000</frequencyShoreStationReceives>
+				</frequencyPair>
+			</radiocommunications>
+			<radiocommunications>
+				<communicationChannel>KREM11</communicationChannel>
+				<frequencyPair>
+					<frequencyShoreStationTransmits>13078500</frequencyShoreStationTransmits>
+					<frequencyShoreStationReceives>13078500</frequencyShoreStationReceives>
+				</frequencyPair>
+				<transmissionRegularity>on request</transmissionRegularity>
+			</radiocommunications>
+			<radiocommunications>
+				<communicationChannel>KREM12</communicationChannel>
+				<frequencyPair>
+					<frequencyShoreStationTransmits>17198500</frequencyShoreStationTransmits>
+					<frequencyShoreStationReceives>17198500</frequencyShoreStationReceives>
+				</frequencyPair>
+				<transmissionRegularity>on request</transmissionRegularity>
+			</radiocommunications>
+			<radiocommunications>
+				<communicationChannel>KREM13</communicationChannel>
+				<frequencyPair>
+					<frequencyShoreStationTransmits>22567500</frequencyShoreStationTransmits>
+					<frequencyShoreStationReceives>22567500</frequencyShoreStationReceives>
+				</frequencyPair>
+			</radiocommunications>
+			<serviceProvider xlink:href="#JS.RDOSTA.03" xlink:arcrole="http://www.iho.int/S-123/gml/1.0/roles/serviceProvider" xlink:title="serviceProvisionArea"/>
+			<serviceProvider xlink:href="#JS.RDOSTA.03A" xlink:arcrole="http://www.iho.int/S-123/gml/1.0/roles/serviceProvider" xlink:title="serviceProvisionArea"/>
+			<serviceProvider xlink:href="#JS.RDOSTA.03B" xlink:arcrole="http://www.iho.int/S-123/gml/1.0/roles/serviceProvider" xlink:title="serviceProvisionArea"/>
+			<serviceProvider xlink:href="#JS.RDOSTA.03C" xlink:arcrole="http://www.iho.int/S-123/gml/1.0/roles/serviceProvider" xlink:title="serviceProvisionArea"/>
+			<theContactDetails xlink:href="#JS.CONDET.04" xlink:arcrole="http://www.iho.int/S-123/gml/1.0/roles/theContactDetails"/>
+			<geometry>
+				<S100:surfaceProperty nilReason="unknown"/>
+			</geometry>
+		</S123:RadioServiceArea>
+	</member>
+	<member>
+		<S123:RadioStation gml:id="JS.RDOSTA.03">
+			<S100:featureObjectIdentifier>
+				<S100:agency>JS</S100:agency>
+				<S100:featureIdentificationNumber>111944</S100:featureIdentificationNumber>
+				<S100:featureIdentificationSubdivision>1</S100:featureIdentificationSubdivision>
+			</S100:featureObjectIdentifier>
+			<featureName>
+				<name>BONBONKREMA (ZZZ)</name>
+			</featureName>
+			<textContent>
+				<information><language>eng</language>
+					<text>(1) Accepts Ship’s Weather Reports adressed to CENMETEOKREM. (2) Station accepts AMVER messages. (3) Station accepts JUSSREP messages.</text>
+				</information>
+			</textContent>
+			<serviceArea xlink:href="#JS.RDOSVC.03" xlink:arcrole="http://www.iho.int/S-123/gml/1.0/roles/serviceArea" xlink:title="serviceProvisionArea"/>
+			<serviceArea xlink:href="#JS.RDOSVC.99" xlink:arcrole="http://www.iho.int/S-123/gml/1.0/roles/serviceArea" xlink:title="serviceProvisionArea"/>
+			<theContactDetails xlink:href="#JS.CONDET.04" xlink:arcrole="http://www.iho.int/S-123/gml/1.0/roles/theContactDetails"/>
+			<geometry>
+				<S100:pointProperty><S100:Point gml:id="P.RDOSTA03">
+					<gml:pos>60.9533333 -32.3883333</gml:pos>
+				</S100:Point></S100:pointProperty>
+			</geometry>
+		</S123:RadioStation>
+	</member>
+	<member>
+		<S123:RadioStation gml:id="JS.RDOSTA.03A">
+			<S100:featureObjectIdentifier>
+				<S100:agency>JS</S100:agency>
+				<S100:featureIdentificationNumber>111968</S100:featureIdentificationNumber>
+				<S100:featureIdentificationSubdivision>1</S100:featureIdentificationSubdivision>
+			</S100:featureObjectIdentifier>
+			<featureName>
+				<name>Chamalow</name>
+			</featureName>
+			<radiocommunications><communicationChannel>16</communicationChannel><communicationChannel>27</communicationChannel></radiocommunications>
+			<serviceArea xlink:href="#JS.RDOSVC.03" xlink:arcrole="http://www.iho.int/S-123/gml/1.0/roles/serviceArea" xlink:title="serviceProvisionArea"/>
+			<geometry>
+				<S100:pointProperty><S100:Point gml:id="p3A">
+					<gml:pos>60.8733333 -32.617500</gml:pos>
+				</S100:Point></S100:pointProperty>
+			</geometry>
+		</S123:RadioStation>
+	</member>
+	<member>
+		<S123:RadioStation gml:id="JS.RDOSTA.03B">
+			<S100:featureObjectIdentifier>
+				<S100:agency>JS</S100:agency>
+				<S100:featureIdentificationNumber>111987</S100:featureIdentificationNumber>
+				<S100:featureIdentificationSubdivision>1</S100:featureIdentificationSubdivision>
+			</S100:featureObjectIdentifier>
+			<featureName>
+				<name>Caramelmou</name>
+			</featureName>
+			<radiocommunications><communicationChannel>16</communicationChannel></radiocommunications>
+			<serviceArea xlink:href="#JS.RDOSVC.03" xlink:arcrole="http://www.iho.int/S-123/gml/1.0/roles/serviceArea" xlink:title="serviceProvisionArea"/>
+			<geometry>
+				<S100:pointProperty><S100:Point gml:id="p3B">
+					<gml:pos>60.9650000 -32.5066667</gml:pos>
+				</S100:Point></S100:pointProperty>
+			</geometry>
+		</S123:RadioStation>
+	</member>
+	<member>
+		<S123:RadioStation gml:id="JS.RDOSTA.03C">
+			<S100:featureObjectIdentifier>
+				<S100:agency>JS</S100:agency>
+				<S100:featureIdentificationNumber>111006</S100:featureIdentificationNumber>
+				<S100:featureIdentificationSubdivision>1</S100:featureIdentificationSubdivision>
+			</S100:featureObjectIdentifier>
+			<periodicDateRange>
+				<dateStart><gMonthDay>--10-15</gMonthDay></dateStart>
+				<dateEnd><gMonthDay>--03-15</gMonthDay></dateEnd>
+			</periodicDateRange>
+			<featureName>
+				<name>Pastilledezan</name>
+			</featureName>
+			<radiocommunications>
+				<communicationChannel>14</communicationChannel>
+				<communicationChannel>16</communicationChannel>
+				<communicationChannel>24</communicationChannel>
+				<communicationChannel>33</communicationChannel>
+			</radiocommunications>
+			<serviceArea xlink:href="#JS.RDOSVC.03" xlink:arcrole="http://www.iho.int/S-123/gml/1.0/roles/serviceArea" xlink:title="serviceProvisionArea"/>
+			<geometry>
+				<S100:pointProperty><S100:Point gml:id="p3C">
+					<gml:pos>60.9173333 -32.3516667</gml:pos>
+				</S100:Point></S100:pointProperty>
+			</geometry>
+		</S123:RadioStation>
+	</member>
+	<member>
+		<S123:RadioServiceArea gml:id="JS.RDOSVC.41">
+			<S100:featureObjectIdentifier>
+				<S100:agency>JS</S100:agency>
+				<S100:featureIdentificationNumber>111034</S100:featureIdentificationNumber>
+				<S100:featureIdentificationSubdivision>1</S100:featureIdentificationSubdivision>
+			</S100:featureObjectIdentifier>
+			<textContent><information><language>eng</language><text>The message contains weather data from the wind and water level gauges closest to the vessel receiving the messages.</text></information></textContent>
+			<categoryOfBroadcastCommunication>non-commercial</categoryOfBroadcastCommunication>
+			<radiocommunications>
+				<categoryOfMaritimeBroadcast>AIS information</categoryOfMaritimeBroadcast>
+				<contactInstructions>Receipt on AIS is possible only within range of the Jussland AIS base stations (Signal stations, VTS, Harbour Master’s office), and if the AIS device contains a program with the required specification</contactInstructions>
+			</radiocommunications>
+			<controlAuthority xlink:href="#JS.AUTORI.01" xlink:arcrole="http://www.iho.int/S-123/gml/1.0/roles/controlAuthority" xlink:title="srvControl"/>
+			<geometry>
+				<S100:surfaceProperty nilReason="unknown"/>
+			</geometry>
+		</S123:RadioServiceArea>
+	</member>
+	<member>
+		<S123:WeatherForecastWarningArea gml:id="JS.WETFCA.01">
+			<S100:featureObjectIdentifier>
+				<S100:agency>JS</S100:agency>
+				<S100:featureIdentificationNumber>121053</S100:featureIdentificationNumber>
+				<S100:featureIdentificationSubdivision>1</S100:featureIdentificationSubdivision>
+			</S100:featureObjectIdentifier>
+			<featureName>
+				<language>eng</language>
+				<name>INTERNET WEATHER SERVICES</name>
+			</featureName>
+			<textContent>
+				<onlineResource>
+					<linkage>www.meteojussland.js</linkage>
+					<protocol>http</protocol>
+					<onlineDescription>Marine weather forecast for Jussland waters (in English, French, and Jusslandian)</onlineDescription>
+				</onlineResource>
+			</textContent>
+			<categoryOfFrcstAndWarningArea>National local</categoryOfFrcstAndWarningArea>
+			<nationality>JS</nationality>
+			<controlAuthority xlink:href="#JS.AUTORI.02" xlink:arcrole="http://www.iho.int/S-123/gml/1.0/roles/controlAuthority"/>
+			<geometry>
+				<S100:surfaceProperty nilReason="inapplicable"/>
+			</geometry>
+		</S123:WeatherForecastWarningArea>
+	</member>
+
+	<member>
+		<S123:RadioStation gml:id="JS.RDOSTA.07">
+			<S100:featureObjectIdentifier>
+				<S100:agency>JS</S100:agency>
+				<S100:featureIdentificationNumber>121080</S100:featureIdentificationNumber>
+				<S100:featureIdentificationSubdivision>1</S100:featureIdentificationSubdivision>
+			</S100:featureObjectIdentifier>
+			<featureName><name>Caramelmou</name></featureName>
+			<radiocommunications><signalFrequency>518000</signalFrequency></radiocommunications>
+			<serviceArea xlink:href="#JS.NAVTEX.01" xlink:arcrole="http://www.iho.int/S-123/gml/1.0/roles/serviceArea"/>
+			<serviceArea xlink:href="#JS.RDOSVC.42" xlink:arcrole="http://www.iho.int/S-123/gml/1.0/roles/serviceArea"/>
+			<geometry>
+				<S100:pointProperty><S100:Point gml:id="p3A.1">
+					<gml:pos>60.9650000 -32.5066667</gml:pos>
+				</S100:Point></S100:pointProperty>
+			</geometry>
+		</S123:RadioStation>
+	</member>
+	<member>
+		<S123:NavtexStationArea gml:id="JS.NAVTEX.01">
+			<S100:featureObjectIdentifier>
+				<S100:agency>JS</S100:agency>
+				<S100:featureIdentificationNumber>121098</S100:featureIdentificationNumber>
+				<S100:featureIdentificationSubdivision>1</S100:featureIdentificationSubdivision>
+			</S100:featureObjectIdentifier>
+			<featureName>
+				<name>Caramelmou NAVTEX</name>
+			</featureName>
+			<txIdentChar>J</txIdentChar>
+			<serviceProvider xlink:href="#JS.RDOSTA.07" xlink:arcrole="http://www.iho.int/S-123/gml/1.0/roles/serviceProvider"/>
+			<geometry><S100:surfaceProperty nilReason="unknown"/></geometry>
+		</S123:NavtexStationArea>
+	</member>
+	<member>
+		<S123:RadioStation gml:id="JS.RDOSTA.08">		
+			<S100:featureObjectIdentifier>
+				<S100:agency>JS</S100:agency>
+				<S100:featureIdentificationNumber>121111</S100:featureIdentificationNumber>
+				<S100:featureIdentificationSubdivision>1</S100:featureIdentificationSubdivision>
+			</S100:featureObjectIdentifier>
+			<featureName>
+				<name>Chamalow</name>
+			</featureName>
+			<radiocommunications><signalFrequency>518000</signalFrequency></radiocommunications>
+			<serviceArea xlink:href="#JS.NAVTEX.02" xlink:arcrole="http://www.iho.int/S-123/gml/1.0/roles/serviceArea"/>
+			<serviceArea xlink:href="#JS.RDOSVC.43" xlink:arcrole="http://www.iho.int/S-123/gml/1.0/roles/serviceArea"/>
+			<geometry>
+				<S100:pointProperty><S100:Point gml:id="p3B.1">
+					<gml:pos>60.8733333 -32.617500</gml:pos>
+				</S100:Point></S100:pointProperty>
+			</geometry>
+		</S123:RadioStation>
+	</member>
+	<member>
+		<S123:NavtexStationArea gml:id="JS.NAVTEX.02">
+			<S100:featureObjectIdentifier>
+				<S100:agency>JS</S100:agency>
+				<S100:featureIdentificationNumber>121133</S100:featureIdentificationNumber>
+				<S100:featureIdentificationSubdivision>1</S100:featureIdentificationSubdivision>
+			</S100:featureObjectIdentifier>
+			<featureName>
+				<name>Chamalow NAVTEX</name>
+			</featureName>
+			<txIdentChar>N</txIdentChar>
+			<serviceProvider xlink:href="#JS.RDOSTA.08" xlink:arcrole="http://www.iho.int/S-123/gml/1.0/roles/serviceProvider"/>
+			<geometry><S100:surfaceProperty nilReason="unknown"/></geometry>
+		</S123:NavtexStationArea>
+	</member>
+	<member>
+		<S123:RadioStation gml:id="JS.RDOSTA.09">
+			<S100:featureObjectIdentifier>
+				<S100:agency>JS</S100:agency>
+				<S100:featureIdentificationNumber>121148</S100:featureIdentificationNumber>
+				<S100:featureIdentificationSubdivision>1</S100:featureIdentificationSubdivision>
+			</S100:featureObjectIdentifier>
+			<featureName>
+				<name>Pastilledezan</name>
+			</featureName>
+			<radiocommunications><signalFrequency>490000</signalFrequency></radiocommunications>
+			<serviceArea xlink:href="#JS.NAVTEX.03" xlink:arcrole="http://www.iho.int/S-123/gml/1.0/roles/serviceArea"/>
+			<serviceArea xlink:href="#JS.RDOSVC.44" xlink:arcrole="http://www.iho.int/S-123/gml/1.0/roles/serviceArea"/>
+			<geometry>
+				<S100:pointProperty><S100:Point gml:id="p3C.1">
+					<gml:pos>60.9173333 -32.3516667</gml:pos>
+				</S100:Point></S100:pointProperty>
+			</geometry>
+		</S123:RadioStation>
+	</member>
+	<member>
+		<S123:NavtexStationArea gml:id="JS.NAVTEX.03"><!-- NAVTEX area covered by Pastilledezan -->
+			<S100:featureObjectIdentifier>
+				<S100:agency>JS</S100:agency>
+				<S100:featureIdentificationNumber>121168</S100:featureIdentificationNumber>
+				<S100:featureIdentificationSubdivision>1</S100:featureIdentificationSubdivision>
+			</S100:featureObjectIdentifier>
+			<featureName>
+				<name>Pastilledezan NAVTEX</name>
+			</featureName>
+			<txIdentChar>D</txIdentChar>
+			<serviceProvider xlink:href="#JS.RDOSTA.09" xlink:arcrole="http://www.iho.int/S-123/gml/1.0/roles/serviceProvider"/>
+			<geometry><S100:surfaceProperty nilReason="unknown"/></geometry>
+		</S123:NavtexStationArea>
+	</member>
+	
+	<member>
+		<S123:RadioServiceArea gml:id="JS.RDOSVC.42">
+			<S100:featureObjectIdentifier>
+				<S100:agency>JS</S100:agency>
+				<S100:featureIdentificationNumber>121184</S100:featureIdentificationNumber>
+				<S100:featureIdentificationSubdivision>1</S100:featureIdentificationSubdivision>
+			</S100:featureObjectIdentifier>
+			<featureName><language>eng</language>
+				<name>Area A</name>
+			</featureName>
+			<categoryOfBroadcastCommunication>non-commercial</categoryOfBroadcastCommunication>
+			<radiocommunications>
+				<categoryOfRadioMethods>NAVTEX</categoryOfRadioMethods>
+				<signalFrequency>518000</signalFrequency>
+				<timesOfTransmission>
+					<timeReference>LT</timeReference>
+					<transmissionTime>08:30:00</transmissionTime>
+					<transmissionTime>20:30:00</transmissionTime>
+				</timesOfTransmission>
+				<transmissionContent>Storm warning, synoptic situation and development and forecast valid for 24 hours within 450 n miles of coast.</transmissionContent>
+			</radiocommunications>
+			<radiocommunications>
+				<categoryOfRadioMethods>NAVTEX</categoryOfRadioMethods>
+				<signalFrequency>518000</signalFrequency>
+				<timesOfTransmission>
+					<timeReference>LT</timeReference>
+					<transmissionTime>09:00:00</transmissionTime>
+					<transmissionTime>21:00:00</transmissionTime>
+				</timesOfTransmission>
+				<transmissionContent>Storm warning, weather bulletin</transmissionContent>
+			</radiocommunications>
+			<radiocommunications>
+				<categoryOfRadioMethods>NAVTEX</categoryOfRadioMethods>
+				<categoryOfMaritimeBroadcast>NAVAREA warning</categoryOfMaritimeBroadcast>
+				<categoryOfMaritimeBroadcast>coastal warning</categoryOfMaritimeBroadcast>
+				<signalFrequency>518000</signalFrequency>
+				<timesOfTransmission>
+					<timeReference>LT</timeReference>
+					<transmissionTime>00:30:00</transmissionTime>
+					<transmissionTime>08:30:00</transmissionTime>
+					<transmissionTime>12:30:00</transmissionTime>
+					<transmissionTime>20:30:00</transmissionTime>
+				</timesOfTransmission>
+			</radiocommunications>
+			<radiocommunications>
+				<categoryOfRadioMethods>NAVTEX</categoryOfRadioMethods>
+				<categoryOfMaritimeBroadcast>navigational warning</categoryOfMaritimeBroadcast>
+				<signalFrequency>518000</signalFrequency>
+				<timesOfTransmission>
+					<timeReference>LT</timeReference>
+					<transmissionTime>01:00:00</transmissionTime>
+					<transmissionTime>09:00:00</transmissionTime>
+					<transmissionTime>13:00:00</transmissionTime>
+					<transmissionTime>21:00:00</transmissionTime>
+				</timesOfTransmission>
+			</radiocommunications>
+			<serviceProvider xlink:href="#JS.RDOSTA.07" xlink:arcrole="http://www.iho.int/S-123/gml/1.0/roles/serviceProvider"/>
+			<geometry>
+				<S100:surfaceProperty ><S100:Polygon gml:id="S.RDOSVC.42"><gml:exterior>
+					<gml:LinearRing>
+						<gml:posList>60.0 -32.0 65.0 -32.0 65.0 -34.0 60.0 -34.0 60.0 -32.0</gml:posList>
+					</gml:LinearRing>
+				</gml:exterior></S100:Polygon></S100:surfaceProperty>
+			</geometry>
+		</S123:RadioServiceArea>
+	</member>
+	<member>
+		<S123:RadioServiceArea gml:id="JS.RDOSVC.43">
+			<S100:featureObjectIdentifier>
+				<S100:agency>JS</S100:agency>
+				<S100:featureIdentificationNumber>121250</S100:featureIdentificationNumber>
+				<S100:featureIdentificationSubdivision>1</S100:featureIdentificationSubdivision>
+			</S100:featureObjectIdentifier>
+			<featureName><language>eng</language>
+				<name>NAVTEX</name>
+			</featureName>
+			<categoryOfBroadcastCommunication>non-commercial</categoryOfBroadcastCommunication>
+			<radiocommunications>
+				<categoryOfRadioMethods>NAVTEX</categoryOfRadioMethods>		
+				<signalFrequency>518000</signalFrequency>
+				<timesOfTransmission>
+					<timeReference>LT</timeReference>
+					<transmissionTime>10:00:00</transmissionTime>
+					<transmissionTime>22:00:00</transmissionTime>
+				</timesOfTransmission>
+				<transmissionContent>Storm warning, synoptic situation and development and forecast valid for 24 hours within 450 n miles of coast.</transmissionContent>
+			</radiocommunications>
+			<radiocommunications><categoryOfRadioMethods>NAVTEX</categoryOfRadioMethods>				<signalFrequency>518000</signalFrequency>
+				<timesOfTransmission>
+				<timeReference>LT</timeReference>
+				<transmissionTime>10:30:00</transmissionTime>
+				<transmissionTime>22:30:00</transmissionTime>
+			</timesOfTransmission><transmissionContent>High seas forecast. Ice forecast.</transmissionContent></radiocommunications>
+			<radiocommunications>
+				<categoryOfRadioMethods>NAVTEX</categoryOfRadioMethods>
+				<categoryOfMaritimeBroadcast>NAVAREA warning</categoryOfMaritimeBroadcast>
+				<categoryOfMaritimeBroadcast>coastal warning</categoryOfMaritimeBroadcast>
+				<signalFrequency>518000</signalFrequency>
+				<timesOfTransmission>
+					<timeReference>LT</timeReference>
+					<transmissionTime>02:00:00</transmissionTime>
+					<transmissionTime>10:00:00</transmissionTime>
+					<transmissionTime>14:00:00</transmissionTime>
+					<transmissionTime>22:00:00</transmissionTime>
+				</timesOfTransmission>
+			</radiocommunications>
+			<radiocommunications>
+				<categoryOfRadioMethods>NAVTEX</categoryOfRadioMethods>
+				<signalFrequency>518000</signalFrequency>
+				<timesOfTransmission>
+					<timeReference>LT</timeReference>
+					<transmissionTime>02:30:00</transmissionTime>
+					<transmissionTime>10:30:00</transmissionTime>
+					<transmissionTime>14:30:00</transmissionTime>
+					<transmissionTime>22:30:00</transmissionTime>
+				</timesOfTransmission>
+				<transmissionContent>Navigational warning. Ice forecast.</transmissionContent>
+			</radiocommunications>
+			<serviceProvider xlink:href="#JS.RDOSTA.08" xlink:arcrole="http://www.iho.int/S-123/gml/1.0/roles/serviceProvider"/>
+			<geometry>
+				<S100:surfaceProperty nilReason="unknown"/>
+			</geometry>
+		</S123:RadioServiceArea>
+	</member>
+
+	<member>
+		<S123:RadioServiceArea gml:id="JS.RDOSVC.44">
+			<S100:featureObjectIdentifier>
+				<S100:agency>JS</S100:agency>
+				<S100:featureIdentificationNumber>121309</S100:featureIdentificationNumber>
+				<S100:featureIdentificationSubdivision>1</S100:featureIdentificationSubdivision>
+			</S100:featureObjectIdentifier>
+			<featureName><language>eng</language>
+				<name>NAVTEX (Pastilledezan)</name>
+			</featureName>
+			<!-- from Pastilledezan -->
+			<!-- for NAVTEX area for Pastilledezan -->
+			<categoryOfBroadcastCommunication>non-commercial</categoryOfBroadcastCommunication>
+			<radiocommunications>
+				<categoryOfRadioMethods>NAVTEX</categoryOfRadioMethods>
+				<categoryOfMaritimeBroadcast>meteorological forecast</categoryOfMaritimeBroadcast>
+				<signalFrequency>490000</signalFrequency>
+				<timesOfTransmission>
+					<timeReference>LT</timeReference>
+					<transmissionTime>12:00:00</transmissionTime>
+					<transmissionTime>24:00:00</transmissionTime>
+				</timesOfTransmission>
+				<transmissionContent>Weather bulletin for coastal water</transmissionContent>
+			</radiocommunications>
+			<radiocommunications><categoryOfRadioMethods>NAVTEX</categoryOfRadioMethods>
+			<categoryOfMaritimeBroadcast>NAVAREA warning</categoryOfMaritimeBroadcast>
+			<categoryOfMaritimeBroadcast>coastal warning</categoryOfMaritimeBroadcast>
+				<signalFrequency>490000</signalFrequency>
+				<timesOfTransmission>
+				<timeReference>LT</timeReference>
+				<transmissionTime>04:00:00</transmissionTime>
+				<transmissionTime>12:00:00</transmissionTime>
+				<transmissionTime>16:00:00</transmissionTime>
+				<transmissionTime>24:00:00</transmissionTime>
+			</timesOfTransmission></radiocommunications>
+			<radiocommunications><categoryOfRadioMethods>NAVTEX</categoryOfRadioMethods>
+				<categoryOfMaritimeBroadcast>navigational warning</categoryOfMaritimeBroadcast>
+				<signalFrequency>490000</signalFrequency>
+				<timesOfTransmission>
+					<timeReference>LT</timeReference>
+					<transmissionTime>04:30:00</transmissionTime>
+					<transmissionTime>12:30:00</transmissionTime>
+					<transmissionTime>16:30:00</transmissionTime>
+					<transmissionTime>24:00:00</transmissionTime>
+				</timesOfTransmission></radiocommunications>
+			<serviceProvider xlink:href="#JS.RDOSTA.09" xlink:arcrole="http://www.iho.int/S-123/gml/1.0/roles/serviceProvider"/>
+			<geometry>
+				<S100:surfaceProperty nilReason="unknown"/>
+			</geometry>
+		</S123:RadioServiceArea>
+	</member>
+	
+	<member>
+		<S123:RadioServiceArea gml:id="JS.RDOSVC.45">
+			<S100:featureObjectIdentifier>
+				<S100:agency>JS</S100:agency>
+				<S100:featureIdentificationNumber>121361</S100:featureIdentificationNumber>
+				<S100:featureIdentificationSubdivision>1</S100:featureIdentificationSubdivision>
+			</S100:featureObjectIdentifier>
+			<featureName><language>eng</language>
+				<name>Area A</name>
+			</featureName>
+			<categoryOfBroadcastCommunication>non-commercial</categoryOfBroadcastCommunication>
+			<radiocommunications>
+				<categoryOfRadioMethods>Very High Frequency (VHF) voice traffic</categoryOfRadioMethods>
+				<categoryOfMaritimeBroadcast>meteorological forecast</categoryOfMaritimeBroadcast>
+				<categoryOfMaritimeBroadcast>gale warning</categoryOfMaritimeBroadcast>
+				<communicationChannel>74</communicationChannel>
+				<contactInstructions>For coastal waters. Forecast in English.</contactInstructions>
+				<timesOfTransmission>
+					<timeReference>LT</timeReference>
+					<transmissionTime>03:33:00</transmissionTime>
+					<transmissionTime>04:33:00</transmissionTime>
+					<transmissionTime>08:33:00</transmissionTime>
+					<transmissionTime>12:33:00</transmissionTime>
+					<transmissionTime>20:33:00</transmissionTime>
+				</timesOfTransmission>
+			</radiocommunications>
+			<radiocommunications>
+				<categoryOfRadioMethods>Very High Frequency (VHF) voice traffic</categoryOfRadioMethods>
+				<categoryOfMaritimeBroadcast>meteorological forecast</categoryOfMaritimeBroadcast>
+				<categoryOfMaritimeBroadcast>gale warning</categoryOfMaritimeBroadcast>
+				<contactInstructions>For high seas. Forecast in English.</contactInstructions>
+				<timesOfTransmission>
+					<timeReference>LT</timeReference>
+					<transmissionTime>02:33:00</transmissionTime>
+					<transmissionTime>06:33:00</transmissionTime>
+					<transmissionTime>10:33:00</transmissionTime>
+					<transmissionTime>12:33:00</transmissionTime>
+					<transmissionTime>14:33:00</transmissionTime>
+					<transmissionTime>18:33:00</transmissionTime>
+					<transmissionTime>22:33:00</transmissionTime>
+				</timesOfTransmission>
+			</radiocommunications>
+			<radiocommunications>
+				<categoryOfMaritimeBroadcast>storm warning</categoryOfMaritimeBroadcast>
+				<communicationChannel>74</communicationChannel>
+				<transmissionRegularity>on receipt</transmissionRegularity>
+			</radiocommunications>
+			<radiocommunications><categoryOfRadioMethods>NAVTEX</categoryOfRadioMethods>
+				<categoryOfMaritimeBroadcast>navigational warning</categoryOfMaritimeBroadcast>
+				<contactInstructions>Transmitted after weather bulletins</contactInstructions>
+				<timesOfTransmission>
+					<timeReference>LT</timeReference>
+					<transmissionTime>03:33:00</transmissionTime>
+					<transmissionTime>04:33:00</transmissionTime>
+					<transmissionTime>08:33:00</transmissionTime>
+					<transmissionTime>12:33:00</transmissionTime>
+					<transmissionTime>20:33:00</transmissionTime>
+				</timesOfTransmission>
+			</radiocommunications>
+			<serviceProvider xlink:href="#JS.RDOSTA.02" xlink:arcrole="http://www.iho.int/S-123/gml/1.0/roles/serviceProvider"/>
+			<geometry>
+				<S100:surfaceProperty><S100:Polygon gml:id="S.RDOSVC.45"><gml:exterior>
+					<gml:LinearRing>
+						<gml:posList>60.0 -32.0 65.0 -32.0 65.0 -34.0 60.0 -34.0 60.0 -32.0</gml:posList>
+					</gml:LinearRing>
+				</gml:exterior></S100:Polygon></S100:surfaceProperty>
+			</geometry>
+		</S123:RadioServiceArea>
+	</member>
+	<member>
+		<S123:RadioServiceArea gml:id="JS.RDOSVC.51">
+			<S100:featureObjectIdentifier>
+				<S100:agency>JS</S100:agency>
+				<S100:featureIdentificationNumber>121430</S100:featureIdentificationNumber>
+				<S100:featureIdentificationSubdivision>1</S100:featureIdentificationSubdivision>
+			</S100:featureObjectIdentifier>
+			<featureName><language>eng</language>
+			<name>Area A</name>
+		</featureName>
+		<categoryOfBroadcastCommunication>non-commercial</categoryOfBroadcastCommunication>
+		<radiocommunications><categoryOfRadioMethods>Medium Frequency (MF) telegraph traffic</categoryOfRadioMethods>
+			<timesOfTransmission>
+				<timeReference>LT</timeReference>
+				<transmissionTime>07:50:00</transmissionTime>
+				<transmissionTime>19:50:00</transmissionTime>
+			</timesOfTransmission>
+			<transmissionContent>Weather synopsis and 24 hour forecast, storm warnings (High seas and coastal waters).</transmissionContent>
+		</radiocommunications>
+		<radiocommunications><categoryOfRadioMethods>Medium Frequency (MF) telegraph traffic</categoryOfRadioMethods>
+			<frequencyPair><frequencyShoreStationTransmits>3180000</frequencyShoreStationTransmits></frequencyPair><timesOfTransmission>
+				<timeReference>LT</timeReference>
+				<transmissionTime>13:03:00</transmissionTime>
+			</timesOfTransmission>
+			<transmissionContent>Weather synopsis and 48 hour forecast, storm warnings (High seas and coastal waters).</transmissionContent>
+		</radiocommunications>
+		<radiocommunications><categoryOfRadioMethods>Medium Frequency (MF) telegraph traffic</categoryOfRadioMethods>
+			<categoryOfMaritimeBroadcast>navigational warning</categoryOfMaritimeBroadcast>
+			<contactInstructions>After weather bulletins</contactInstructions>
+			<timesOfTransmission>
+				<timeReference>LT</timeReference>
+				<transmissionTime>07:50:00</transmissionTime>
+				<transmissionTime>19:50:00</transmissionTime>
+			</timesOfTransmission>
+		</radiocommunications>
+		<serviceProvider xlink:href="#JS.RDOSTA.03" xlink:arcrole="http://www.iho.int/S-123/gml/1.0/roles/serviceProvider"/>
+		<serviceProvider xlink:href="#JS.RDOSTA.03A" xlink:arcrole="http://www.iho.int/S-123/gml/1.0/roles/serviceProvider"/>
+		<serviceProvider xlink:href="#JS.RDOSTA.03B" xlink:arcrole="http://www.iho.int/S-123/gml/1.0/roles/serviceProvider"/>
+		<serviceProvider xlink:href="#JS.RDOSTA.03C" xlink:arcrole="http://www.iho.int/S-123/gml/1.0/roles/serviceProvider"/>
+		<geometry><!-- Area A -->
+			<S100:surfaceProperty><S100:Polygon gml:id="S.RDOSVC.51"><gml:exterior>
+				<gml:LinearRing>
+					<gml:posList>60.0 -32.0 65.0 -32.0 65.0 -34.0 60.0 -34.0 60.0 -32.0</gml:posList>
+				</gml:LinearRing>
+			</gml:exterior></S100:Polygon></S100:surfaceProperty>
+		</geometry>
+	</S123:RadioServiceArea></member>
+
+	<member>
+		<S123:RadioServiceArea gml:id="JS.RDOSVC.52">
+			<S100:featureObjectIdentifier>
+				<S100:agency>JS</S100:agency>
+				<S100:featureIdentificationNumber>121478</S100:featureIdentificationNumber>
+				<S100:featureIdentificationSubdivision>1</S100:featureIdentificationSubdivision>
+			</S100:featureObjectIdentifier>
+			<featureName><language>eng</language>
+			<name>Area B</name>
+		</featureName>
+		<categoryOfBroadcastCommunication>non-commercial</categoryOfBroadcastCommunication>
+		<radiocommunications><categoryOfRadioMethods>Very High Frequency (VHF) voice traffic</categoryOfRadioMethods>
+			<communicationChannel>14</communicationChannel><communicationChannel>23</communicationChannel><communicationChannel>27</communicationChannel>			<timesOfTransmission>
+				<timeReference>LT</timeReference>
+				<transmissionTime>19:10:00</transmissionTime>
+				<transmissionTime>21:10:00</transmissionTime>
+			</timesOfTransmission>
+			<transmissionContent>Weather synopsis and 48 hour forecast for coastal waters.</transmissionContent>
+		</radiocommunications>
+		<radiocommunications><categoryOfRadioMethods>Very High Frequency (VHF) voice traffic</categoryOfRadioMethods>
+			<categoryOfMaritimeBroadcast>navigational warning</categoryOfMaritimeBroadcast>
+			<communicationChannel>14</communicationChannel><communicationChannel>23</communicationChannel><communicationChannel>27</communicationChannel>
+			<contactInstructions>After weather bulletins</contactInstructions>
+			<timesOfTransmission>
+				<timeReference>LT</timeReference>
+				<transmissionTime>19:10:00</transmissionTime>
+				<transmissionTime>21:10:00</transmissionTime>
+			</timesOfTransmission>
+		</radiocommunications>
+		<serviceProvider xlink:href="#JS.RDOSTA.03" xlink:arcrole="http://www.iho.int/S-123/gml/1.0/roles/serviceProvider"/>
+		<serviceProvider xlink:href="#JS.RDOSTA.03A" xlink:arcrole="http://www.iho.int/S-123/gml/1.0/roles/serviceProvider"/>
+		<serviceProvider xlink:href="#JS.RDOSTA.03B" xlink:arcrole="http://www.iho.int/S-123/gml/1.0/roles/serviceProvider"/>
+		<serviceProvider xlink:href="#JS.RDOSTA.03C" xlink:arcrole="http://www.iho.int/S-123/gml/1.0/roles/serviceProvider"/>
+		<geometry>
+				<S100:surfaceProperty>
+					<S100:Polygon gml:id="S.RDOSVC.52"><!-- Area B -->
+						<gml:exterior>
+							<gml:LinearRing>
+								<gml:posList>60 -24 70 -24 70 -32 60 -32 60 -24</gml:posList>
+							</gml:LinearRing>
+						</gml:exterior>
+					</S100:Polygon>
+				</S100:surfaceProperty>
+		</geometry>
+	</S123:RadioServiceArea></member>
+
+<member>
+	<S123:RadioStation gml:id="JS.RDOSTA.05">
+		<S100:featureObjectIdentifier>
+			<S100:agency>JS</S100:agency>
+			<S100:featureIdentificationNumber>121524</S100:featureIdentificationNumber>
+			<S100:featureIdentificationSubdivision>1</S100:featureIdentificationSubdivision>
+		</S100:featureObjectIdentifier>
+		<featureName>
+		<name>Jussland Radio</name>
+	</featureName>
+	<textContent><information><language>eng</language><text>Broadcasts from Jussland City on 193KHz (LW) and 104.9 MHz (FM)</text></information></textContent>
+	<radiocommunications><signalFrequency>193000</signalFrequency></radiocommunications>
+	<radiocommunications><signalFrequency>104900000</signalFrequency></radiocommunications>
+	<serviceArea xlink:href="#JS.RDOSVC.54" xlink:arcrole="http://www.iho.int/S-123/gml/1.0/roles/serviceArea"/>
+	<serviceArea xlink:href="#JS.RDOSVC.57" xlink:arcrole="http://www.iho.int/S-123/gml/1.0/roles/serviceArea"/>
+	<geometry>
+		<S100:pointProperty><S100:Point gml:id="P.RDOSTA.05">
+			<gml:pos>60.9833333 -32.5050000</gml:pos>
+		</S100:Point></S100:pointProperty><!-- location of Jussland City 32°30′.30 S 60°59′.00 E-->
+	</geometry>
+</S123:RadioStation></member>
+	<member>
+	<S123:RadioStation gml:id="JS.RDOSTA.05A">
+		<S100:featureObjectIdentifier>
+			<S100:agency>JS</S100:agency>
+			<S100:featureIdentificationNumber>121545</S100:featureIdentificationNumber>
+			<S100:featureIdentificationSubdivision>1</S100:featureIdentificationSubdivision>
+		</S100:featureObjectIdentifier>
+		<featureName>
+			<name>Jussland Radio MW (Chamalow)</name>
+		</featureName>
+		<textContent><information><language>eng</language><text>Broadcast from Chamalow on 1485Khz (MW)</text></information></textContent>
+		<radiocommunications><signalFrequency>1485000</signalFrequency></radiocommunications>
+		<serviceArea xlink:href="#JS.RDOSVC.56" xlink:arcrole="http://www.iho.int/S-123/gml/1.0/roles/serviceArea"/>
+		<geometry>
+			<S100:pointProperty><S100:Point gml:id="p3B.2">
+				<gml:pos>60.8733333 -32.6175000</gml:pos>
+			</S100:Point></S100:pointProperty>
+		</geometry>
+	</S123:RadioStation></member>
+	<member>
+		<S123:RadioStation gml:id="JS.RDOSTA.05B">
+			<S100:featureObjectIdentifier>
+				<S100:agency>JS</S100:agency>
+				<S100:featureIdentificationNumber>121564</S100:featureIdentificationNumber>
+				<S100:featureIdentificationSubdivision>1</S100:featureIdentificationSubdivision>
+			</S100:featureObjectIdentifier>
+			<featureName>
+			<name>Jussland Radio MW (Caramelmou)</name>
+		</featureName>
+		<textContent><information><language>eng</language><text>Broadcast from Caramelmou on 720KHz (MW)</text></information></textContent>
+		<radiocommunications><signalFrequency>720000</signalFrequency></radiocommunications>
+			<serviceArea xlink:href="#JS.RDOSVC.57" xlink:arcrole="http://www.iho.int/S-123/gml/1.0/roles/serviceArea"/>
+		<geometry>
+			<S100:pointProperty><S100:Point gml:id="p3A.2">
+				<gml:pos>60.9650000 -32.5066667</gml:pos>
+			</S100:Point></S100:pointProperty>
+		</geometry>
+	</S123:RadioStation></member>
+	<member>
+		<S123:RadioStation gml:id="JS.RDOSTA.05C">
+			<S100:featureObjectIdentifier>
+				<S100:agency>JS</S100:agency>
+				<S100:featureIdentificationNumber>121583</S100:featureIdentificationNumber>
+				<S100:featureIdentificationSubdivision>1</S100:featureIdentificationSubdivision>
+			</S100:featureObjectIdentifier>
+			<featureName>
+				<name>Jussland Radio MW (Pastilledezan)</name>
+			</featureName>
+			<textContent>
+				<information>
+					<language>eng</language>
+					<text>Broadcast from Pastilledezan on 774Khz (MW)</text>
+				</information>
+			</textContent>
+			<radiocommunications>
+				<signalFrequency>774000</signalFrequency>
+			</radiocommunications>
+			<serviceArea xlink:href="#JS.RDOSVC.56" xlink:arcrole="http://www.iho.int/S-123/gml/1.0/roles/serviceArea"/>
+			<geometry>
+				<S100:pointProperty>
+					<S100:Point gml:id="p3C.2">
+						<gml:pos>60.9173333 -32.3516667</gml:pos>
+					</S100:Point>
+				</S100:pointProperty>
+			</geometry>
+		</S123:RadioStation>
+	</member>
+
+	<member>
+		<S123:RadioServiceArea gml:id="JS.RDOSVC.54">
+			<S100:featureObjectIdentifier>
+				<S100:agency>JS</S100:agency>
+				<S100:featureIdentificationNumber>121613</S100:featureIdentificationNumber>
+				<S100:featureIdentificationSubdivision>1</S100:featureIdentificationSubdivision>
+			</S100:featureObjectIdentifier>
+			<featureName><language>eng</language>
+				<name>Area A</name>
+			</featureName>
+			<categoryOfBroadcastCommunication>commercial</categoryOfBroadcastCommunication>
+			<radiocommunications>
+				<categoryOfRadioMethods>Low Frequency (LF) voice traffic</categoryOfRadioMethods>
+				<!--<categoryOfMaritimeBroadcast>gale warning</categoryOfMaritimeBroadcast>-->
+				<signalFrequency>193000</signalFrequency>
+				<timesOfTransmission>
+					<timeReference>LT</timeReference>
+					<transmissionTime>00:48:00</transmissionTime>
+					<transmissionTime>05:20:00</transmissionTime>
+				</timesOfTransmission>
+				<transmissionContent>Gale warning, High sea forecast, weather reports from coast stations and the coastal forecast.</transmissionContent>
+			</radiocommunications>
+			<radiocommunications>
+				<categoryOfRadioMethods>Low Frequency (LF) voice traffic</categoryOfRadioMethods>
+				<signalFrequency>193000</signalFrequency>
+				<timesOfTransmission>
+					<timeReference>LT</timeReference>
+					<transmissionTime>12:01:00</transmissionTime>
+					<transmissionTime>07:54:00</transmissionTime>
+				</timesOfTransmission>
+				<transmissionContent>Gale warning and High sea forecast</transmissionContent>
+			</radiocommunications>
+			<serviceProvider xlink:href="#JS.RDOSTA.05" xlink:arcrole="http://www.iho.int/S-123/gml/1.0/roles/serviceProvider"/>
+			<geometry>
+<!-- Area A
+32°S.60°E 32°S.65°E
+34°S.60°E 34°S.65°E
+-->
+				<S100:surfaceProperty>
+					<S100:Polygon gml:id="AreaA.RDOSVC.54">
+						<gml:exterior>
+							<gml:LinearRing>
+								<gml:posList>60.0 -32.0 65.0 -32.0 65.0 -34.0 60.0 -34.0 60.0 -32.0</gml:posList>
+							</gml:LinearRing>
+						</gml:exterior>
+					</S100:Polygon>
+				</S100:surfaceProperty>
+			</geometry>
+		</S123:RadioServiceArea>
+	</member>
+	
+	<member>
+		<S123:RadioServiceArea gml:id="JS.RDOSVC.56">
+			<S100:featureObjectIdentifier>
+				<S100:agency>JS</S100:agency>
+				<S100:featureIdentificationNumber>121664</S100:featureIdentificationNumber>
+				<S100:featureIdentificationSubdivision>1</S100:featureIdentificationSubdivision>
+			</S100:featureObjectIdentifier>
+			<featureName><language>eng</language>
+				<name>Area B</name>
+			</featureName>
+			<categoryOfBroadcastCommunication>commercial</categoryOfBroadcastCommunication>
+			<radiocommunications>
+				<categoryOfRadioMethods>Medium Frequency (MF) voice traffic</categoryOfRadioMethods>
+				<signalFrequency>720</signalFrequency>
+				<signalFrequency>774</signalFrequency>
+				<signalFrequency>1485</signalFrequency>
+				<timesOfTransmission>
+					<timeReference>LT</timeReference>
+					<transmissionTime>00:48:00</transmissionTime>
+					<transmissionTime>05:20:00</transmissionTime>
+				</timesOfTransmission>
+				<transmissionContent>Gale warning, High sea forecast, weather reports from coast stations and the coastal forecast.</transmissionContent>
+			</radiocommunications>
+			<radiocommunications>
+				<categoryOfRadioMethods>Medium Frequency (MF) voice traffic</categoryOfRadioMethods>
+				<signalFrequency>720</signalFrequency>
+				<signalFrequency>774</signalFrequency>
+				<signalFrequency>1485</signalFrequency>
+				<timesOfTransmission>
+					<timeReference>LT</timeReference>
+					<transmissionTime>12:01:00</transmissionTime>
+					<transmissionTime>07:54:00</transmissionTime>
+				</timesOfTransmission>
+				<transmissionContent>Gale warning and High sea forecast</transmissionContent>
+			</radiocommunications>
+			<serviceProvider xlink:href="#JS.RDOSTA.05A" xlink:arcrole="http://www.iho.int/S-123/gml/1.0/roles/serviceProvider"/>
+			<serviceProvider xlink:href="#JS.RDOSTA.05B" xlink:arcrole="http://www.iho.int/S-123/gml/1.0/roles/serviceProvider"/>
+			<serviceProvider xlink:href="#JS.RDOSTA.05C" xlink:arcrole="http://www.iho.int/S-123/gml/1.0/roles/serviceProvider"/>
+			<geometry>
+				<!-- Area B
+24°S.60°E 24°S.70°E
+32°S.60°E 32°S.70°E
+ -->
+				<S100:surfaceProperty>
+					<S100:Polygon gml:id="AreaB.RDOSVC56">
+						<gml:exterior>
+							<gml:LinearRing>
+								<gml:posList>60 -24 70 -24 70 -32 60 -32 60 -24</gml:posList>
+							</gml:LinearRing>
+						</gml:exterior>
+					</S100:Polygon>
+				</S100:surfaceProperty>
+			</geometry>
+		</S123:RadioServiceArea>
+	</member>
+	<member>
+		<S123:RadioServiceArea gml:id="JS.RDOSVC.57">
+			<S100:featureObjectIdentifier>
+				<S100:agency>JS</S100:agency>
+				<S100:featureIdentificationNumber>121719</S100:featureIdentificationNumber>
+				<S100:featureIdentificationSubdivision>1</S100:featureIdentificationSubdivision>
+			</S100:featureObjectIdentifier>
+			<featureName><language>eng</language>
+				<name>Area C</name>
+			</featureName>
+			<categoryOfBroadcastCommunication>commercial</categoryOfBroadcastCommunication>
+			<radiocommunications>
+				<contactInstructions>FM 104.9 MHz</contactInstructions>
+				<signalFrequency>104900000</signalFrequency>
+				<transmissionContent>Gale warnings and High sea forecast.</transmissionContent>
+				<tmIntervalsByDoW>
+					<dayOfWeek>sunday</dayOfWeek>
+					<dayOfWeek>saturday</dayOfWeek>
+					<dayOfWeekIsRanges>false</dayOfWeekIsRanges>
+					<timeReference>LT</timeReference>
+					<timeOfDayStart>17:54:00</timeOfDayStart>
+				</tmIntervalsByDoW>
+			</radiocommunications>
+			<serviceProvider xlink:href="#JS.RDOSTA.05" xlink:arcrole="http://www.iho.int/S-123/gml/1.0/roles/serviceProvider"/>
+			<geometry><!-- Area C = A+B? -->
+				<S100:surfaceProperty><S100:Polygon gml:id="S.RDOSVC.57.2"><gml:exterior>
+					<gml:LinearRing>
+						<gml:posList>60 -24 70 -24 70 -32 65.0 -32.0 65.0 -34.0 60.0 -34.0 60 -32 60 -24</gml:posList>
+					</gml:LinearRing>
+				</gml:exterior></S100:Polygon></S100:surfaceProperty>
+			</geometry>
+		</S123:RadioServiceArea>
+	</member>
+
+	<member>
+		<S123:RadioStation gml:id="JS.RDOSTA.06">
+			<S100:featureObjectIdentifier>
+				<S100:agency>JS</S100:agency>
+				<S100:featureIdentificationNumber>121753</S100:featureIdentificationNumber>
+				<S100:featureIdentificationSubdivision>1</S100:featureIdentificationSubdivision>
+			</S100:featureObjectIdentifier>
+			<featureName>
+				<name>BONBONKREMA Radiofax</name>
+			</featureName>
+			<radiocommunications>
+				<signalFrequency>6446000</signalFrequency>
+				<transmissionRegularity>regular</transmissionRegularity>
+			</radiocommunications>
+			<radiocommunications>
+				<signalFrequency>7907000</signalFrequency>
+				<tmIntervalsByDoW>
+					<dayOfWeekIsRanges xsi:nil="true"/>
+					<timeReference>LT</timeReference>
+					<timeOfDayStart>19:00:00</timeOfDayStart>
+					<timeOfDayStart>06:00:00</timeOfDayStart>
+				</tmIntervalsByDoW>
+			</radiocommunications>
+			<radiocommunications>
+				<contactInstructions>Special programs for Jusslandians research vessels.</contactInstructions>
+				<signalFrequency>8444000</signalFrequency>
+			</radiocommunications>
+			<serviceArea xlink:href="#JS.RDOSVC.59" xlink:arcrole="http://www.iho.int/S-123/gml/1.0/roles/serviceArea"/>
+			<serviceArea xlink:href="#JS.RDOSVC.64" xlink:arcrole="http://www.iho.int/S-123/gml/1.0/roles/serviceArea"/>
+			<geometry><!-- 32°23′.30 S 60°57′.20 E -->
+				<S100:pointProperty>
+					<S100:Point gml:id="P.RDOSTA.06">
+						<gml:pos>60.9533333 -32.3883333</gml:pos>
+					</S100:Point>
+				</S100:pointProperty>
+			</geometry>
+		</S123:RadioStation>
+	</member>
+	<member>
+		<S123:RadioServiceArea gml:id="JS.RDOSVC.59">
+			<S100:featureObjectIdentifier>
+				<S100:agency>JS</S100:agency>
+				<S100:featureIdentificationNumber>121791</S100:featureIdentificationNumber>
+				<S100:featureIdentificationSubdivision>1</S100:featureIdentificationSubdivision>
+			</S100:featureObjectIdentifier>
+			<featureName><language>eng</language>
+			<name>Area A</name>
+		</featureName>
+		<categoryOfBroadcastCommunication>non-commercial</categoryOfBroadcastCommunication>
+			<radiocommunications>
+				<categoryOfRadioMethods>facsimile</categoryOfRadioMethods>
+				<facsimileDrumSpeed>
+					<drumSpeed>120</drumSpeed>
+					<indexOfCooperation>576</indexOfCooperation>
+				</facsimileDrumSpeed>
+				<timeOfObservation>
+					<observationTime>00:00:00</observationTime>
+					<timeReference>UTC</timeReference>
+				</timeOfObservation>
+				<timesOfTransmission>
+					<timeReference>LT</timeReference>
+					<transmissionTime>07:00:00</transmissionTime>
+				</timesOfTransmission>
+				<transmissionContent>36 hour surface prognosis</transmissionContent>
+				<transmissionRegularity>regular</transmissionRegularity>
+			</radiocommunications>
+			<radiocommunications>
+				<categoryOfRadioMethods>facsimile</categoryOfRadioMethods>
+				<facsimileDrumSpeed>
+					<drumSpeed>120</drumSpeed>
+					<indexOfCooperation>576</indexOfCooperation>
+				</facsimileDrumSpeed>
+				<timeOfObservation>
+					<observationTime>06:00:00</observationTime>
+					<timeReference>UTC</timeReference>
+				</timeOfObservation>
+				<timesOfTransmission>
+					<timeReference>LT</timeReference>
+					<transmissionTime>08:00:00</transmissionTime>
+				</timesOfTransmission>
+				<transmissionContent>Sea state analysis</transmissionContent>
+				<transmissionRegularity>regular</transmissionRegularity>
+			</radiocommunications>
+			<radiocommunications>
+				<categoryOfRadioMethods>facsimile</categoryOfRadioMethods>
+				<facsimileDrumSpeed>
+					<drumSpeed>120</drumSpeed>
+					<indexOfCooperation>576</indexOfCooperation>
+				</facsimileDrumSpeed>
+				<timeOfObservation>
+					<observationTime>12:00:00</observationTime>
+					<timeReference>UTC</timeReference>
+				</timeOfObservation>
+				<timesOfTransmission>
+					<timeReference>LT</timeReference>
+					<transmissionTime>14:00:00</transmissionTime>
+				</timesOfTransmission>
+				<transmissionContent>Surface temperature analysis / iceberg positions</transmissionContent>
+				<transmissionRegularity>regular</transmissionRegularity>
+			</radiocommunications>
+			<radiocommunications>
+				<categoryOfRadioMethods>facsimile</categoryOfRadioMethods>
+				<contactInstructions>Special programs for Jusslandians research vessels.</contactInstructions>
+				<timeOfObservation>
+					<observationTime>12:00:00</observationTime>
+					<timeReference>UTC</timeReference>
+				</timeOfObservation>
+				<timesOfTransmission>
+					<timeReference>LT</timeReference>
+					<transmissionTime>22:30:00</transmissionTime>
+				</timesOfTransmission>
+				<transmissionContent>H+36 (JCMF5) 925 hPa, 700 hPa relative humidity</transmissionContent>
+				<transmissionRegularity>regular</transmissionRegularity>
+			</radiocommunications>
+		<serviceProvider xlink:href="#JS.RDOSTA.06" xlink:arcrole="http://www.iho.int/S-123/gml/1.0/roles/serviceProvider"/>
+		<geometry>
+			<S100:surfaceProperty><S100:Polygon gml:id="S.RDOSVC.59"><gml:exterior>
+				<gml:LinearRing>
+					<gml:posList>60.0 -32.0 65.0 -32.0 65.0 -34.0 60.0 -34.0 60.0 -32.0</gml:posList>
+				</gml:LinearRing>
+			</gml:exterior></S100:Polygon></S100:surfaceProperty>
+		</geometry>
+	</S123:RadioServiceArea></member>
+	<member>
+		<S123:RadioServiceArea gml:id="JS.RDOSVC.64">
+			<S100:featureObjectIdentifier>
+				<S100:agency>JS</S100:agency>
+				<S100:featureIdentificationNumber>121876</S100:featureIdentificationNumber>
+				<S100:featureIdentificationSubdivision>1</S100:featureIdentificationSubdivision>
+			</S100:featureObjectIdentifier>
+			<featureName><language>eng</language>
+				<name>Area B</name>
+			</featureName>
+			<categoryOfBroadcastCommunication>non-commercial</categoryOfBroadcastCommunication>
+			<radiocommunications>
+				<categoryOfRadioMethods>facsimile</categoryOfRadioMethods>
+				<timeOfObservation>
+					<observationTime>06:00:00</observationTime>
+					<timeReference>UTC</timeReference>
+				</timeOfObservation>
+				<timesOfTransmission>
+					<timeReference>LT</timeReference>
+					<transmissionTime>10:00:00</transmissionTime>
+				</timesOfTransmission>
+				<transmissionContent>36 hour surface prognosis</transmissionContent>
+			</radiocommunications>
+			<radiocommunications>
+				<categoryOfRadioMethods>facsimile</categoryOfRadioMethods>
+				<timeOfObservation>
+					<observationTime>12:00:00</observationTime>
+					<timeReference>UTC</timeReference>
+				</timeOfObservation>
+				<timesOfTransmission>
+					<timeReference>LT</timeReference>
+					<transmissionTime>15:00:00</transmissionTime>
+				</timesOfTransmission>
+				<transmissionContent>Sea state analysis</transmissionContent>
+			</radiocommunications>
+			<radiocommunications>
+				<categoryOfRadioMethods>facsimile</categoryOfRadioMethods>
+				<facsimileDrumSpeed>
+					<drumSpeed>90</drumSpeed>
+					<indexOfCooperation>576</indexOfCooperation>
+				</facsimileDrumSpeed>
+				<timesOfTransmission><timeReference>LT</timeReference><transmissionTime>18:50:00</transmissionTime></timesOfTransmission>
+				<transmissionContent>Broadcast shedule (text)</transmissionContent>
+			</radiocommunications>
+			<radiocommunications>
+				<categoryOfRadioMethods>facsimile</categoryOfRadioMethods>
+				<facsimileDrumSpeed>
+					<drumSpeed>120</drumSpeed>
+					<indexOfCooperation>576</indexOfCooperation>
+				</facsimileDrumSpeed>
+				<timesOfTransmission><timeReference>LT</timeReference><transmissionTime>20:00:00</transmissionTime></timesOfTransmission>
+				<transmissionContent>Iceberg prognosis (text)</transmissionContent>
+			</radiocommunications>
+			<serviceProvider xlink:href="#JS.RDOSTA.06" xlink:arcrole="http://www.iho.int/S-123/gml/1.0/roles/serviceProvider"/>
+			<geometry>
+				<S100:surfaceProperty><S100:Polygon gml:id="AreaB.RDOSVC64">
+					<gml:exterior>
+						<gml:LinearRing>
+							<gml:posList>60 -24 70 -24 70 -32 60 -32 60 -24</gml:posList>
+						</gml:LinearRing>
+					</gml:exterior>
+				</S100:Polygon></S100:surfaceProperty>
+			</geometry>
+		</S123:RadioServiceArea>
+	</member>
+	<member>			
+		<S123:NavigationalMeteorologicalArea gml:id="JS.NAVARE.VII">
+			<S100:featureObjectIdentifier>
+				<S100:agency>JS</S100:agency>
+				<S100:featureIdentificationNumber>121941</S100:featureIdentificationNumber>
+				<S100:featureIdentificationSubdivision>1</S100:featureIdentificationSubdivision>
+			</S100:featureObjectIdentifier>
+			<featureName><language>eng</language>
+			<name>NAVAREA VII</name>
+		</featureName>
+		<textContent><information><language>eng</language><text>Transmission of NAVAREA messages for NAVAREA VII (AOR-E) at 0530, 1730</text></information></textContent>
+			<controlAuthority xlink:href="#JS.AUTORI.02" xlink:arcrole="http://www.iho.int/S-123/gml/1.0/roles/controlAuthority"/>
+		<!--<geometry>
+			<S100:surfaceProperty><S100:Polygon gml:id="P.NAVARE.VII"><gml:exterior><gml:LinearRing><gml:posList>40.0 -10.5 55.0 -10.5 55.0 -30.0 80.0 -30.0 80.0 -68.0 30.0 -68.0 40.0 -10.5</gml:posList></gml:LinearRing></gml:exterior></S100:Polygon></S100:surfaceProperty>
+		</geometry>-->
+			<geometry>
+					<S100:surfaceProperty>
+						<S100:Polygon gml:id="P.NAVARE.VII">
+							<gml:exterior>
+								<gml:LinearRing>
+									<gml:posList>55 -30 71 -30 71 -36 55 -36 55 -30</gml:posList>				
+								</gml:LinearRing>
+							</gml:exterior>
+						</S100:Polygon>
+					</S100:surfaceProperty>
+				
+			</geometry>
+	</S123:NavigationalMeteorologicalArea></member>
+	<member>
+		<S123:NavigationalMeteorologicalArea gml:id="JS.NAVARE.VIII">
+			<S100:featureObjectIdentifier>
+				<S100:agency>JS</S100:agency>
+				<S100:featureIdentificationNumber>121969</S100:featureIdentificationNumber>
+				<S100:featureIdentificationSubdivision>1</S100:featureIdentificationSubdivision>
+			</S100:featureObjectIdentifier>
+			<featureName>
+				<language>eng</language>
+				<name>NAVARE VIII</name>
+			</featureName>
+			<textContent>
+				<information>
+					<language>eng</language>
+					<text>Transmission of NAVAREA messages for NAVAREA VIII (IOR)</text>
+				</information>
+			</textContent>
+			<geometry>
+				<S100:surfaceProperty>
+					<S100:Polygon gml:id="P.NAVAREA.VIII">
+						<gml:exterior>
+							<gml:LinearRing>
+								<gml:posList>55 -30 55 -22 71 -22 71 -30 55 -30</gml:posList>
+								<!--<gml:posList>55.0 -10.5 40.0 -10.5 51.0 12.0 63.0 12.0 68.05 23.1 98.0 15.0 95.0 6.0 95.0 -30.0 55.0 -30.0 55.0 -10.5 </gml:posList>-->
+							</gml:LinearRing>
+						</gml:exterior>
+					</S100:Polygon>
+				</S100:surfaceProperty>
+			</geometry>
+
+		</S123:NavigationalMeteorologicalArea>
+	</member>
+	<member>
+		<S123:NavigationalMeteorologicalArea gml:id="JS.METARE.VIII.S">
+			<S100:featureObjectIdentifier>
+				<S100:agency>JS</S100:agency>
+				<S100:featureIdentificationNumber>122001</S100:featureIdentificationNumber>
+				<S100:featureIdentificationSubdivision>1</S100:featureIdentificationSubdivision>
+			</S100:featureObjectIdentifier>
+			<featureName>
+			<language>eng</language>
+			<name>METAREA VIII (S)</name>
+		</featureName>
+		<textContent><information><language>eng</language><text>Transmission of METAREA messages for METAREA VIII(S) (IOR S. of 0 and E. of 90)</text></information></textContent>
+		<!--<geometry>
+			<S100:surfaceProperty>
+				<S100:Polygon gml:id="P.NAVAREA.VIII.S">
+					<gml:exterior>
+						<gml:LinearRing>
+							<gml:posList>55.0 -10.5 40.0 -10.5 45.1333333 0.0 51.0 0.0 95.0 0.0 95.0 -30.0 55.0 -30.0 55.0 -10.5 </gml:posList>
+						</gml:LinearRing>
+					</gml:exterior>
+				</S100:Polygon>
+			</S100:surfaceProperty>
+		</geometry>-->
+		<geometry>
+			<S100:surfaceProperty>
+				<S100:Polygon gml:id="P.NAVAREA.VIII.S">
+					<gml:exterior>
+						<gml:LinearRing>
+							<gml:posList>55 -30 55 -22 71 -22 71 -30 55 -30</gml:posList>
+						</gml:LinearRing>
+					</gml:exterior>
+				</S100:Polygon>
+			</S100:surfaceProperty>
+		</geometry>
+	</S123:NavigationalMeteorologicalArea></member>
+	<member>
+		<S123:RadioServiceArea gml:id="JS.RDOSVC.NAVMET.VII">
+			<S100:featureObjectIdentifier>
+				<S100:agency>JS</S100:agency>
+				<S100:featureIdentificationNumber>122036</S100:featureIdentificationNumber>
+				<S100:featureIdentificationSubdivision>1</S100:featureIdentificationSubdivision>
+			</S100:featureObjectIdentifier>
+			<categoryOfBroadcastCommunication>non-commercial</categoryOfBroadcastCommunication>
+			<radiocommunications>
+				<timesOfTransmission>
+					<timeReference>UTC</timeReference>
+					<transmissionTime>04:00:00</transmissionTime>
+					<transmissionTime>16:00:00</transmissionTime>
+				</timesOfTransmission>
+				<transmissionContent>Transmission of NAVAREA messages for NAVAREA VII (IOR)</transmissionContent>
+				<transmissionRegularity>regular</transmissionRegularity>
+			</radiocommunications>
+			<radiocommunications>
+				<timesOfTransmission>
+					<timeReference>UTC</timeReference>
+					<transmissionTime>09:40:00</transmissionTime>
+					<transmissionTime>19:40:00</transmissionTime>
+				</timesOfTransmission>
+				<transmissionContent>MET information</transmissionContent>
+				<transmissionRegularity>regular</transmissionRegularity>
+			</radiocommunications>
+			<geometry>
+				<S100:surfaceProperty nilReason="inapplicable">
+					<!--<S100:Polygon gml:id="P.NAVARE.VII.RDOSVC">
+						<gml:exterior>
+							<gml:LinearRing>
+								<gml:posList>40.0 -10.5 55.0 -10.5 55.0 -30.0 80.0 -30.0 80.0 -68.0 30.0 -68.0 40.0 -10.5</gml:posList>
+							</gml:LinearRing>
+						</gml:exterior>
+					</S100:Polygon>-->
+				</S100:surfaceProperty>
+			</geometry>
+		</S123:RadioServiceArea>
+	</member>
+	<member>
+		<S123:GMDSSArea gml:id="JS.GMDSSA.01">
+			<S100:featureObjectIdentifier>
+				<S100:agency>JS</S100:agency>
+				<S100:featureIdentificationNumber>122075</S100:featureIdentificationNumber>
+				<S100:featureIdentificationSubdivision>1</S100:featureIdentificationSubdivision>
+			</S100:featureObjectIdentifier>
+			<categoryOfGMDSSArea>Area A1</categoryOfGMDSSArea>
+			<serviceProvider xlink:href="#JS.RDOSTA.01" xlink:arcrole="http://www.iho.int/S-123/gml/1.0/roles/serviceProvider"/>
+			<serviceProvider xlink:href="#JS.RDOSTA.02" xlink:arcrole="http://www.iho.int/S-123/gml/1.0/roles/serviceProvider"/>
+			<serviceProvider xlink:href="#JS.RDOSTA.03" xlink:arcrole="http://www.iho.int/S-123/gml/1.0/roles/serviceProvider"/>
+			<serviceProvider xlink:href="#JS.RDOSTA.03A" xlink:arcrole="http://www.iho.int/S-123/gml/1.0/roles/serviceProvider"/>
+			<serviceProvider xlink:href="#JS.RDOSTA.03B" xlink:arcrole="http://www.iho.int/S-123/gml/1.0/roles/serviceProvider"/>
+			<serviceProvider xlink:href="#JS.RDOSTA.03C" xlink:arcrole="http://www.iho.int/S-123/gml/1.0/roles/serviceProvider"/>
+			<geometry>
+				<S100:surfaceProperty nilReason="unknown"/>
+			</geometry>
+		</S123:GMDSSArea>
+	</member>
+	<member>
+		<S123:GMDSSArea gml:id="JS.GMDSSA.02">
+			<S100:featureObjectIdentifier>
+				<S100:agency>JS</S100:agency>
+				<S100:featureIdentificationNumber>122094</S100:featureIdentificationNumber>
+				<S100:featureIdentificationSubdivision>1</S100:featureIdentificationSubdivision>
+			</S100:featureObjectIdentifier>
+			<categoryOfGMDSSArea>Area A2</categoryOfGMDSSArea>
+			<serviceProvider xlink:href="#JS.RDOSTA.01" xlink:arcrole="http://www.iho.int/S-123/gml/1.0/roles/serviceProvider"/>
+			<serviceProvider xlink:href="#JS.RDOSTA.02" xlink:arcrole="http://www.iho.int/S-123/gml/1.0/roles/serviceProvider"/>
+			<serviceProvider xlink:href="#JS.RDOSTA.03" xlink:arcrole="http://www.iho.int/S-123/gml/1.0/roles/serviceProvider"/>
+			<geometry>
+				<S100:surfaceProperty nilReason="unknown"/>
+			</geometry>
+		</S123:GMDSSArea>
+	</member>
+	<member>
+		<S123:GMDSSArea gml:id="JS.GMDSSA.03">
+			<S100:featureObjectIdentifier>
+				<S100:agency>JS</S100:agency>
+				<S100:featureIdentificationNumber>122110</S100:featureIdentificationNumber>
+				<S100:featureIdentificationSubdivision>1</S100:featureIdentificationSubdivision>
+			</S100:featureObjectIdentifier>
+			<textContent>
+				<information>
+					<language>eng</language>
+					<text>Services provided by MRCC Jussland from stations Jussland MRCC, Bonbonkrema MRSC, and Bonbonkrema MRSC). Operational Bands are 4, 6, 8, 12 and 16 MHz for all stations.</text>
+				</information>
+			</textContent>
+			<categoryOfGMDSSArea>Area A3</categoryOfGMDSSArea>
+			<serviceProvider xlink:href="#JS.RDOSTA.01" xlink:arcrole="http://www.iho.int/S-123/gml/1.0/roles/serviceProvider"/>
+			<serviceProvider xlink:href="#JS.RDOSTA.02" xlink:arcrole="http://www.iho.int/S-123/gml/1.0/roles/serviceProvider"/>
+			<serviceProvider xlink:href="#JS.RDOSTA.03" xlink:arcrole="http://www.iho.int/S-123/gml/1.0/roles/serviceProvider"/>
+			<geometry>
+				<S100:surfaceProperty nilReason="unknown"/>
+			</geometry>
+		</S123:GMDSSArea>
+	</member>
+	<member>
+		<S123:GMDSSArea gml:id="JS.GMDSSA.04">
+			<S100:featureObjectIdentifier>
+				<S100:agency>JS</S100:agency>
+				<S100:featureIdentificationNumber>122132</S100:featureIdentificationNumber>
+				<S100:featureIdentificationSubdivision>1</S100:featureIdentificationSubdivision>
+			</S100:featureObjectIdentifier>
+			<textContent>
+				<information>
+					<language>eng</language>
+					<text>Services provided by MRCC Jussland from stations Jussland MRCC, Bonbonkrema MRSC, and Bonbonkrema MRSC). Operational Bands are 4, 6, 8, 12 and 16 MHz for all stations.</text>
+				</information>
+			</textContent>
+			<categoryOfGMDSSArea>Area A4</categoryOfGMDSSArea>
+			<serviceProvider xlink:href="#JS.RDOSTA.01" xlink:arcrole="http://www.iho.int/S-123/gml/1.0/roles/serviceProvider"/>
+			<serviceProvider xlink:href="#JS.RDOSTA.02" xlink:arcrole="http://www.iho.int/S-123/gml/1.0/roles/serviceProvider"/>
+			<serviceProvider xlink:href="#JS.RDOSTA.03" xlink:arcrole="http://www.iho.int/S-123/gml/1.0/roles/serviceProvider"/>
+			<geometry>
+				<S100:surfaceProperty nilReason="unknown"/>
+			</geometry>
+		</S123:GMDSSArea>
+	</member>
+
+	<member>
+		<S123:RadioServiceArea gml:id="JS.RDOSVC.70">
+			<S100:featureObjectIdentifier>
+				<S100:agency>JS</S100:agency>
+				<S100:featureIdentificationNumber>122155</S100:featureIdentificationNumber>
+				<S100:featureIdentificationSubdivision>1</S100:featureIdentificationSubdivision>
+			</S100:featureObjectIdentifier>
+			<featureName><language>eng</language>
+				<name>Area A</name>
+			</featureName>
+			<categoryOfBroadcastCommunication>non-commercial</categoryOfBroadcastCommunication>
+			<radiocommunications>
+				<categoryOfRadioMethods>NBDP Telegraphy</categoryOfRadioMethods>
+				<categoryOfMaritimeBroadcast>meteorological warning</categoryOfMaritimeBroadcast>
+				<categoryOfMaritimeBroadcast>navigational warning</categoryOfMaritimeBroadcast>
+				<signalFrequency>8416500</signalFrequency>
+				<timesOfTransmission>
+					<timeReference>LT</timeReference>
+					<transmissionTime>00:00:00</transmissionTime>
+					<transmissionTime>11:30:00</transmissionTime>
+				</timesOfTransmission>
+				<transmissionRegularity>regular</transmissionRegularity>
+			</radiocommunications>
+			<serviceProvider xlink:href="#JS.RDOSTA.03" xlink:arcrole="http://www.iho.int/S-123/gml/1.0/roles/serviceProvider"/>
+		<geometry><!-- Area A -->
+			<S100:surfaceProperty><S100:Polygon gml:id="AreaA.70"><gml:exterior>
+				<gml:LinearRing>
+					<gml:posList>60.0 -32.0 65.0 -32.0 65.0 -34.0 60.0 -34.0 60.0 -32.0</gml:posList>
+				</gml:LinearRing>
+			</gml:exterior></S100:Polygon></S100:surfaceProperty></geometry>
+		</S123:RadioServiceArea>
+	</member>
+	<member>
+		<S123:RadioServiceArea gml:id="JS.RDOSVC.72">
+			<S100:featureObjectIdentifier>
+				<S100:agency>JS</S100:agency>
+				<S100:featureIdentificationNumber>122187</S100:featureIdentificationNumber>
+				<S100:featureIdentificationSubdivision>1</S100:featureIdentificationSubdivision>
+			</S100:featureObjectIdentifier>
+			<featureName><language>eng</language>
+				<name>Area B</name>
+			</featureName>
+			<categoryOfBroadcastCommunication>non-commercial</categoryOfBroadcastCommunication>
+			<radiocommunications>
+				<categoryOfRadioMethods>NBDP Telegraphy</categoryOfRadioMethods>
+				<categoryOfMaritimeBroadcast>meteorological warning</categoryOfMaritimeBroadcast>
+				<categoryOfMaritimeBroadcast>navigational warning</categoryOfMaritimeBroadcast>
+				<signalFrequency>16806500</signalFrequency>
+				<timesOfTransmission>
+					<timeReference>LT</timeReference>
+					<transmissionTime>00:30:00</transmissionTime>
+					<transmissionTime>12:00:00</transmissionTime>
+				</timesOfTransmission>
+				<transmissionRegularity>regular</transmissionRegularity>
+			</radiocommunications>
+			<serviceProvider xlink:href="#JS.RDOSTA.03" xlink:arcrole="http://www.iho.int/S-123/gml/1.0/roles/serviceProvider"/>
+			<geometry><!-- Area B -->
+				<S100:surfaceProperty>
+					<S100:Polygon gml:id="AreaB.72">
+						<gml:exterior>
+							<gml:LinearRing>
+								<gml:posList>60 -24 70 -24 70 -32 60 -32 60 -24</gml:posList>
+							</gml:LinearRing>
+						</gml:exterior>
+					</S100:Polygon>
+				</S100:surfaceProperty></geometry>
+		</S123:RadioServiceArea>
+	</member>
+	<member>
+		<S123:RadioServiceArea gml:id="JS.RDOSVC.99">
+				<S100:featureObjectIdentifier>
+					<S100:agency>JS</S100:agency>
+					<S100:featureIdentificationNumber>122223</S100:featureIdentificationNumber>
+					<S100:featureIdentificationSubdivision>1</S100:featureIdentificationSubdivision>
+				</S100:featureObjectIdentifier>
+				<featureName><language>eng</language>
+			<name>AMVER</name>
+		</featureName>
+		<categoryOfBroadcastCommunication>non-commercial</categoryOfBroadcastCommunication>
+		<radiocommunications><categoryOfCommPref>preferred calling</categoryOfCommPref>
+			<categoryOfRadioMethods>Very High Frequency (VHF) Digital Selective Call traffic</categoryOfRadioMethods>
+			<communicationChannel>70</communicationChannel>
+			<contactInstructions>JUSSLAND MRCC</contactInstructions>
+			<transmissionContent>AMVER</transmissionContent>
+		</radiocommunications>
+		<radiocommunications><categoryOfCommPref>preferred calling</categoryOfCommPref>
+			<categoryOfRadioMethods>Medium Frequency (MF) Digital Selective Call traffic</categoryOfRadioMethods>
+			<contactInstructions>JUSSLAND MRCC</contactInstructions>
+			<signalFrequency>2187500</signalFrequency>
+			<transmissionContent>AMVER</transmissionContent>
+		</radiocommunications>
+		<radiocommunications><categoryOfCommPref>preferred calling</categoryOfCommPref>
+			<categoryOfRadioMethods>High Frequency (HF) Digital Selective Call traffic</categoryOfRadioMethods>
+			<communicationChannel>4</communicationChannel>
+			<contactInstructions>JUSSLAND MRCC</contactInstructions>
+			<signalFrequency>4207500</signalFrequency>
+			<transmissionContent>AMVER</transmissionContent>
+		</radiocommunications>
+		<radiocommunications><categoryOfCommPref>preferred calling</categoryOfCommPref>
+			<categoryOfRadioMethods>High Frequency (HF) Digital Selective Call traffic</categoryOfRadioMethods>
+			<communicationChannel>6</communicationChannel>
+			<contactInstructions>JUSSLAND MRCC</contactInstructions>
+			<signalFrequency>6312000</signalFrequency>
+			<transmissionContent>AMVER</transmissionContent>
+		</radiocommunications>
+		<radiocommunications><categoryOfCommPref>preferred calling</categoryOfCommPref>
+			<categoryOfRadioMethods>High Frequency (HF) Digital Selective Call traffic</categoryOfRadioMethods>
+			<communicationChannel>8</communicationChannel>
+			<contactInstructions>JUSSLAND MRCC</contactInstructions>
+			<signalFrequency>8414500</signalFrequency>
+			<transmissionContent>AMVER</transmissionContent>
+		</radiocommunications>
+		<radiocommunications><categoryOfCommPref>preferred calling</categoryOfCommPref>
+			<categoryOfRadioMethods>High Frequency (HF) Digital Selective Call traffic</categoryOfRadioMethods>
+			<communicationChannel>12</communicationChannel>
+			<contactInstructions>JUSSLAND MRCC</contactInstructions>
+			<signalFrequency>12577000</signalFrequency>
+			<transmissionContent>AMVER</transmissionContent>
+		</radiocommunications>
+		<radiocommunications><categoryOfCommPref>preferred calling</categoryOfCommPref>
+			<categoryOfRadioMethods>High Frequency (HF) Digital Selective Call traffic</categoryOfRadioMethods>
+			<communicationChannel>16</communicationChannel>
+			<contactInstructions>JUSSLAND MRCC</contactInstructions>
+			<signalFrequency>16804500</signalFrequency>
+			<transmissionContent>AMVER</transmissionContent>
+		</radiocommunications>
+
+		<radiocommunications><categoryOfCommPref>preferred calling</categoryOfCommPref>
+			<categoryOfRadioMethods>Very High Frequency (VHF) Digital Selective Call traffic</categoryOfRadioMethods>
+			<communicationChannel>70</communicationChannel>
+			<contactInstructions>BONBONKREMA MRSC</contactInstructions>
+			<transmissionContent>AMVER</transmissionContent>
+		</radiocommunications>
+		<radiocommunications><categoryOfCommPref>preferred calling</categoryOfCommPref>
+			<categoryOfRadioMethods>Medium Frequency (MF) Digital Selective Call traffic</categoryOfRadioMethods>
+			<contactInstructions>BONBONKREMA MRSC</contactInstructions>
+			<signalFrequency>2187500</signalFrequency>
+			<transmissionContent>AMVER</transmissionContent>
+		</radiocommunications>
+		<radiocommunications><categoryOfCommPref>preferred calling</categoryOfCommPref>
+			<categoryOfRadioMethods>High Frequency (HF) Digital Selective Call traffic</categoryOfRadioMethods>
+			<communicationChannel>4</communicationChannel>
+			<contactInstructions>BONBONKREMA MRSC</contactInstructions>
+			<signalFrequency>4207500</signalFrequency>
+			<transmissionContent>AMVER</transmissionContent>
+		</radiocommunications>
+		<radiocommunications><categoryOfCommPref>preferred calling</categoryOfCommPref>
+			<categoryOfRadioMethods>High Frequency (HF) Digital Selective Call traffic</categoryOfRadioMethods>
+			<communicationChannel>6</communicationChannel>
+			<contactInstructions>BONBONKREMA MRSC</contactInstructions>
+			<signalFrequency>6312000</signalFrequency>
+			<transmissionContent>AMVER</transmissionContent>
+		</radiocommunications>
+		<radiocommunications><categoryOfCommPref>preferred calling</categoryOfCommPref>
+			<categoryOfRadioMethods>High Frequency (HF) Digital Selective Call traffic</categoryOfRadioMethods>
+			<communicationChannel>8</communicationChannel>
+			<contactInstructions>BONBONKREMA MRSC</contactInstructions>
+			<signalFrequency>8414500</signalFrequency>
+			<transmissionContent>AMVER</transmissionContent>
+		</radiocommunications>
+		<radiocommunications><categoryOfCommPref>preferred calling</categoryOfCommPref>
+			<categoryOfRadioMethods>High Frequency (HF) Digital Selective Call traffic</categoryOfRadioMethods>
+			<communicationChannel>12</communicationChannel>
+			<contactInstructions>BONBONKREMA MRSC</contactInstructions>
+			<signalFrequency>12577000</signalFrequency>
+			<transmissionContent>AMVER</transmissionContent>
+		</radiocommunications>
+		<radiocommunications><categoryOfCommPref>preferred calling</categoryOfCommPref>
+			<categoryOfRadioMethods>High Frequency (HF) Digital Selective Call traffic</categoryOfRadioMethods>
+			<communicationChannel>16</communicationChannel>
+			<contactInstructions>BONBONKREMA MRSC</contactInstructions>
+			<signalFrequency>16804500</signalFrequency>
+			<transmissionContent>AMVER</transmissionContent>
+		</radiocommunications>
+
+		<radiocommunications>
+			<categoryOfRadioMethods>Very High Frequency (VHF) Digital Selective Call traffic</categoryOfRadioMethods>
+			<communicationChannel>70</communicationChannel>
+			<contactInstructions>BONBONKREMA (ZZZ)</contactInstructions>			
+			<transmissionContent>AMVER</transmissionContent>
+		</radiocommunications>
+		<radiocommunications>
+			<categoryOfRadioMethods>Medium Frequency (MF) Digital Selective Call traffic</categoryOfRadioMethods>
+			<contactInstructions>BONBONKREMA (ZZZ)</contactInstructions>			
+			<signalFrequency>2187500</signalFrequency>
+			<transmissionContent>AMVER</transmissionContent>
+		</radiocommunications>
+		<radiocommunications>
+			<categoryOfRadioMethods>High Frequency (HF) Digital Selective Call traffic</categoryOfRadioMethods>
+			<communicationChannel>6</communicationChannel>
+			<contactInstructions>BONBONKREMA (ZZZ)</contactInstructions>			
+			<signalFrequency>6312000</signalFrequency>
+			<transmissionContent>AMVER</transmissionContent>
+		</radiocommunications>
+		<radiocommunications>
+			<categoryOfRadioMethods>High Frequency (HF) Digital Selective Call traffic</categoryOfRadioMethods>
+			<communicationChannel>8</communicationChannel>
+			<contactInstructions>BONBONKREMA (ZZZ)</contactInstructions>			
+			<signalFrequency>8414500</signalFrequency>
+			<transmissionContent>AMVER</transmissionContent>
+		</radiocommunications>
+		<serviceProvider xlink:href="#JS.RDOSTA.01" xlink:arcrole="http://www.iho.int/S-123/gml/1.0/roles/serviceProvider"/>
+		<serviceProvider xlink:href="#JS.RDOSTA.02" xlink:arcrole="http://www.iho.int/S-123/gml/1.0/roles/serviceProvider"/>
+		<serviceProvider xlink:href="#JS.RDOSTA.03" xlink:arcrole="http://www.iho.int/S-123/gml/1.0/roles/serviceProvider"/>
+		<geometry><S100:surfaceProperty><gml:Surface gml:id="S.99">
+			<gml:patches>
+				<gml:PolygonPatch><gml:exterior><gml:LinearRing>
+					<gml:posList>55 -36 55 -22 71 -22 71 -36 55 -36</gml:posList>
+				</gml:LinearRing></gml:exterior></gml:PolygonPatch>
+			</gml:patches>
+		</gml:Surface></S100:surfaceProperty></geometry>
+		<!--<geometry><S100:surfaceProperty nilReason="inapplicable"/></geometry>-->
+	</S123:RadioServiceArea></member>
+
+</S123:Dataset>

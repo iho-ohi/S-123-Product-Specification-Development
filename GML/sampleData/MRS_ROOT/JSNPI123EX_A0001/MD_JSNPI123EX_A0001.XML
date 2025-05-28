@@ -1,0 +1,161 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-model href="file:../../../schemas/S100_3_0_0/S100Catalog/20170831/S100_XC_1_0.sch" type="application/xml" schematypens="http://purl.oclc.org/dsdl/schematron"?>
+<!-- Exchange set catalogue template -->
+<!-- Prepared by Raphael Malyankar -->
+<gmi:MI_Metadata
+    xmlns:xlink="http://www.w3.org/1999/xlink"
+    xmlns:gco="http://www.isotc211.org/2005/gco"
+    xmlns:gmd="http://www.isotc211.org/2005/gmd"
+    xmlns:gss="http://www.isotc211.org/2005/gss"
+    xmlns:gsr="http://www.isotc211.org/2005/gsr"
+    xmlns:gts="http://www.isotc211.org/2005/gts"
+    xmlns:gmx="http://www.isotc211.org/2005/gmx"
+    xmlns:gmi="http://standards.iso.org/iso/19115/-2/gmi/1.0"
+    xmlns:gml="http://www.opengis.net/gml/3.2"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.isotc211.org/2005/gmx http://standards.iso.org/ittf/PubliclyAvailableStandards/ISO_19139_Schemas/gmx/gmx.xsd http://standards.iso.org/iso/19115/-2/gmi/1.0 http://standards.iso.org/iso/19115/-2/gmi/1.0/gmi.xsd">
+    <gmd:fileIdentifier><gco:CharacterString>MD_JSNPI123EX_A0001.XML</gco:CharacterString></gmd:fileIdentifier>
+    <gmd:language>
+        <gco:CharacterString>eng</gco:CharacterString>
+    </gmd:language>
+    <gmd:characterSet>
+        <gmd:MD_CharacterSetCode codeList="http://standards.iso.org/ittf/PubliclyAvailableStandards/ISO_19139_Schemas/resources/codelist/ML_gmxCodelists.xml#MD_CharacterSetCode" codeListValue="utf8">UTF 8</gmd:MD_CharacterSetCode>
+    </gmd:characterSet>
+    <gmd:contact>
+        <gmd:CI_ResponsibleParty>
+            <gmd:organisationName>
+                <gco:CharacterString>International Hydrographic Bureau</gco:CharacterString>
+            </gmd:organisationName>
+            <gmd:contactInfo>
+                <gmd:CI_Contact>
+                    <gmd:address>
+                        <gmd:CI_Address>
+                            <gmd:deliveryPoint><gco:CharacterString>4 quai Antoine 1er</gco:CharacterString></gmd:deliveryPoint>
+                            <gmd:deliveryPoint><gco:CharacterString>B.P. 445</gco:CharacterString></gmd:deliveryPoint>
+                            <gmd:postalCode><gco:CharacterString>MC 98011</gco:CharacterString></gmd:postalCode>
+                        </gmd:CI_Address>
+                    </gmd:address>
+                </gmd:CI_Contact>
+            </gmd:contactInfo>
+            <gmd:role><gmd:CI_RoleCode codeList="http://standards.iso.org/ittf/PubliclyAvailableStandards/ISO_19139_Schemas/resources/codelist/gmxCodelists.xml#CI_RoleCode" codeListValue="owner"/></gmd:role>
+        </gmd:CI_ResponsibleParty>
+    </gmd:contact>
+    <gmd:contact>
+        <gmd:CI_ResponsibleParty>
+            <gmd:individualName>
+                <gco:CharacterString>Raphael Malyankar</gco:CharacterString>
+            </gmd:individualName>
+            <gmd:role>
+                <gmd:CI_RoleCode codeList="http://standards.iso.org/ittf/PubliclyAvailableStandards/ISO_19139_Schemas/resources/codelist/gmxCodelists.xml#CI_RoleCode" codeListValue="author"/>
+            </gmd:role>
+        </gmd:CI_ResponsibleParty>
+    </gmd:contact>
+    <gmd:dateStamp>
+        <gco:Date>2017-08-22</gco:Date>
+    </gmd:dateStamp>
+    <gmd:metadataStandardName><gco:CharacterString>ISO 19115:2003/Cor.1:2006</gco:CharacterString></gmd:metadataStandardName>
+    <gmd:metadataStandardVersion><gco:CharacterString>20150422</gco:CharacterString></gmd:metadataStandardVersion>
+    <gmd:dataSetURI><gmx:FileName src="GBZ0302ZX1_000">JSNPI123EX_A0001.GML</gmx:FileName></gmd:dataSetURI>
+    
+    <gmd:identificationInfo>
+        <gmd:MD_DataIdentification>
+            <gmd:citation>
+                <gmd:CI_Citation>
+                    <gmd:title><gco:CharacterString>Jussland Radio Services</gco:CharacterString></gmd:title>
+                    <gmd:date>
+                        <gmd:CI_Date>
+                            <gmd:date>
+                                <gco:Date>2017-04-30</gco:Date>
+                            </gmd:date>
+                            <gmd:dateType><gmd:CI_DateTypeCode codeList="http://standards.iso.org/ittf/PubliclyAvailableStandards/ISO_19139_Schemas/resources/codelist/ML_gmxCodelists.xml#MD_DateTypeCode" codeListValue="publication"></gmd:CI_DateTypeCode></gmd:dateType>
+                        </gmd:CI_Date>
+                    </gmd:date><gmd:date><gmd:CI_Date>
+                        <gmd:date>
+                            <gco:Date>2017-04-30</gco:Date>
+                        </gmd:date>
+                        <gmd:dateType><gmd:CI_DateTypeCode codeList="http://standards.iso.org/ittf/PubliclyAvailableStandards/ISO_19139_Schemas/resources/codelist/ML_gmxCodelists.xml#MD_DateTypeCode" codeListValue="revision"></gmd:CI_DateTypeCode></gmd:dateType>
+                    </gmd:CI_Date></gmd:date>
+                    <gmd:date><gmd:CI_Date>
+                        <gmd:date><gco:Date>2017-08-22</gco:Date></gmd:date>
+                        <gmd:dateType><gmd:CI_DateTypeCode codeList="http://standards.iso.org/ittf/PubliclyAvailableStandards/ISO_19139_Schemas/resources/codelist/ML_gmxCodelists.xml#MD_DateTypeCode" codeListValue="revision"></gmd:CI_DateTypeCode></gmd:dateType>
+                    </gmd:CI_Date></gmd:date>
+                </gmd:CI_Citation>
+            </gmd:citation>
+            <gmd:abstract>
+                <gco:CharacterString>This is a sample dataset, etc., etc.</gco:CharacterString>
+            </gmd:abstract>
+            <gmd:purpose>
+                <gco:CharacterString>New edition</gco:CharacterString>
+            </gmd:purpose>
+            <gmd:pointOfContact>
+                <gmd:CI_ResponsibleParty>
+                    <gmd:individualName><gco:CharacterString>Name of Contact</gco:CharacterString></gmd:individualName>
+                    <gmd:organisationName>
+                        <gco:CharacterString>Jussland Hydrographic Office</gco:CharacterString>
+                    </gmd:organisationName>
+                    <gmd:role><gmd:CI_RoleCode codeList="http://standards.iso.org/ittf/PubliclyAvailableStandards/ISO_19139_Schemas/resources/codelist/gmxCodelists.xml#CI_RoleCode" codeListValue="originator"/></gmd:role>
+                </gmd:CI_ResponsibleParty>
+            </gmd:pointOfContact>
+            
+            <gmd:resourceSpecificUsage>
+                <gmd:MD_Usage>
+                    <gmd:specificUsage><gco:CharacterString>General. Not for navigation.</gco:CharacterString></gmd:specificUsage>
+                    <gmd:userContactInfo>
+                        <gmd:CI_ResponsibleParty>
+                            <gmd:organisationName>
+                                <gco:CharacterString>Jussland Hydrographic Office</gco:CharacterString>
+                            </gmd:organisationName>
+                            <gmd:role><gmd:CI_RoleCode codeList="http://standards.iso.org/ittf/PubliclyAvailableStandards/ISO_19139_Schemas/resources/codelist/gmxCodelists.xml#CI_RoleCode" codeListValue="publisher"/></gmd:role>
+                        </gmd:CI_ResponsibleParty>
+                    </gmd:userContactInfo>
+                </gmd:MD_Usage>
+            </gmd:resourceSpecificUsage>
+            <gmd:language>
+                <gco:CharacterString>English</gco:CharacterString>
+            </gmd:language>
+            <gmd:topicCategory>
+                <gmd:MD_TopicCategoryCode>transportation</gmd:MD_TopicCategoryCode>
+            </gmd:topicCategory>
+            <gmd:extent>
+                <gmd:EX_Extent><gmd:geographicElement><gmd:EX_GeographicBoundingBox>
+                    <gmd:westBoundLongitude><gco:Decimal>55.0</gco:Decimal></gmd:westBoundLongitude>
+                    <gmd:eastBoundLongitude><gco:Decimal>71.0</gco:Decimal></gmd:eastBoundLongitude>
+                    <gmd:southBoundLatitude><gco:Decimal>-36.0</gco:Decimal></gmd:southBoundLatitude>
+                    <gmd:northBoundLatitude><gco:Decimal>-22.0</gco:Decimal></gmd:northBoundLatitude>
+                </gmd:EX_GeographicBoundingBox></gmd:geographicElement>
+                </gmd:EX_Extent>
+            </gmd:extent>
+            <gmd:supplementalInformation>
+                <gco:CharacterString>Supplementary information about the dataset</gco:CharacterString>
+            </gmd:supplementalInformation>
+        </gmd:MD_DataIdentification>
+    </gmd:identificationInfo>
+    
+    <gmd:metadataConstraints>
+        <gmd:MD_SecurityConstraints>
+            <gmd:classification>
+                <gmd:MD_ClassificationCode codeList="http://standards.iso.org/ittf/PubliclyAvailableStandards/ISO_19139_Schemas/resources/codelist/gmxCodelists.xml#MD_ClassificationCode" codeListValue="unclassified">available for general disclosure</gmd:MD_ClassificationCode>
+            </gmd:classification>
+        </gmd:MD_SecurityConstraints>
+    </gmd:metadataConstraints>
+    
+    <gmd:applicationSchemaInfo><gmd:MD_ApplicationSchemaInformation>
+        <gmd:name><gmd:CI_Citation>
+            <gmd:title><gco:CharacterString>S-123 Product Specification</gco:CharacterString></gmd:title>
+            <gmd:date><gmd:CI_Date>
+                <gmd:date><gco:Date>2017-08-18</gco:Date></gmd:date>
+                <gmd:dateType><gmd:CI_DateTypeCode codeList="http://standards.iso.org/ittf/PubliclyAvailableStandards/ISO_19139_Schemas/resources/codelist/ML_gmxCodelists.xml#MD_DateTypeCode" codeListValue="revision"></gmd:CI_DateTypeCode></gmd:dateType>
+            </gmd:CI_Date></gmd:date>
+            <gmd:edition><gco:CharacterString>1.0</gco:CharacterString></gmd:edition>
+        </gmd:CI_Citation></gmd:name>
+        <gmd:schemaLanguage><gco:CharacterString>UML</gco:CharacterString></gmd:schemaLanguage>
+        <gmd:constraintLanguage gco:nilReason="inapplicable"/>
+    </gmd:MD_ApplicationSchemaInformation></gmd:applicationSchemaInfo>
+    
+    <gmd:metadataMaintenance>
+        <gmd:MD_MaintenanceInformation>
+            <gmd:maintenanceAndUpdateFrequency><gmd:MD_MaintenanceFrequencyCode codeList="http://standards.iso.org/ittf/PubliclyAvailableStandards/ISO_19139_Schemas/resources/codelist/gmxCodelists.xml#MD_MaintenanceFrequencyCode" codeListValue="asNeeded">as needed</gmd:MD_MaintenanceFrequencyCode></gmd:maintenanceAndUpdateFrequency> 
+        </gmd:MD_MaintenanceInformation>
+    </gmd:metadataMaintenance>
+    
+</gmi:MI_Metadata>

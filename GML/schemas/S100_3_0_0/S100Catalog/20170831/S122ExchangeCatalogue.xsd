@@ -1,0 +1,137 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns="http://www.iho.int/s100/s122xc" xmlns:S100XC="http://www.iho.int/s100/xc" xmlns:gmd="http://www.isotc211.org/2005/gmd" xmlns:gco="http://www.isotc211.org/2005/gco" xmlns:gmx="http://www.isotc211.org/2005/gmx" xmlns:xlink="http://www.w3.org/1999/xlink" targetNamespace="http://www.iho.int/s100/s122xc" elementFormDefault="qualified" version="1.0.0-20170818">
+    <!-- ============================================================================================= -->
+    <!-- XML extension Schema for S-122 exchange set catalogues. 								   -->
+    <!-- ============================================================================================= -->
+    
+    <!--
+© Copyright 2015-2017 ... (IHO)
+
+License (Draft)
+Certain parts of this document refer to or are based on the standards, documents, schemas, or other material
+of the International Organization for Standardization (ISO), Open Geospatial Consortium (OGC), International
+Hydrographic Organization / Organisation Hydrographique Internationale (IHO/OHI).
+The ISO material can be obtained from any ISO member and from the Web site of the ISO Central Secretariat
+at www.iso.org.
+The OGC material can be obtained from the OGC Web site at www.opengeospatial.org.
+The IHO material can be obtained from the IHO Web site at www.iho.int or from the International Hydrographic
+Bureau.
+
+Permission to copy and distribute this document is hereby granted provided that this notice is retained
+on all copies, and that IHO are credited when the material is redistributed or used in
+part or whole in derivative works.
+Redistributions in binary form must reproduce this notice in the documentation and/or other materials
+provided with the distribution.
+
+Disclaimer
+This work is provided by the copyright holders and contributors "as is" and any express or implied warranties,
+including, but not limited to, the implied warranties of merchantability and fitness for a particular purpose
+are disclaimed. In no event shall the copyright owner or contributors be liable for any direct, indirect,
+incidental, special, exemplary, or consequential damages (including, but not limited to, procurement of substitute
+goods or services; loss of use, data, or profits; or business interruption) however caused and on any theory of
+liability, whether in contract, strict liability, or tort (including negligence or otherwise) arising in any way
+out of the use of this software, even if advised of the possibility of such damage.
+
+Document history
+Version 1.0.0-2017-08-18	Raphael Malyankar for IHO
+-->
+    
+    <!-- for convenience import from local file -->
+    <!--	
+	<xs:import namespace="http://www.isotc211.org/2005/gmx" schemaLocation="../../SCHEMAS_OPENGIS_NET_20161104/iso/19139/20070417/gmx/gmx.xsd"/>
+	<xs:import namespace="http://www.isotc211.org/2005/gmd" schemaLocation="../../SCHEMAS_OPENGIS_NET_20161104/iso/19139/20070417/gmd/gmd.xsd" />
+	<xs:import namespace="http://www.isotc211.org/2005/gco" schemaLocation="../../SCHEMAS_OPENGIS_NET_20161104/iso/19139/20070417/gco/gco.xsd"/>
+-->
+    <xs:import namespace="http://www.iho.int/s100/xc" schemaLocation="S100_ExchangeCatalogue.xsd"/>
+    <!-- Imports from ISO's site -->
+    
+    <xs:import namespace="http://www.isotc211.org/2005/gmx" schemaLocation="http://standards.iso.org/ittf/PubliclyAvailableStandards/ISO_19139_Schemas/gmx/gmx.xsd"/>
+    <xs:import namespace="http://www.isotc211.org/2005/gmd" />
+    <xs:import namespace="http://www.isotc211.org/2005/gco"/>
+
+    <xs:complexType name="S122_DatasetDiscoveryMetadata">
+        <xs:complexContent><xs:extension base="S100XC:S100_DatasetDiscoveryMetadata">
+        <xs:sequence>
+            <xs:element name="S122_MetadataFileIdentifier" type="xs:string"/>
+            <xs:element name="S122_MetadataPointOfContact" type="gmd:CI_ResponsibleParty_PropertyType"/>
+            <xs:element name="S122_MetadataDateStamp" type="xs:date"/>
+            <xs:element name="S122_MetadataLanguage" type="xs:string"/>
+        </xs:sequence>
+        </xs:extension></xs:complexContent>
+    </xs:complexType>
+
+    <xs:element name="S122_ExchangeCatalogue" type="S122_ExchangeCatalogue"/>
+    <xs:complexType name="S122_ExchangeCatalogue">
+        <xs:annotation>
+            <xs:documentation>Each exchange set has a single S-100_ExchangeCatalogue which contains meta information for the data and support files in the exchange set. </xs:documentation>
+        </xs:annotation>
+        <xs:sequence>
+            <xs:element name="identifier" type="S100XC:S100_CatalogueIdentifier" minOccurs="1" maxOccurs="1">
+                <xs:annotation>
+                    <xs:documentation>Uniquely identifies this exchange catalogue</xs:documentation>
+                </xs:annotation>
+            </xs:element>
+            <xs:element name="contact" type="S100XC:S100_CataloguePointofContact" minOccurs="1" maxOccurs="1">
+                <xs:annotation>
+                    <xs:documentation>Details about the issuer of this exchange catalogue</xs:documentation>
+                </xs:annotation>
+            </xs:element>
+            <xs:element name="productSpecification" type="S100XC:S100_ProductSpecification" minOccurs="0" maxOccurs="1">
+                <xs:annotation>
+                    <xs:documentation>Details about the product specifications used for the datasets contained in the exchange catalogue. Conditional on all the datasets using the same product specification.</xs:documentation>
+                </xs:annotation>
+            </xs:element>
+            <xs:element name="metadataLanguage" type="xs:string" minOccurs="1" maxOccurs="1">
+                <xs:annotation>
+                    <xs:documentation>Details about the language.</xs:documentation>
+                </xs:annotation>
+            </xs:element>
+            <xs:element name="exchangeCatalogueName" type="xs:string" minOccurs="1" maxOccurs="1">
+                <xs:annotation>
+                    <xs:documentation>Catalogue filename. In S-101 it would be CATLOG.101</xs:documentation>
+                </xs:annotation>
+            </xs:element>
+            <xs:element name="exchangeCatalogueDescription" type="xs:string" minOccurs="1" maxOccurs="1">
+                <xs:annotation>
+                    <xs:documentation>Description of what the exchange catalogue contains</xs:documentation>
+                </xs:annotation>
+            </xs:element>
+            <xs:element name="exchangeCatalogueComment" type="xs:string" minOccurs="0" maxOccurs="1">
+                <xs:annotation>
+                    <xs:documentation>Any additional Information</xs:documentation>
+                </xs:annotation>
+            </xs:element>
+            <xs:element name="compressionFlag" type="xs:boolean" minOccurs="0" maxOccurs="1">
+                <xs:annotation>
+                    <xs:documentation>Is the data compressed? Yes or No</xs:documentation>
+                </xs:annotation>
+            </xs:element>
+            <xs:element name="algorithmMethod" type="xs:string" minOccurs="0" maxOccurs="1">
+                <xs:annotation>
+                    <xs:documentation>Type of compression algorithm. Eg. RAR or ZIP</xs:documentation>
+                </xs:annotation>
+            </xs:element>
+            <xs:element name="sourceMedia" type="xs:string" minOccurs="0" maxOccurs="1">
+                <xs:annotation>
+                    <xs:documentation>Distribution media</xs:documentation>
+                </xs:annotation>
+            </xs:element>
+            <xs:element name="replacedData" type="xs:boolean" minOccurs="0" maxOccurs="1">
+                <xs:annotation>
+                    <xs:documentation>If a data file is canceled is it replaced by another data file</xs:documentation>
+                </xs:annotation>
+            </xs:element>
+            <xs:element name="dataReplacement" type="xs:string" minOccurs="0" maxOccurs="1">
+                <xs:annotation>
+                    <xs:documentation>Cell name</xs:documentation>
+                </xs:annotation>
+            </xs:element>
+            <!--<xs:element name="S100_ExchangeSet" type="S100_ExchangeSet" minOccurs="1" maxOccurs="1"/>-->
+            <xs:element name="datasetDiscoveryMetadata" type="S122_DatasetDiscoveryMetadata" minOccurs="0" maxOccurs="unbounded"/>
+            <xs:element name="supportFileDiscoveryMetadata" type="S100XC:S100_SupportFileDiscoveryMetadata" minOccurs="0" maxOccurs="unbounded"/>
+            <xs:element name="S122_CatalogueMetadata" type="S100XC:S100_CatalogueMetadata" minOccurs="0" maxOccurs="unbounded">
+                <xs:annotation><xs:documentation>Metadata for feature and portrayal catalogues (Fig. 4a-D-2 suggests their metadata should be in the exchange catalogue, 4a-D-3 suggests their metadata might be separate files in the exchange set)</xs:documentation></xs:annotation>
+            </xs:element>
+        </xs:sequence>
+    </xs:complexType>
+</xs:schema>

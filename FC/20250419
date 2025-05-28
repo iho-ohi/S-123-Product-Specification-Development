@@ -1,4 +1,0 @@
-Change multiplicity of radiocommunicationIdentifier from 1,1 to 0,*
-Add 'Loran C' to categoryOfRadioStation as a permittedValue for RadioStation (Feature Type)
-Add 'dataTransmissionRate' to radioChannelDetails of TransmissionDetails (Information Type)
-Add 'NAVDAT' (code 14) to typeOfRadioService of TransmissionDetails (Information Type);  Definition: "a digital system referred to as navigational data for broadcasting maritime safety and security related information from shore-to-ship", Source: Title of the ITU standard for NAVDAT
