@@ -1,0 +1,888 @@
+
+
+[[sec_5]]
+== Geographic Features
+
+This section describes abstract as well as non-abstract types.
+The abstract type *FeatureType* cannot be used directly, but defines
+attributes inherited by its sub-types. The encoding remarks in the
+description of *FeatureType* apply to its sub-types but may be overridden
+by remarks in the sub-type.
+
+[[sec_5.1]]
+=== Feature Type
+
+[cols="a,a,a,a,a",options="unnumbered"]
+|===
+5+| [underline]#IHO Definition:# Generalized feature type which carries
+all the common attributes.
+5+| *[underline]#S-123 Geo Feature:# Feature Type*
+5+| *[underline]#Super Type:#*
+5+| *[underline]#Primitives:# noGeometry*
+
+2+| _Real World_ 2+| _Paper Chart Symbol_ | _ECDIS Symbol_
+
+h| S-123 Attribute h| S-57 Acronym h| Allowable Encoding Value h| Type h| Multiplicity
+
+| Text Content | (TXTCON) | | C | 0, ++*++
+
+| Category of Text | (CATTXT) |
+1: Abstract or Summary +
+2: Extract +
+3: Full Text | (S) EN | 0, 1
+
+| Information      | (INFORM)          |             | (S) C  | 0, ++*++
+| File Locator     |                   |             | (S) TE | 0, 1
+| File Reference
+| (TXTDSC)
+
+(NTXTDS) | | (S) TE | 0, 1
+| Headline         |                   |             | (S) TE | 0, 1
+| Language         |                   | ISO 639-2/T | (S) TE | 1, 1
+| Text
+| (INFORM)
+
+(NINFOM) | | (S) TE | 0, 1
+| Online Resource  |                   |             | (S) C  | 0, 1
+| Headline         |                   |             | (S) TE | 0, 1
+| Linkage          |                   |             | (S) UI | 1, 1
+| Name of Resource |                   |             | (S) TE | 0, 1
+| Source           |                   |             | (S) TE | 0, 1
+| Reported Date    | (SORDAT)          |             | (S) TD | 0, 1
+| Feature Name     |                   |             | C      | 0, ++*++
+| Language         |                   | ISO 639-2/T | (S) TE | 1, 1
+| Name
+| (OBJNAM)
+
+(NOBJNM) | | (S) TE | 1, 1
+
+| Name Usage | |
+1: Default Name Display +
+2: Alternate Name Display +
+3: No Chart Display
+| (S) EN | 0, 1
+
+| Fixed Date Range            |          | | C      | 0, 1
+| Date Start                  | (DATSTA) | | (S) TD | 0, 1
+| Date End                    | (DATEND) | | (S) TD | 0, 1
+| Time of Day Start           |          | | (S) TI | 0, 1
+| Time of Day End             |          | | (S) TI | 0, 1
+| Periodic Date Range         |          | | C      | 0, ++*++
+| Date Start                  | (DATSTA) | | (S) TD | 1, 1
+| Date End                    | (DATEND) | | (S) TD | 1, 1
+| Source                      |          | | TE     | 0, 1
+| Reported Date               | (SORDAT) | | TD     | 0, 1
+| Interoperability Identifier |          | | UN     | 0, 1
+
+5+|
+[underline]#INT 1 Reference:#
+
+|===
+
+[[sec_5.1.1]]
+==== Geographic features in general
+
+Where a complex attribute has all its sub-attributes optional
+(e.g., multiplicity 0..1 or 0..++*++), at least one of the sub-attributes
+must be populated.
+
+The *additionalInformation* association to a *NauticalInfomation*
+object can be used to attach an additional chunk of information to
+an information type, and there is no applicable specific information
+type or association. This should be used sparingly if at all.
+
+[[sec_5.1.2]]
+==== Restrictions, regulations, etc., related to geographic features
+
+Navigation and other activities in areas can be limited by regulations/restrictions and recommendations. That information is usually provided by relevant authorities. If the feature has specific attributes to encode such information (such as a *restriction* attribute), those attributes must be used wherever possible; if the specific attributes are insufficient, an appropriate *Restrictions*, *Regulations*, *Recommendations*, or *NauticalInformation* information type can be associated to thefeature using an _associatedRxN_ association.
+
+[[sec_5.1.3]]
+==== Restrictions, regulations, etc., that depend on vessel characteristics
+
+Information that is conditional on vessel characteristics may be encoded
+using the *PermissionType* association to an *Applicability* information
+type that defines the set of vessels to which the conditions apply.
+
+[underline]#Remarks:#
+
+* No remarks.
+
+[underline]#Distinction:#
+
+[cols="a,a,a,a,a",options="unnumbered"]
+|===
+5+h| [underline]#Feature/Information associations#
+.2+h| Type .2+h| Association Name 3+h| Association Ends h| Class h| Role h| Mult
+
+| association | Associated RxN         | *AbstractRxN*         | theRxN              | 0, ++*++
+| association | Permission Type        | *Applicability*       | permission          | 0, ++*++
+| association | Additional information | *NauticalInformation* | theInformation      | 0, 1
+| Asso        | Text association       | *TextPlacement*       | theCartographicText | 0, 1
+|===
+
+[[sec_5.2]]
+=== Connectivity Subscription Area
+
+[cols="a,a,a,a,a",options="unnumbered"]
+|===
+5+| [underline]#IHO Definition:# An area of connectivity coverage
+available for the subscription of connectivity service.
+5+| *[underline]#S-123 Geo Feature:# Connectivity Subscription Area*
+5+| *[underline]#Super Type:# FeatureType*
+5+| *[underline]#Primitives:# surface, point*
+
+2+| _Real World_ 2+| _Paper Chart Symbol_ | _ECDIS Symbol_
+
+h| S-123 Attribute h| S-57 Acronym h| Allowable Encoding Value h| Type h| Mult.
+
+| Category of Connectivity Subscription |
+|
+1: Satellite Communication GEO
+2: Satellite Communication LEO
+3: Cellular Communication
+4: Terrestrial Ad-Hoc Communication
+| EN | 0, 1
+
+| Communication Standard                     |                   | | TE     | 0, 1
+| Estimated Range of Transmission            | (ESTRNG)          | | RE     | 0, 1
+| Base Station Antenna Height                |                   | | RE     | 0, 1
+| Frequency Range                            |                   | | C      | 0, ++*++
+| Frequency Limit Lower                      |                   | | (S) IN | 0, 1
+| Frequency Limit Upper                      |                   | | (S) IN | 0, 1
+| Sector Limit                               |                   | | C      | 0, ++*++
+| Sector Limit One                           | (SECTR1)          | | (S) C  | 1, 1
+| Sector Bearing
+| (SECTR1)
+
+(SECTR2) | | (S) RE | 1, 1
+| Sector Line Length                         |                   | | (S) RE | 0, 1
+| Sector Limit Two                           | (SECTR2)          | | (S) C  | 1, 1
+| Sector Bearing
+| (SECTR1)
+
+(SECTR2) | | (S) RE | 1, 1
+| Sector Line Length                         |                   | | (S) RE | 0, 1
+| Coverage Indication                        |                   | | C      | 0, 1
+| Minimum Received Power                     |                   | | (S) IN | 0, 1
+| Presumed Receiver Antenna Height           |                   | | (S) IN | 0, 1
+| Minimum Signal to Interference Noise Ratio |                   | | (S) IN | 0, 1
+
+| Status | (STATUS)
+|
+1: Permanent +
+2: Occasional +
+4: Not in Use +
+5: Periodic/Intermittent +
+7: Temporary +
+8: Private +
+14: Public +
+16: Watched +
+17: Unwatched +
+24: Strong +
+25: Good +
+26: Moderately +
+27: Poor
+| (S) EN | 0, ++*++
+
+| Text
+| (INFORM)
+
+(NINFOM) | | (S) TE | 0, ++*++
+
+5+|
+
+[underline]#INT 1 Reference:#
+
+[underline]#Remarks:#
+
+* Name of the service/company may be coded by using the *featureName*
+attribute, which is inherited from the super type *FeatureType*.
+
+* Example for the attribute *communicationStandard*: 5G, 5G-A, or
+more specific terms.
+
+* The *estimatedRangeOfTransmission* and *sectorLimit* attributes
+are for use when the geometry is of Point type.
+
+* Reliability of communication, susceptibility to jamming or environmental
+factors may be indicated by using the *status* and/or *text* sub-attribute
+of the *coverageIndication* attribute.
+
+* If required, detailed QoS information may be provided via the association
+with a *ConnectivityQualityOfService* information type instance.
+
+* For the attribute values of *ConnectivitySubscriptionArea* features,
+the unit is Hz for frequency, dBm for power, dB for SINR.
+
+[underline]#Distinction:#
+
+|===
+
+[cols="a,a,a,a,a",options="unnumbered"]
+|===
+5+h| [underline]#Feature/Information associations#
+.2+h| Type .2+h| Association Name 3+h| Association Ends h| Class h| Role h| Mult
+
+| association | Connectivity Service         | *Authority*                    | connectivityServiceProvider | 0, ++*++
+| association | Service contact              | *ContactDetails*               | theContactDetails           | 0, ++*++
+| association | Location hours               | *ServiceHours*                 | theServiceHours             | 0, 1
+| association | Available Quality of Service | *ConnectivityQualityOfService* | theQoS                      | 0, 1
+| association | Service provision area       | *RadioStation*                 | serviceProvider             | 0, ++*++
+
+|===
+
+[[sec_5.3]]
+=== GMDSS Area
+
+[cols="a,a,a,a,a",options="unnumbered"]
+|===
+5+| [underline]#IHO Definition:# An area defined for a global communications
+service based upon automated systems, both satellite based and terrestrial,
+to provide distress alerting and promulgation of maritime safety information
+for mariners.
+5+| *[underline]#S-123 Geo Feature:# GMDSS Area*
+5+| *[underline]#Super Type:# FeatureType*
+5+| *[underline]#Primitives:# surface*
+
+2+| _Real World_ 2+| _Paper Chart Symbol_ | _ECDIS Symbol_
+
+h| S-123 Attribute h| S-57 Acronym h| Allowable Encoding Value h| Type h| Multiplicity
+
+| Id NAVAREA  |          | | TE | 1, 1
+| Nationality | (NATION) | | TE | 0, 1
+
+| Category of GMDSS Area | (CATGMD) |
+1: Area A1 +
+2: Area A2 +
+3: Area A3 +
+4: Area A4
+| EN | 1, 1
+
+| Area A3 Service Description | | | C | 0, 1
+
+| Serving Mobile Satellite Service | |
+1: Inmarsat SafetyNET +
+2: Iridium SafetyCast
+| (S) EN | 1, ++*++
+
+| Satellite Ocean Region   | | | (S) TE | 0, 1
+| MSI Coastal Warning Area | | | (S) TE | 0, 1
+
+5+|
+[underline]#INT 1 Reference:#
+
+|===
+
+[[sec_5.3.1]]
+==== GMDSS Sea Area
+
+Sea Area A1 means an area within the radiotelephone coverage of at
+least one very high frequency (VHF) coast station in which continuous
+DSC alerting is available, as may be defined by a Contracting
+Government. [Within continuous VHF DSC coverage from a Coast Radio
+Station (CRS) with follow on VHF RT (Radio Telephony)]
+
+Sea Area A2 means an area, excluding sea area A1, within the radiotelephone
+coverage of at least one medium frequency (MF) coast station in which
+continuous DSC alerting is available, as may be defined by a Contracting
+Government.
+
+Sea Area A3 means an area, excluding sea areas A1 and A2, within the
+coverage of a recognized mobile satellite service supported by the
+ship earth station carried on board, in which continuous alerting
+is available.
+
+Sea Area A4 means an area outside sea areas A1, A2 and A3.
+
+[underline]#Remarks:#
+
+*Satellite Ocean Region* attribute is for the encoding of the Inmarsat
+Ocean Region Area (IHO definition: the ocean region of the earth's
+surface, within which a station can obtain line-of-sight communication,
+with an Inmarsat satellite). Example: AORE, AORW, IOR, POR.
+
+Coastal warning area means a unique and precisely defined sea area
+within a NAVAREA/METAREA or Sub-area established by a coastal State
+for the purpose of coordinating the broadcast of coastal maritime
+safety information through the SafetyNET or SafetyCast service. Example:
+SRR (Search and Rescue Region)
+
+[underline]#Distinction:#
+
+[cols="a,a,a,a,a",options="unnumbered"]
+|===
+5+h| [underline]#Feature/Information associations#
+.2+h| Type .2+h| Association Name 3+h| Association Ends h| Class h| Role h| Mult
+
+| association | Service Coordination   | *Authority*          | coordinatingAuthority | 0, ++*++
+| association | Radio Service Control  | *RadioControlCentre* | theControlCentre      | 0, ++*++
+| association | Service contact        | *ContactDetails*     | theContactDetails     | 0, ++*++
+| association | Location hours         | *ServiceHours*       | theServiceHours       | 0, 1
+| association | Service provision area | *RadioStation*       | serviceProvider       | 0, ++*++
+|===
+
+[[sec_5.4]]
+=== Indeterminate Zone
+
+[cols="a,a,a,a,a",options="unnumbered"]
+|===
+5+| [underline]#IHO Definition:# A region in which the perception
+of a phenomenon or the availability of a service is known only to
+a specified level of confidence.
+5+| *[underline]#S-123 Geo Feature:# Indeterminate Zone (INDZON)*
+5+| *[underline]#Super Type:# FeatureType*
+5+| *[underline]#Primitives:# surface*
+
+2+| _Real World_ 2+| _Paper Chart Symbol_ | _ECDIS Symbol_
+
+h| S-123 Attribute h| S-57 Acronym h| Allowable Encoding Value h| Type h| Multiplicity
+
+| Information Confidence | |
+1: Virtually Certain +
+2: High Likelihood +
+3: Medium Likelihood +
+4: Low Likelihood
+| EN | 0, 1
+
+5+|
+[underline]#INT 1 Reference:#
+
+[underline]#Remarks:#
+
+* Indeterminate Zone feature instances associated to the same aggregate
+feature instance must not overlap.
+
+[underline]#Distinction:#
+
+|===
+
+[cols="a,a,a,a,a",options="unnumbered"]
+|===
+5+h| [underline]#Feature/Information associations#
+.2+h| Type .2+h| Association Name 3+h| Association Ends h| Class h| Role h| Mult
+
+| Composition | Fuzzy zone aggregation | *FuzzyAreaAggregate* | theCollection | 1, 1
+|===
+
+[[sec_5.5]]
+=== METAREA
+
+[cols="a,a,a,a,a",options="unnumbered"]
+|===
+5+| [underline]#IHO Definition:# A geographical sea area (which may
+include inland seas, lakes and waterways navigable by seagoing ships)
+established for the purpose of coordinating the broadcast of marine
+meteorological information.
+5+| *[underline]#S-123 Geo Feature:# METAREA*
+5+| *[underline]#Super Type:# FeatureType*
+5+| *[underline]#Primitives:# surface*
+
+2+| _Real World_ 2+| _Paper Chart Symbol_ | _ECDIS Symbol_
+
+h| S-123 Attribute h| S-57 Acronym h| Allowable Encoding Value h| Type h| Multiplicity
+
+| Id METAREA       | | | TE     | 1, 1
+| Online Resource  | | | C      | 0, ++*++
+| Headline         | | | (S) TE | 0, 1
+| Linkage          | | | (S) UI | 1, 1
+| Name of Resource | | | (S) TE | 0, 1
+
+5+|
+
+[underline]#INT 1 Reference:#
+
+[underline]#Remarks:#
+
+The term METAREA followed by a roman numeral and the extensions to
+uniquely identify a sub area, such as METAREA VIII(N) and METAREA
+VIII(S), is to be coded by using the *Feature Name* attribute. Only
+the roman number is to be coded in the *Id METAREA* attribute. The
+METAREA coordinator should be encoded as an associated *Authority*.
+The coordinating authority to be associated should be the issuing
+authority, not the preparation authority, of the METAREA.
+
+[underline]#Distinction:#
+
+|===
+
+[cols="a,a,a,a,a",options="unnumbered"]
+|===
+5+h| [underline]#Feature/Information associations#
+.2+h| Type .2+h| Association Name 3+h| Association Ends h| Class h| Role h| Mult
+
+| association | Service Coordination   | *Authority*           | coordinatingAuthority  | 0, ++*++
+| association | Service contact        | *ContactDetails*      | theContactDetails      | 0, ++*++
+| association | Location hours         | *ServiceHours*        | theServiceHours        | 0, 1
+| association | Broadcast Service      | *BroadcastDetails*    | theBroadcastDetails    | 0, ++*++
+| association | Transmission Service   | *TransmissionDetails* | theTransmissionDetails | 0, ++*++
+| association | Service provision area | *RadioStation*        | serviceProvider        | 0, ++*++
+
+|===
+
+[[sec_5.6]]
+=== NAVAREA
+
+[cols="a,a,a,a,a",options="unnumbered"]
+|===
+5+| [underline]#IHO Definition:# A geographical sea area (which may
+include inland seas, lakes and waterways navigable by seagoing ships)
+established for the purpose of coordinating the broadcast of navigational
+warnings.
+5+| *[underline]#S-123 Geo Feature:# NAVAREA*
+5+| *[underline]#Super Type:# FeatureType*
+5+| *[underline]#Primitives:# surface*
+
+2+| _Real World_ 2+| _Paper Chart Symbol_ | _ECDIS Symbol_
+
+h| S-123 Attribute h| S-57 Acronym h| Allowable Encoding Value h| Type h| Multiplicity
+
+| Id NAVAREA       | | | TE     | 1, 1
+| Online Resource  | | | C      | 0, ++*++
+| Headline         | | | (S) TE | 0, 1
+| Linkage          | | | (S) UI | 1, 1
+| Name of Resource | | | (S) TE | 0, 1
+
+5+|
+
+[underline]#INT 1 Reference:#
+
+[underline]#Remarks:#
+
+The term NAVAREA followed by a roman numeral and the extensions to
+uniquely identify a sub area, such as NAVAREA I Baltic Sea sub-area,
+is to be coded by using the *Feature Name* attribute. Only the roman
+number is to be coded in the *Id NAVAREA* attribute.
+
+[underline]#Distinction:#
+
+|===
+
+[cols="a,a,a,a,a",options="unnumbered"]
+|===
+5+h| [underline]#Feature/Information associations#
+.2+h| Type .2+h| Association Name 3+h| Association Ends h| Class h| Role h| Mult
+
+| association | Service Coordination   | *Authority*           | coordinatingAuthority  | 0, ++*++
+| association | Service contact        | *ContactDetails*      | theContactDetails      | 0, ++*++
+| association | Location hours         | *ServiceHours*        | theServiceHours        | 0, 1
+| association | Broadcast Service      | *BroadcastDetails*    | theBroadcastDetails    | 0, ++*++
+| association | Transmission Service   | *TransmissionDetails* | theTransmissionDetails | 0, ++*++
+| association | Service provision area | *RadioStation*        | serviceProvider        | 0, ++*++
+|===
+
+[[sec_5.7]]
+=== NAVTEX Service Area
+
+[cols="a,a,a,a,a",options="unnumbered"]
+|===
+5+| [underline]#IHO Definition:# A unique and precisely defined sea
+area, wholly contained within the NAVTEX coverage area, for which
+maritime safety information is provided from a particular NAVTEX transmitter.
+5+| *[underline]#S-123 Geo Feature:# NAVTEX Service Area*
+5+| *[underline]#Super Type:# FeatureType*
+5+| *[underline]#Primitives:# surface*
+
+2+| _Real World_ 2+| _Paper Chart Symbol_ | _ECDIS Symbol_
+
+h| S-123 Attribute h| S-57 Acronym h| Allowable Encoding Value h| Type h| Multiplicity
+
+| Type of NAVTEX Service |
+|
+1: International NAVTEX +
+2: national NAVTEX
+| EN | 1, 1
+
+| Id NAVAREA                           |          | | TE | 1, 1
+| Transmitter Identification Character |          | | TE | 1, 1
+| Nationality                          | (NATION) | | TE | 0, 1
+
+| Status | (STATUS)
+|
+1: Permanent +
+4: Not in Use +
+7: Temporary
+| EN | 0, 1
+
+5+|
+
+[underline]#INT 1 Reference:#
+
+[underline]#Remarks:#
+
+According to NAVTEX Manual (IMO MSC.1/Circ.1403/Rev.2), "the boundaries
+of the NAVTEX service area must be wholly contained within the coverage
+area, and must not overlap with adjacent NAVTEX service areas." The
+range of the broadcast may cover more than the area described but
+the responsibility is strictly limited by international agreed borders.
+
+Only the roman number is to be coded in the *Id NAVAREA* attribute.
+
+The transmitter identification character (B1) is a single letter which
+is allocated to each transmitter. It is used to identify the broadcasts
+which are to be accepted by the receiver and those which are to be
+rejected, and also the time slot for the transmission.
+
+[underline]#Distinction:#
+
+|===
+
+[cols="a,a,a,a,a",options="unnumbered"]
+|===
+5+h| [underline]#Feature/Information associations#
+.2+h| Type .2+h| Association Name 3+h| Association Ends h| Class h| Role h| Mult
+
+| association | Service Coordination   | *Authority*           | coordinatingAuthority  | 0, ++*++
+| association | Service contact        | *ContactDetails*      | theContactDetails      | 0, ++*++
+| association | Location hours         | *ServiceHours*        | theServiceHours        | 0, 1
+| association | Broadcast Service      | *BroadcastDetails*    | theBroadcastDetails    | 0, ++*++
+| association | Transmission Service   | *TransmissionDetails* | theTransmissionDetails | 0, ++*++
+| association | Service provision area | *RadioStation*        | serviceProvider        | 0, ++*++
+
+|===
+
+[[sec_5.8]]
+=== Radio Service Area
+
+[cols="a,a,a,a,a",options="unnumbered"]
+|===
+5+| [underline]#IHO Definition:# The area where a radio service can
+be obtained and the characteristics of the radio transmission.
+5+| *[underline]#S-123 Geo Feature:# Radio Service Area*
+5+| *[underline]#Super Type:# FeatureType*
+5+| *[underline]#Primitives:# surface*
+
+2+| _Real World_ 2+| _Paper Chart Symbol_ | _ECDIS Symbol_
+
+h| S-123 Attribute h| S-57 Acronym h| Allowable Encoding Value h| Type h| Multiplicity
+
+| Language Information          | (LNGINF) |                  | TE | 0, 1
+| Transmission Power            |          | Minimum range: 0 | RE | 0, 1
+| Transmission of Traffic Lists |          |                  | BO | 0, 1
+
+| Status | (STATUS)
+|
+1: Permanent +
+2: Occasional +
+4: Not in Use +
+5: Periodic/Intermittent +
+7: Temporary +
+8: Private +
+14: Public +
+16: Watched +
+17: Unwatched
+| EN | 0, 1
+
+| Hours of Watch | | | TE | 0, 1
+
+5+a|
+
+[underline]#INT 1 Reference:#
+
+[underline]#Remarks:#
+
+* If it is required, use the *transmissionPower* attribute to encode
+he maximum power (unit: dBm) the radio service uses (or is authorized
+to use) for radio transmission.
+
+* For the *Hours of Watch* attribute, the hours are given in UTC or
+by the use of a service symbol. Examples from ITU List IV:
+"0000-0030 0730-0800", "H24" ( "H24" means a continuous service)
+
+* Seasonal services can be encoded as distinct features with appropriate
+*periodicDateRange* attributes inherited from *InformationType*.
+
+Where it is impractical to encode the radio coverage, e.g. a radio
+service in HF band,
+
+. the intended service area may be encoded instead, and associate
+it with information types such as *TransmissionDetails* and *BroadcastDetails*.
+. the extent of the radio coverage may also be indicated by using
+an associated *RadioStation* feature with its *estimatedRangeOfTransmission*
+attribute;
+
+[underline]#Distinction:#
+
+|===
+
+[cols="a,a,a,a,a",options="unnumbered"]
+|===
+5+h| [underline]#Feature/Information associations#
+.2+h| Type .2+h| Association Name 3+h| Association Ends h| Class h| Role h| Mult
+
+| association | Service Coordination   | *Authority*                 | coordinatingAuthority  | 0, ++*++
+| association | Radio Service Control  | *RadioControlCentre*        | theControlCentre       | 0, ++*++
+| association | Service contact        | *ContactDetails*            | theContactDetails      | 0, ++*++
+| association | Location hours         | *ServiceHours*              | theServiceHours        | 0, 1
+| association | Broadcast Service      | *BroadcastDetails*          | theBroadcastDetails    | 0, ++*++
+| association | Transmission Service   | *TransmissionDetails*       | theTransmissionDetails | 0, ++*++
+| association | Service provision area | *RadioStation*              | serviceProvider        | 0, ++*++
+| aggregation | Core aggregation       | *RadioServiceAreaAggregate* | theCollection          | 0, 1
+
+|===
+
+[[sec_5.9]]
+=== Radio Station
+
+[cols="a,a,a,a,a",options="unnumbered"]
+|===
+5+| [underline]#IHO Definition:# A place equipped to transmit radio
+waves. Such a station may be either stationary or mobile, and may
+also be provided with a radio receiver.
+5+| *[underline]#S-123 Geo Feature:# Radio Station (RDOSTA, W/T Station)*
+5+| *[underline]#Super Type:# FeatureType*
+5+| *[underline]#Primitives:# point*
+
+2+| _Real World_ 2+| _Paper Chart Symbol_ | _ECDIS Symbol_
+
+h| S-123 Attribute h| S-57 Acronym h| Allowable Encoding Value h| Type h| Multiplicity
+
+| Category of Radio Station | (CATROS)
+|
+5: Radio Direction-Finding Station +
+10: Differential GNSS +
+19: Radio Telephone Station +
+20: AIS Base Station
+| EN | 0, 1
+
+| Estimated Range of Transmission | (ESTRNG) | | RE | 0, 1
+| Transmission Content            |          | | TE | 0, 1
+| Remote Controlled               |          | | BO | 0, 1
+
+| Status | (STATUS)
+|
+1: Permanent +
+2: Occasional +
+4: Not in Use +
+5: Periodic/Intermittent +
+7: Temporary +
+8: Private +
+16: Watched +
+17: Unwatched
+| EN | 0, 1
+
+| Radiocommunication Identifier |                   | | C      | 1, 1
+| Call Sign                     | (CALSGN)          | | (S) TE | 0, 1
+| MMSI Code                     |                   | | (S) TE | 0, 1
+| Selective Call Number         | (SELCAL)          | | (S) IN | 0, 1
+| Sector Limit                  |                   | | C      | 0, ++*++
+| Sector Limit One              | (SECTR1)          | | (S) C  | 1, 1
+| Sector Bearing
+| (SECTR1)
+
+(SECTR2) | | (S) RE | 1, 1
+| Sector Line Length            |                   | | (S) RE | 0, 1
+| Sector Limit Two              | (SECTR2)          | | (S) C  | 1, 1
+| Sector Bearing
+| (SECTR1)
+
+(SECTR2) | | (S) RE | 1, 1
+| Sector Line Length            |                   | | (S) RE | 0, 1
+| Hours of Watch                |                   | | TE     | 0, 1
+
+5+|
+
+[underline]#INT 1 Reference:#
+
+[underline]#Remarks:#
+
+* The *RadioStation* featuremust only be used to encode the technical
+equipment itself, the point of transmission of the signal. There is
+no requirement in S-123 to establish an association between the *RadioStation*
+feature and the structure in which it is installed.
+
+* Further information on the radio transmission characteristic may
+be encoded using an associated instance of the information class
+*TransmissionDetails*.
+
+* The area in which the radio service can be obtained is described
+by an association (Service provision area) to a geo feature with the
+role serviceArea, such as a *RadioServiceArea* or a *NavtexServiceArea*
+feature instance.
+
+* The unit for the value of *estimatedRangeOfTransmission* attribute
+must be nautical mile.
+
+* For the *Hours of Watch* attribute, the hours are given in UTC or
+by the use of a service symbol. Examples from ITU List IV:
+"0000-0030 0730-0800", "H24" ( "H24" means a continuous service).
+
+* Seasonally operating stations can be encoded as distinct *RadioStation*
+features with appropriate *periodicDateRange* attributes inherited
+from the *InformationType*.
+
+[underline]#Distinction:#
+
+|===
+
+[cols="a,a,a,a,a",options="unnumbered"]
+|===
+5+h| [underline]#Feature/Information associations#
+.2+h| Type .2+h| Association Name 3+h| Association Ends
+h| Class h| Role h| Mult
+
+| association | Service Coordination  | *Authority*           | coordinatingAuthority  | 0, ++*++
+| association | Radio Service Control | *RadioControlCentre*  | theControlCentre       | 0, ++*++
+| association | Service contact       | *ContactDetails*      | theContactDetails      | 0, ++*++
+| association | Location hours        | *ServiceHours*        | theServiceHours        | 0, 1
+| association | Broadcast Service     | *BroadcastDetails*    | theBroadcastDetails    | 0, ++*++
+| association | Transmission Service  | *TransmissionDetails* | theTransmissionDetails | 0, ++*++
+| association | Service provision area
+| *ConnectivitySubscriptionArea, GMDSSArea, MetArea, NavArea, NavtexServiceArea,
+RadioServiceArea, WeatherForecastAndWarningArea*
+| serviceArea | 0, ++*++
+
+|===
+
+[[sec_5.10]]
+=== Weather Forecast and Warning Area
+
+[cols="a,a,a,a,a",options="unnumbered"]
+|===
+5+| [underline]#IHO Definition:# An area for which weather forecasts
+and warnings are provided for specified periods.
+5+| *[underline]#S-123 Geo Feature:# Weather Forecast and Warning Area (WETFCA)*
+5+| *[underline]#Super Type:# FeatureType*
+5+| *[underline]#Primitives:# surface*
+
+2+| _Real World_ 2+| _Paper Chart Symbol_ | _ECDIS Symbol_
+
+h| S-123 Attribute h| S-57 Acronym h| Allowable Encoding Value h| Type h| Multiplicity
+
+| Category of Forecast or Warning Area |
+|
+1: World Meteorological Organization (WMO) +
+2: National High Seas +
+3: National Offshore +
+4: National Coastal +
+5: National Inshore +
+6: National Local +
+7: Ice
+| EN | 1, 1
+
+| Id METAREA | | | TE | 0, 1
+
+| Nationality | (NATION) | | TE | 0, 1
+
+| Status | (STATUS)
+|
+1: Permanent +
+2: Occasional +
+4: Not in Use +
+5: Periodic/Intermittent +
+7: Temporary +
+8: Private +
+14: Public
+| EN | 0, 1
+
+5+|
+
+[underline]#INT 1 Reference:#
+
+[underline]#Remarks:#
+
+[underline]#Distinction:#
+
+|===
+
+[cols="a,a,a,a,a",options="unnumbered"]
+|===
+5+h| [underline]#Feature/Information associations#
+.2+h| Type .2+h| Association Name 3+h| Association Ends h| Class h| Role h| Mult
+
+| association | Service Coordination   | *Authority*           | coordinatingAuthority  | 0, ++*++
+| association | Service contact        | *ContactDetails*      | theContactDetails      | 0, ++*++
+| association | Location hours         | *ServiceHours*        | theServiceHours        | 0, 1
+| association | Broadcast Service      | *BroadcastDetails*    | theBroadcastDetails    | 0, ++*++
+| association | Transmission Service   | *TransmissionDetails* | theTransmissionDetails | 0, ++*++
+| Asso        | Service provision area | *RadioStation*        | serviceProvider        | 0, ++*++
+
+|===
+
+[[sec_5.11]]
+=== Fuzzy Area Aggregate
+
+[cols="a,a,a,a,a",options="unnumbered"]
+|===
+5+| [underline]#IHO Definition:# Aggregation of a geographic feature
+describing a service or phenomenon with zones of different confidence
+about the availability of the service, occurrence of the phenomenon,
+or applicability of the information described by the geographic feature.
+5+| *[underline]#S-123 Geo Feature:# Fuzzy Area Aggregate*
+5+| *[underline]#Super Type:# FeatureType*
+5+| *[underline]#Primitives:# noGeometry*
+
+2+| _Real World_ 2+| _Paper Chart Symbol_ | _ECDIS Symbol_
+
+h| S-123 Attribute h| S-57 Acronym h| Allowable Encoding Value h| Type h| Multiplicity
+
+5+|
+[underline]#INT 1 Reference:#
+
+|===
+
+[[sec_5.11.1]]
+==== Aggregation of approximate areas in general
+
+A 'fuzzy area' will consist of a 'core' feature of the appropriate
+geographic feature type and the appropriate geometry (e.g., a *RadioServiceArea*
+area feature) and one or more 'fuzzy' *Indeterminate Zone* features
+(with surface geometry).
+
+To encode fuzzy areas, cartographers must demarcate areas where the
+information is of uncertain applicability and associate the areas
+of uncertainty to the appropriate sub-type of *FuzzyAreaAggregate*,
+along with the area feature where the information is certain
+(the "core feature").
+
+[underline]#Remarks:#
+
+[underline]#Distinction:#
+
+[cols="a,a,a,a,a",options="unnumbered"]
+|===
+5+h| [underline]#Feature/Information associations#
+.2+h| Type .2+h| Association Name 3+h| Association Ends h| Class h| Role h| Mult
+
+| composition | Fuzzy zone aggregation | *IndeterminateZone* | theComponent | 1, ++*++
+
+|===
+
+[[sec_5.12]]
+=== Radio Service Area Aggregate
+
+[cols="a,a,a,a,a",options="unnumbered"]
+|===
+5+| [underline]#IHO Definition:# Aggregation of areas where radio
+services from a single radio service are available to different levels
+of reliability.
+5+| *[underline]#S-123 Geo Feature:# Radio Service Area Aggregate*
+5+| *[underline]#Super Type:# FuzzyAreaAggregate*
+5+| *[underline]#Primitives:# noGeometry*
+
+2+| _Real World_ 2+| _Paper Chart Symbol_ | _ECDIS Symbol_
+
+h| S-123 Attribute h| S-57 Acronym h| Allowable Encoding Value h| Type h| Multiplicity
+
+5+|
+
+[underline]#INT 1 Reference:#
+
+[underline]#Remarks:#
+
+Attributes should be encoded only if they apply to the collection
+of core feature and indeterminate zones. For example, if it is necessary
+to provide a note that applies to all the features collectively, it
+may be encoded in the inherited attribute *textContent* of the *RadioServiceAreaAggregate*.
+
+[underline]#Distinction:#
+
+|===
+
+[cols="a,a,a,a,a",options="unnumbered"]
+|===
+5+h| [underline]#Feature/Information associations#
+.2+h| Type .2+h| Association Name 3+h| Association Ends h| Class h| Role h| Mult
+
+| aggregation | Core aggregation | *RadioServiceArea* | theComponent | 1, 1
+
+|===

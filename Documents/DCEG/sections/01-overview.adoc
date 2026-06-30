@@ -1,0 +1,79 @@
+
+[[sec_1]]
+== Overview
+
+=== Preface
+
+The "Data Classification and Encoding Guide" has been developed to
+provide consistent, standardized instructions for encoding S-100 compliant
+Marine Radio Services (MRS) (S-123) data.
+
+The purpose of the Data Classification and Encoding Guide is to facilitate
+S-123 encoding to meet IHO standards for the proper display of Marine
+Radio Services information in an ECDIS and other electronic charting
+displays. This document describes how to encode information that the
+modeller considers relevant to an MRS. The content of an MRS product
+is at the discretion of the producing authority provided that the
+conventions described within this document are followed. A "producing
+authority" is a Hydrographic Office (HO) or other organization authorized
+by a government, to produce definitive nautical information.
+
+The entire S-100 Universal Hydrographic Data Model, including the
+S-123 MRS Product Specification, is available at the following web
+site, http://www.iho.int.
+
+=== S-123 Annex A - Data Classification and Encoding Guide -- Metadata
+
+NOTE: This information uniquely identifies this Data Classification
+and Encoding Guide to the Product Specification and provides information
+about its creation and maintenance.
+
+[[table_1.1]]
+.Reference source not found.1 MRS product specification metadata
+[cols="2"]
+|===
+h| Metadata h| Content
+| *Title:* | The International Hydrographic Organization Marine Radio
+Services Product Specification, Data Classification and Encoding Guide
+| *Version:* | 1.1.0
+| *Date:* | January 2019
+| *Language:* | English
+| *Classification:* | Unclassified
+| *Contact:* | International Hydrographic Organization +
+4 Quai Antione 1er +
+B.P. 445 +
+MC 98011 MONACO CEDEX +
+Telephone: +377 93 10 81 00 +
+Fax: +377 93 10 81 40 +
+URL: www.iho.int
+| *Identifier:* | S-123 Annex A Data Classification and Encoding Guide
+| *Maintenance:* | Changes to S-123 Annex A; Data Classification and
+Encoding Guide are coordinated by the IHO Nautical Information Provision
+Working Group (NIPWG) and must be made available via the IHO web site.
+
+|===
+
+=== Terms and definitions
+
+For terms and definitions, see <<S123,clause=1.4.2>>.
+
+=== Abbreviations
+
+For a list of abbreviations, see <<S123,clause=1.4.3>>.
+
+=== Use of language
+
+Within this document:
+
+"Must" indicates a mandatory requirement;
+
+"Should" indicates an optional requirement, that is the recommended
+process to be followed, but is not mandatory;
+
+"May" means "allowed to" or "could possibly", and is not mandatory,
+or recommended.
+
+=== Maintenance
+
+Changes to the Data Classification and Encoding Guide must occur in
+accordance with <<S123,clause=1.7>>.

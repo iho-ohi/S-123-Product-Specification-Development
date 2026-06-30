@@ -1,0 +1,79 @@
+<bibdata type="standard" schema-version="v1.5.6">
+  <fetched>2026-06-30</fetched>
+  <title language="en" script="Latn" type="title-main">Codes for the representation of names of languages</title>
+  <title language="en" script="Latn" type="title-part">Part 2: Alpha-3 code</title>
+  <title language="en" script="Latn" type="main">Codes for the representation of names of languages - Part 2: Alpha-3 code</title>
+  <title language="fr" script="Latn" type="title-main">Codes pour la représentation des noms de langue</title>
+  <title language="fr" script="Latn" type="title-part">Partie 2: Code alpha-3</title>
+  <title language="fr" script="Latn" type="main">Codes pour la représentation des noms de langue - Partie 2: Code alpha-3</title>
+  <uri type="src">https://www.iso.org/standard/4767.html</uri>
+  <uri type="obp">https://www.iso.org/obp/ui/en/#!iso:std:4767:en</uri>
+  <uri type="rss">https://www.iso.org/contents/data/standard/00/47/4767.detail.rss</uri>
+  <docidentifier type="ISO" primary="true">ISO 639-2:1998</docidentifier>
+  <docidentifier type="iso-reference">ISO 639-2:1998(E)</docidentifier>
+  <docidentifier type="URN">urn:iso:std:iso:639:-2:stage-95.99</docidentifier>
+  <docnumber>639</docnumber>
+  <date type="published">
+    <on>1998-10-22</on>
+  </date>
+  <contributor>
+    <role type="publisher"/>
+    <organization>
+      <name>International Organization for Standardization</name>
+      <abbreviation>ISO</abbreviation>
+      <uri>www.iso.org</uri>
+    </organization>
+  </contributor>
+  <contributor>
+    <role type="author">
+      <description>committee</description>
+    </role>
+    <organization>
+      <name>International Organization for Standardization</name>
+      <subdivision type="technical-committee" subtype="TC">
+        <name>Terminology workflow and language coding</name>
+        <identifier>ISO/TC 37/SC 2</identifier>
+      </subdivision>
+      <abbreviation>ISO</abbreviation>
+    </organization>
+  </contributor>
+  <edition>1</edition>
+  <language>en</language>
+  <language>fr</language>
+  <script>Latn</script>
+  <status>
+    <stage>95</stage>
+    <substage>99</substage>
+  </status>
+  <copyright>
+    <from>1998</from>
+    <owner>
+      <organization>
+        <name>ISO</name>
+      </organization>
+    </owner>
+  </copyright>
+  <relation type="obsoletedBy">
+    <bibitem>
+      <formattedref>ISO 639:2023</formattedref>
+      <docidentifier type="ISO" primary="true">ISO 639:2023</docidentifier>
+      <date type="published">
+        <on>2023-11-08</on>
+      </date>
+    </bibitem>
+  </relation>
+  <place>
+    <city>Geneva</city>
+  </place>
+  <ext schema-version="v1.1.2">
+    <doctype>international-standard</doctype>
+    <flavor>iso</flavor>
+    <ics>
+      <code>01.140.20</code>
+      <text>Information sciences</text>
+    </ics>
+    <structuredidentifier type="ISO">
+      <project-number>4767</project-number>
+    </structuredidentifier>
+  </ext>
+</bibdata>

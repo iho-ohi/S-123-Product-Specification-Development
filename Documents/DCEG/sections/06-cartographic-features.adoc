@@ -1,0 +1,63 @@
+
+[[sec_6]]
+== Cartographic Features
+
+[[sec_6.1]]
+=== Text Placement
+
+[cols="a,a,a,a,a",options="unnumbered"]
+|===
+5+| [underline]#IHO Definition:# The Text Placement feature is used
+in association with the Feature Name attribute or a light description
+to optimize text positioning in ECDIS.
+5+| *S-10x Cartographic Feature: Text Placement*
+5+| *[underline]#Super Type:#*
+5+| *[underline]#Primitives:# point*
+
+2+| _Real World_ 2+| _Paper Chart Symbol_ | _ECDIS Symbol_
+
+h| S-123 Attribute h| S-57 Acronym h| Allowable Encoding Value h| Type h| Multiplicity
+
+| Text Offset Bearing  |          |         | IN | 1, 1
+| Text Offset Distance |          |         | IN | 1, 1
+| Text Rotation        |          |         | BO | 0, 1
+| Text Type            |          | 1: Name | EN | 1, 2
+| Scale Minimum        | (SCAMIN) |         | IN | 0, 1
+
+5+|
+
+[underline]#INT 1 Reference:#
+|===
+
+[[sec_6.1.1]]
+==== Text Placement
+
+The cartographic feature *Text Placement* is used specifically to
+place text cartographically. The properties of the text placement
+feature are described as follows:
+
+*Geometry (point)* -- the spatial point location of the text string.
+
+*text type* -- the classification of the text being placed based on
+attribution of the target feature(s) (mandatory).
+
+*text offset bearing* and *text offset distance* -- the bearing and
+distance (in millimetres in the ECDIS display) used to position the
+text relative to the feature.
+
+The Text Placement feature is associated to the feature which carries
+the text being placed. The mandatory attribute *text type* identifies
+the text string(s) to be placed.
+
+[underline]#Remarks:#
+
+[underline]#Distinction:#
+
+[cols="a,a,a,a,a",options="unnumbered"]
+|===
+5+h| [underline]#Feature/Information associations#
+.2+h| Type .2+h| Association Name 3+h| Association Ends h| Class h| Role h| Mult
+
+| composition | Text association | *FeatureType* | thePositionProvider | 0, 1
+
+|===

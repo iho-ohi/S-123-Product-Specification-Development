@@ -1,0 +1,24 @@
+
+[[sec_9]]
+== Portrayal
+
+[[sec_9.1]]
+=== Introduction
+
+S-123 portrayal is covered by the portrayal model as defined in <<IHO_S_100>>.
+This model reflects how the Portrayal Catalogue is defined for use
+in marine navigation systems. The Portrayal Catalogue defines symbology
+and the portrayal rules for each feature/attribute combination contained
+in the Feature Catalogue. Items included in an S-123 Portrayal Catalogue
+must be registered in the IHO Geospatial Information (GI) Registry.
+
+[[sec_9.2]]
+=== Portrayal catalogue
+
+The Portrayal Catalogue contains the mechanisms for the system to
+portray information found in S-123 datasets. The Portrayal Catalogue
+model is defined in <<IHO_S_100,part=9,clause=9-13>>.
+
+The S-123 Portrayal Catalogue is available in an XML document which
+conforms to the S-100 XML Portrayal Catalogue Schema. The structure
+for the Portrayal Catalogue is described in <<IHO_S_100,part=9,clause=9-13.2>>.

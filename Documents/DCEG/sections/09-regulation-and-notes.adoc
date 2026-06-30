@@ -1,0 +1,55 @@
+
+[[sec_9]]
+== Textual Regulations and Notes
+
+The information types *Regulations*, *Restrictions*, *Recommendations*,
+and *NauticalInformation* all inherit the attributes of their immediate
+abstract superclass *AbstractRxN*, which provides attributes _textContent_
+and _graphic_ for textual and pictorial material respectively.
+The sub-attributes of its complex attribute _rxnCode_ allow optional
+classification of the material encoded in _textContent/graphic_ according
+to the type of material and the kind of nautical activity affected
+by it. The classifications in _rxNCode_ sub-attributes _categoryOfRxN_
+and _actionOrActivity_ are intended to facilitate software queries
+for information, while the sub-attribute headline provides additional
+topic headings for subject matter.
+
+These four information types also inherit the attributes of abstract
+superclass *InformationType*, which allows encoding of the effective
+and expiry dates, if any, and the source of information, if it is
+necessary to encode that data.
+
+*NauticalInformation* can be associated with any geographic feature
+through either an _AdditionalInformation_ or _AssociatedRxN_ association.
+_AdditionalInformation_ should be used only when the information encoded
+in *NauticalInformation* is general in nature and does not supplement
+information encoded in a *Regulations*, *Restrictions*, or *Recommendations*
+object associated to the same feature.
+
+The content of the regulation (recommendation, etc.) should be encoded
+in the _textContent_ attribute, which is also inherited from the abstract
+superclass *InformationType*. It may be encoded inline
+(_textContent.information.text_) or in an external file
+(_textContent.information.fileReference_) depending on its length,
+on whether it is unique to the feature instance, and on whether the
+producer decides to include a support file containing multiple sections
+referenced from different places in the dataset.
+
+These four information types are intended primarily for encoding textual
+information, such as that which derives from textual source material
+such as national or local laws or official publications.
+
+All geo features may have an association to any of Regulations or
+its sibling information types. This association is _AssociatedRxN_
+and it is inherited from the root feature type *FeatureType*.
+
+If it is necessary to identify an authority or organization related
+to a particular regulation (restriction, etc.) object, this may be
+done using the _RelatedOrganisation_ association between *Regulations*,
+etc., and an *Authority* object.
+
+Regulations applying only to vessels of specified types, exceeding
+specified dimensions, or carrying specified cargoes (or other limitations
+which apply only to subsets of vessels) are encoded by defining the
+subset of vessels using an *Applicability* instance and associating
+the *Regulations* object to that *Applicability*.

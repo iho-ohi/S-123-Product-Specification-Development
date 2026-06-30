@@ -1,0 +1,86 @@
+<bibdata type="standard" schema-version="v1.5.6">
+  <fetched>2026-06-30</fetched>
+  <title language="en" script="Latn" type="title-main">Codes for the representation of names of countries and their subdivisions</title>
+  <title language="en" script="Latn" type="title-part">Part 1: Country code</title>
+  <title language="en" script="Latn" type="main">Codes for the representation of names of countries and their subdivisions - Part 1: Country code</title>
+  <title language="fr" script="Latn" type="title-main">Codes pour la représentation des noms de pays et de leurs subdivisions</title>
+  <title language="fr" script="Latn" type="title-part">Partie 1: Codes de pays</title>
+  <title language="fr" script="Latn" type="main">Codes pour la représentation des noms de pays et de leurs subdivisions - Partie 1: Codes de pays</title>
+  <uri type="src">https://www.iso.org/standard/72482.html</uri>
+  <uri type="obp">https://www.iso.org/obp/ui/en/#!iso:std:72482:en</uri>
+  <uri type="rss">https://www.iso.org/contents/data/standard/07/24/72482.detail.rss</uri>
+  <docidentifier type="ISO" primary="true">ISO 3166-1:2020</docidentifier>
+  <docidentifier type="iso-reference">ISO 3166-1:2020(E)</docidentifier>
+  <docidentifier type="URN">urn:iso:std:iso:3166:-1:stage-90.93</docidentifier>
+  <docnumber>3166</docnumber>
+  <date type="published">
+    <on>2020-08-25</on>
+  </date>
+  <contributor>
+    <role type="publisher"/>
+    <organization>
+      <name>International Organization for Standardization</name>
+      <abbreviation>ISO</abbreviation>
+      <uri>www.iso.org</uri>
+    </organization>
+  </contributor>
+  <contributor>
+    <role type="author">
+      <description>committee</description>
+    </role>
+    <organization>
+      <name>International Organization for Standardization</name>
+      <subdivision type="technical-committee" subtype="TC">
+        <name>Information and documentation</name>
+        <identifier>ISO/TC 46</identifier>
+      </subdivision>
+      <abbreviation>ISO</abbreviation>
+    </organization>
+  </contributor>
+  <edition>4</edition>
+  <language>en</language>
+  <language>fr</language>
+  <script>Latn</script>
+  <abstract language="en" script="Latn">This document specifies basic guidelines for the implementation and maintenance of country codes. This code is intended for use in any application requiring the expression of current country names in coded form.</abstract>
+  <status>
+    <stage>90</stage>
+    <substage>93</substage>
+  </status>
+  <copyright>
+    <from>2020</from>
+    <owner>
+      <organization>
+        <name>ISO</name>
+      </organization>
+    </owner>
+  </copyright>
+  <relation type="obsoletes">
+    <bibitem>
+      <formattedref>ISO 3166-1:2013</formattedref>
+      <docidentifier type="ISO" primary="true">ISO 3166-1:2013</docidentifier>
+      <date type="published">
+        <on>2013-11-19</on>
+      </date>
+    </bibitem>
+  </relation>
+  <relation type="obsoletedBy">
+    <bibitem>
+      <formattedref>ISO/PWI 3166-1</formattedref>
+      <docidentifier type="ISO" primary="true">ISO/PWI 3166-1</docidentifier>
+    </bibitem>
+  </relation>
+  <place>
+    <city>Geneva</city>
+  </place>
+  <ext schema-version="v1.1.2">
+    <doctype>international-standard</doctype>
+    <flavor>iso</flavor>
+    <ics>
+      <code>01.140.30</code>
+      <text>Documents in administration, commerce and industry</text>
+    </ics>
+    <structuredidentifier type="ISO">
+      <project-number>72482</project-number>
+    </structuredidentifier>
+  </ext>
+</bibdata>

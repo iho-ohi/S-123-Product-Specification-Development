@@ -1,0 +1,1314 @@
+
+[[sec_2]]
+== General
+
+=== Introduction
+
+This S-123 Data Classification and Encoding Guide (DCEG) contains
+rules and guidance for converting data describing the real world into
+data products that conform to the S-123 specification.
+
+The S-123 specification contains an application schema (UML model)
+describing the conceptual domain model in terms of classes and relationships,
+and a Feature Catalogue (see <<S123,annex=C>>) that specifies the data
+model, i.e., specifies the data model types and associations corresponding
+to the various classes and relationships in the application schema.
+
+To simplify the DCEG text, the various data model types will be provided
+without the suffixes "class", "type" or "instance"; e.g. the term
+"feature" should be understood as "feature class" or "feature type"
+or "feature instance" as best fits the immediate context in which
+it is used (and where there might be confusion, it is written out
+in full as feature class/type/instance).
+
+The model defines real world entities as a combination of descriptive
+and spatial characteristics (<<S123,clause=6>>).
+
+This clause of the DCEG contains general information needed to understand
+the encoding rules and describes fundamental common rules and constraints.
+It also describes datasets and metadata. The data model object types
+used within S-123 and their encoding rules and guidelines are defined
+in detail in subsequent clauses of this document.
+
+Within this document the features, information types, associations,
+and attributes appear in *bold text* or _italic text_, to distinguish
+them from surrounding words.
+
+=== Descriptive characteristics
+
+==== Feature
+
+A feature contains descriptive attributes that characterize real world
+entities.
+
+The word 'feature' as used in the ISO 191xx series and in S-100 based
+product specifications has two distinct but related senses --
+'feature type' and 'feature instance'. A feature instance is a single
+occurrence of the feature and is represented as an object in a dataset.
+
+The location of a feature instance on the Earth's surface is indicated
+by a relationship to a spatial primitive instance. A feature instance
+may exist without referencing a spatial primitive instance.
+
+===== Geographic feature class
+
+*Geographic (Geo) feature types* carry the descriptive characteristics
+of a real world entity which is provided by a spatial primitive instance.
+
+===== Meta feature class
+
+*Meta feature type* contains information about other features.
+
+===== Charted background feature
+
+The MRS data product would mostly be visualized as an overlay of an
+ENC or other GIS applications. Consequently, all necessary descriptive
+and spatial characteristics to provide a charted background should
+be provided by the underlying application.
+
+==== Information type
+
+An information type has no geometry and therefore is not associated
+to any spatial primitives to indicate its location.
+
+An information type may have attributes and can be associated with
+features or other information types in order to carry information
+particular to these associated features or information types.
+
+=== Spatial characteristics
+
+==== Spatial primitives
+
+The allowable spatial primitive for each feature is defined in the
+Feature Catalogue. Allowable spatial primitives are point, curve,
+and surface.
+
+Within this document, allowable spatial primitives are included in
+the description of each feature. For easy reference, <<table_2.1>>
+below summarises the allowable spatial primitives for each feature.
+In the table, abbreviations are as follows: point (P), curve
+pass-format:metanorma[(C)], surface (S), and none (N). Abstract features
+are excluded from this table since they cannot have feature instances
+in datasets.
+
+[[table_2.1]]
+.Features and their spatial primitives
+[cols="a,a,a,a,a"]
+|===
+h| Feature h| P h| C h| S h| N
+
+5+| *Geographic Features*
+
+| RadioStation                  | P | |   |
+| RadioServiceArea              |   | | S |
+| NavtexServiceArea             |   | | S |
+| NavArea                       |   | | S |
+| MetArea                       |   | | S |
+| WeatherForecastAndWarningArea |   | | S |
+| GMDSSArea                     |   | | S |
+| ConnectivitySubscriptionArea  | P | | S |
+| IndeterminateZone             |   | | S |
+| ForecastAreaAggregate         |   | |   | N
+| RadioServiceAreaAggregate     |   | |   | N
+
+5+| *Meta Features*
+
+| DataCoverage                | | | S |
+| QualityOfNonBathymetricData | | | S |
+
+5+| *Cartographic Features*
+
+| TextPlacement | P | | |
+
+|===
+
+==== Capture density guideline
+
+Coordinate density can have a significant impact on file size and
+system performance. A rule of thumb is to limit the coordinate density
+to 0.3 mm at maximum permitted display scale. For a scaleless product,
+the producer should keep in mind the expected scale range for typical
+use and the density of coordinates needed to suit the needs of the
+product.
+
+The capture density will follow the recommendation of the S-101 (ENC)
+DCEG, which states curves and surface boundaries should not be encoded
+at a point density greater than 0.3 mm at permitted display scale.
+
+A curve consists of one or more curve segments. Each curve segment
+is defined as a loxodromic line on WGS84, or as an arc or circle.
+Long lines may need to have additional coordinates inserted to cater
+for the effects of projection change.
+
+The presentation of line styles may be affected by curve length. Therefore,
+the encoder must be aware that splitting a curve into numerous small
+curves may result in poor symbolization.
+
+=== Attributes
+
+Attributes may be simple type or complex type. Complex
+pass-format:metanorma[(C)] attributes are aggregates of other attributes
+that can be simple type or complex type attributes. Simple (S) attributes
+are assigned to one of the types collected at <<sec_2.4.1>>.
+
+The binding of attributes to a feature, the binding of attributes
+to attributes to construct complex attributes, and attribute multiplicity
+are all defined in the Feature Catalogue.
+
+Within this document, the allowable attributes are included in the
+description of each feature, as well as the allowable values for enumeration
+type attributes.
+
+[[sec_2.4.1]]
+==== Simple attribute types
+
+Each simple attribute (S) is assigned to one of attribute types in
+<<table_2.2>> (in alphabetic order):
+
+[[table_2.2]]
+.Simple attribute types
+[cols="a,a,a"]
+|===
+h| Abbreviation h| Attribute type h| Description
+
+| BO | Boolean
+| A value representing binary logic. The value can be either True
+or False. The default state for Boolean type attributes (i.e. where
+the attribute is not populated for the feature) is False.
+
+| CL | Code List
+| A type of flexible enumeration (see "EN" below). A code list type
+is a list of literals which may be extended only in conformance with
+specified rules. Attributes of a code list type may take values from
+the list or other values which are defined according to the rules.
+The rules should be part of the specification of the individual codelist
+type. A code list could either be closed (fixed) or open (extensible).
+
+A code list type has the following properties: 1. A description of
+the code list type, 2. The URI where the list could be found, and
+3. An encoding instruction.
+
+| DA | Date
+| A date provides values for year, month and day according to the
+Gregorian Calendar.
+
+Example (XML/GML): 1998-09-18 (YYYY-MM-DD) +
+S-123 uses only XML-based formats (including GML) and therefore the
+ISO "basic" format described in S-100 is not used.
+
+| DT | Date and Time
+| A DateTime is a combination of a date and a time type.
+
+Example (XML/GML): 1985-04-12T10:15:30 (YYYY-MM-DDThh:mm:ss) +
+S-123 uses only XML-based formats (including GML) and therefore the
+ISO "basic" format described in S-100 is not used.
+
+| EN | Enumeration
+| A fixed list of valid identifiers of named literal values. Attributes
+of an enumerated type may only take values from this list.
+
+| IN | Integer
+| A signed integer number. The representation of an integer is encapsulation
+and usage dependent.
+
+Integer attribute values must not be padded by non-significant zeroes.
+For example, for a number of 19, the value populated for the attribute
+must be 19 and not 019.
+
+[example]
+29, -65547
+
+| RE | Real
+| A signed real (floating point) number consisting of a mantissa and
+an exponent. The representation of a real is encapsulation and usage
+dependent.
+
+Real attribute values must not be padded by non-significant zeroes.
+For example, for a signal period of 2.5 seconds, the value populated
+for the attribute signal period must be 2.5 and not 02.50.
+
+[example]
+23.501, -0.0001234, -23.0, 3.141296
+
+| TD | Truncated Date
+| One or more significant components of the modelling date are omitted.
+Example: A GML dataset would use a GML built-in type and encode it
+as<gMonth>--02<gMonth>S-123 uses only XML-based formats
+(including GML) and therefore the ISO "basic" format described in
+S-100 is not used.
+
+| TE | Free text
+| A CharacterString is an arbitrary-length sequence of characters
+including accents and special characters from a repertoire of one
+of the adopted character sets.
+
+| TI | Time
+| A time is given by an hour, minute, and second. Time zone according
+to UTC is optional. Character encoding of a time is a string that
+follows the local time. Example: 183059 or 183059+0100 or 183059Z
+
+| UI | URL
+| A uniform resource locator (URL) is a URI that provides a means
+of locating the resource by describing its primary access mechanism
+(RFC 3986).
+
+[example]
+https://registry.iho.int
+
+| UN | URN
+| A persistent, location-independent, resource identifier that follows
+the syntax and semantics for URNs specified in RFC 2141.
+
+[example]
+urn:mrn:iho:s123:1:0:0:RadioServiceArea
+
+|===
+
+==== Mandatory attributes
+
+Some attributes are mandatory and must be populated for a given feature.
+There are some reasons why attribute values may be considered mandatory:
+
+* They are fundamental to the definition of a feature;
+* They are required to support the correct portrayal of a feature
+instance;
+* Certain features make no logical sense without specific attributes;
+* Some attributes are required for safety of navigation.
+
+Within this document, mandatory attributes are those with a multiplicity
+of 1,1 or 1,n (n>1) or 1,++*++. The attribute multiplicity is identified
+in the description of each feature class.
+
+==== Conditional attributes
+
+The MRS feature classes or information types do not contain conditional
+attributes.
+
+Complex attributes which are assigned to feature classes or information
+types have at least one sub-attribute which is mandatory (or conditionally
+mandatory). Where the sub-attribute of a complex attribute is conditional,
+this is indicated in the Remarks sub-clause for the relevant feature
+class entries.
+
+If a complex attribute with all its sub-attributes optional (e.g.,
+multiplicity 0,1 or 0,++*++) is encoded, at least one of the sub-attributes
+must be populated.
+
+[[sec_2.4.4]]
+==== Missing attribute values
+
+Where a value of a mandatory attribute is not known, the attribute
+must be populated with an empty (null) value.
+
+Where the value of a non-mandatory attribute is not known, the attribute
+must not be included in the dataset.
+
+==== Multiplicity
+
+In order to control the number of allowed attribute values or sub-attribute
+instances within a complex attribute, S-100 uses the concept of multiplicity.
+This defines lower and upper limits for the number of values, whether
+the order of the instances is significant, and if an attribute is
+mandatory. Common examples are shown in <<table_2.3>>:
+
+Format: MinOccurs, MaxOccurs (a ++*++ indicates that infinite instances
+are possible, the term (ordered) indicates that the order of the provided
+instances is significant)
+
+[[table_2.3]]
+.Multiplicity of attributes
+[cols="2"]
+|===
+h| Multiplicity h| Explanation
+
+| 0,1 | An instance is not required; if provided there must only be one instance.
+| 1,1 | An instance is required and there must only be one instance.
+| 0,* | An instance is not required and there can be an infinite number of instances.
+| 1,* | An instance is required and there can be an infinite number of instances.
+| 1,++*++ (ordered)
+| An instance is required and there can be an infinite number of instances,
+the order of which is significant.
+| 2,2 | Two instances are required and there must be no more than two.
+|===
+
+==== Spatial attribute types
+
+Spatial attribute types must contain a referenced geometry and may
+be associated with spatial quality attributes. Each spatial attribute
+instance must be referenced by a feature instance or another spatial
+attribute instance.
+
+===== Quality of spatial attributes
+
+The quality of spatial attributes in S-123 is described in a
+*Quality of Non-Bathymetric Data* meta-feature. This meta-feature
+defines areas within which uniform assessment exists for the quality.
+It is described in detail later in this document.
+
+If the spatial quality attributes for an individual instance of a
+spatial primitive differ from the quality indicated in the overlying
+*Quality of Non-Bathymetric Data* meta-feature, the quality attributes
+for that instance are carried in an information class called
+*spatial quality*. Only points and curves can be associated with
+*spatial quality*. S-123 does not use multi-points. Currently, no
+use case for associating surfaces with spatial quality attributes
+is known, therefore this is prohibited. Vertical uncertainty is prohibited
+for curves as this dimension is not supported by curves.
+
+NOTE: S-123 does not make use of the S-101
+*Quality of Bathymetric Data* meta- feature since depth range uncertainties
+are not needed. The *Quality of Non-Bathymetric Data* meta-feature
+has all the quality attributes needed by S-123.
+
+[[fig_2.1]]
+.Spatial quality information
+image::figure-1.png[]
+
+==== Portrayal feature attributes
+
+Marine Radio Services data products will be used within ECDIS where
+ENC data is displayed based on the rules defined within the S-101
+Portrayal Catalogue. While most ECDIS portrayal is based on attributes
+describing the instance of a particular feature in the real world,
+certain feature attributes are used in portrayal rules to provide
+additional functionality in the ECDIS. <<table_2.4>> provides a list
+of attributes which have specific influence on portrayal.
+
+[[table_2.4]]
+.Attributes which have effects on portrayal
+[cols="2"]
+|===
+h| Attribute h| Effects on portrayal
+
+| *nameUsage*
+| The enumeration attribute classifies the type and display level
+of the name of a feature in an end-user system.
+| *information*
+| Population of this complex attribute will result in the display
+of the magenta information symbol to highlight additional information
+to the user.
+| *pictorialRepresentation*
+| The population of this Text attribute will result in the display
+of the magenta information symbol to highlight additional information
+to the user.
+| *textContent*
+| The population of this complex attribute will result in the display
+of the magenta information symbol to highlight additional information
+to the user.
+
+|===
+
+==== Textual information
+
+Textual information may provide additional information essential to
+understand the presence of the MRS and other features of an S-123
+product. This information may also provide legal information pertaining
+to the S-123 product features.
+
+The methods to provide textual information vary from the simple provision
+of short text, to the more structured provision of extensive text.
+The length of the text determines the method and the attribute selection,
+see <<sec_2.4.8.2>>.
+
+===== Specialized information types for common kinds of textual information
+
+The information types *Restrictions, Recommendations, Regulations*,
+ or *NauticalInformation* must be used to encode text information
+when the DCEG allows them to be associated to the feature or information
+type and the information is of the appropriate kind (a restriction,
+regulation, etc.).
+
+In exceptional circumstances and only if the use of the information
+types *Restrictions, Recommendations*, or *Regulations* is not sufficient,
+*NauticalInformation* can be used to encode additional textual information
+associated to a feature or a group of features.
+
+In some cases, there may be a specialized attribute that is specifically
+intended for the data in question. If an appropriate specialized attribute
+is available, it must be used in preference to *information* or *textContent*.
+For example, feature names will generally be encoded in the *name*
+sub-attribute of complex attribute *featureName*, instead of *information*++->++*text*.
+
+[[sec_2.4.8.2]]
+===== Textual information attributes
+
+Textual information which is not appropriate for any of the Text-type
+attribute (or sub-attribute) allowed for the feature/information type
+should be encoded using either *information* or *textContent* complex
+attributes. Generally, either *information* or *textContent* is allowed,
+but not both.
+
+===== Languages
+
+Both *information* and *textContent* define a *language* sub-attribute
+for specifying the language in which the text is encoded.
+
+The exchange language for textual information should be English; therefore
+it is not required to populate the sub-attribute *language* for an
+English version of textual information.
+
+Languages other than English may be used as a supplementary option,
+for which *language* must be populated with an appropriate value to
+indicate the language.
+
+When a national language is used in the textual attributes, the English
+translation must also exist.
+
+The specification of the _language_ attribute in the IHO GI registry
+states "The language is encoded by a 3 character code following
+ISO 639-2/T." These codes and the corresponding language names may
+be obtained from the codelist _S100_MD_LanguageCode_ in the S-100
+codelists file, which is part of the S-100 Edition 5.2.0 schemas distribution,
+at the URLs below:
+
+* XML file:
+
+https://schemas.s100dev.net/schemas/S100/5.2.0/resources/Codelists/cat/codelists.xml
+
+* Web list:
+
+https://schemas.s100dev.net/schemas/S100/5.2.0/resources/Codelists/cat/codelists.html
+
+===== Minimal use of generalized text attributes
+
+The complex attributes *information* and *textContent* must not be
+used when it is possible to encode the information by means of any
+other attribute. The population of these attributes provides symbols
+on an ECDIS screen. Therefore producers should carefully consider
+use of these attributes as the symbol may contribute significantly
+to ECDIS screen clutter and text attributes should be populated only
+when the content conveys useful information.
+
+===== Short textual information
+
+The *text* sub-attribute of complex attribute *information* should
+generally be used for short notes or to transfer information which
+cannot be encoded by other attributes, or to give brief information
+about a feature. The use of the complex attribute *information* as
+a stand-alone complex attribute is intentionally limited to the information
+types *ContactDetails, Applicability, NonStandardWorkingDay,* and
+*ServiceHours,* which do not need the additional attributes defined
+in *textContent*. The reason for the limited use of *information*
+as a stand-alone complex attribute is to provide a structured and
+harmonised approach to textual information within the S-123 product
+data sets.
+
+The text populated in *text* must not exceed 300 characters. Character
+strings contained in *text* sub-attribute must be UTF-8 character
+encoding.
+
+===== Complex or lengthy textual information
+
+More complex encodings of text may use either *information* or *textContent*.
+The feature catalogue and the feature/information type definitions
+in this DCEG indicate whether *information* or *textContent* is allowed.
+
+The complex attribute *textContent* also has *information* as a complex
+sub-attribute. If a short note must be encoded in a feature or information
+type which has only *textContent* as an attribute, it should be encoded
+as *textContent*++->++*information*++->++*text*.
+
+Complex text information, such as text longer than 300 characters,
+formatted text, or HTML extracts from shipping regulations, must be
+encoded in a file named in either *information*++->++*fileReference*
+or *textContent*++->++*information*++->++*fileReference*. The construction
+*textContent*++->++*information*++->++*fileReference* should be used
+if the feature/information type provides *textContent* as complex
+attribute.
+
+The complex attribute *information* defines an optional sub-attribute
+*headline* which may be used for a short title not exceeding 60 characters.
+The content should be short but informative -- if the textual information
+is divided into sections, the most relevant section header from the
+referenced content may be a good choice for *headline*.
+
+The complex attribute *textContent* defines an optional sub-attribute
+*categoryOfText* for indicating whether the text is the full text
+from the source, an extract from the source, or a summary prepared
+by the encoder. Populating *categoryOfText* is recommended whenever
+the textual information is taken or summarized from a law or regulation.
+
+If it is considered necessary to include a description of the source
+of the textual information, the sub-attribute *source* of *textContent*
+must be used. Encoding a description of the source is strongly recommended
+for textual information whose source is considered as information
+the end-user must have, e.g., because the date of issue must be conveyed
+or because it cites official regulations which are frequently updated.
+
+NOTE: Some government documents are frequently updated, e.g., the
+U.S. Electronic Code of Federal Regulations, which is currently updated
+every working day even though a particular section may be stable for
+years.
+
+==== Attributes referencing external files
+
+===== Predefined derived types
+
+<<table_2.5>> presents the following predefined derived types which
+are described in <<S100,clause=1-4.6>>:
+
+[[table_2.5]]
+.Predefined derived types
+[cols="a,a,a"]
+|===
+h| Name h| Description h| Derived from
+
+| URI
+| A uniform resource identifier which character encoding shall follow
+the syntax rules as defined in RFC 3986.
+
+[example]
+http://registry.iho.int
+| CharacterString
+
+| URL
+| A uniform resource locator (URL) is a URI that provides a means
+of locating the resource by describing its primary access mechanism
+(RFC 3986).
+
+[example]
+http://registry.iho.int
+| URI
+
+| URN
+| A persistent, location-independent, resource identifier that follows
+the syntax and semantics for URNs specified in RFC 2141.
+
+[example]
+urn:iho:s123:1:0:0:RadioServiceArea
+| URI
+
+|===
+
+===== Reference to textual files
+
+The files referenced by complex attribute *information* and its sub-attribute
+*fileReference* must be ++*++.TXT, ++*++.HTM or ++*++.XML files, and
+may contain formatted text. It is up to the Producing Authority to
+determine the most suitable means of encoding a particular piece of
+text (as text, HTML, or XML). The format of the reference to the file
+should be a "file URI" (S-100 1-4.6).
+
+Besides being bound to certain types, the complex attribute *information*
+is also a sub-attribute of the complex attribute *textContent*.
+This means that any type that binds *textContent* as an attribute
+can also contain a reference to a textual file via an *information*
+sub-attribute. In S-123, there are several features, information types,
+and complex attributes that bind either *textContent* or *information*.
+
+The exchange language for textual information should be English.
+The sub-attribute *language* must be populated with an appropriate
+value to indicate the language used. Languages other than English
+may be used as a supplementary option. Generally this means, when
+a national language is used in the textual attributes, the English
+translation must also exist.
+
+Files must only use UTF-8 character encoding even when the sub-attribute
+*language* is populated with a language other than English.
+
+If it is necessary to indicate a specific section within a large text
+file, this may be done by encoding the location in the *fileLocator*
+sub-attribute of *information*, as described in <<table_2.6>>.
+
+Producers and application developers should note that the use of the
+*fileLocator* attribute enables a single support file to contain separate
+chunks of text referenced from different features, information types,
+or complex attribute. Adopting this practice enables producers to
+reduce the number of external files needed with a dataset.
+
+[[table_2.6]]
+.Locators for external files
+[cols="51,99,425"]
+|===
+h| Format h| File extension h| Content of fileLocator
+
+| Text | TXT
+| The offset of the start of the section relative to the beginning
+of the file (the first character in the file has offset 0).
+(While allowed, locators to text files are not recommended; an HTML
+or XML file should be used instead.)
+| HTML | HTM
+| The HTML fragment identifier, i.e., the value of the HTML _name_
+or _id_ attribute of the target (as defined in the relevant HTML specification).
+| XML | XML
+| The XML fragment identifier as defined in the relevant specification,
+e.g., the value of an _xml:id_ attribute.
+|===
+
+===== Reference to external sources
+
+References to Internet sources should be encoded using the *onlineResource*
+sub-attribute of *textContent*. Encoders should be aware that systems
+may not be able to access the Internet, so *onlineResource* should
+be used only for non-essential information.
+
+Only sources that can be certified as secure and free from malicious
+downloads should be provided.
+
+===== Reference to graphics
+
+If it is required to indicate a graphic, the complex attribute *graphic*
+must be used. The sub-attribute *pictorialRepresentation* must be
+used to indicate the file name (without the path) of the external
+graphical file. Graphic files that form part of the data product must
+be content with the characteristics collected in <<table_2.7>>.
+
+[[table_2.7]]
+.Graphics characteristics
+[cols="291,284"]
+|===
+h| Characteristics h| Values
+
+| Recommended Resolution: | 96 DPI
+| Minimum Size x,y:       | 200,200 pixels
+| Maximum Size x,y:       | 800,800 pixels
+| Bit Depth:              | 8 Bit Indexed Colour
+| Compression:            | LZW
+| Format:                 | Tiff 6.0
+| File size
+| Minimum, considering that 10 MB is the maximum allowable size of
+an MRS dataset
+
+|===
+
+Additional information about the graphic file may be encoded in other
+sub-attributes of attribute *graphic*, as described in <<sec_2.4.12>>.
+
+==== Dates
+
+Dates may be need to be encoded as complete or truncated values, depending
+on available information and allowed format for the particular attribute.
+The definition of the attribute will indicate if it must take a complete
+value (type _Date_ or _DA_) or is allowed to take a truncated value
+(type _S100_TruncatedDate_ or _TD_). Complete and truncated dates
+are different value types (see <<S100,clause=1-4.5.2,table=1-2>>).
+
+For attributes that use the complete date type (type _Date_ or _DA_),
+all their components (year, month, and day) must be specified.
+
+For attributes that use the truncated date type
+(type _S100_TruncatedDate_ or _TD_), zero, one, or two of the year/month/day
+components may be omitted. If the year component is included, it must
+be specified using exactly 4 digits.
+
+===== Complete Dates
+
+Dates (except truncated dates, see the following clause) must be encoded
+in conformance with the Date format as specified in
+<<S100,clause=1-4.5.2>> which is the same as the DA format in <<table_2.2>> in
+this document. The data values have to be provided in accordance with
+the Gregorian Calendar starting with four digits for the year, two
+digits for the month and two digits for the day.
+
+====
+The date 18 September 2010 is encoded as follows:
+
+In the GML format: <date>2010-09-18</date>
+
+Note that since both discovery metadata and GML datasets are XML files,
+both will use the "GML format" above.
+====
+
+===== Truncated Dates
+
+In Truncated Dates one or more components (year, month, or day) of
+the date is not specified. Truncated date values must be encoded in
+conformance with the S100_TruncatedDate format or equivalent as specified
+in <<S100,clause=1-4.5.2>> and <<S100,clause=3-9>> which is the same as the _TD_ format
+in Table 2-2 in this document. If encoding attributes which can take
+truncated date values (e.g., *fixedDateRange*, *periodicDateRange*,
+*reportedDate*) and no specific year, month, or day is required, the
+values must be encoded in conformance with the truncated date format
+as specified in <<S100,clause=1-4.5.2>> and <<S100,clause=3-9>>, using the format-specific
+type for XML/GML.
+
+To encode partial dates in the XML/GML data format:
+
+[[table_2.8]]
+.Date encoding format in XML and GML
+[cols="3,2,5"]
+|===
+h| Description h| ISO 8211 h| GML
+
+| No specific year, same day each year   | pass-format:metanorma[----MMDD]
+| <gMonthDay>pass-format:metanorma[--MM-DD]</gMonthDay>
+| No specific year, same month each year | pass-format:metanorma[----MM--]
+| <gMonth>pass-format:metanorma[--MM]</gMonth>
+| No specific day                        | pass-format:metanorma[YYYYMM--]
+| <gYearMonth>pass-format:metanorma[YYYY-MM]</gYearMonth>
+| No specific month and no specific day  | pass-format:metanorma[YYYY----] | <gYear>YYYY</gYear>
+
+|===
+
+NOTE: YYYY = calendar year; MM = month; DD = day.
+
+The dashes (-) indicating that the year, month, or date which is not
+specified must be included in the encoding (with no space between
+the dashes).
+
+===== Start and end of ranges
+
+In accordance with <<S100,clause=3-8>>, the start and end instants of a range
+or period are included in the range or period.
+
+[example]
+If the beginning of a date range is encoded as the complete date 01
+January 2016, the period begins at 00:00:00 on 1 January 2016, and
+the whole of New Year's Day is included in the period. If the end
+of the date range is encoded as 01 January 2016, the period ends at
+24:00:00 on 1 January 2016, i.e., again the whole of New Year's Day
+is included in the period.
+
+[example]
+If the beginning of a period is encoded in truncated date format as
+pass-format:metanorma[----01--] (i.e., year and day not specified),
+the period begins at 00:00:00 on 1 January each year. If the end of
+the period is encoded as pass-format:metanorma[----01--], the period
+ends at 24:00:00 on 31 January each year.
+
+NOTE: Particular care should be taken if the end date is 28 or 29
+February. <<S100,clause=3-8.3>> explains the implications for end of February.
+For example, the truncated date pass-format:metanorma[----02--] will
+be interpreted as 29 February in leap years and 28 February in non-leap
+years, while pass-format:metanorma[----0228] will be interpreted as
+28 February in every year.
+
+NOTE: In accordance with ISO practice
+footnote:[S-100 and by extension S-131 have not adopted ISO 8601-1/2 (2019).],
+00:00:00 means midnight at the start of a day and 24:00:00 means midnight
+at the end of a day.
+
+[[sec_2.4.10.4]]
+===== Schedules
+
+Weekly service schedules of a feature can be comprehensively described
+by using the information types *ServiceHours* and *NonStandardWorkingDay*.
+
+[example]
+A feature service is available under normal operation status 24 hours/day
+on Monday and Wednesday and from 08:00 to 16:00 LT from Thursday to
+Saturday. The service is available by pre-arrangement on public holidays
+and the 5 of August of each year when they fall on days which would
+otherwise be normal working days.
+
+[pseudocode%unnumbered]
+====
+*ServiceHours*
+    *scheduleByDayOfWeek*
+        *categoryOfSchedule* = 1 (normal operation)
+        *timeIntervalsByDayofWeek*
+            *dayOfWeek* = 2(Monday), 4(Wednesday)
+            *dayOfWeekIsRange* =0 (false)
+    *timeIntervalsByDayofWeek*
+            *dayOfWeek* = 5(Thursday), 7(Saturday)
+            *dayOfWeekIsRange* = 1 (true)
+            *timeOfDayStart* = 080000
+            *timeOfDayEnd* = 160000
+*NonStandardWorkingDay*
+    *dateFixed* = pass-format:metanorma[----0805] (5 August)
+    *dateVariable* = public holidays
+    *information.text* = "By pre-arrangement"
+====
+
+The above example can be encoded as follows:
+
+[source%unnumbered]
+----
+<S123:ServiceHours gml:id="(GML ID of ServiceHours)">
+    <scheduleByDayOfWeek>
+        <categoryOfSchedule code="1">Normal Operation</categoryOfSchedule>
+        <timeIntervalsByDayOfWeek>
+            <dayOfWeek code="2">Monday</dayOfWeek>
+            <dayOfWeek code="3">Wednesday</dayOfWeek>
+            <dayOfWeekIsRange>0</dayOfWeekIsRange>
+            <timeOfDayStart>00:00:00</timeOfDayStart>
+            <timeOfDayEnd>24:00:00</timeOfDayEnd>
+        </timeIntervalsByDayOfWeek>
+        <timeIntervalsByDayOfWeek>
+            <dayOfWeek code="5">Thursday</dayOfWeek>
+            <dayOfWeek code="6">Saturday</dayOfWeek>
+            <dayOfWeekIsRange>0</dayOfWeekIsRange>
+            <timeOfDayStart>08:00:00</timeOfDayStart>
+            <timeOfDayEnd>16:00:00</timeOfDayEnd>
+        </timeIntervalsByDayOfWeek>
+    </scheduleByDayOfWeek>
+    <partialWorkingDay xlink:href="(reference to NonStandardWorkingDay)"/>
+</S123:ServiceHours>
+<S123:NonStandardWorkingDay gml:id="(GML ID of NonStandardWorkingDay)">
+    <dateFixed><gMonthDay>--08-05</gMonthDay></dateFixed>
+    <dateVariable>public holidays</dateVariable>
+    <information><text>By pre-arrangement</text</information>
+    <theServiceHours_nsdy xlink:href="(reference to ServiceHours)"/>
+</S123:NonStandardWorkingDay>
+----
+
+If the days of week are known but the hours of availability are unknown,
+there is no time attribute. Twenty-four availability is indicated
+by encoding the availability period as 000000-240000. Special cases
+such as unknown can be explained in the *textContent* or *information*
+attribute of *ServiceHours*.
+
+To encode two or more periods within the same day, repeat the *timeOfDayStart*
+and *timeOfDayEnd* attributes. If one of the times is not known, it
+may be nilled as described in <<sec_2.4.4>>.
+
+For example, to encode open hours of 8 a.m. to 12 noon and 1 p.m.
+to 5 p.m. on Thursdays and Saturdays:
+
+[pseudocode%unnumbered]
+====
+*timeIntervalsByDayofWeek*
+    *dayOfWeek* = 5(Thursday), 7(Saturday)
+    *dayOfWeekIsRange* = 0 (false)
+    *timeOfDayStart* = 080000
+    *timeOfDayStart* = 130000
+    *timeOfDayEnd* = 120000
+    *timeOfDayEnd* = 170000
+====
+
+The order of repeated *timeOfDayStart* and *timeOfDayEnd* attributes
+is significant, since intervals are specified by matching them pairwise
+in order.
+
+UTC is indicated by the Z suffix. The absence of the Z suffix indicates
+local time.
+
+The absence of any additional information other than date
+(fixed or variable) in *NonStandardWorkingDay* should be interpreted
+as closure on the specified days. Non-standard working days do not
+need to be associated with *ServiceHours* instances categorized as
+"closure" (_categoryOfSchedule=Closure_) because the closure is already
+indicated in the *ServiceHours* instance.
+
+===== Times
+
+If it is required to provide information of the start time and end
+time of an active period of a feature, it must be encoded using the
+attributes *timeOfDayStart* and *timeOfDayEnd*. The order has significance.
+
+==== Combination of date schedules and times
+
+Schedule information can also include time of day. The complex attribute
+*timeIntervalsByDayofWeek* also includes *timeOfDayStart* and *timeOfDayEnd*
+attributes to encode the daily start and end times of service. Complete
+instructions on how to encode schedules are described in <<sec_2.4.10.4>>.
+
+[[sec_2.4.12]]
+==== Graphic information
+
+A graphic file should be appropriate for the purpose and should supplement
+the information in terms of navigational relevance. Preferably, the
+graphic should provide perspective relevant to the view of the mariner.
+Graphics should be such that all the information in the graphic is
+legible in the application display.
+
+Graphic information must be encoded using the complex attribute *graphic*.
+The simple sub-attribute *pictureInformation* should be used to provide
+credits to the picture creator, copyright owner etc.
+
+Assuming that graphic information provides a coastal view, mariners
+are interested in knowing from which point on sea that graphic has
+been taken. The complex attribute *bearingInformation* (see <<sec_2.4.12.1>>)
+provides all necessary information.
+
+[[sec_2.4.12.1]]
+===== Bearing information
+
+The most accurate information should be provided if it is necessary
+to indicate a position from where a picture has been taken. *information*
+is a sub-complex attribute of *bearingInformation* and should be used
+to specify that no bearing information can be provided whenever such
+is the case. The sub-attribute *sectorLimit* can be used to describe
+a certain level of inaccuracy in the position determination.
+
+[[sec_2.5]]
+=== Associations
+
+==== Introduction
+
+An association expresses a relationship between two classes - features,
+information types, or a feature and an information type. Objects in
+the dataset (instances of feature/information types) are related only
+if the link between them is encoded in the dataset.
+
+[example]
+An *Authority* information type provides the responsible authority
+information to the *Radio Station* feature. An association named
+*Service Control (srvControl)* is used to relate the two classes;
+roles are used to convey the meaning of the relationship.
+
+[[fig_2.2]]
+.Information association relating a feature to an information type
+image::figure-2.png[]
+
+An association end may have a multiplicity which describes how many
+instances the feature or information type instance at the other end
+is allowed to are to link to. In <<fig_2.2>>, any single instance
+of *Radio Station* may link to any number of *Authority* instances.
+
+==== Association names
+
+The association name is normally provided by the UML diagram at the
+middle of the connection line/arrow between the two involved classes
+and can be obtained from the feature and information type tables provided
+in this document).
+
+Association names may be omitted in the UML diagrams for the following
+reasons:
+
+. the association is defined by an association class, see <<sec_2.5.4>>
+(the name of the association class is used);
+
+. to avoid cluttering the diagram -- however, the name is always documented
+in the feature/information type tables.
+
+==== Association roles
+
+Either or both association ends can have a name (role). In <<fig_2.2>>
+the roles are *controlledService* and *controlAuthority*. This association
+expresses the relationship that a *Radio Station* may have any number
+of responsible *Authorit(ies)*, and an *Authority* may be responsible
+for any number of *Radio Stations*.
+
+Roles may be also omitted from the diagram to reduce clutter -- again,
+the role name is documented in the feature/information type tables.
+
+NOTE: Instead of documenting every single role, Product Specifications
+may describe rules for defining default roles.
+
+[[sec_2.5.4]]
+==== Association classes
+
+Association classes allow relationships to be characterized by one
+or more attributes. The attributes of the association class belong
+to the association itself, not to any of the features or information
+types it connects. An association class is both an association and
+a class. Within an S-123 product the association classes
+*Permission Type* and *Inclusion Type* may be used for relating vessel
+classes to feature and information types.
+
+===== Permission Type
+
+This association class specifies the relationship of the vessel class
+to a feature, e.g., whether access to a feature (or use of a facility)
+is prohibited or permitted for a specified class of vessel. The class
+of vessel is described by the simple and complex attributes of the
+information type *Applicability* such as length, cargo, etc. The attributes
+of the association class describe the nature of the relationship,
+i.e., whether access to an area is permitted or prohibited, or whether
+use of a service is required or recommended.
+
+[[fig_2.3]]
+.Association class for hypothetical requirement for use of a radio service by a vessel type
+image::figure-3.emf[]
+
+[example]
+An association between an *Applicability* instance with attribute
+*categoryOfDangerousOrHazardousCargo* = Class 3 and an instance of
+feature *RadioServiceArea*, with *Permission Type*'s attribute
+*categoryOfRelationship* = required, means that vessels carrying flammable
+liquids (hazardous cargo type class 3 in the IMDG Code) must use the
+radio services provided in the *RadioServiceArea*.
+
+===== Inclusion Type
+
+This association class defines whether a specified customer (class
+of vessels, as described by *Applicability*) is excluded or included
+from a particular regulation, recommendation, etc. Again, the attributes
+of the association class describe the nature of the relationship;
+in this case whether the vessel is included or excluded from the regulation,
+etc.
+
+[[fig_2.4]]
+.Association class for inclusion of vessel types in regulations
+image::figure-4.png[]
+
+[example]
+An association between an *Applicability* instance with attribute
+*categoryOfDangerousOrHazardousCargo* = IMDG Code Class 3, with
+*Inclusion Type*'s attribute *membership* = included, and an association
+of a *Regulation* instance to the same Inclusion Type, means that
+the information provided by the *Regulation* (a sub-type of *AbstractRXN)*
+applies to vessels carrying flammable liquids (hazardous cargo type
+class 3 in the IMDG Code).
+
+NOTE: Since *AbstractRXN* is an abstract type, it cannot have direct
+instances in the dataset. Only instances of its (non-abstract) sub-types
+can be used.
+
+NOTE: Specific tools may use different presentations in their user
+interfaces, e.g., as two associations (as described in the text of
+the example), or one association with an association class also shown
+(as shown in <<fig_2.4>>).
+
+==== Use of various associations
+
+===== General
+
+In general, associations must be encoded whenever the relationship
+is useful for navigation, monitoring, voyage or route planning, or
+reporting purposes, or any other purpose for which the dataset is
+intended. The multiplicity lower bound of "0" at an association end
+means only that the absence of a link to the relevant instance does
+not invalidate the dataset. The encoding instructions for individual
+feature and information types describe what associations are allowed
+and whether they are required or optional.
+
+===== Generic association for uncategorized additional information
+
+Unless other associations are specified, information types are associated
+to the relevant features using the association name *AdditionalInformation*
+and the role name *theInformation*.
+
+===== Associations to Restrictions, Recommendation, Regulations, and Nautical Information
+
+The *Restrictions, Recommendation, Regulations, Nautical Information*
+are associated to the relevant features using the association named
+*AssociatedRxN* (inherited from their common abstract super-type).
+The roles at the ends of this association are *appliesInLocation*
+and *theRxN* (the Restriction, Regulation etc.).
+
+If the regulation applies only to a specific class, or if it mentions
+an exempt class, an additional association to an *Applicability* object
+is encoded using the *InclusionType* association class.
+
+===== Conventional Association
+
+Certain features and information types may be permitted or required
+to have associations to other feature or information types. The allowed
+or mandatory associations for a feature/information type are shown
+in the application schema (<<S123,clause=4>>)
+and listed in the documentation for individual types in this Annex.
+Definitions of the associations and roles are also given in the DCEG.
+
+===== Where to Encode Associations
+
+The presentation and management of associations will be determined
+by the user interface of the encoding software tools. S-100 permits
+feature-information associations to be encoded only from the geographic
+feature to the information type and not vice versa.
+
+=== Datasets
+
+==== Types of Datasets
+
+A dataset is a grouping of features, attributes, geometry and metadata
+which comprises a specific coverage.
+
+<<table_2.9>> shows the types of datasets which may be produced and
+contained within an exchange set:
+
+[[table_2.9]]
+.Dataset types
+[cols="2"]
+|===
+h| Dataset h| Explanations
+
+| New dataset: | Data for an area different (in coverage and/or extent) to existing datasets.
+| New Edition of a dataset:
+| A re-issue plus new information which has not been previously distributed
+by Updates. Each New Edition of a dataset must have the same name
+as the dataset that it replaces and should have the same spatial extents.
+| Update dataset
+| Updated or new information. Contains information about objects being
+added, modified, or deleted.
+
+|===
+
+[[sec_2.6.2]]
+==== Overlay data sets
+
+S-123 datasets are intended to be used together with S-101 ENC
+(or similar data products) which will act as a base layer. The base
+layer is expected to provide navigational and visual context. Generally,
+an overlay dataset like S-123 does not provide "skin of the earth"
+coverage and there will be large areas with no data coverage because
+the S-123 application schema does not include any feature for designating
+a region as "other", or "not a radio service area" (i.e., there is
+no S-123 feature equivalent to the S-101 Unsurveyed Area). Further,
+an overlay dataset does not include features that provide auxiliary
+information such as bathymetry within a radio services area.
+
+Due to the nature of the S-123 domain, certain features, for example
+GMDSSArea, may overlap coverage of S-101 ENC stemming from multiple
+data producers, outside the national borders of the originating data
+producer.
+
+==== Data coverage
+
+A Marine Radio Services dataset can contain one or more *DataCoverage*
+features (see <<sec_4.4>>). The data boundary is defined by the extent
+of the *DataCoverage* meta features. Data must only be present within
+*DataCoverage* meta features.
+
+When a feature extends across datasets of overlapping scale ranges,
+its geometry must be split at the boundaries of the *DataCoverage*
+features and its complete attribute description must be repeated in
+each dataset.
+
+As features may overlap other S-100 datasets from multiple data producers
+(see <<sec_2.6.2>>), the Data Coverage feature must also overlap other
+S-100 datasets in such cases.
+
+An Update dataset must not extend the data coverage for the base dataset
+to which it applies. Where the extent of the data coverage for a base
+dataset is to be changed, this must be done by issuing a New Edition
+of the dataset.
+
+==== Discovery metadata
+
+Discovery metadata is intended to allow applications to find out important
+information about datasets and accompanying support files to be examined
+without accessing the data itself (or without reading the support file).
+Discovery metadata includes, but is not limited to:
+
+* information identifying the product specification and encoding format;
+
+* edition and version numbers, production/release date, and other
+details of data creation and updating;
+
+* data coverage of the dataset;
+
+* summary descriptions of content, purpose, use, and limitations;
+
+* identification and contact information for the producer and distributor
+of the dataset.
+
+Discovery metadata is encoded in the exchange catalogue. S-123 uses
+the same classes and attributes for discovery metadata as S-100, but
+adds certain product-specific restrictions. The classes and attributes
+for generic discovery metadata are defined in <<S100,part=17>>. Constraints
+and restrictions specific to S-123 are defined in <<S123>>.
+
+The schema for the exchange catalogue file (CATALOG.XML) for S-123
+is the same as the S-100 generic schemas and is available from the
+schema server (https://schemas.s100dev.net).
+
+==== Dataset header metadata
+
+Dataset header metadata contains structural and discovery metadata
+that apply to the whole dataset and are encoded in the dataset file.
+The elements are described in <<S100,part=10b>>.
+
+==== Dataset units
+
+The height and positional uncertainty units in a dataset must be metres.
+
+The geographic distance and range units must be nautical miles.
+
+==== Dataset Coverage
+
+Marine Radio Services datasets are spatially limited.
+
+In areas which include neighbouring producer nations, producing agencies
+should co-operate to agree on dataset boundaries and ensure no data
+overlap. Where possible, adjoining nations should agree on common
+data boundaries within a technical arrangement based on cartographic
+convenience and benefit to the mariner.
+
+If an MRS feature extends outside the product coverage and the adjoining
+object does not exist, e.g. due to delay in the production of the
+neighbouring HO product, an indication should be placed at the outer
+edge of the product.
+
+==== Overlaps
+
+The *DataCoverage* features within an MRS dataset must not overlap,
+however *DataCoverage* features from different MRS datasets may overlap.
+
+==== stem:[180 "unitsml(deg)"] Meridian of Longitude
+
+Datasets must not cross the stem:[180 "unitsml(deg)"] meridian of longitude.
+
+=== Geographic names
+
+==== Feature names
+
+If it is required to encode an international or national geographic
+name, it must be done using complex attribute *featureName*.
+
+Geographic names should be encoded with the complex attribute *featureName*.
+The complex attribute *featureName* consists of the simple sub-attributes
+*language*, *name* and *nameUsage*, which provides the encoder with
+options as to the name to display in certain system display settings.
+
+All area and point features within an MRS product should be encoded
+using *featureName* if a name is available.
+
+Named features listed in Hydrographic Office's Sailing Directions
+or other documents that may assist in locating service information
+should be encoded using feature name on the relevant feature
+(e.g. *Weather Forecast And Warning Area*).
+
+==== Text placement
+
+The cartographic feature *TextPlacement* is used specifically to place
+text cartographically. The properties of the *TextPlacement* feature
+are described as follows:
+
+* Geometry (point) -- the spatial point location of the text string.
+
+* text type -- the attribute (or class) which is to be placed.
+
+* orientation value and text offset mm -- the bearing and distance
+(in millimetres in the ECDIS
+
+* display) used to position the text relative to the feature.
+
+The *TextPlacement* feature is associated to the feature which carries
+the text being placed. The attribute *textType* determines which text
+string is to be displayed if more than one is present. The *TextPlacement*
+feature ensures that as the screen rotates from "north up"
+(e.g. if display is set to "course up") text can remain readable,
+or clear other important charted information.
+
+[[sec_2.8]]
+=== Scale policy
+
+==== General policy
+
+MRS data must be compiled in the best applicable scale. The use of
+the data itself is "scale independent". That means that the data can
+be used at any scale.
+
+==== Scale policy for feature types
+
+Unlike S-101, S-123 does not define scale minimum values or steps
+for individual feature types.
+
+=== Masking
+
+To improve the look and feel of the display of MRSs in ECDIS for the
+mariner certain features, or certain edges of features, should be
+masked.
+
+==== Surface features crossing MRS cell boundaries
+
+When a single feature of type surface crosses the boundaries of adjoining
+MRS products, mask the edge where it shares the geometry of the boundary
+in each MRS:
+
+[[fig_2.5]]
+.Surface feature crossing MRS products boundaries
+image::figure-5.jpeg[]
+
+This allows the features to be displayed as a single feature of type
+surface rather than being divided at the MRS product boundary and
+having the representation of two separate features.
+
+NOTE: Some production software will automatically truncate (mask)
+features at the cell boundary.
+
+NOTE: Occasionally an edge of the boundary of an area coincides with
+the MRS product boundary. Where this occurs and the production system
+applies automatic truncation (masking) of this edge, the compiler
+must "unmask" that edge so as to avoid the appearance of the area
+to be "open ended".
+
+Where features of type surface extend beyond the entire limit of data
+coverage for the MRS product (see <<sec_4.3>>), all edges of these
+area features should be masked.
+
+[[fig_2.6]]
+.Surface features extending beyond the entire limit of data coverage
+image::figure-6.jpeg[]

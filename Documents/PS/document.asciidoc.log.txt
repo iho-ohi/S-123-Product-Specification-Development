@@ -1,0 +1,3037 @@
+= Marine Radio Services Product Specification
+:series: S
+:docnumber: 123
+:doctype: specification
+:edition: 1.1.0
+:language: en
+:published-date: 2025-05-01
+:copyright-year: 2025
+:draft:
+:committee: HSSC
+:workgroup: NIPWG
+:mn-document-class: iho
+:mn-output-extensions: xml,html,doc,pdf,rxl
+:local-cache-only:
+:data-uri-image:
+:imagesdir: images
+
+[.preface]
+== metanorma-extension
+
+[.boilerplate]
+--
+Changes to this Product Specification are coordinated by the IHO Nautical
+Information Provision Working Group (NIPWG). New editions will be
+made available via the IHO web site. Maintenance of the Product Specification
+shall conform to IHO Technical Resolution 2/2007 (revised 2010).
+--
+
+=== document history
+
+[source,yaml]
+----
+- date:
+  - type: updated
+    value: 2017-07-14
+  edition: "1.0.0 draft 2"
+  contributor:
+  - person:
+      name:
+        completename: EM
+        abbreviation: EM
+  amend:
+    - description: Apply revisions from NIPWG review
+- date:
+  - type: updated
+    value: 2017-08-20
+  edition: "1.0.0 Release Candidate 1"
+  contributor:
+  - person:
+      name:
+        completename: RM
+        abbreviation: RM
+  amend:
+    - description: Update datasets, updated application schema according to NIPWG review
+- date:
+  - type: updated
+    value: 2025-05-31
+  edition: "1.1.0 draft 1"
+  contributor:
+  - person:
+      name:
+        completename: Shwu-Jing Chang
+        abbreviation: SJC
+  amend:
+    - description: Apply NIPWG approved change package of data model revision, and align with IHO S-100 Edition 5.2.0.
+----
+
+
+[[sec_1]]
+== Overview
+
+[[sec_1.1]]
+=== Introduction
+
+This document has been produced by the IHO Nautical Information Provision
+Working Group (NIPWG) in response to a requirement to produce a data
+product that can be used within an Electronic Chart Display and Information
+Systems (ECDIS). It is based on the IHO S-100 framework specification
+and the ISO 19100 series of standards. It is a vector product specification
+primarily intended for encoding the extent and nature of Radio Services,
+for navigational purposes.
+
+Radio services describe the availability and reliability of radio
+stations and services offering navigational warnings and weather forecasts.
+This includes their service areas, services offered and instructions
+for contacting or utilizing these services.
+
+[[sec_1.2]]
+=== Scope
+
+This document describes an <<IHO_S_100>> compliant Product Specification for
+Marine Radio Services, which will form an overlay layer for an S-100
+based marine navigation system. It specifies the content, structure,
+and metadata needed for creating a fully compliant S-123 product and
+for its portrayal within an S-100 system. This Product Specification
+includes the content model, the encoding, the Feature Catalogue, Portrayal
+Catalogue, and metadata.
+
+[[sec_1.3]]
+[bibliography]
+=== References
+
+* [[[IHO_S_100,IHO S-100]]] _IHO Universal Hydrographic Data Model, Edition 5.2.0_
+
+* [[[ISO_639_2_T,ISO 639-2]]] _Codes for the representation of names of languages -- Part 2: Alpha-3 code_
+
+* [[[ISO_3166_1,ISO 3166-1]]] _Codes for the representation of names of countries and their subdivisions -- Part 1:_ _Country code_
+
+* [[[ISO_8601_2004,ISO 8601:2004]]] _Data elements and interchange formats -- Information interchange -- Representation of dates and times_
+
+* [[[ISO_19101_1_2014,ISO 19101-1:2014]]] _Geographic information -- Reference Model --Part 1: Fundamentals_
+
+* [[[ISO_19107_2019,ISO 19107:2019]]] _Geographic information -- Spatial schema_
+
+* [[[ISO_19109_2015,ISO 19109:2015]]] _Geographic information -- Rules for application schema_
+
+* [[[ISO_19115_1_2014,ISO 19115-1:2014]]] _Geographic information -- Metadata -- Part 1 - Fundamentals_
+
+* [[[ISO_19115_3_2023,ISO 19115-3:2023]]] _Geographic information - Metadata - XML schema implementation for fundamental concepts_
+
+* [[[ISO_19117_2012,ISO 19117:2012]]] _Geographic information -- Portrayal_
+
+* [[[ISO_19123_2005,ISO 19123:2005]]] _Geographic information - Schema for coverage geometry and functions_
+
+* [[[ISO_19136_1_2020,ISO 19136-1:2020]]] _Geographic information -- Geography Markup Language (GML) -- Part 1 - Fundamentals_
+
+* [[[ISO_19136_2_2015,ISO 19136-2:2015]]] _Geographic information -- Geography Markup Language (GML) -- Part 2 -- Extended schemas and encoding rules_
+
+* [[[ISO_TS_19139_1_2019,ISO/TS 19139-1:2019]]] _Geographic information -- XML schema implementation -- Part 1 -- Encoding rules_
+
+* [[[ISO_19157_2013,ISO 19157:2013]]] _Geographic Information -- Data Quality_
+
+* [[[ISO_IEC_19501_2005,ISO/IEC 19501:2005]]] _Information technology -- Unified Modelling Language (UML)_, Version 1.4.2
+
+* [[[ISO_19101,hidden(ISO 19101)]]]
+
+* [[[ISO_19115,hidden(ISO 19115)]]]
+
+* [[[ISO_TS_19103,hidden(ISO/TS 19103)]]]
+
+* [[[ISO_19110,hidden(ISO 19110)]]]
+
+* [[[ISO_19108_2002,hidden(ISO 19108:2002)]]]
+
+* [[[ISO_10646_1,hidden(ISO/IEC 10646-1)]]]
+
+* [[[S97,hidden(IHO S-97)]]]
+
+* [[[AnnexA,dropid(repo:(current-metanorma-collection/IHO S-123 Annex A))]]],
+span:title[S-123 -- Annex A: Data Classification and Encoding Guide],
+span:edition[1.1.0],
+span:organization[International Hydrographic Organization]
+
+[[sec_1.4]]
+=== Terms, definitions and abbreviations
+
+[[sec_1.4.1]]
+==== Use of language
+
+Within this document:
+
+* "Must" indicates a mandatory requirement.
+* "Should" indicates an optional requirement, that is the recommended
+process to be followed, but is not mandatory.
+* "May" means "allowed to" or "could possibly", and is not mandatory.
+
+[[sec_1.4.2]]
+[heading="terms and definitions"]
+==== Terms and definitions
+
+The S-100 framework is based on the ISO 19100 series of geographic
+standards. The terms and definitions provided here are used to standardize
+the nomenclature found within that framework, whenever possible. They
+are taken from the references cited in <<sec_1.3>>. Modifications have
+been made when necessary.
+
+===== application
+
+manipulation and processing of data in support of user requirements
+
+[.source]
+<<ISO_19101>>
+
+===== application schema
+
+{{conceptual schema}} for data required by one or more {{application,applications}}
+
+[.source]
+<<ISO_19101>>
+
+===== conceptual model
+
+model that defines concepts of a {{universe of discourse}}
+
+[.source]
+<<ISO_19101>>
+
+===== conceptual schema
+
+formal description of a {{conceptual model}}
+
+[.source]
+<<ISO_19101>>
+
+===== coverage
+
+{{feature}} that acts as a function to return values from its range
+for any direct position within its spatial, temporal or spatiotemporal
+{{domain}}
+
+[.source]
+<<ISO_19123_2005>>
+
+[example]
+Raster image, polygon overlay, digital elevation matrix.
+
+===== data product
+
+{{dataset}} or {{dataset series}} that conforms to a
+{{data product specification}}
+
+===== data product specification
+
+detailed description of a {{dataset}} or {{dataset series}} together
+with additional information that will enable it to be created, supplied
+to and used by another party
+
+NOTE: A data product specification provides a description of the universe
+of discourse and a specification for mapping the universe of discourse
+to a dataset. It may be used for production, sales, end-use or other
+purpose.
+
+===== dataset
+
+identifiable collection of data
+
+[.source]
+<<ISO_19115>>
+
+NOTE: A dataset may be a smaller grouping of data which, though limited
+by some constraint such as spatial extent or feature type, is located
+physically within a larger dataset. Theoretically, a dataset may be
+as small as a single feature or feature attribute contained within
+a larger dataset. A hardcopy map or chart may be considered a dataset.
+
+===== dataset series
+
+collection of {{dataset,datasets}} sharing the same product specification
+
+[.source]
+<<ISO_19115>>
+
+===== domain
+
+well-defined set
+
+[.source]
+<<ISO_TS_19103>>
+
+NOTE: Well-defined means that the definition is both necessary and
+sufficient, as everything that satisfies the definition is in the
+set and everything that does not satisfy the definition is necessarily
+outside the set.
+
+===== feature
+
+abstraction of real world phenomena
+
+[.source]
+<<ISO_19101>>
+
+NOTE: A feature may occur as a type or an instance. Feature type or
+feature instance shall be used when only one is meant.
+
+===== feature association
+
+relationship that links instances of one {{feature}} type with instances
+of the same or a different {{feature}} type
+
+[.source]
+<<ISO_19110>>
+
+NOTE: A feature association may occur as a type or an instance. Feature
+association type or feature association instance is used when only
+one is meant.
+
+NOTE: Feature associations include aggregation of features.
+
+===== feature attribute
+
+characteristic of a {{feature}}
+
+[.source]
+<<ISO_19101>>
+
+NOTE: A feature attribute may occur as a type or an instance. Feature
+attribute type or feature attribute instance is used when only one
+is meant.
+
+NOTE: A feature attribute type has a name, a data type and a domain
+associated to it. A feature attribute for a feature instance has an
+attribute value taken from the domain.
+
+===== geographic data
+
+data with implicit or explicit reference to a location relative to
+the Earth
+
+[.source]
+<<ISO_19109_2015>>
+
+NOTE: Geographic information is also used as a term for information
+concerning phenomena implicitly or explicitly associated with a location
+relative to the Earth.
+
+===== metadata
+
+data about data
+
+[.source]
+<<ISO_19115>>
+
+===== model
+
+abstraction of some aspects of reality
+
+[.source]
+<<ISO_19109_2015>>
+
+===== portrayal
+
+presentation of information to humans
+
+[.source]
+<<ISO_19117_2012>>
+
+===== quality
+
+totality of characteristics of a product that bear on its ability
+to satisfy stated and implied needs
+
+[.source]
+<<ISO_19101>>
+
+===== universe of discourse
+
+view of the real or hypothetical world that includes everything of
+interest (ISO 19101)
+
+[[sec_1.4.3]]
+==== Abbreviations
+
+This product specification adopts the following convention for symbols
+and abbreviated terms:
+
+ASCII:: American Standard Code for Information Interchange
+
+ECDIS:: Electronic Chart Display and Information Systems
+
+ENC:: Electronic Navigational Chart
+
+GML:: Geography Markup Language
+
+IHO:: International Hydrographic Organization
+
+IMO:: International Maritime Organization
+
+ISO:: International Organization for Standardization
+
+ITU:: International Telecommunication Union
+
+MRCC:: Marine Rescue and Coordination Centre
+
+MRSC:: Marine Rescue Sub-Centre
+
+MSI:: Maritime Safety Information
+
+NIPWG:: Nautical Information Provision Working Group
+
+UML:: Unified Modelling Language
+
+URI:: Uniformed Resource Identifier
+
+URL:: Uniform Resource Locator
+
+www:: World Wide Web
+
+WGS:: World Geodetic System
+
+WMO:: World Meteorological Organization
+
+XML:: Extensible Markup Language
+
+[[sec_1.5]]
+=== General data product description
+
+This clause contains general information about the data product.
+
+*Title:*:: Marine Radio Services
+
+*Abstract:*:: Marine radio services product specification describe
+the means to capture availability and reliability of radio stations,
+radio position fixing systems, radio beacons, services offering navigational
+warnings and weather forecasts in the maritime domain. This may include
+details on the service areas, services offered and instructions for
+contacting or utilizing these services.
+
+*Content:*:: Datasets conforming to this specification will contain
+all relevant maritime radio service information for the area of coverage.
+Additionally, there will be relevant metadata data quality, production
+authority, data sources and publication date.
+
+*Spatial Extent:*:: Global coverage of maritime areas.
+
+*Purpose:*:: Describing radio services in the maritime domain for
+utilization in ECDIS, and to allow the producer to exchange radio
+services information with interested stakeholders.
+
+[[sec_1.6]]
+=== Data product specification metadata
+
+This information uniquely identifies this Product Specification and
+provides information about its creation and maintenance. For further
+information on dataset metadata see the metadata clause.
+
+*Title:*:: Marine Radio Services
+
+*S-100 Version:*:: 5.2.0
+
+*S-123 Version:*:: 1.1.0
+
+*Date:*:: May 2025
+
+*Language:*:: English
+
+*Classification:*:: Unclassified
+
+*Contact:*::
++
+--
+International Hydrographic Organization, +
+4 quai Antoine 1er, +
+B.P. 445 +
+MC 98011 MONACO CEDEX +
+Telephone: +377 93 10 81 00 +
+Fax: + 377 93 10 81 40
+--
+
+*URL:*:: link:++http://www.iho.int/++[\http://www.iho.int]
+
+*Identifier:*:: S-123
+
+*Maintenance:*:: Amendments to this specification will be produced
+on a needs basis. For reporting issues with this specification which
+need correction, use the contact information.
+
+[[sec_1.7]]
+=== IHO product specification maintenance
+
+[[sec_1.7.1]]
+==== Introduction
+
+Changes to S-123 will be released by the IHO as a new edition, a revision,
+or as a document that includes clarification. These are described
+below.
+
+[[sec_1.7.2]]
+==== New Edition
+
+New Editions introduce significant changes. New Editions enable new
+concepts, such as the ability to support new functions or applications,
+or the introduction of new constructs or data types. New Editions
+are likely to have a significant impact on either existing users or
+future users of S-123.
+
+[[sec_1.7.3]]
+==== Revisions
+
+Revisions are defined as substantive semantic changes. Typically,
+revisions will introduce change to correct factual errors; introduce
+necessary changes that have become evident as a result of practical
+experience or changing circumstances. A revision must not be classified
+as a clarification. Revisions could have an impact on either existing
+users or future users of this specification. All cumulative clarifications
+will be included with the release of approved corrections revisions.
+
+Changes in a revision are minor and ensure backward compatibility
+with the previous versions within the same Edition. Newer revisions,
+for example, introduce new features and attributes. Within the same
+Edition, a dataset of one version could always be processed with a
+later version of the feature and portrayal catalogues. In most cases
+a new feature or portrayal catalogue will result in a revision of
+this specification.
+
+[[sec_1.7.4]]
+==== Clarification
+
+Clarifications are non-substantive changes. Typically, clarifications:
+remove ambiguity; correct grammatical and spelling errors; amend or
+update cross references; insert improved graphics in spelling, punctuation
+and grammar. Clarification must not cause any substantive semantic
+changes.
+
+Changes in a clarification are minor and ensure backward compatibility
+with the previous versions within the same Edition. Within the same
+Edition, a dataset of one clarification version could always be processed
+with a later version of the feature and portrayal catalogues, and
+a portrayal catalogue can always rely on earlier versions of the feature
+catalogues.
+
+Changes in a clarification are minor and ensure backward compatibility
+with the previous versions.
+
+[[sec_1.7.5]]
+==== Version Numbers
+
+The associated version control numbering to identify changes (n) to
+this specification must be as follows:
+
+New Editions denoted as *n*.0.0
+
+Revisions denoted as n.*n*.0
+
+Clarifications denoted as n.n.*n*
+
+
+[[sec_2]]
+== Specification Scope
+
+This product specification describes one data product and therefore
+requires only one scope which is described below:
+
+*Scope ID:*:: Global scope
+
+*Hierarchical level:*:: MD_ScopeCode - 005
+
+*Hierarchical level name:*:: Dataset
+
+*Extent:*:: EX_Extent.description: Global coverage of maritime areas.
+
+
+[[sec_3]]
+== Data Product Identification
+
+This section describes how to identify data sets that conform to the
+specification. A dataset that conforms to this Product Specification
+may be identified by its discovery metadata as defined in <<sec_10>>
+of this specification. The information identifying the data product
+may include the following items from <<IHO_S_100,clause=11-6>>.
+
+*title*:: Marine Radio Services
+
+*abstract*:: Radio Services dataset is a vector dataset containing
+all maritime navigationally relevant information regarding the radio
+services within a defined geographical area.
+
+*acronym*:: MRS
+
+*topicCategory*:: utilitiesCommunication
+
+*geographicDescription*:: Areas specific to marine radio services
+
+*spatialResolution*:: All scales
+
+*purpose*:: Describing radio services in the maritime domain for utilization
+in ECDIS, and to allow the producer to exchange radio services information
+with interested stakeholders.
+
+*language*:: eng Additional values if any. Use CharacterString values
+(alpha-3 code) from ISO 639-2.
+
+*spatialRepresentationType*:: Vector
+
+
+
+[[sec_4]]
+== Data Content and Structure
+
+[[sec_4.1]]
+=== Introduction
+
+The S-123 product is based on the S-100 General Feature Model (GFM),
+and is a feature-based vector product. All S-123 features and information
+classes are derived from one of the abstract classes *FeatureType*
+and *InformationType* defined in the S-123 application schema, which
+realize the GFM meta-classes S100_GF_FeatureType and S100_GF_InformationType
+respectively.
+
+This section contains the Application Schema expressed in UML and
+an associated Feature Catalogue. The Feature Catalogue is included
+in Annex C, and provides a full description of each feature type including
+its attributes, attribute values and relationships in the data product.
+
+The classes comprising the S-123 application schema are divided into
+four packages. The first package, the Domain model, contains the features
+and information types that model the MRS application domain specifically.
+Meta-features that provide quality and coverage information are contained
+within their own package as well as cartographic features, which allow
+dataset creators to provide cartographically necessary placements
+where required. A fourth package contains features used for modeling
+approximate areas.
+
+Geographic features in all four packages use the spatial types from
+<<IHO_S_100,part=7>>, which are imported as-is into the S-123 spatial types
+package and therefore can be used as types for S-123 spatial attributes.
+The spatial types package also contains definitions of 'union types'
+(combinations of the S-100 spatial types). S-100 allows features to
+have different kinds of geometry, however UML does not allow an attribute
+of a class to have multiple types. The S-123 application schema models
+spatial attributes as attributes of feature classes.
+
+[[sec_4.2]]
+=== Application Schema
+
+The UML models shown below are segments of the overall S-123 application
+schema, and include overviews of the feature classes, information
+classes, meta features, spatial types, and the relationships between
+them.
+
+This section contains a general overview of the classes and relationships
+in the S-123 application schema. Detailed information about how to
+use the feature types and information types to encode Marine Radio
+Services information is provided in the S-123 Data Classification
+and Encoding Guide (DCEG).
+
+The following conventions are used in the UML diagrams depicting the
+application schema:
+
+* Standard UML conventions for classes, associations, inheritance,
+roles, and multiplicities apply. These conventions are described in
+<<IHO_S_100,part=1>>.
+* _Italic_ font for a class name indicates an abstract class.
+* Feature classes are depicted with green background.
+* Information type classes are depicted with blue background.
+* Association classes are depicted with a white background.
+* Complex attributes are depicted with a pink background.
+* Enumeration lists and codelists are depicted with a tan background.
+The numeric code corresponding to each listed value is shown to its
+right following an '=' sign.
+* No significance attaches to the color of associations.
+
+[[sec_4.2.1]]
+==== Domain model
+
+The S-123 domain model has two base classes ('root classes') from
+which all the domain-specific geographic features and information
+type classes are derived. The base classes are shown in <<fig_4-1>>
+below. The base class for geographic features is *FeatureType* and
+the base class for information types is *InformationType*. Each of
+the two base classes has a set of attributes which are therefore inherited
+by all domain-specific features. Both base classes are abstract classes
+and do not have direct instances in S-123 data -- instead, S-123 feature
+and information type data objects are instantiations of a non-abstract
+class derived from one of these base classes.
+
+S-123 meta- and cartographic features are not derived from these base
+classes -- S-123 instead incorporates meta- and cartographic feature
+definitions originally prepared for S-101 in the interests of harmonization
+and interoperability with other S-100-based data products, especially
+S-101 ENCs.
+
+[[fig_4-1]]
+.Base classes in S-123 and their attributes
+image::figure-1.png[]
+
+[[sec_4.2.1.1]]
+===== Overview of domain features and information types
+
+Marine Radio services data products include marine radio stations
+and services as well as safety and information broadcasts and radiocommunications.
+The scope of the S-123 domain model therefore includes NAVTEX, weather or ice
+forecasts and warnings, NAVAREAs and METAREAs defined by IMO and WMO, GMDSS sea areas
+declared by Coastal States. In addition, radio services providing IP-connectivity
+coverage are included in the domain model of S-123.
+
+[[fig_4-2]]
+.Overview of S-123 Feature Types
+image::figure-2.png[]
+
+The abstract class *FeatureType* is an abstract class from which the
+geographic feature classes in the application schema are derived.
+*FeatureType* has attributes for fixed and periodic date ranges indicating
+the effective dates of the feature, name of the feature, source information,
+and a *textContent* attribute that allows text notes or references
+to be provided for individual feature instances where appropriate.
+The attributes defined in *FeatureType* are inherited by all S-123
+geographic feature types. All the attributes in *FeatureType* are
+optional.
+
+Geographic features use spatial types defined in the geometry package
+for spatial attributes. Datasets comprised of S-123 features are described
+by metadata as defined in the S-123 metadata package. Metadata uses
+selected spatial types (specifically, it uses the polygon type to
+describe the coverage of a dataset).
+
+The S-123 application schema also includes modeling of locations where
+the availability of a service is intermittent or uncertain, usually
+dependent on atmospheric and weather conditions. This modeling is
+currently provided by aggregating areas of different reliabilities
+using a feature association to an aggregation feature.
+
+[[fig_4-3]]
+.Overview of S-123 Information Types
+image::figure-3.png[]
+
+The abstract class *InformationType* is an abstract class from which
+the information type classes in the S-123 domain model are derived.
+*InformationType* has attributes for fixed and periodic date ranges,
+name associated with the individual information object if any, and
+source information. The attributes defined in *InformationType* are
+inherited by all S-123 information type classes. All the attributes
+of *InformationType* are optional.
+
+[[sec_4.2.1.2]]
+===== Radio stations and services
+
+Marine radio stations and service areas are in general modeled by
+the *RadioStation* and *RadioServiceArea* features. MRCCs and MRSCs
+are modeled by the boolean attribute *isMRCC* of *RadioControlCenter*
+information type.
+
+[[fig_4-4]]
+.The RadioStation feature type
+image::figure-4.png[]
+
+The IHO definition for the *RadioStation* feature type is "a place
+equipped to transmit radio waves..., and may also be provided with a
+radio receiver". A radio station could be remote controlled, which
+is modeled by using the boolean type attribute *remoteControlled*
+of the *RadioStation* feature type and an association to a *RadioControlCenter*
+information object.
+
+Detailed description of the radiocommunication service provision with
+respect to the radio method and radio channels is modeled by an associated
+*TransmissionDetails* information type (see <<fig_4-5>>). Description
+of the content and schedule of the service using broadcast technology
+of radiocommunications is modeled by an associated *BroadcastDetails*
+information type (see <<fig_4-6>>).
+
+[[fig_4-5]]
+.The TransmissionDetails information type
+image::figure-5.png[]
+
+[[fig_4-6]]
+.The BroadcastDetails information type
+image::figure-6.png[]
+
+The S-123 model allows a radio service area to be encoded with or
+without the station from which the service is provided, and vice versa.
+
+If a radio station and its service area(s) are both encoded, the relationship
+between them is modeled by the _serviceProvisionArea_ feature association.
+
+Additional information about the service operating schedule for the
+station or service as a whole is modeled by a _locationHours_ association
+between the feature and a *ServiceHours* object. Similarly, contact
+information for the operator, control center or responsible authority
+of the station or service area as a whole is modeled using a _srvContact_
+association to a *ContactDetails* object.
+
+<<fig_4-7>> shows the services which may have service times and operator/controller contact details encoded.
+
+[[fig_4-7]]
+.S-123 Radio service features with contact information and service hours
+image::figure-7.png[]
+
+The *ContactDetails* class contains attributes describing the contact
+methods and identifiers for various contact methods for the operating
+or controlling authority, ranging from radiocommunications, to postal
+addresses. It is linked to the relevant instance of *RadioServiceArea*,
+*RadioStation* by the _srvContact_ association, and to the *RadioControlCenter*
+by the _authorityContact_ association.
+
+*ContactDetails* may be repeated if an agency or office has more than
+one call name, call sign, or MMSI code. Other attributes such as communication
+channel, contact address, and telecommunications may be repeated within
+the same instance, e.g., if the contact could be made via multiple
+telecommunication services such as email, voice, and facsimile. Further
+instructions may be provided in the attribute *contactInstructions*.
+
+If an operating schedule for the station or service area as a whole
+is to be encoded, it is done using an associated *ServiceHours* class,
+linked to the service feature by the _locationHours_ association.
+Schedules that are specific to particular broadcasts from a radio
+station or within a single service area are modeled by means of attributes,
+e.g., *timesOfTransmission* and *timeIntervalsByDayOfWeek*, of associated
+*BroadcastDetails* information objects.
+
+Indications about the specific controlling or responsible authority
+for a specific radio service area are provided by means of associations
+from the service feature to the *Authority* information type.
+All the service features in S-123 can be associated to a controlling
+or operating organization, i.e., an *Authority* object, using the
+_controlAuthority_ association. The authority should be encoded only
+if its presence in the dataset conveys information that is useful
+to the end user.
+
+If required, service hours and contact details of the authority may
+be provided by binding corresponding *ServiceHours* and *ContactDetails*
+information objects via the _authorityHours_ association and _authorityContact_
+association, respectively. This is analogous to the case of *RadioControlCenter*
+illustrated in <<fig_4-7>>.
+
+[[sec_4.2.1.3]]
+===== Daily schedules and business hours
+
+Operating schedules and business hours of organizations are modeled
+by associating the *ServiceHours* class to an *Authority* or *RadioControlCenter*. The *ServiceHours* class is a container for the complex attribute describing daily schedules for different weekdays (*scheduleByDayOfWeek*). This complex attribute contains another complex attribute for time intervals and the days to which they apply, and category sub-attribute to model whether the schedule describes opening hours, closures, etc. Exceptions to the schedule such as fixed or movable holidays are modeled by a *NonStandardWorkingDay* class with attributes allowing indication of the dates or days which are holidays or exceptions.
+
+Working times and schedules for service features are modeled by an
+analogous association from the feature object (association *locationHours*).
+When a *ServiceHours* is thus linked to a service feature, the service
+hour information applies to the feature as a whole (e.g., all services
+offered by a *RadioStation* or in a *RadioServiceArea*). (See <<fig_4-7>>)
+
+The attribute *hoursOfWatch* is a simplified alternative to the ServiceHour
+information binding for common situations such as a 24 hour service.
+Attribute binding of *hoursOfWatch* is included in *RadioStation*,
+*RadioServiceArea*, and the *radioChannelDetails* attribute of
+*TransmissionDetails*.
+
+[[sec_4.2.1.4]]
+===== Specific service area types
+
+<<fig_4-8>> shows more specific types of service areas in S-123 domain
+model. <<table_4.1>> indicates the aspects of the service areas modelled
+in S-123.
+
+To allow encoding of radio stations pertaining to more specific types
+of radio services, the _serviceProvisionArea_ association is also
+permitted between more specific service area types and *RadioStation*.
+Both *TransmissionDetails* and *BroadcastDetails* information types
+may be associated not only to the radio station(s) but also to the
+various types of service area(s).
+
+[[fig_4-8]]
+.Service areas and provider(s)
+image::figure-8.png[]
+
+[[table_4.1]]
+.Aspects of service areas modelled in S-123
+[cols="4"]
+|===
+h| S-123 Feature type h| Responsible, intended, or declared service area h| Radio coverage h| Content coverage
+
+| RadioServiceArea              ^| &#x1F5F8; &#x1F5F8; ^| &#x1F5F8; ^| &#x1F5F8;
+| GMDSSArea                     ^| &#x1F5F8;           ^|           ^|
+| NavArea                       ^| &#x1F5F8; &#x1F5F8; ^|           ^| &#x1F5F8;
+| MetArea                       ^| &#x1F5F8; &#x1F5F8; ^|           ^| &#x1F5F8;
+| NavtexServiceArea             ^| &#x1F5F8;           ^|           ^| &#x1F5F8;
+| WeatherForecastAndWarningArea ^| &#x1F5F8;           ^|           ^| &#x1F5F8; &#x1F5F8;
+| ConnectivitySubsciptionArea   ^| &#x1F5F8;           ^| &#x1F5F8; ^|
+|===
+
+RadioServiceArea is a general-purpose service feature. With combination
+of attributes as well as associated BoardcastDetails and TransmissionDetails,
+RadioServiceArea may be used to encode radio services of various types
+and characteristics. (See <<fig_4-9>>)
+
+[[fig_4-9]]
+.RadioServiceArea for encoding various type of services
+image::figure-9.png[]
+
+When it is impractical to encode the radio coverage, e.g., in HF band,
+extent of the radio service may be encoded by using *estimatedRangeOfTransmission*
+attribute of *RadioStation*. Then, if required, encode the intended
+coverage area as a *RadioServiceArea* associated with the *RadioStation*,
+both features sharing the *TransmissionDetails* and *BroadcastDetails*.
+Maximum power (in Watt) the radio service uses or is authorized to
+use for radio transmission is encoded in the *transmissionPower* attribute
+of *RadioServiceArea.*
+
+*GMDSSArea* is for encoding the GMDSS sea areas defined or designated
+by the government and where the government has established radiocommunication
+services for the GMDSS. (See <<fig_4-10>>)
+
+GMDSS sea areas also serve the purpose of defining the requirement
+of GMDSS radio installations onboard SOLAS vessels. The definition
+of sea area A3 in SOLAS convention has been revised (MSC.496(105))
+as "an area, excluding sea areas A1 and A2, within the coverage of
+a recognized mobile satellite service (RMSS) supported by the ship
+earth station carried on board, in which continuous alerting is available."
+Such mobile satellite service for sea area A3 may be encoded by using
+*areaA3ServiceDescription* attribute, in which satellite ocean region
+and MSI coastal warning areas (if applicable) may also be included
+with their identifiers.
+
+[[fig_4-10]]
+.GMDSS sea areas and services
+image::figure-10.png[]
+
+*NavArea* feature type is for encoding the NAVAREAs defined by IMO.
+NAVAREA link to the navigation warnings on the web may be provided
+using the *onlineResource* attribute.
+
+In addition to *idNAVAREA* attribute, *featureName* (inherited from
+the abstract _*FeatureType*_) should also be encoded for identification
+of sub-area, such as Baltic Sea sub-Area.
+
+NAVAREA or sub-area coordinator is encoded by associating *Authority*
+to *NavArea*. *ContactDetails* may be associated directly to *NavArea*.
+(See <<fig_4-11>>)
+
+Analogous to the case of NAVAREAs, *MetArea* feature type is for encoding
+the METAREAs defined by WMO. (See <<fig_4-12>>)
+
+*WeatherForecastAndWarningArea* feature type (see <<fig_4-13>>) is
+for encoding an area for which weather forecasts and warnings are
+provided. Such areas may be defined by WMO or nationally by governments,
+thus categorized based on source of warnings and forecasts.
+
+The area name may be encoded in the *featureName* (inherited from
+abstract _*FeatureType*_). The code or number of (NAVTEX or SafetyNET)
+forecast areas, to be referred to in MSI messages, should be encoded
+in *forecastAreaIdentifier* attribute.
+
+Details of the service may be provided by using *Authority*, *RadioStation*,
+*BroadcastDetails* and *TransmissionDetails* associated to the *WeatherForecastAndWarningArea* feature.
+
+[[fig_4-11]]
+.NAVAREA and the coordinator
+image::figure-11.png[]
+
+[[fig_4-12]]
+.METAREA and the coordinator
+image::figure-12.png[]
+
+[[fig_4-13]]
+.Weather forecast and warning area
+image::figure-13.png[]
+
+S-123 models NAVTEX service based on definitions in the Joint IMO/IHO/WMO
+Manual on Maritime Safety Information (MSC.1/Circ.1310/Rev.2 or
+IHO S-53), as follows:
+
+* "NAVTEX service area means a unique and precisely defined sea area,
+wholly contained within the NAVTEX coverage area, for which maritime
+safety information is provided from a particular NAVTEX transmitter.".
+* "NAVTEX coverage area means an area defined by an arc of a circle
+having a radius from the transmitter calculated according to the method
+and criteria given in IMO resolution A.801(19), as amended.".
+* "Broadcast times for NAVTEX are defined by the (allocated) B1 transmitter
+identification character of the station."
+
+*NavtextServiceArea* uses *idNAVAREA* and *transmitterIdentificationCharacter*
+to uniquely identify a NAVTEX service area and allocated time slots
+(for transmission from the associated *RadioStation*). Schedule of
+different types of broadcast content may be encoded in the associated
+*BroadcastDetails*. Encoding of national NAVTEX service in national
+language and different radio channel is also supported by using
+*typeOfNAVTEXService*, *nationality*, *radioChannelDetails*, and
+*language*. (See <<fig_4-14>>)
+
+[[fig_4-14]]
+.NAVTEX service area
+image::figure-14.png[]
+
+NAVTEX coverage area is indicated by the associated *RadioStation*
+and its *estimatedRangeOfTransmission* attribute. If required,
+*RadioServiceArea* may also be used to define the radio coverage area
+of NAVTEX service. *BroadcastDetails* and *TransmissionDetails*
+(with *typeORadioService*=9 (NAVTEX)), should be shared by relevant
+features.
+
+*ConnectivitySubscriptionArea* feature type is for encoding an area
+of connectivity coverage available for the subscription of IP-connectivity
+service. Provide relevant information in the associated *ConnectivityQualityOfService*,
+*Authority* and *ContactDetails*. Name of the service or company should
+be entered in the *featureName* (inherited attribute) of relevant
+objects. (See <<fig_4-15>>)
+
+[[fig_4-15]]
+.Connectivity subscription area
+image::figure-15.png[]
+
+[[sec_4.2.1.5]]
+===== Regulations, information notes, etc.
+
+There are three information types which represent regulations, restrictions,
+and recommendations respectively, and a fourth information type for
+general or unclassifiable information.
+
+* The *Regulations* class represents information derived from laws,
+national shipping regulations, navigation rules, etc.
+* Class *Restrictions* is intended for restrictions that are not derived
+from regulatory sources.
+* Class *Recommendations* is intended for information that is recommendatory
+in nature; in S-123 this may be recommendations for maintenance of
+listening watches, AMVER reporting, etc., that are either voluntary
+or have not been issued as formal regulations.
+* The fourth class, *NauticalInformation*, is intended for general
+notes or other information that cannot be categorized as one of the
+other three classes.
+
+These four information types will hereafter be referred to collectively
+as RxN, which all inherit the attributes of their immediate abstract
+superclass *AbstractRxN*. *AbstractRxN* provides attributes *textContent*
+and *graphic* for textual and pictorial material respectively.
+The sub-attributes of its complex attribute *rxNCode* allow optional
+classification of the material encoded in *textContent*/*graphic*
+according to the type of material and the kind of nautical activity
+affected by it. RxN information types also inherit attributes of abstract
+superclass *InformationType*, which allows encoding of the effective
+and expiry dates, if any, and source of information, if it is necessary
+to encode that data. (See <<fig_4-16>>)
+
+[[fig_4-16]]
+.Structure of regulations and note information types
+image::figure-16.png[]
+
+[[sec_4.2.1.6]]
+===== Regulations applying in specific geographic features
+
+RxN classes are intended primarily for encoding text information,
+such as that derived from textual source material, e.g., national
+or local laws or official publications. Where specific attributes
+such as the simple attribute *restriction* are permitted, they must
+be used. For example, if a geographic feature class has the *restriction*
+attribute, it should be used instead (explanations, details, paragraphs
+from regulations, etc., can be provided in an associated RxN object).
+
+The *associatedRxN* association between a feature type and a *Regulations*,
+*Restrictions*, *Recommendations*, or *NauticalInformation* object
+indicates that the Regulation, etc., is applicable within the associated
+feature. If it is necessary to identify an authority or organization
+related to a particular regulation (restriction, etc.) object, this
+may be done using the *relatedOrganisation* association between *Regulations*,
+etc., and an *Authority* object. This should be included only when
+the connection to the *Authority* conveys useful information to the
+end user -- it is not intended to encode the issuing or controlling
+authority for every regulation. Note also that while *Authority* can
+be associated to geographic features as well as *Regulations*, etc.,
+encoding both associations is not mandatory even when the same *Authority*
+is associated to a service area as well as a *Regulations* object
+(or *NauticalInformation*, etc.).
+
+[[fig_4-17]]
+.Regulations, etc., relevant to specific features
+image::figure-17.png[]
+
+[[sec_4.2.1.7]]
+===== Regulations applying only to vessels with specific characteristics or cargoes
+
+Certain regulations apply only to vessels of specified dimensions,
+types, or carrying specified cargo, etc.
+
+This is modelled by first defining the relevant subset of vessels
+according to the dimension, type, cargo, etc., and then associating
+that subset to the appropriate feature or information type. The subset
+of vessels is modelled using the *Applicability* class, which contains
+attributes for the most common vessel characteristics used in nautical
+publications. These include measurements (length, beam, draught),
+type of cargo, displacement, etc. Constraints which cannot be modeled
+using the attributes of *Applicability* can be described in plain
+text in its *information* attribute.
+
+Conditions relating to vessel dimensions are modelled by the complex
+attribute *vesselsMeasurements*, which has sub-attributes for naming
+the dimension and indicating the limit (whether the condition applies
+to a vessel which exceeds or falls below the limit). For example,
+the combinations below describe the condition "length overall > 50 m"
+(Condition 1) and "length overall < 90 m" (Condition 2):
+
+[[table_4.2]]
+.Conditions relating to vessel dimensions
+[cols="183,112,112,111"]
+|===
+| h| Condition 1 h| Condition 2 h| Condition 3
+
+| vesselsCharacteristics      | length overall | length overall | breadth
+| vesselsCharacteristicsUnit  | metre          | metre          | metre
+| comparisonOperator          | greater than   | less than      | greater than
+| vesselsCharacteristicsValue | 50             | 90             | 20
+|===
+
+The *logicalConnectives* attribute is used to indicate how to interpret
+the case where multiple conditions are encoded using attributes of
+measurements - whether the conditions described by condition attributes
+are cumulative (conjunctive, AND) or alternatives (disjunctive, OR).
+A logicalConnectives=AND combined with Conditions 1 and 2 above describes
+a vessel of length between 50 and 90 metres; logicalConnectives=OR
+combined with conditions 1 and 3 describes a vessel of length greater
+than 50 metres or beam greater than 20 metres.
+
+This modeling cannot represent subsets defined by both AND and OR
+combinations of conditions, but it is always possible to convert such
+complex conditions into multiple combinations each using only AND
+('conjunctive normal form') or OR ('disjunctive normal form'), and
+model the subset using more than one *Applicability* object.
+
+[[fig_4-18]]
+.Vessel subsets characterized by cargo and dimensions
+image::figure-18.png[]
+
+Given the relevant subset of vessels, it can be associated to the
+appropriate feature, regulation, or report by a *PermissionType*,
+or *InclusionType* association. These are association classes, whose
+single attribute models the nature of the relationship between the
+vessel subset and feature or information type.
+
+The association classes *PermissionType* and *InclusionType* basically
+characterize the relationship. For example, a specified set of vessels
+is COVERED by a regulation and another set of vessels is EXEMPT from
+the regulation.
+
+"COVERED" and "EXEMPT" are different kinds of relationship between
+different subsets of vessels characterized by different dimensional
+limits, etc., and a given regulation.
+
+"MUST use", "RECOMMENDED to use", and "EXEMPT from use" are relationships
+between different subsets of vessels characterized by different dimensional
+limits, etc., and a given feature or service.
+
+*PermissionType* links a feature to an *Applicability*, and models
+a requirement, recommendation or prohibition on using a (service)
+feature, by the specified subset of vessels.
+
+*InclusionType* links a *Regulation*, *Recommendation*, *Restriction*,
+or *NauticalInformation* instance to a subset defined by an *Applicability*
+object, and indicates whether the content of the Regulation, etc.,
+applies to the vessels (_membership=included_), or explicitly does
+not apply to the vessels (_membership=excluded_).
+
+[[fig_4-19]]
+.Applicability of requirements, rules, etc. to vessel categories
+image::figure-19.png[]
+
+[[sec_4.2.1.8]]
+===== Fuzzy areas in the S-123 application schema
+
+Fuzzy areas are areas where the applicability of information described
+by a specific feature is uncertain, intermittent, or possible.
+The basic information concept can be the availability of a service,
+the existence of a natural phenomenon, etc. An example is an area
+where radio reception cannot be asserted with sufficiently high confidence
+to encode it as a definitely within the service area, but reception
+is sometimes or often possible under good conditions. Associating
+uncertainty values to boundary points is not sufficient for this concept.
+
+Areas of uncertainty are modeled by an *IndeterminateZone* geographic
+feature. A 'fuzzy area' will therefore consist of a 'core' feature
+of the appropriate geographic feature type and the appropriate geometry
+(e.g., a *RadioServiceArea* area feature) and one or more 'fuzzy'
+Indeterminate Zone features (with surface geometry). Each *IndeterminateZone*
+feature has a thematic attribute expressing the level of confidence
+that the service described by the core feature will be available in
+the region demarcated by its spatial primitive(s). To provide for
+properties of the collection of core and fuzzy features (e.g., a collective
+name for the totality of core and fuzzy areas), an abstract aggregation
+feature is defined, associated to the indeterminate zone features.
+This abstract aggregation feature is sub-classed by type-specific
+aggregation features corresponding to the geographic feature types
+which can be fuzzy. Type-specific attributes for aggregates can be
+added to these features.
+
+S-123 modeling of fuzzy areas is used for radio service area features.
+S-123 uses the generic model of fuzzy areas described above and subclasses
+the abstract *FuzzyAreaAggregate* class into the aggregate class
+*RadioServiceAreaAggregate*.
+
+[[fig_4-20]]
+.Fuzzy areas in S-123
+image::figure-20.png[]
+
+[[sec_4.2.1.9]]
+===== Uncategorized additional information
+
+The domain model also provides a method for attaching to any feature
+or information type data in the form of a text note, graphic, or Internet
+reference which cannot be categorized using an appropriate specific
+feature or information type. This consists of defining a *NauticalInformation*
+object and referencing it from the feature or information type using
+the *additionalInformation* association.
+
+This method is intended to be a last resort and every effort should
+be made to use a more specific feature or information type to encode
+the information to be attached, including splitting the information
+in question across more than one type of feature or information object
+as needed and/or using the *associatedRxN* association instead of
+*additionalInformation*, wherever the nature of the content
+allows it.
+
+The *additionalInformation* association must not be used to chain
+*NauticalInformation*, *Regulations*, *Restrictions*, or *Recommendations*
+objects, whether they are of the same class or different classes.
+
+[[fig_4-21]]
+.Attachment of uncategorized information to any feature or information type
+image::figure-21.png[]
+
+[[sec_4.2.2]]
+==== Meta features
+
+S-123 has two meta feature classes. One is *QualityOfNonbathymetricData*,
+the other is *DataCoverage*.
+
+[[fig_4-22]]
+.Overview of Meta feature classes
+image::figure-22.png[]
+
+[[sec_4.2.3]]
+==== Spatial quality information type
+
+S-123 spatial quality attributes are carried in an information type
+called *SpatialQuality*. The attributes are for qualitative horizontal
+measurement quality and quantitative spatial accuracy. (See <<fig_4-23>>)
+
+[[fig_4-23]]
+.Spatial quality
+image::figure-23.png[]
+
+[[sec_4.3]]
+=== Feature catalogue
+
+[[sec_4.3.1]]
+==== Introduction
+
+The Feature Catalogue describes the feature types, information types,
+attributes, attribute values, associations and roles which may be
+used in the product. The S-123 Feature Catalogue is available in an
+XML document which conforms to the S-100 XML Feature Catalogue Schema
+and can be downloaded from the IHO website (link:++http://www.iho.int/++[]).
+
+*Name:*:: Marine Radio Services Feature Catalogue
+
+*Scope:*:: Ocean, Coastal, Ports, Harbors and Inland waters
+
+*Version Number:*:: 1.1.0
+
+*Version Date:*:: 2025-05-31
+
+*Producer:*::
++
+--
+International Hydrographic Organization Secretariat, +
+4 quai Antoine 1er, +
+B.P. 445 +
+MC 98011 MONACO CEDEX +
+Telephone: +377 93 10 81 00 +
+Telefax: + 377 93 10 81 40 +
+URL link:++http://www.iho.int++[]
+--
+
+*Language:*:: English
+
+[[sec_4.3.2]]
+==== Feature types
+
+Feature types contain descriptive attributes that characterize real-world
+entities. The word 'feature' may be used in one of two senses -- feature
+type and feature instance. A feature type is a class and is defined
+in a Feature Catalogue. A feature instance is a single occurrence
+of the feature type and represented as an object in a dataset. A feature
+instance is located by a relationship to one or more spatial instances.
+A feature instance may exist without referencing a spatial instance.
+
+[[sec_4.3.2.1]]
+===== Geographic
+
+Geographic (geo) feature types carries the descriptive characteristics
+of a real-world entity (a location or place on the surface of the
+Earth). In the context of hydrographic products, this includes the
+adjacent regions from the sea floor to elevations of landforms and
+structures above the Earth's surface.
+
+[[sec_4.3.2.2]]
+===== Meta
+
+Meta features contain information about other features within a dataset.
+Information defined by meta features override the default metadata
+values defined by the dataset descriptive records. Meta attribution
+on individual features overrides attribution on meta features.
+
+[[sec_4.3.2.3]]
+===== Cartographic
+
+Cartographic features contain information about the cartographic representation
+(including text) of real world entities.
+
+[[sec_4.3.3]]
+==== Information Types
+
+Information types are identifiable pieces of information in a dataset
+that can be shared between other features. They have attributes but
+have no relationship to any geometry; information types may reference
+other information types.
+
+[[sec_4.3.4]]
+==== Feature and information relationships
+
+A feature relationship links instances of one feature type with instances
+of the same or a different feature type.
+
+An information relationship links instances of feature types or information
+types to instances of information types.
+
+[[sec_4.3.5]]
+==== Attributes
+
+S-123 defines attributes as either simple or complex.
+
+[[sec_4.3.5.1]]
+===== Simple Attributes
+
+The types of simple attributes used in S-123 are listed in <<AnnexA,clause=2.4.2>>.
+Descriptions
+of the simple attributes included in S-123 can also be found in
+<<AnnexA>>.
+
+[[sec_4.3.5.2]]
+===== Complex Attributes
+
+Complex attributes are aggregations of other attributes that are either
+simple or complex. The aggregation is defined by means of attribute
+bindings.
+
+[[sec_4.4]]
+=== Geometric Representation
+
+Geometric representation is the digital description of the spatial
+component of an object as described in <<IHO_S_100>> and <<ISO_19107_2019>>.
+This product specification uses two types of geometries: GM_Point
+and GM_Surface.
+
+[[sec_4.5]]
+=== Coordinate Reference System (CRS)
+
+[[sec_4.5.1]]
+==== Horizontal Coordinate Reference System
+
+The coordinate reference system used for this product specification
+is World Geodetic System 1984 (WGS 84) which is defined by the European
+Petroleum Survey Group (EPSG) code 4326.Datasets conforming to this
+product specification are not projected.
+
+[[sec_4.5.2]]
+==== Projection
+
+Datasets conforming to this product specification are not projected.
+
+[[sec_4.5.3]]
+==== Temporal reference system
+
+Time is measured by reference to Calendar dates and Clock time in
+accordance with <<ISO_19108_2002,clause=5.4.4>>.
+
+[[sec_4.6]]
+=== Geometry
+
+[[sec_4.6.1]]
+==== S-123 geometry
+
+Marine Radio Services (MRS) features are encoded as vector entities
+which conform to S-100 geometry configuration level 3a
+(<<IHO_S_100,clause=7-4.3>>).
+
+Level 3a is a set of point, curve and surface primitives with the
+following constraints:
+
+* Each curve must reference a start and end point
+(they may be the same).
+* Curves must not self-intersect. See <<IHO_S_100,figure=7-5>>.
+* Areas are represented by a closed loop of curves beginning and ending
+at a common point.
+* In the case of areas with holes, all internal boundaries must be
+completely contained within the external boundary and the internal
+boundaries must not intersect each other or the external boundary.
+Internal boundaries may touch other internal boundaries or the external
+boundary tangentially (that is at one point) as shown in <<IHO_S_100,figure=7-6>>.
+* The outer boundary of a surface must be in a clockwise direction
+(surface to the right of the curve) and the curve orientation positive.
+The inner boundary of a surface must be in a counter-clockwise direction
+(surface to the right of the curve) and the curve orientation negative.
+See <<IHO_S_100,figure=7-7>>.
+
+S-123 further constrains Level 3a with the following:
+
+* Coincident linear geometry must be avoided when there is a dependency
+between features.
+* The interpolation of _GM_CurveSegment_ must be loxodromic.
+* Linear geometry is defined by curves which are made of curve segments.
+Each curve segment contains the geographic coordinates as control
+points and defines an interpolation method between them. Coordinate
+density can have a significant impact on file size and system performance.
+A rule of thumb is to limit the coordinate density to 0.3 mm at maximum
+permitted display scale.
+* For a scale-less product, the producer should keep in mind the expected
+scale range for typical use and the density of coordinates needed
+to suit the needs of the product.
+
+The following exception applies to S-123:
+
+* The use of coordinates is restricted to two dimensions
+(_DirectPosition_ is restricted to two coordinates).
+
+[[sec_4.6.2]]
+==== MRS data and scale
+
+MRS data must be compiled in the best applicable scale. The use of
+the data itself is "scale independent". That means that the data can
+be used at any scale.
+
+[[sec_4.6.3]]
+==== Coordinate encoding in spatial primitives
+
+Geometry may be encoded either inline or by reference to a spatial
+primitives located elsewhere in the dataset that encodes the actual
+coordinate values. The GML conventions for references and axis order
+must be followed.
+
+The CRS shall be EPSG code 4326 and identified using the URI convention
+for SRS specified by OGC, which is link:++http://www.opengis.net/def/crs/EPSG/0/4326"++[]
+(Quote <<IHO_S_100,clause=10b-11.7>>.). The axis order is latitude/longitude.
+
+
+[[sec_5]]
+== Data Quality
+
+[[sec_5.1]]
+=== Introduction
+
+Data quality allows users and user systems to assess fitness for use
+of the provided data. Data quality measures and the associated evaluation
+are reported as metadata of a data product. This metadata improves
+interoperability with other data products and provides scope for usage
+by user groups that the data product was not originally intended for.
+The secondary users can make assessments of the data product usefulness
+in their application based on the reported data quality measures.
+
+For S-123 the following data quality elements have been included:
+
+* Conformance to this Product Specification;
+* Intended purpose of the data product;
+* Completeness of the data product in terms of coverage;
+* Logical consistency;
+* Positional uncertainty and accuracy;
+* Thematic accuracy;
+* Temporal quality;
+* Aggregation measures;
+* Validation checks or conformance checks including:
+** General tests for dataset integrity; and
+** Specific tests for compliance against the S-123 data model.
+
+[[sec_5.2]]
+=== Quality measure elements
+
+The data quality measures recommended in <<S97,part=C>> and their applicability
+in S-123 are indicated in <<table_5.1>> below. NA indicates the measure
+is not applicable. This table reproduces the first 4 columns of the
+data quality checklist recommended elements and replaces the final
+column with descriptions of the scope of the element in the context
+of S-123 datasets.
+
+[[table_5.1]]
+.Quality measure elements
+[cols="6"]
+|===
+h| No. h| Data quality element and sub element h| Definition h| DQ measure / description h| Evaluation scope h| Scope in S-123
+
+| 1 | Completeness / Commission | Excess data present in a dataset, as described by the scope. | numberOfExcessItems / This data quality measure indicates the number of items in the dataset, that should not have been present in the dataset. | dataset/dataset series | All features and information types
+
+| 2 | Completeness / Commission | Excess data present in a dataset, as described by the scope. | numberOfDuplicateFeatureInstances / This data quality measure indicates the total number of exact duplications of feature instances within the data. | dataset/dataset series | All features and information types
+| 3 | Completeness / Omission | Data absent from the dataset, as described by the scope. | numberOfMissingItems / This data quality measure is an indicator that shows that a specific item is missing in the data. | dataset/dataset series/ spatial object type | All features and information types
+| 4 | Logical Consistency / Conceptual Consistency | Adherence to the rules of a conceptual schema. | numberOfInvalidSurfaceOverlaps / This data quality measure is a count of the total number of erroneous overlaps within the data. Which surfaces may overlap and which must not is application dependent. Not all overlapping surfaces are necessarily erroneous. | spatial object / spatial object type | Features with surface geometry; spatial objects of type surface
+| 5 | Logical Consistency / Domain Consistency | Adherence of the values to the value domains. | numberOfNonconformantItems / This data quality measure is a count of all items in the dataset that are not in conformance with their value domain. | spatial object / spatial object type | All features and information types
+| 6 | Logical Consistency / Format Consistency | Degree to which data is stored in accordance with the physical structure of the data set, as described by the scope | physicalStructureConflictsNumber / This data quality measure is a count of all items in the dataset that are stored in conflict with the physical structure of the dataset. | dataset/dataset series | All features and information types
+
+| 7 | Logical Consistency / Topological Consistency
+| Correctness of the explicitly encoded topological characteristics
+of the dataset, as described by the scope.
+| rateOfFaultyPointCurveConnections / This data quality measure indicates
+the number of faulty link-node connections in relation to the number
+of supposed link-node connections. This data quality measure gives
+the erroneous point-curve connections in relation to the total number
+of point-curve connections.
+| spatial object / spatial object type
+a| NA S-123 does not use curve type geometry.
+Features with curve geometry; spatial objects of curve types
+
+| 8 | Logical Consistency / Topological Consistency
+| Correctness of the explicitly encoded topological characteristics
+of the dataset, as described by the scope.
+| numberOfMissingConnectionsUndershoots / This data quality measure
+is a count of items in the dataset within the parameter tolerance
+that are mismatched due to undershoots.
+| spatial object / spatial object type
+a| NA S-123 does not use curve type geometry.
+Features with curve geometry; spatial objects of curve types
+
+| 9 | Logical Consistency / Topological Consistency
+| Correctness of the explicitly encoded topological characteristics
+of the dataset, as described by the scope.
+| numberOfMissingConnectionsOvershoots / This data quality measure
+is a count of items in the dataset within the parameter tolerance
+that are mismatched due to overshoots.
+| spatial object / spatial object type
+a| NA S-123 does not use curve type geometry.
+Features with curve geometry; spatial objects of curve types
+
+| 10 | Logical Consistency / Topological Consistency
+| Correctness of the explicitly encoded topological characteristics
+of the dataset, as described by the scope.
+| numberOfInvalidSlivers / This data quality measure is a count of
+all items in the dataset that are invalid sliver surfaces. A sliver
+is an unintended area that occurs when adjacent surfaces are not digitized
+properly. The borders of the adjacent surfaces may unintentionally
+gap or overlap to cause a topological error.
+| dataset / dataset series
+| Features with surface geometry; spatial objects of type surface
+
+| 11 | Logical Consistency / Topological Consistency
+| Correctness of the explicitly encoded topological characteristics
+of the dataset, as described by the scope.
+| numberOfInvalidSelfIntersects / This data quality measure is a count
+of all items in the dataset that illegally intersect with themselves.
+| spatial object / spatial object type
+a| Features with surface geometry; spatial objects of type surface
+or curve S-123 does not use curve type geometry.
+
+| 12 | Logical Consistency / Topological Consistency
+| Correctness of the explicitly encoded topological characteristics
+of the dataset, as described by the scope.
+| numberOfInvalidSelfOverlap / This data quality measure is a count
+of all items in the dataset that illegally self-overlap.
+| spatial object / spatial object type
+a| Features with surface geometry; spatial objects of type surface
+or curve S-123 does not use curve type geometry
+
+| 13 | Positional Accuracy / Absolute or External Accuracy
+| Closeness of reported coordinative values to values accepted as
+or being true.
+| Root Mean Square Error / Standard deviation, where the true value
+is not estimated from the observations but known a priori.
+| spatial object / spatial object type | objects that have coordinative values associated.
+
+| 14 | Positional Accuracy / Vertical Position Accuracy
+| Closeness of reported coordinative values to values accepted as
+or being true.
+| linearMapAccuracy2Sigma / Half length of the interval defined by
+an upper and lower limit in which the true value lies with probability
+95%.
+| spatial object / spatial object type | N/A S-123 does not use 3-D coordinates..
+
+| 15 | Positional Accuracy / Horizontal Position Accuracy
+| Closeness of reported coordinative values to values accepted as
+or being true.
+| linearMapAccuracy2Sigma / Half length of the interval defined by
+an upper and lower limit in which the true value lies with probability
+95%.
+| spatial object / spatial object type
+| objects that have a horizontal coordinate values associated.
+
+| 16 | Positional Accuracy / Gridded Data Position Accuracy
+| Closeness of reported coordinative values to values accepted as
+or being true.
+| Root mean square error of planimetry / Radius of a circle around
+the given point, in which the true value lies with probability P.
+| spatial object / spatial object type
+| NA. S-123 does not have features with gridded geometry
+
+| 17 | Temporal Quality / Temporal Consistency | Consistency with time.
+| Correctness of ordered events or sequences, if reported.
+| dataset/dataset series/ spatial object type
+| Features with time intervals, fixed/periodic date ranges, schedules.
+
+| 18 | Thematic Accuracy / ThematicClassificationCorrectness
+| Comparison of the classes assigned to features or their attributes
+to a universe of discourse.
+| miscalculationRate / This data quality measure indicates the number
+of incorrectly classified features in relation to the number of features
+that are supposed to be there. [Adapted from ISO 19157] This is a
+RATE which is a ratio, and is expressed as a REAL number representing
+the rational fraction corresponding to the numerator and denominator
+of the ratio. For example, if there are 1 items that are classified
+incorrectly and there are 100 of the items in the dataset then the
+ratio is 1/100 and the reported rate = 0.01.
+| dataset/dataset series/ spatial object type | All features and info types
+
+| 19 | Aggregation Measures / AggregationMeasures
+| In a data product specification, several requirements are set up
+for a product to conform to the specification.
+| DataProductSpecificationPassed / This data quality measure is a
+boolean indicating that all requirements in the referred data product
+specification are fulfilled.
+| dataset/dataset series/ spatial object type | Dataset as a whole
+
+| 20 | Aggregation Measures / AggregationMeasures
+| In a data product specification, several requirements are set up
+for a product to conform to the specification.
+| DataProductSpecificationFailRate / This data quality measure is
+a number indicating the number of data product specification requirements
+that are not fulfilled by the current product/dataset in relation
+to the total number of data product specification requirements.
+| dataset/dataset series/ spatial object type | Dataset as a whole
+
+|===
+
+[[sec_5.2.1]]
+==== Completeness
+
+[[sec_5.2.1.1]]
+===== Commission
+
+Commission is applicable for S-123. Data Producers must verify that
+no excess items have been included in the dataset. This includes duplicate
+items, which must be removed.
+
+IHO Publications S-158:100 -- _S-100 Validation Checks_ and/or S-158:123
+-- _S-123 Validation Checks_, include data validation check(s) intended
+to identify excess and/or duplicate items.
+
+If no excess or duplicate items are present the dataset PASSES this
+test.
+
+[[sec_5.2.1.2]]
+===== Omission
+
+Omission is applicable for S-123. Data Producers must verify that
+no items that should have been included in the dataset have been missed.
+This includes missing features specified as mandatory in S-123; and
+missing support files referenced by the dataset.
+
+IHO Publications S-158:100 -- _S-100 Validation Checks_ and/or S-158:123
+-- _S-123 Validation Checks_, include data validation check(s) intended
+to detect missing items.
+
+If no items have been omitted the dataset PASSES this test.
+
+[[sec_5.2.2]]
+==== Logical consistency
+
+[[sec_5.2.2.1]]
+===== Conceptual consistency
+
+Conceptual Consistency is applicable for S-123 and follows the guidelines
+from <<IHO_S_100,part=1 - Conceptual Schema Language>>.
+
+Data Producers must verify that the dataset conforms to the S-100
+General Feature Model. IHO Publications S-158:100 -- _S-100 Validation Checks_
+and/or S-158:123 -- _S-123 Validation Checks_, provide validation
+checks which verify this conformance.
+
+If no conceptual consistency checks classified as Critical in S-158:100
+or S-158:123 are reported the dataset PASSES this test.
+
+[[sec_5.2.2.2]]
+===== Domain consistency
+
+Domain consistency is applicable for S-123 and follows the guidelines
+from <<IHO_S_100,part=5 -- Feature Catalogue>>.
+
+Data Producers must verify that the dataset conforms to the S-123
+Feature Catalogue and rules described in <<AnnexA>>. IHO Publications S-158:100
+-- _S-100 Validation Checks_ and/or S-158:123 -- _S-123 Validation Checks_,
+provide validation checks which verify this conformance.
+
+If no domain consistency checks classified as Critical in S-158:100
+or S-158:123 are reported the dataset PASSES this test.
+
+[[sec_5.2.2.3]]
+===== Format consistency
+
+Format Consistency is applicable for S-123 and follows the guidelines
+from <<IHO_S_100,part=10b -- GML Encoding>>.
+
+Data Producers must verify that the dataset conforms to S-123 data
+product format (encoding). IHO Publications S-158:100 --
+_S-100 Validation Checks_ and/or S-158:123 -- _S-123 Validation Checks_,
+provide validation checks which verify this conformance.
+
+If no format consistency checks classified as Critical in S-158:100
+or S-158:123 are reported the dataset PASSES this test.
+
+[[sec_5.2.2.4]]
+===== Topological consistency
+
+Topological consistency is applicable for S-123 and follows the guidelines
+from <<IHO_S_100,part=7 -- Spatial Schema>>.
+
+Data Producers must verify that the dataset conforms to the requirements
+for topology set out in <<sec_4>>. IHO Publications
+S-158:100 -- _S-100 Validation Checks_ and/or S-158:123 --
+_S-123 Validation Checks_, provide validation checks which verify
+this conformance.
+
+If no topological consistency checks classified as Critical in S-158:100
+or S-158:123 are reported the dataset PASSES this test.
+
+[[sec_5.2.3]]
+==== Positional accuracy
+
+[[sec_5.2.3.1]]
+===== Absolute or external accuracy
+
+Absolute or external accuracy is applicable for S-123 and follows
+the guidelines from <<IHO_S_100,part=4c>>.
+
+Data Producers must verify the absolute accuracy of S-123 datasets
+and ensure that they achieve an adequate accuracy. Additionally,
+the relevant metadata features and attributes as described in <<AnnexA>>,
+must be populated where applicable.
+
+Accuracy computations for Positional Accuracy / Absolute or External
+Accuracy should use the following recommendations:
+
+Maximum RMSE (horizontal) = E / 10000
+
+Where
+
+E = Denominator of intended scale of mapping
+
+[[sec_5.2.3.2]]
+===== Horizontal position accuracy
+
+Data Producers must verify the horizontal position accuracy of S-123
+datasets and ensure that they achieve an adequate accuracy.
+The relevant metadata features and attributes as described in <<AnnexA>>,
+should be populated
+to reflect the horizontal position accuracy.
+
+[[sec_5.2.4]]
+==== Thematic accuracy
+
+[[sec_5.2.4.1]]
+===== Thematic classification correctness
+
+Thematic classification correctness is applicable for S-123 and follows
+the guidelines from <<IHO_S_100,part=4c>>.
+
+Data Producers must verify that features have been encoded correctly
+when included in the S-123 dataset. Encoded features must conform
+to the S-123 Feature Catalogue and the rules described in the
+<<AnnexA>>. IHO Publications
+S-158:100 -- _S-100 Validation Checks_ and/or S-158:123 --
+_S-123 Validation Checks_, provide validation checks which verify
+this conformance.
+
+If no thematic classification correctness checks classified as Critical
+in S-158:100 or S-158:123 are reported the dataset PASSES this test.
+
+[[sec_5.2.4.2]]
+===== Non-quantitative attribute accuracy
+
+Non-quantitative attribute accuracy is applicable for S-123 and follows
+the guidelines from <<IHO_S_100,part=4c - Metadata - Data Quality>>.
+
+Data Producers must verify that non-quantitative attributes have been
+populated correctly when included in the S-123 dataset. Non-quantitative
+attributes must conform to the S-123 Feature Catalogue and the rules
+described in <<AnnexA>>.
+IHO Publications S-158:100 -- _S-100 Validation Checks_ and/or S-158:123
+-- _S-123 Validation Checks_, provide validation checks which verify
+this conformance.
+
+If no non-quantitative attribute checks classified as Critical in
+S-158:100 or S-158:123 are reported the dataset PASSES this test.
+
+[[sec_5.2.4.3]]
+===== Quantitative attribute accuracy
+
+Quantitative attribute accuracy is applicable for S-123 and follows
+the guidelines from <<IHO_S_100,part=4c - Metadata - Data Quality>>.
+
+Data Producers must verify that quantitative attributes have been
+populated correctly when included in the S-123 dataset. Quantitative
+attributes must conform to the S-123 Feature Catalogue and the rules
+described in <<AnnexA>>.
+Relevant metadata features and attributes must be used to indicate
+the accuracy where applicable. IHO Publications S-158:100 --
+_S-100 Validation Checks_ and/or S-158:123 -- _S-123 Validation Checks_,
+provide validation checks which verify this conformance.
+
+If no quantitative attribute checks classified as Critical in S-158:100
+or S-158:123 are reported the dataset PASSES this test.
+
+[[sec_5.2.5]]
+==== Temporal quality
+
+[[sec_5.2.5.1]]
+===== Temporal consistency
+
+Temporal consistency is applicable for S-123 and follows the guidelines
+from <<IHO_S_100,part=4c - Metadata - Data Quality>>.
+
+Data Producers must verify that the dataset conforms to rules described
+in <<AnnexA>>.
+IHO Publications S-158:100 -- _S-100 Validation Checks_ and/or S-158:123
+-- _S-123 Validation Checks_, provide validation checks which verify
+this conformance.
+
+If no temporal consistency checks classified as Critical in S-158:100
+or S-158:123 are reported the dataset PASSES this test.
+
+[[sec_5.2.5.2]]
+===== Temporal validity
+
+Temporal validity is applicable for S-123 and follows the guidelines
+from <<IHO_S_100,part=4c - Metadata - Data Quality>>.
+
+Data Producers must verify that the dataset conforms to rules described
+in <<AnnexA>>.
+IHO Publications S-158:100 -- _S-100 Validation Checks_ and/or S-158:123
+-- _S-123 Validation Checks_, provide validation checks which verify
+this conformance.
+
+If no temporal validity checks classified as Critical in S-158:100
+or S-158:123 are reported the dataset PASSES this test.
+
+[[sec_5.2.5.3]]
+===== Temporal accuracy
+
+Temporal accuracy is applicable for S-123 and follows the guidelines
+from <<IHO_S_100,part=4c>>.
+
+The Data Producer must verify the temporal accuracy of the S-123 dataset.
+
+[[sec_5.2.6]]
+==== Aggregation
+
+Aggregation is applicable for S-123 dataset as a whole. The aggregated
+data quality result provides a result if the dataset has passed conformance
+to the Product Specification.
+
+Data Producers must ensure that all applicable data quality aspects
+are checked and only if all of these checks are PASSED can the dataset
+be considered a valid S-123 dataset. This is indicated by the Data
+Producer signing the dataset.
+
+[[sec_5.3]]
+=== Data compliance and usability
+
+All S-123 datasets must be validated against the above data quality
+elements using conformance checks that are located in IHO Publications
+S-158:100 -- _S-100 Validation Checks_ and/or S-158:123 --
+_S-123 Validation Checks_. As a minimum requirement, all datasets
+must conform to all checks that are categorized as "Critical" in S-158:100
+and S-158:123.
+
+S-123 datasets must conform to all mandatory elements of <<AnnexA>>,
+where the word 'must' is used.
+
+In addition to the above, dataset usability must be assessed against:
+
+* Intended user requirements in regard to coverage, scale and specific
+content requirements as defined by the Producing Agency and key stakeholders;
+* Conformance to established maintenance processes; and
+* Overall compliance with the S-123 Product Specification, including
+context-specific evaluation of individual encoding instances for requirement
+of conformance to checks classified as "Error" and "Warning" in S-158:100
+and S-158:123.
+
+Test methods for evaluating data compliance consist of executing the
+relevant tests from the Validation Checks (S-158:100 and S-158:123)
+for each quality element in <<table_5.1>> and counting the number
+of instances in the dataset which fail the checks for that quality
+element.
+
+Note that in some cases "executing the relevant test" may involve
+comparing the encoded S-123 dataset to the source material by visual
+means. For tests requiring visual comparison of encoded data to source
+material, sampling methods may be used if the volume of data precludes
+checking all the relevant data objects.
+
+
+[[sec_6]]
+== Data capture and classification
+
+The S-123 MRS Data Classification and Encoding Guide (DCEG) describes
+how data describing the real world should be captured using the types
+defined in the S-123 Feature Catalogue. This Guide is located at <<AnnexA>>.
+
+
+[[sec_7]]
+== Data Product Format (Encoding)
+
+[[sec_7.1]]
+=== Introduction
+
+The format for datasets must conform to the S-123 GML schema specified.
+See <<IHO_S_100,part=10b>> and the S-123 GML schema documentation
+for a complete description of the data encoding.
+
+[[table_7.1]]
+.Format specification information
+[cols="2"]
+|===
+h| Name h| Value
+
+| Format name               | GML
+| Version                   | 3.2.1
+| Specification description | S-100 profile of GML (<<IHO_S_100,part=10b>>)
+| Language                  | English
+| Character set             | 004 -- utf8
+| Additional Information    | GML schema for S-123 Edition 1.1.0 (link:++https://schemas.s100dev.net++[])
+|===
+
+[[sec_7.2]]
+=== Encoding of latitude and longitude
+
+Values of latitude and longitude must be accurate to 7 decimal places.
+Coordinates must be encoded as decimals in the format described below.
+
+* Values should be coded as decimal numbers with 7 or fewer digits
+after the decimal. The normative encoding is in degrees, with an accuracy
+of stem:[10^{-7}] degrees, i.e., 7 digits after the decimal point.
+* The decimal point must be indicated by the "." character.
+* Trailing zeroes after the decimal point (and the decimal point itself
+if appropriate) may be omitted at producer discretion, but the accuracy
+must still be as indicated (e.g., stem:[10^{-7}] degrees for coordinates
+of default accuracy).
+
+[[sec_7.3]]
+=== Numeric Attribute Encoding
+
+Integer attribute values must not contain leading zeros.
+
+Floating point attributes must not contain leading zeros. Values in
+the interval (-1, 1) may use a single zero before the decimal point.
+
+Floating point attribute values must not contain non-significant trailing
+zeros exceeding the attribute's precision as specified in the feature
+catalogue.
+
+[[sec_7.4]]
+=== Text Attribute Values
+
+Character strings must be encoded using the character set defined
+in ISO 10646-1, in Unicode Transformation Format-8 (UTF-8).
+
+[[sec_7.5]]
+=== Mandatory Attribute Values
+
+There are four reasons why attribute values may be considered mandatory:
+
+* They determine whether a feature is in the display base,
+* Certain features make no logical sense without specific attributes,
+* Some attributes are necessary to determine which symbol is to be
+displayed,
+* Some attributes are required for safety of navigation.
+
+All mandatory attributes are identified in the Feature Catalogue.
+
+[[sec_7.6]]
+=== Unknown Attribute Values
+
+Mandatory attributes in an S-123 dataset are not permitted to contain
+a nil value. All mandatory attributes must contain meaningful data.
+
+Optional attributes must be omitted altogether if the value is unknown
+or missing. They must not be "nilled."
+
+[[sec_7.7]]
+=== Object identifiers
+
+Features, information types, collection objects, meta features, and
+geometries (inline or external) are all required by the schema to
+have a gml:id attribute with a value that is unique within the dataset.
+The gml:id values must be used as the reference for the object from
+another object in the same dataset.
+
+[[sec_7.8]]
+=== Data coverage
+
+All areas of a dataset must be covered by a *DataCoverage* meta feature.
+
+An update dataset must not change the limit of a *DataCoverage* feature
+for the base dataset. Where the limit of a *DataCoverage* feature
+for a base dataset is to be changed, this must be done by issuing
+a new edition of the dataset.
+
+[[sec_7.9]]
+=== Data overlap
+
+S-123 datasets may overlap other S-123 datasets.
+
+[[sec_7.10]]
+=== Data quality meta-features
+
+One or more *QualityOfNonbathymetricData* features shall cover the
+dataset.
+
+[[sec_7.11]]
+=== Data extent
+
+Datasets must not cross the stem:[180"unitsml(deg)"] meridian of longitude.
+
+[[sec_7.12]]
+=== Sequence of objects
+
+The following sequence of objects is recommended:
+
+[pseudocode%unnumbered]
+====
+Spatial records for by-reference geometries
+    Point
+    Multi point
+    Curve
+    Composite Curve
+    Surface
+Information objects
+Feature objects
+    Meta features
+    Geo features
+====
+
+[[sec_7.13]]
+=== Content of update datasets
+
+Update datasets can only contain replacements, deletions, and additions
+of whole feature instances or information instances. This means that
+when a feature or information instance is updated, the new version
+must contain all the attributes of the old instance, including any
+inline spatial attributes (i.e., inline geometry), except those attributes
+that are being removed.
+
+An association to an instance of a feature or information type is
+treated as an attribute of the referring instance, and therefore adding
+or deleting an association means the original referring instance must
+be replaced with a new version. The instance at the other end of the
+association needs to be replaced if and only if it contains a reference
+to the first instance.
+
+Spatial objects that are not inline (i.e., geometry that is encoded
+as an independent spatial object in the dataset) is treated like any
+other object, i.e., it needs to be updated if and only if the primitive
+has changed (e.g., a coordinate is updated).
+
+[[sec_7.14]]
+=== Attribute multiplicity
+
+In general, if all the sub-attributes of a complex attribute are optional,
+at least one of them should be present and have a value that is not
+empty (or white space, for attributes of type "text" or types derived
+from "text").
+
+Similarly, if all the attributes of an information type are optional,
+at least one of them should be present and have a non-empty value.
+
+Note that there is no such general rule for features, though the DCEG
+may require it for specific features.
+
+
+[[sec_8]]
+== Data Product Delivery
+
+Data which conforms to this Product Specification must be delivered
+by means of an S-100 Exchange Set. The S-100 Exchange Set is a data
+container that provides all the elements needed for a reliable and
+secure exchange of S-100 conformant data. It is intended to be a self-contained
+entity consisting of data files and metadata records packaged together
+using applicable data integrity and optional security provisions.
+
+[[sec_8.1]]
+=== Exchange set
+
+The S-100 Exchange Set structure is described in <<IHO_S_100,part=17,clause=17-4.1>>.
+The conceptual model depicted in <<IHO_S_100,figure=17-2>>
+Edition 5.2.0 is very flexible and can be implemented in a variety
+of ways as virtually all components, except for the S-100_ExchangeCatalogue,
+are optional. This level of flexibility is essential to properly support
+the mainstream use case of exchanging geospatial data, as well as
+the use cases for releasing dataset and support file cancellation
+notices or new Catalogue releases without any data files present.
+This approach ensures that an Exchange Set Catalogue is always included
+in any S-100 conformant Exchange Set, providing the essential discovery
+metadata about any included resources and their intended use.
+
+S-123 uses the same exchange set components and metadata as <<IHO_S_100>>.
+The Exchange Set structure is the same as that described in
+<<IHO_S_100,clause=17-4.2>>. The required Exchange Set Catalogue XML
+document instance must be named CATALOG.XML and placed in the S100_ROOT
+folder, together with its digital signature (CATALOG.SIGN) file. All
+other digital signatures are included within their corresponding resource
+metadata records in the CATALOG.XML.
+
+Since it is possible for an exchange set to contain only a feature
+or portrayal catalogue, or only a support file which is being updated
+or delivered as a new file, S-123 datasets are an optional component
+of S-123 exchange sets. If the exchange set contains a dataset, the
+support files referenced in the dataset must be included.
+
+[[sec_8.2]]
+=== Dataset
+
+[[sec_8.2.1]]
+==== Types of Datasets
+
+A dataset is a grouping of features, attributes, geometry and metadata
+which comprises a specific coverage. The following types of MRS dataset
+may be produced and contained within an exchange set:
+
+[[table_8.1]]
+.MRS dataset types
+[cols="4"]
+|===
+h| Dataset Type h| Explanation h| Encoding Format h| "purpose" field
+
+| New dataset
+| Data for an area different (in coverage and/or extent) from existing datasets.
+| <<sec_7>> | _newDataset_
+| Re-issue
+| Includes all the updates applied to the original dataset up to the
+date of the reissue. A Re-issue is intended to avoid unnecessary loading
+of the Base cell and all applicable updates individually for new users
+of the dataset, and therefore does not contain any new information
+additional to that previously distributed by updates. A reissue dataset
+can be issued at any time. | As for new dataset | _reissue_
+
+| New Edition of a dataset
+| A re-issue plus new information which has not been previously distributed
+by Updates. Each New Edition of a dataset must have the same name
+as the dataset that it replaces and should have the same spatial extents.
+The edition number in the dataset discovery metadata must increment
+up by one from the previous edition.
+| As for new dataset | _newEdition_
+
+| Update dataset
+| A delta change of the latest edition of a dataset. If there is more
+than one update dataset, the subsequent update will be a delta of
+the base dataset + earlier update datasets.
+| As for new dataset. See <<sec_7.13>> | _update_
+
+| Cancellation
+| Used to cancel dataset and any related update datasets. The dataset
+is cancelled and is deleted from the system.A cancellation dataset
+must be a pro-forma dataset containing only header information
+(no instances of spatial objects, information types, or feature types).
+| As for new dataset, but containing only header information.
+| _cancellation_
+
+|===
+
+[[sec_8.2.2]]
+==== Dataset naming convention
+
+All dataset files will have unique world-wide file identifiers.
+The file identifier of the dataset should not be used to describe
+the physical content of the file. The dataset file metadata that accompanies
+the file will inform the user of the name and purpose of the file.
+
+S-123 dataset files for new, reissue, new editions, and cancellation
+datasets are named according to the specifications given below:
+
+123CCCCXXXXXXXXXX.GML
+
+The main part forms an identifier where:
+
+* The first three characters are always "123" and identify the dataset
+as an S-123 dataset.
+* The next four characters identify the issuing agency by its alphanumeric
+agency code in the IHO producer code register in the IHO GI Registry.
+Where the agency code consists of fewer than four characters, sufficient
+zeros must be suffixed to make the length exactly four characters.
+* The subsequent characters can be used in any way by the producer
+to provide a unique file name for the dataset. The following characters
+are allowed in the dataset name, A to Z, 0 to 9 and the special character
+++_++ (underscore).
+* The ninth and subsequent characters are optional (i.e., at least
+one character must be used after the producer code).
+* The maximum length of the file name must be 64 characters including
+the extension and its preceding '." character. Note that since update
+datasets must follow the same rule, allowing for updates lowers this
+limit (e.g., allowing for 999 updates reduces the limit for base datasets
+by 4 characters).
+
+[[sec_8.2.3]]
+==== Update dataset naming convention
+
+All update dataset files will have an identical name to the base dataset,
+aside from the separator and update number sequence.
+
+S-123 update dataset files are named according to the specifications
+given below:
+
+123CCCCXXXXXXXXXX_XXX.GML
+
+The main part forms an identifier where:
+
+* The first character up to the final underscore character are the
+same as the dataset being updated.
+* The next character must be an underscore "_".
+* The next three characters must be numerical (0-9) characters to
+indicate the place of the update dataset in the update sequence.
+* The maximum length of the name must be 64 characters including the
+extension and its preceding "." character.
+
+[[sec_8.2.4]]
+==== Dataset size
+
+MRS datasets shall not exceed 20MB. Update datasets shall not exceed
+500KB.
+
+[[sec_8.2.5]]
+==== New Editions, re-issues, updates and cancellations
+
+This section defines the sequencing of S-123 datasets for New Editions,
+updates and re-issues. In order to ensure that feature type updates
+are incorporated into an end user system in the correct sequence without
+any omission, a number of parameters encoded in the data are used
+in the following way:
+
+*Edition number*:: When a dataset is initially created (Base dataset),
+the Edition number 1 is assigned to it. The Edition number is increased
+by 1 at each New Edition.
+
+*Update number*:: Update number 0 is assigned to a new dataset and
+a New Edition. The first update dataset file associated with this
+new dataset must have update number 1. The update number must be increased
+by one for each subsequent update, until a New Edition is released.
++
+--
+A re-issue of a dataset must have the update number of the last update
+applied to the dataset, and use the same Edition number.
+--
+
+*Update comment*:: Comment for describing the change introduced by
+an update.
+
+*Issue date*:: Date up to which the Data Producer has incorporated
+all applicable changes. The issue date must be greater than the previous
+issue date of the dataset.
+
+In order to cancel a dataset, an update dataset file is created for
+which the Edition number must be set to 0. This message is only used
+to cancel a dataset. Where a dataset is cancelled and its name is
+reused at a later date, the issue date must be greater than the issue
+date of the cancelled dataset. When the dataset is cancelled it must
+be removed from the system.
+
+An Exchange Set may contain Base dataset files and update dataset
+files for the same datasets. Under these circumstances the update
+dataset files must follow on in the correct sequential order from
+the last update applied to the Base dataset file.
+
+[[sec_8.2.6]]
+==== Dataset loading
+
+Datasets must always be loaded in the order of base dataset first,
+then update datasets in the corrected sequential order. Systems are
+not to load updates out of order, for example if update 1-5 is present,
+then 6 is missing, update 7 must not be loaded.
+
+When a new edition of a dataset is received, the system must replace
+the previous edition, along with any updates with the new edition
+of the dataset. Loading of subsequent updates follow the same rule
+as above.
+
+[[sec_8.3]]
+=== Support Files
+
+Dataset support files offer supplementary information that can be
+included in an MRS Exchange Set.
+
+* Plain text files must contain only general text as defined by this
+standard (text consisting only of printable characters and without
+HTML, XML, or other markup). The extension must be TXT.
+* HTML and XML files must contain only text and markup as defined
+in the relevant W3C standards. Files must use the UTF-8 character
+set encoding. References in datasets to HTML and XML support files
+must treat them as text files (i.e., they should not be referenced
+using attributes intended for picture files). The extension must be
+HTM for HTML files and XML for general XML files.
+* Picture files must be in TIFF (6.0 specification) and use the extension
+TIF.
+
+[[table_8.2]]
+.Support file formats and extensions
+[cols="3"]
+|===
+h| File Types h| Extensions h| Comment
+
+.3+| *Text* | TXT | Plain-text files (UTF-8 text excluding control codes)
+| HTM | HTML files must only include inline or embedded Cascading
+Style Sheet (CSS) information and must not contain embedded Javascript
+or other dynamic content, for example DHTML, Flash etc.
+| XML | XML documents must only be included in accordance with guidance
+provided within the Data Classification and Encoding Guide (<<AnnexA>>).
+This may include a Schema for the validation of XML documents.
+| *Picture* | TIF | Baseline TIFF 6.0.
+|===
+
+[[sec_8.3.1]]
+==== Support File Naming Convention
+
+All support files must have unique file identifiers. The support file
+metadata that accompanies the file will inform the user of the name
+and purpose of the file (that is new, replacement and deletion).
+
+In this encoding the support files are named according to the specifications
+given below:
+
+123CCCCØØØØØØØØØØ.EEE
+
+The main part forms an identifier where:
+
+* 123 -- the first 3 characters identify the support file as applicable
+to an S-123 dataset (mandatory).
+
+* CCCC -- the fourth to seventh characters identify the Producer Code
+of the issuing agency (mandatory).
+
+* ØØØØØØØØØØ -- the eighth and following characters are optional and
+can be used in any way by the Producer to provide the unique support
+file name. The following characters are allowed in the support file
+name: A to Z, 0 to 9 and the special character ++_++ (underscore).
+
+* .EEE -- support file extension. (TXT, HTM, XML or TIF).
+
+* The maximum length of the file name (including the extension and
+preceding ".") is 64 characters.
+
+[[sec_8.3.2]]
+==== Support file management
+
+When a support file is created or a subsequent version is issued it
+must carry its own issue date and be supported with a digital signature
+which authenticates it against the Producer's public key included
+in the Exchange Set metadata.
+
+The type of support file is indicated in the "purpose" field of the
+discovery metadata. Three types: new, replacement and deletion are
+defined. Support files carrying the "deletion" flag must be removed
+from the system. When a feature pointing to a text, picture or application
+file is deleted or updated so that it no longer references the file,
+the system software must check to see whether any other feature references
+the same file, before that file is deleted.
+
+Each support file required must be included only once in the Exchange
+Set.
+
+Support files must be stored in a separate folder within the Exchange
+Set.
+
+Re-use of a support file name after a deletion period is possible
+only if the support file edition number is higher than the previous
+edition number before deletion.
+
+Only the latest edition of a support file can be used. As soon as
+a New Edition is created and installed, the older version is retired
+and can no longer be used by any feature.
+
+If a support file is associated with multiple features in one or several
+datasets, a New Edition of the file will immediately be used by all
+associated features.
+
+Picture and text files are treated differently with respect to changes
+not applicable to all features or information types referencing the
+support file.
+
+. *Picture files*: If a New Edition of a picture support file contains
+changes not applicable to all features or information type instances
+that reference the original picture, a completely new picture file
+must be created. Updates changing the file reference in the feature
+or information type instances that use the new picture must be generated
+and distributed as updates to the appropriate datasets.
+
+. *Text files*: The possibility that different feature or information
+type instances reference different portions of the file (by means
+of _fileLocator_ attributes) must be taken into account.
+
+.. For plain-text files (TXT), since users may see additional portions
+of the file as well as the specific section referenced, the same criteria
+as picture files must be applied and a new TXT file created if there
+are objects that still need the old information.
+.. For HTML and XML files, instances may have _fileLocator_ attributes
+that point to specific sections identified by an "id" attribute. If
+some instances still need to reference the old information, there
+are two possible solutions:
+
+... An updated support file can be created with the new information
+added in a new section of the file, identified by a new "HTML anchor"
+or "id" attribute. Feature and information type instances that need
+to reference the changed information must have their _fileLocator_
+values updated to reference the new section or bookmark.
+... A new support file can be created and feature and information
+type instances that need to reference the new information must have
+their _fileReference_ and _fileLocator_ attributes updated.
+
+.. If there are no _fileLocator_ attributes in referencing instances,
+a new support file may be created or the existing support file may
+be updated to add the new information and facilitate locator attributes
+by adding HTML anchors or XML id attributes. The affected feature
+or information type instances must be updated accordingly.
+. In all cases, the file content must be reviewed and updated to ensure
+that there is no possibility of reader confusion. For example, if
+a regulation changes only for some regions, a sentence to the effect
+that "Revised for regions X, Y, and Z effective from (date)" may be
+added.
+
+The potential necessity of appropriate changes in referencing instances
+should also be considered, for example to picture caption or _headline_
+attributes.
+
+In deciding between options, producers should consider the expected
+lifetime of support files and the effects on update frequency for
+both datasets and support files, especially in connection with removal
+of obsolete information from the system as a whole as well as the
+removal of obsolete sections within support files.
+
+[[sec_8.4]]
+=== Exchange catalogue
+
+The Exchange Catalogue acts as the table of contents for the Exchange
+Set. The Catalogue file of the Exchange Set must be named CATALOG.XML.
+No other file in the Exchange Set may be named CATALOG.XML. The contents
+of the S-123 Exchange Catalogue are described in <<sec_10>>.
+
+
+[[sec_9]]
+== Portrayal
+
+[[sec_9.1]]
+=== Introduction
+
+S-123 portrayal is covered by the portrayal model as defined in <<IHO_S_100>>.
+This model reflects how the Portrayal Catalogue is defined for use
+in marine navigation systems. The Portrayal Catalogue defines symbology
+and the portrayal rules for each feature/attribute combination contained
+in the Feature Catalogue. Items included in an S-123 Portrayal Catalogue
+must be registered in the IHO Geospatial Information (GI) Registry.
+
+[[sec_9.2]]
+=== Portrayal catalogue
+
+The Portrayal Catalogue contains the mechanisms for the system to
+portray information found in S-123 datasets. The Portrayal Catalogue
+model is defined in <<IHO_S_100,part=9,clause=9-13>>.
+
+The S-123 Portrayal Catalogue is available in an XML document which
+conforms to the S-100 XML Portrayal Catalogue Schema. The structure
+for the Portrayal Catalogue is described in <<IHO_S_100,part=9,clause=9-13.2>>.
+
+
+[[sec_10]]
+== Metadata
+
+[[sec_10.1]]
+=== Introduction
+
+For information exchange, there are several categories of metadata
+required: metadata about the overall Exchange Catalogue; metadata
+about each of the datasets contained in the Catalogue; and metadata
+about the support files that make up the package.
+
+The MRS metadata description is based on the <<IHO_S_100>> metadata
+document section, which is a profile of the ISO 19115 standard.
+The <<IHO_S_100>> metadata classes and schema are used in S-123 exchange
+sets without extension. The constraints S-123 imposes on generic <<IHO_S_100>>
+metadata are included in <<sec_10.2>>, generally as remarks describing
+the extra conditions and restrictions imposed by S-123 (such as making
+an optional attribute mandatory).
+
+In some cases (if provided by the producer or exchange set packager)
+the metadata may be repeated in a language other than English.
+See <<IHO_S_100,part=17,clause=17-4.6>> - <<IHO_S_100,part=17,clause=17-4.8>> for guidance on
+encoding of metadata in languages other than English.
+
+[[sec_10.2]]
+=== Discovery metadata
+
+An outline of the overall concept of an S-123 exchange set for the
+interchange of geospatial data and its relevant metadata is explained
+in <<sec_8>>. The place of metadata in the exchange set is summarized
+in <<sec_8.1>>.
+
+The following clauses define the mandatory and optional metadata needed
+for S-123. Wherever S-123 makes an optional <<IHO_S_100>> metadata
+attribute mandatory (that is, restricts multiplicity from 0.. to 1..),
+the restricted multiplicity is shown in place of the multiplicity
+given in <<IHO_S_100,part=17>>. When this is done, the Remarks column
+contains a note about the restriction. Further, enumerations in the
+figure and the following clauses show only the values allowed in S-123
+Exchange Catalogues.
+
+[%landscape]
+<<<
+
+[[sec_10.2.1]]
+==== S100_ExchangeCatalogue
+
+The Catalogue file is defined in XML Schema language. The Exchange
+Catalogue inherits the dataset discovery metadata and support file
+discovery metadata from <<IHO_S_100>> with additional S-123-specific
+restrictions.
+
+[cols="8,19,24,3,22,23",options="unnumbered"]
+|===
+h| Role Name h| Name h| Description h| Mult h| Type h| Remarks
+
+| Class | S100_ExchangeCatalogue
+| An exchange catalogue contains the discovery metadata about the
+exchange datasets and support files
+| - | - |
+
+| Attribute | identifier | Uniquely identifies this exchange catalogue
+| 1 | S100_ExchangeCatalogueIdentifier | 0..1 multiplicity in <<IHO_S_100>> restricted to 1 in S-123
+
+| Attribute | contact | Details about the issuer of this exchange catalogue | 1
+| S100_CataloguePointOfContact | 0..1 multiplicity in <<IHO_S_100>> restricted to 1 in S-123
+
+| Attribute | productSpecification
+| Details about the product specifications used for the datasets contained
+in the exchange catalogue
+| 1..* | S100_ProductSpecification
+| The Exchange Catalogue may contain datasets from Product Specifications
+other than S-1230..++*++ multiplicity in <<IHO_S_100>> restricted
+to 1..++*++ in S-123
+
+| Attribute | defaultLocale
+| Default language and character set used for all metadata records
+in this Exchange Catalogue
+| 0..1 | PT_Locale | Default is English and UTF-8
+
+| Attribute | otherLocale
+| Other languages and character sets used for the localized metadata
+records in this Exchange Catalogue
+| 0..* | PT_Locale
+| Required if any localized entries are present in the Exchange Catalogue
+
+| Attribute | exchangeCatalogueDescription
+| Description of what the exchange catalogue contains
+| 0..1 | CharacterString |
+
+| Attribute | exchangeCatalogueComment | Any additional Information
+| 0..1 | CharacterString |
+
+| Attribute | certificates
+| Signed public key certificates referred to by digital signatures
+in the Exchange Set
+| 0..* | S100_SE_CertificateContainerType
+| Content defined in <<IHO_S_100,part=15>>. All certificates used,
+except the SA root certificate (installed separately by the implementing
+system) shall be included
+
+| Attribute | dataServerIdentifier | Identifies the data server for the permit | 0..1 | CharacterString |
+
+| Role | datasetDiscoveryMetadata
+| Exchange Catalogues may include or reference discovery metadata
+for the datasets in the Exchange Set
+| 0..* | Aggregation S100_DatasetDiscoveryMetadata |
+
+| Role | catalogueDiscoveryMetadata | Metadata for Catalogue | 0..*
+| Aggregation S100_CatalogueDiscoveryMetadata
+| Metadata for the Feature, Portrayal and Interoperability Catalogues,
+if any
+
+| Role | supportFileDiscoveryMetadata
+| Exchange Catalogues may include or reference discovery metadata
+for the support files in the Exchange Set
+| 0..* | Aggregation S100_SupportFileDiscoveryMetadata
+|
+
+|===
+
+[[sec_10.2.1.1]]
+===== S100_ExchangeCatalogueIdentifier
+
+[cols="8,22,25,6,18,22",options="unnumbered"]
+|===
+h| Role Name h| Name h| Description h| Mult h| Type h| Remarks
+
+| Class | S100_ExchangeCatalogueIdentifier
+| An Exchange Catalogue contains the discovery metadata about the
+exchange datasets and support files
+| - | - | The concatenation of identifier and dateTime form the unique name.
+
+| Attribute | identifier | Uniquely identifies this Exchange Catalogue | 1 | CharacterString |
+
+| Attribute | dateTime
+| Creation date and time of the Exchange Catalogue, including time
+zone
+| 1 | DateTime | Format: yyyy-mm-ddThh:mm:ssZ
+|===
+
+[[sec_10.2.1.2]]
+===== S100_CataloguePointOfContact
+
+[cols="6",options="unnumbered"]
+|===
+h| Role Name h| Name h| Description h| Mult h| Type h| Remarks
+
+| Class | S100_CataloguePointOfContact | Contact details of the issuer of this Exchange Catalogue | - | - | -
+
+| Attribute | organization | The organization distributing this Exchange Catalogue | 1 | CharacterString
+| This could be an individual producer, value added reseller, etc
+
+| Attribute | phone | The edition number of this Exchange Catalogue
+| 0..1 | CI_Telephone |
+
+| Attribute | address | The address of the organization | 0..1 | CI_Address |
+
+|===
+
+[[sec_10.2.2]]
+==== S100_DatasetDiscoveryMetadata
+
+[cols="8,20,23,6,20,24",options="unnumbered"]
+|===
+h| Role Name h| Name h| Description h| Mult h| Type h| Remarks
+
+| Class | S100_DatasetDiscoveryMetadata | Metadata about the individual datasets in the exchange catalogue | - | - | *The optional <<IHO_S_100>> attributes _temporalExtent_ is not used in S-123.*
+
+| Attribute | fileName | Dataset file name | 1 | URI | See <<IHO_S_100,part=1,clause=1-4.6>>
+| Attribute | description | Short description giving the area or location covered by the dataset | 0..1 | CharacterString | E.g. a harbour or port name, between two named locations etc.
+
+| Attribute | datasetID | Dataset ID expressed as a Marine Resource Name
+| 0..1 | URN | The URN must be an MRN.
+
+| Attribute | compressionFlag | Indicates if the resource is compressed | 1 | Boolean
+| _True_ indicates a compressed dataset resource +
+_False_ indicates an uncompressed dataset resource
+| Attribute | dataProtection | Indicates if the data is encrypted | 1 | Boolean
+| _True_ indicates an encrypted dataset resource +
+_False_ indicates an unencrypted dataset resource
+| Attribute | protectionScheme | Specification of method used for data protection | 0..1 | S100_ProtectionScheme | In <<IHO_S_100>> Edition 5.2.0 the only allowed enumeration value is "S100p15".
+
+| Attribute | digitalSignatureReference | Specifies the algorithm used to compute digitalSignatureValue
+| 1 | S100_SE_DigitalSignatureReference (see <<IHO_S_100,part=15>>) |
+
+| Attribute | digitalSignatureValue | Value derived from the digital signature | 1..* | S100_SE_DigitalSignature (see <<IHO_S_100,part=15>>) | The value resulting from application of _digitalSignatureReference_ Implemented as the digital signature format specified in Part 15
+| Attribute | copyright | Indicates if the dataset is copyrighted | 1 | Boolean
+| _True_ indicates the resource is copyrighted +
+_False_ Indicates the resource is not copyrighted
+| Attribute | classification | Indicates the security classification of the dataset | 0..1 | ClassMD_SecurityConstraints> MD_ClassificationCode (codelist) | 1. unclassified2. restricted3. confidential4. secret5. top secret6. sensitive but unclassified7. for official use only8. protected9. limited distribution
+
+| Attribute | purpose | The purpose for which the dataset has been issued
+| 0..1 | S100_Purpose |
+
+| Attribute | notForNavigation | Indicates the dataset is not intended to be used for navigation | 1 | Boolean
+| _True_ indicates the dataset is not intended to be used for navigation +
+_False_ indicates the dataset is intended to be used for navigation
+
+| Attribute | specificUsage | The use for which the dataset is intended | 0..1 | MD_USAGE>specificUsage (character string) |
+
+| Attribute | editionNumber | The edition number of the dataset | *1* | Integer | When a dataset is initially created, the Edition number 1 is assigned to it. The Edition number is increased by 1 at each New Edition. Edition number remains the same for update and re-issue.0..1 multiplicity in S-100 restricted to 1 in S-123
+| Attribute | updateNumber | Update number assigned to the dataset and increased by one for each subsequent update | *1* | Integer | Update number 0 is assigned to a new dataset0..1 multiplicity in S-100 restricted to 1 in S-123
+
+| Attribute | updateApplicationDate
+| This date is only used for the base cell files (that is new data set, re-issue and new edition), not update cell files. All updates dated on or before this date must have been applied by the producer
+| 0..1 | Date |
+
+| Attribute | referenceID | Reference back to the datasetID | 0..1 | URN
+| Update metadata refers to the datasetIDof the dataset metadata. This is used if and only if the dataset is an updateThe URN must be an MRN
+
+| Attribute | issueDate | Date on which the data was made available by the data producer | 1 | Date |
+
+| Attribute | issueTime | Time of day at which the data was made available by the data producer | 0..1 | Time | The S-100 datatype Time
+
+| Attribute | boundingBox | The extent of the dataset limits | 0..1 | EX_GeographicBoundingBox |
+
+| Attribute | productSpecification | The product specification used to create this dataset | 1 | S100_ProductSpecification |
+
+| Attribute | producingAgency | Agency responsible for producing the data | 1 | CI_ResponsibleParty>CI_Organisation | See <<IHO_S_100,table=17-3>>
+
+| Attribute | producerCode | The official IHO Producer Code from S-62 | 0..1 | CharacterString
+|
+
+| Attribute | encodingFormat | The encoding format of the dataset | 1 | S100_EncodingFormat | Enumeration value: "GML"
+| Attribute | dataCoverage | Provides information about data coverages within the dataset | *1* | S100_DataCoverage | 0..++*++ multiplicity in S-100 restricted to 1 in S-123
+
+| Attribute | comment | Any additional information | 0..1 | CharacterString |
+
+| Attribute | defaultLocale | Default language and character set used in the dataset | 0..1 | PT_Locale | In absence of defaultLocale the language is English in UTF-8
+
+| Attribute | otherLocale | Other languages and character sets used in the dataset | 0..* | PT_Locale |
+
+| Attribute | metadataPointOfContact | Point of contact for metadata | 0..1 | CI_Responsibility > CI_Individual or CI_Responsibility > CI_Organisation
+| Only if metadataPointOfContact is different from producingAgency. +
+See <<IHO_S_100>> Tables 17-2 and 17-3.
+| Attribute | metadataDateStamp | Date stamp for metadata | 0..1 | Date | May or may not be the issue date of the dataset.
+| Attribute | replacedData | Indicate if a cancelled dataset is replaced by another data file(s) | 0..1 | Boolean | See note
+| Attribute | dataReplacement | Dataset name | 0..* | CharacterString | A dataset may be replaced by 1 or more datasets. See Note
+| Attribute | navigationPurpose | Classification of intended navigation purpose (for Catalogue indexing purposes) | 0..3 | S100_NavigationPurpose | Mandatory when _notForNavigation_ = _false_.
+| Role | resourceMaintenance | Information about the frequency of resource updates, and the scope of those updates | 0..1 | MD_MaintenanceInformation a| <<IHO_S_100>> restricts the multiplicity to 0..1 and adds specific restrictions on the ISO 19115 structure and content. See clause *MD_MaintenanceInformation* in <<IHO_S_100,part=17>>.
+
+Format: PnYnMnDTnHnMnS (XML built-in type for ISO 8601 duration). See <<IHO_S_100,clause=17-4.9>> for encoding guidance.
+
+|===
+
+[NOTE,keep-separate=true]
+====
+replacedData and dataReplacement: The intended use of the attributes
+replacedData and dataReplacement could be, for example, to provide
+a mechanism for service providers to build automation when providing
+replacement data sets to customers within existing subscription periods.
+====
+
+[[sec_10.2.3]]
+==== S100_NavigationPurpose
+
+[cols="71,189,282,80,253",options="unnumbered"]
+|===
+h| Role Name h| Name h| Description h| Code h| Remarks
+
+| Enumeration | S100_NavigationPurpose | The navigational purpose of the dataset  | - |
+| Value       | port                   | For port and near shore operations       | 1 | -
+| Value       | transit                | For coast and planning purposes          | 2 | -
+| Value       | overview               | For ocean crossing and planning purposes | 3 | -
+|===
+
+[[sec_10.2.4]]
+==== S100_DataCoverage
+
+[cols="76,128,201,69,123,283",options="unnumbered"]
+|===
+h| Role Name h| Name h| Description h| Multiplicity h| Type h| Remarks
+
+| Class | S100_DataCoverage
+| A spatial extent where data is provided; and the display scale information for the provided data | - | -
+| This is used by user systems as part of the data loading and unloading algorithms. +
+*The optional S-100 attributes _temporalExtent_ and _approximateGridResolution_ are not used in S-123.*
+| Attribute | boundingPolygon | A polygon which defines the actual data limit | 1 | EX_BoundingPolygon | See Note 1
+| Attribute | optimumDisplayScale | The scale with which the data is optimally displayed | 0..1 | Integer | Example: A scale of 1:25000 is encoded as 25000
+| Attribute | maximumDisplayScale | The maximum scale with which the data is displayed | 0..1 | Integer |
+| Attribute | minimumDisplayScale | The minimum scale with which the data is displayed | 0..1 | Integer |
+|===
+
+[NOTE,keep-separate=true]
+====
+boundingPolygon is restricted to a single GML Polygon with one exterior
+and 0 or more interiors expressed as Linear Rings using SRS link:++http://www.opengis.net/def/crs/EPSG/0/4326++[]. The exterior and optional interiors shall be composed of a closed sequence of >=4 coordinate positions expressed individually or as a list (posList). The GML polygon shall have a valid GML identifier.
+====
+
+[[sec_10.2.4.1]]
+===== S100_Purpose
+
+[cols="9,10,28,5,47",options="unnumbered"]
+|===
+h| Role Name h| Name h| Description h| Code h| Remarks
+
+| Enumeration | S100_Purpose | The purpose of the dataset | - | *The value _delta_ is not used in S-123.*
+
+| Value | newDataset | Brand new dataset | 1 | No data has previously been produced for this area
+| Value | newEdition | New edition of the dataset or Catalogue | 2 | Includes new information which has not been previously distributed by updates
+| Value | update | Dataset update | 3 | Changing some information in an existing dataset
+| Value | reissue | Dataset that has been re-issued | 4 | Includes all the updates applied to the original dataset up to the date of the re-issue. A re-issue does not contain any new information additional to that previously issued by updates
+| Value | cancellation | Dataset or Catalogue that has been cancelled | 5 | Indicates the dataset or Catalogue should no longer be used and can be deleted
+
+|===
+
+[[sec_10.2.4.2]]
+===== S100_EncodingFormat
+
+[cols="9,15,31,5,40",options="unnumbered"]
+|===
+h| Role Name h| Name h| Description h| Code h| Remarks
+
+| Enumeration | S100_EncodingFormat | The encoding format | -
+| *Values listed in <<IHO_S_100,part=17>> but not listed in this table are not allowed*
+| Value | GML | The GML data format as defined in <<IHO_S_100,part=10b>> | *2* |
+|===
+
+[[sec_10.2.4.3]]
+===== S100_ProductSpecification
+
+[cols="7,17,30,6,18,22",options="unnumbered"]
+|===
+h| Role Name h| Name h| Description h| Mult h| Type h| Remarks
+
+| Class | S100_ProductSpecification | The Product Specification contains the information needed to build the specified product | - | - |
+| Attribute | name | The name of the Product Specification used to create the datasets | *1* | CharacterString | "Marine Radio Services" (without quotes)
+| Attribute | version | The version number of the Product Specification | *1* | CharacterString | TR 2/2007 specifies versioning of Product Specifications
+| Attribute | date | The version date of the Product Specification | *1* | Date |
+| Attribute | productIdentifier | Machine readable unique identifier of a product type | 1 | CharacterString(Restricted to Product ID values from the IHO Product Specification Register, in the IHO Geospatial Information (GI) Registry) | Must be "S-123" (without quotes)
+| Attribute | number | The number (registry index) used to lookup the product in the Product Specification Register | 1 | Integer | Should be taken from the Product Specification Register in the IHO Geospatial Information (GI) Registry
+| Attribute | compliancyCategory | The level of compliance of the Product Specification to S-100 | *1* | S100_CompliancyCategory
+| Needed for S-98 interoperability. +
+See <<IHO_S_100,part=4a,clause=4a-5.5>>
+|===
+
+[[sec_10.2.4.4]]
+===== S100_CompiancyCategory
+
+[cols="9,17,32,5,37",options="unnumbered"]
+|===
+h| Role Name h| Name h| Description h| Code h| Remarks
+
+| Enumeration | S100_CompliancyCategory | | - | *S-123 uses only _category4_*
+| Value | category4 | IHO S-100 and IMO harmonized display compliant | 4 |
+
+|===
+
+[[sec_10.2.4.5]]
+===== S100_ProtectionScheme
+
+[cols="9,22,25,6,39",options="unnumbered"]
+|===
+h| Role Name h| Name h| Description h| Code h| Remarks
+
+| Enumeration | S100_ProtectionScheme | Data protection schemes | - | -
+| Value       | S100p15               | IHO S-100 Part 15       | 1 | See <<IHO_S_100,part=15>>
+|===
+
+[[sec_10.2.4.6]]
+===== S100_SupportFileDiscoveryMetadata
+
+[cols="7,22,21,5,22,23",options="unnumbered"]
+|===
+h| Role Name h| Name h| Description h| Mult. h| Type h| Remarks
+
+| Class | S100_SupportFileDiscoveryMetadata
+| Metadata about the individual support files in the Exchange Catalogue
+| - | - |
+
+| Attribute | fileName | Name of the support file | 1 | URI | See <<IHO_S_100,part=1,clause=1-4.6>>
+| Attribute | revisionStatus | The purpose for which the support file has been issued | 1 | S100_SupportFileRevisionStatus | For example new, replacement, etc
+| Attribute | editionNumber | The Edition number of the support file | 1 | Integer |
+
+| Attribute | issueDate | Date on which the data was made available by the Data Producer
+| 0..1 | Date |
+
+| Attribute | supportFileSpecification | The specification used to create this file | 0..1 | S100_SupportFileSpecification | May be omitted for language packs.
+| Attribute | dataType | The format of the support file | 1 | S100_SupportFileFormat |
+
+| Attribute | otherDataTypeDescription | Support file format other than those listed | 0..1
+| CharacterString
+|
+
+| Attribute | comment | Optional comment | 0..1 | CharacterString |
+
+| Attribute | compressionFlag | Indicates if the resource is compressed | 1 | Boolean
+| _True_ indicates a compressed resource +
+_False_ indicates an uncompressed resource
+
+| Attribute | digitalSignatureReference | Specifies the algorithm used to compute digitalSignatureValue | 1
+| S100_SE_DigitalSignatureReference (see <<IHO_S_100,part=15>>) |
+
+| Attribute | digitalSignatureValue | Value derived from the digital signature | 1..* | S100_SE_DigitalSignature (see <<IHO_S_100,part=15>>) | The value resulting from application of digitalSignatureReferenceImplemented as the digital signature format specified in <<IHO_S_100,part=15>>
+| Attribute | defaultLocale | Default language and character set used in the support file | 0..1 | PT_Locale | In absence of defaultLocale the language is English in UTF-8A support file is expected to use only one as locale. Additional support files can be created for other locales.
+| Attribute | supportedResource | Identifier of the resource supported by this support file | 0..* | CharacterString | Conventions for identifiers are detailed in <<IHO_S_100,part=15>>. S-100 allows file URI, digital signature or cryptographic hash checksums to be used
+| Attribute | resourcePurpose | The purpose of the supporting resource | 0..1 | S100_ResourcePurpose | Identifies how the supporting resource is used
+
+|===
+
+[[sec_10.2.4.7]]
+===== S100_SupportFileFormat
+
+[cols="9,21,24,6,40",options="unnumbered"]
+|===
+h| Role Name h| Name h| Description h| Code h| Remarks
+
+| Enumeration | S100_SupportFileFormat | The format used for the support file | -
+| *Values listed in <<IHO_S_100,part=17>> but not mentioned in this table are not allowed*
+
+| Value | TXT_UTF-8 | UTF-8 text excluding control codes | 1 |
+| Value | HTML      | Hypertext Markup Language          | 3 |
+| Value | XML       | Extensible Markup Language         | 4 |
+| Value | TIFF      | Tagged Image File Format           | 7 |
+|===
+
+[[sec_10.2.4.8]]
+===== S100_SupportFileRevisionStatus
+
+[cols="9,21,24,6,40",options="unnumbered"]
+|===
+h| Role Name h| Name h| Description h| Code h| Remarks
+
+| Enumeration | S100_SupportFileRevisionStatus
+| The reason for inclusion of the support file in this exchange set | - | -
+| Value | new | A file which is new | 1 | Signifies a new file
+| Value | replacement | A file which replaces an existing file | 2 | Signifies a replacement for a file of the same name
+| Value | deletion | Deletes an existing file | 3 | Signifies deletion of a file of that name
+|===
+
+[[sec_10.2.4.9]]
+===== S100_SupportFileSpecification
+
+[cols="8,22,25,6,18,22",options="unnumbered"]
+|===
+h| Role Name h| Name h| Description h| Mult h| Type h| Remarks
+
+| Class | S100_SupportFileSpecification | The standard or specification to which a support file conforms | - | - | -
+| Attribute | name | The name of the specification used to create the support file | 1 | CharacterString |
+| Attribute | version | The version number of the specification | 0..1 | CharacterString |
+| Attribute | date | The version date of the specification | 0..1 | Date |
+|===
+
+[[sec_10.2.4.10]]
+===== S100_ResourcePurpose
+
+[cols="9,18,30,5,38",options="unnumbered"]
+|===
+h| Role Name h| Name h| Description h| Code h| Remarks
+
+| Enumeration | S100_ResourcePurpose | Defines the purpose of the supporting resource | -   | -
+| Value       | supportFile          | A support file                                 | 1   |
+| Value       | ISOMetadata          | Dataset metadata in ISO format                 | 2   |
+| Value       | languagePack         | A Language pack                                | 3   |
+| Value       | GMLSchema            | GML Application Schema                         | 4   |
+| Value       | other                | A type of resource not otherwise described     | 100 |
+|===
+
+[[sec_10.2.5]]
+==== S100_CatalogueDiscoveryMetadata
+
+This is an optional element that allows for the delivery of S-123
+Feature and Portrayal Catalogues within the Exchange Set.
+
+[cols="7,21,20,3,22,26",options="unnumbered"]
+|===
+h| Role Name h| Name h| Description h| Mult h| Type h| Remarks
+| Class | S100_CatalogueDiscoveryMetadata | Class for S-100 Catalogue metadata | - | - | -
+| Attribute | fileName | The name for the Catalogue | 1 | URI | See <<IHO_S_100,part=1,clause=1-4.6>>
+| Attribute | purpose | The purpose for which the Catalogue has been issued | 0..1 | S100_Purpose(codelist)
+| The values must be one of the following:
+_2_ new edition +
+_5_ cancellation +
+Default is new edition
+| Attribute | editionNumber | The Edition number of the Catalogue | 1 | Integer | Initially set to 1 for a given productSpecification.numberIncreased by 1 for each subsequent newEditionUniquely identifies the version of the Catalogue
+
+| Attribute | scope | Subject domain of the Catalogue | 1 | S100_CatalogueScope |
+
+| Attribute | versionNumber | The version identifier of the Catalogue | 1 | CharacterString | Human readable version identifier
+
+| Attribute | issueDate | The issue date of the Catalogue | 1 | Date |
+
+| Attribute | productSpecification | The Product Specification used to create this file | 1 | S100_ProductSpecification |
+
+| Attribute | digitalSignatureReference | Specifies the algorithm used to compute digitalSignatureValue | 1
+| S100_SE_DigitalSignatureReference(see <<IHO_S_100,part=15>>) |
+
+| Attribute | digitalSignatureValue | Value derived from the digital signature | 1..* | S100_SE_DigitalSignature(see <<IHO_S_100,part=15>>)
+| The value resulting from application of _digitalSignatureReference_ Implemented as the digital signature format specified in <<IHO_S_100,part=15>>
+| Attribute | compressionFlag | Indicates if the resource is compressed | 1 | Boolean
+| _True_ indicates a compressed resource +
+_False_ indicates an uncompressed resource
+| Attribute | defaultLocale | Default language and character set used in the Catalogue | 0..1 | PT_Locale | In absence of _defaultLocale_ the language is English in UTF-8
+| Attribute | otherLocale | Other languages and character sets used in the Catalogue | 0..* | PT_Locale |
+
+|===
+
+[[sec_10.2.5.1]]
+===== S100_CatalogueScope
+
+[cols="9,21,24,6,40",options="unnumbered"]
+|===
+h| Role Name h| Name h| Description h| Code h| Remarks
+
+| Enumeration | S100_CatalogueScope       | The scope of the Catalogue       | - | -
+| Value       | featureCatalogue          | S-100 Feature Catalogue          | 1 |
+| Value       | portrayalCatalogue        | S-100 Portrayal Catalogue        | 2 |
+| Value       | interoperabilityCatalogue | S-100 Interoperability Catalogue | 3 |
+|===
+
+[[sec_10.2.6]]
+==== Miscellaneous metadata types
+
+[[sec_10.2.6.1]]
+===== MD_MaintenanceInformation
+
+[cols="7,22,23,5,21,22",options="unnumbered"]
+|===
+h| Role Name h| Name h| Description h| Mult h| Type h| Remarks
+
+| Class | MD_MaintenanceInformation | Information about the scope and frequency of updating | - | -
+a| S-100 restricts the ISO 19115-class to:
+
+* prohibit maintenanceScope, maintenanceNote, and contact attributes;
+* define restrictions on maintenanceAndUpdateFrequency, maintenanceDate, and userDefinedMaintenanceFrequency attributes
+
+| Attribute | maintenanceAndUpdateFrequency | Frequency with which changes and additions are made to the resource after the initial resource is completed | 0..1 | MD_MaintenanceFrequencyCode (codelist) | Must be populated if userDefinedMaintenanceFrequency is not present, otherwise optional. See Table MD_MaintenanceFrequencyCode in this Part for values allowed in S-100 metadata
+| Attribute | maintenanceDate | Date information associated with maintenance of the resource | 0..1 | CI_Date | Exactly one of maintenanceDate and userDefinedMaintenanceFrequency must be populatedAllowed value for dateType: nextUpdate
+| Attribute | userDefinedMaintenanceFrequency | Maintenance period other than those defined | 0..1 | TM_PeriodDuration
+| Exactly one of maintenanceDate and userDefinedMaintenanceFrequency
+must be populatedOnly positive durations allowed
+
+|===
+
+[[sec_10.2.6.2]]
+===== MD_MaintenanceFrequencyCode
+
+S-100 uses a subset of the values allowed in <<ISO_19115_1_2014>>.
+
+[cols="9,22,24,6,40",options="unnumbered"]
+|===
+h| Role Name h| Name h| Description h| Code h| Remarks
+
+| Enumeration | MD_MaintenanceFrequencyCode
+| Frequency with which modifications and deletions are made to the
+data after it is first produced
+| - | S-100 is restricted to only the following values from the
+ISO 19115-1 codelist. The conditions for the use of a particular value
+are described in its Remarks
+| Value | asNeeded | Resource is updated as deemed necessary | 1
+| Use only for datasets which normally use a regular interval for
+update or supersession, but will have the next update issued at an
+interval different from the usualAllowed if and only if
+userDefinedMaintenanceFrequency is not populated
+| Value | irregular | Resource is updated in intervals that are uneven
+in duration
+| 2 | Use only for datasets which do not use a regular schedule for
+update or supersessionAllowed if and only if userDefinedMaintenanceFrequency
+is not populated
+|===
+
+[[sec_10.2.6.3]]
+===== PT_Locale
+
+[cols="9,13,35,5,15,23",options="unnumbered"]
+|===
+h| Role Name h| Name h| Description h| Mult h| Type h| Remarks
+| Class | PT_Locale | description of a locale | - | - | From ISO 19115-1
+| Value | language | designation of the locale language | 1 | LanguageCode | ISO 639-2/T 3-letter language codes.
+| Value | country | designation of the specific country of the locale language | 0..1 | CountryCode | ISO 3166-1 2-letter country codes
+| Value | characterEncoding | designation of the character set to be used to encode the textual value of the locale | 1 | MD_CharacterSetCode | UTF-8 is used in S-100
+|===
+
+[[sec_10.2.6.4]]
+===== EX_GeographicBoundingBox
+
+From ISO 19115-1.
+
+[cols="10,19,27,7,6,31",options="unnumbered"]
+|===
+h| Role Name h| Name h| Description h| Mult h| Type h| Remarks
+
+| Class | EX_GeographicBoundingBox | geographic position of the dataset | - | - | Defined in ISO 19115-1: geographic position of the resource
+| Attribute | westBoundLongitude | western-most coordinate of the limit of the dataset extent, expressed in longitude in decimal degrees (positive east) | 1 | Real | Arc degrees
+| Attribute | eastBoundLongitude | eastern-most coordinate of the limit of the dataset extent, expressed in longitude in decimal degrees (positive east) | 1 | Real | Arc degrees
+| Attribute | southBoundLatitude | southern-most coordinate of the limit of the dataset extent, expressed in latitude in decimal degrees (positive north) | 1 | Real | Arc degrees
+| Attribute | northBoundLatitude | northern-most, coordinate of the limit of the dataset extent expressed in latitude in decimal degrees (positive north) | 1 | Real | Arc degrees
+|===
+
+[%portrait]
+<<<
+
+[[sec_10.3]]
+=== Language
+
+The exchange language must be English. Other languages may be used
+as a supplementary option. National geographic names can be left in
+their original national language using the complex attribute
+*feature name*.
+
+Character strings must be encoded using the character set defined
+in <<ISO_10646_1>>, in Unicode Transformation Format-8 (UTF-8). A BOM
+(byte order mark) must not be used.

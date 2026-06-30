@@ -1,0 +1,95 @@
+
+[[sec_8]]
+== Association Class
+
+[[sec_8.1]]
+=== Inclusion Type
+
+[cols="a,a,a,a,a",options="unnumbered"]
+|===
+5+| [underline]#IHO Definition:# Association class specifying the
+relationship between the subset of vessels described by an Applicability
+data object and a regulation (restriction, recommendation, or nautical
+information).
+5+| *[underline]#S-123 Information Association:# Inclusion Type*
+5+| *[underline]#Super Type:#*
+5+| *[underline]#Primitives:# None*
+
+2+| _Real World_ 2+| _Paper Chart Symbol_ | _ECDIS Symbol_
+
+h| S-123 Attribute h| S-57 Acronym h| Allowable Encoding Value h| Type h| Multiplicity
+
+| Membership | |
+1: included +
+2: excluded
+| EN | 0,1
+
+5+|
+
+[underline]#INT 1 Reference:#
+
+[underline]#Remarks:#
+
+The GML format implements and uses association classes in accordance
+with ISO 19136-2. The association class is implemented as an information
+type instance with information associations to and from the two classes
+linked by the association, as listed above. A generic inverse association
+must be used if it is necessary to encode a reverse link to a feature
+instance.
+
+[underline]#Distinction:#
+
+h| Role Type h| Role 2+h| Associated With h| Multiplicity
+
+.2+| association | Is applicable to   2+| *Applicability*    | 1, 1
+                 | The applicable RxN 2+| *AbstractRxN*      | 1, 1
+
+|===
+
+[[sec_8.2]]
+=== Permission Type
+
+[cols="a,a,a,a,a",options="unnumbered"]
+|===
+5+| [underline]#IHO Definition:# Association class for associations
+describing whether the subsets of vessels determined by the ship characteristics
+specified in Applicability may (or must, etc.) transit, enter, or
+use a feature.
+5+| *[underline]#S-123 Information Association:# Permission Type*
+5+| *[underline]#Super Type:#*
+5+| *[underline]#Primitives:# None*
+
+2+| _Real World_ 2+| _Paper Chart Symbol_ | _ECDIS Symbol_
+
+h| S-123 Attribute h| S-57 Acronym h| Allowable Encoding Value h| Type h| Multiplicity
+
+| Category of Relationship | |
+1: prohibited +
+2: not recommended +
+3: permitted +
+4: recommended +
+5: required +
+6: not required
+| EN | 0,1
+
+5+|
+
+[underline]#INT 1 Reference:#
+
+[underline]#Remarks:#
+
+The GML format implements and uses association classes in accordance
+with ISO 19136-2. The association class is implemented as an information
+type instance with information associations to and from the two classes
+linked by the association, as listed above. A generic inverse association
+must be used if it is necessary to encode a reverse link to a feature
+instance.
+
+[underline]#Distinction:#
+
+h| Role Type h| Role 2+h| Associated With h| Multiplicity
+
+.2+| association | Permission      2+| *Applicability* | 1, 1
+                 | Vessel location 2+| *Feature Type*  | 1, 1
+
+|===

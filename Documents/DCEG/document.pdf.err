@@ -1,0 +1,5 @@
+WARNING: Font 'Arial Narrow,normal,400' (font family 'Arial Narrow', style 'normal', weight 'normal/400') doesn't exist. Replaced by 'NotoSans-Regular' (/root/.metanorma/fonts/NotoSans-Regular.ttf).
+WARNING: Font 'Arial Narrow,normal,700' (font family 'Arial Narrow', style 'normal', weight 'bold/700') doesn't exist. Replaced by 'NotoSans-Bold' (/root/.metanorma/fonts/NotoSans-Bold.ttf).
+WARNING: Font 'Arial Narrow,italic,400' (font family 'Arial Narrow', style 'italic', weight 'normal/400') doesn't exist. Replaced by 'NotoSans-Italic' (/root/.metanorma/fonts/NotoSans-Italic.ttf).
+WARNING: Font 'Arial Narrow,italic,700' (font family 'Arial Narrow', style 'italic', weight 'bold/700') doesn't exist. Replaced by 'NotoSans-BoldItalic' (/root/.metanorma/fonts/NotoSans-BoldItalic.ttf).
+

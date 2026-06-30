@@ -1,0 +1,35 @@
+<bibdata type="standard">
+<title language="en" type="main">Marine Radio Services Product Specification, Annex A Data Classification and Encoding Guide</title>
+
+<title language="en" type="title-main">Marine Radio Services Product Specification</title>
+
+<title language="en" type="title-annex">Annex A Data Classification and Encoding Guide</title>
+
+<title language="en" type="title-annex-prefix">Annex A</title>
+<docidentifier primary="true" type="IHO">S-123 Annex A</docidentifier><docidentifier type="IHO-parent-document">S-123</docidentifier><docnumber>123</docnumber><date type="published"><on>2025-05-01</on></date><contributor><role type="author"/><organization>
+<name>International Hydrographic Organization</name>
+<abbreviation>IHO</abbreviation></organization></contributor><contributor><role type="author"><description>committee</description></role><organization>
+<name>International Hydrographic Organization</name>
+<subdivision type="Committee">
+<name>HSSC</name>
+</subdivision><subdivision type="Workgroup">
+<name>NIPWG</name>
+</subdivision></organization></contributor><contributor><role type="publisher"/><organization>
+<name>International Hydrographic Organization</name>
+<abbreviation>IHO</abbreviation></organization></contributor><edition>1.1.0</edition><language>en</language><script>Latn</script><status><stage>in-force</stage></status><copyright><from>2025</from><owner><organization>
+<name>International Hydrographic Organization</name>
+<abbreviation>IHO</abbreviation></organization></owner></copyright><relation type="updatedBy"><bibitem schema-version="v1.5.6">
+  <docidentifier type="IHO">S-123</docidentifier>
+  <date type="updated">
+    <on>2017-04-30</on>
+  </date>
+  <edition>0.0.0</edition>
+</bibitem></relation><relation type="updatedBy"><bibitem schema-version="v1.5.6">
+  <docidentifier type="IHO">S-123</docidentifier>
+  <date type="updated">
+    <on>2017-08-17</on>
+  </date>
+  <edition>1.0.0 RC1</edition>
+</bibitem></relation><series type="main">
+<title>Standards and Specifications</title>
+<abbreviation>S</abbreviation></series><ext><doctype>specification</doctype><flavor>iho</flavor><structuredidentifier><docnumber>123</docnumber><annexid>A</annexid></structuredidentifier></ext></bibdata>

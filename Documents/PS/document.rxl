@@ -1,0 +1,53 @@
+<bibdata type="standard">
+<title language="en" type="main">Marine Radio Services Product Specification</title>
+<docidentifier primary="true" type="IHO">S-123</docidentifier><docnumber>123</docnumber><date type="published"><on>2025-05-01</on></date><contributor><role type="author"/><organization>
+<name>International Hydrographic Organization</name>
+<abbreviation>IHO</abbreviation></organization></contributor><contributor><role type="author"><description>committee</description></role><organization>
+<name>International Hydrographic Organization</name>
+<subdivision type="Committee">
+<name>HSSC</name>
+</subdivision><subdivision type="Workgroup">
+<name>NIPWG</name>
+</subdivision></organization></contributor><contributor><role type="publisher"/><organization>
+<name>International Hydrographic Organization</name>
+<abbreviation>IHO</abbreviation></organization></contributor><edition>1.1.0</edition><language>en</language><script>Latn</script><status><stage>in-force</stage></status><copyright><from>2025</from><owner><organization>
+<name>International Hydrographic Organization</name>
+<abbreviation>IHO</abbreviation></organization></owner></copyright><relation type="updatedBy"><bibitem schema-version="v1.5.6">
+  <docidentifier type="IHO">S-123</docidentifier>
+  <date type="updated">
+    <on>2017-07-14</on>
+  </date>
+  <contributor>
+    <person>
+      <name>          <abbreviation>EM</abbreviation>          <completename>EM</completename>       </name>
+    </person>
+  </contributor>
+  <edition>1.0.0 draft 2</edition>
+<amend change="modify"><description><p id="_06cd0511-9ec3-94fa-7e7c-b8c6dd1ef032">Apply revisions from NIPWG review</p>
+</description></amend></bibitem></relation><relation type="updatedBy"><bibitem schema-version="v1.5.6">
+  <docidentifier type="IHO">S-123</docidentifier>
+  <date type="updated">
+    <on>2017-08-20</on>
+  </date>
+  <contributor>
+    <person>
+      <name>          <abbreviation>RM</abbreviation>          <completename>RM</completename>       </name>
+    </person>
+  </contributor>
+  <edition>1.0.0 Release Candidate 1</edition>
+<amend change="modify"><description><p id="_0bb3b878-905b-6766-fb9d-5997903bb6c6">Update datasets, updated application schema according to NIPWG review</p>
+</description></amend></bibitem></relation><relation type="updatedBy"><bibitem schema-version="v1.5.6">
+  <docidentifier type="IHO">S-123</docidentifier>
+  <date type="updated">
+    <on>2025-05-31</on>
+  </date>
+  <contributor>
+    <person>
+      <name>          <abbreviation>SJC</abbreviation>          <completename>Shwu-Jing Chang</completename>       </name>
+    </person>
+  </contributor>
+  <edition>1.1.0 draft 1</edition>
+<amend change="modify"><description><p id="_cc8435c1-73b2-84cd-70fe-4fd61ad76649">Apply NIPWG approved change package of data model revision, and align with IHO S-100 Edition 5.2.0.</p>
+</description></amend></bibitem></relation><series type="main">
+<title>Standards and Specifications</title>
+<abbreviation>S</abbreviation></series><ext><doctype>specification</doctype><flavor>iho</flavor><structuredidentifier><docnumber>123</docnumber></structuredidentifier></ext></bibdata>

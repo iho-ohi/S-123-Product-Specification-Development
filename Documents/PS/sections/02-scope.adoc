@@ -1,0 +1,14 @@
+
+[[sec_2]]
+== Specification Scope
+
+This product specification describes one data product and therefore
+requires only one scope which is described below:
+
+*Scope ID:*:: Global scope
+
+*Hierarchical level:*:: MD_ScopeCode - 005
+
+*Hierarchical level name:*:: Dataset
+
+*Extent:*:: EX_Extent.description: Global coverage of maritime areas.

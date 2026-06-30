@@ -1,0 +1,365 @@
+
+[[sec_8]]
+== Data Product Delivery
+
+Data which conforms to this Product Specification must be delivered
+by means of an S-100 Exchange Set. The S-100 Exchange Set is a data
+container that provides all the elements needed for a reliable and
+secure exchange of S-100 conformant data. It is intended to be a self-contained
+entity consisting of data files and metadata records packaged together
+using applicable data integrity and optional security provisions.
+
+[[sec_8.1]]
+=== Exchange set
+
+The S-100 Exchange Set structure is described in <<IHO_S_100,part=17,clause=17-4.1>>.
+The conceptual model depicted in <<IHO_S_100,figure=17-2>>
+Edition 5.2.0 is very flexible and can be implemented in a variety
+of ways as virtually all components, except for the S-100_ExchangeCatalogue,
+are optional. This level of flexibility is essential to properly support
+the mainstream use case of exchanging geospatial data, as well as
+the use cases for releasing dataset and support file cancellation
+notices or new Catalogue releases without any data files present.
+This approach ensures that an Exchange Set Catalogue is always included
+in any S-100 conformant Exchange Set, providing the essential discovery
+metadata about any included resources and their intended use.
+
+S-123 uses the same exchange set components and metadata as <<IHO_S_100>>.
+The Exchange Set structure is the same as that described in
+<<IHO_S_100,clause=17-4.2>>. The required Exchange Set Catalogue XML
+document instance must be named CATALOG.XML and placed in the S100_ROOT
+folder, together with its digital signature (CATALOG.SIGN) file. All
+other digital signatures are included within their corresponding resource
+metadata records in the CATALOG.XML.
+
+Since it is possible for an exchange set to contain only a feature
+or portrayal catalogue, or only a support file which is being updated
+or delivered as a new file, S-123 datasets are an optional component
+of S-123 exchange sets. If the exchange set contains a dataset, the
+support files referenced in the dataset must be included.
+
+[[sec_8.2]]
+=== Dataset
+
+[[sec_8.2.1]]
+==== Types of Datasets
+
+A dataset is a grouping of features, attributes, geometry and metadata
+which comprises a specific coverage. The following types of MRS dataset
+may be produced and contained within an exchange set:
+
+[[table_8.1]]
+.MRS dataset types
+[cols="4"]
+|===
+h| Dataset Type h| Explanation h| Encoding Format h| "purpose" field
+
+| New dataset
+| Data for an area different (in coverage and/or extent) from existing datasets.
+| <<sec_7>> | _newDataset_
+| Re-issue
+| Includes all the updates applied to the original dataset up to the
+date of the reissue. A Re-issue is intended to avoid unnecessary loading
+of the Base cell and all applicable updates individually for new users
+of the dataset, and therefore does not contain any new information
+additional to that previously distributed by updates. A reissue dataset
+can be issued at any time. | As for new dataset | _reissue_
+
+| New Edition of a dataset
+| A re-issue plus new information which has not been previously distributed
+by Updates. Each New Edition of a dataset must have the same name
+as the dataset that it replaces and should have the same spatial extents.
+The edition number in the dataset discovery metadata must increment
+up by one from the previous edition.
+| As for new dataset | _newEdition_
+
+| Update dataset
+| A delta change of the latest edition of a dataset. If there is more
+than one update dataset, the subsequent update will be a delta of
+the base dataset + earlier update datasets.
+| As for new dataset. See <<sec_7.13>> | _update_
+
+| Cancellation
+| Used to cancel dataset and any related update datasets. The dataset
+is cancelled and is deleted from the system.A cancellation dataset
+must be a pro-forma dataset containing only header information
+(no instances of spatial objects, information types, or feature types).
+| As for new dataset, but containing only header information.
+| _cancellation_
+
+|===
+
+[[sec_8.2.2]]
+==== Dataset naming convention
+
+All dataset files will have unique world-wide file identifiers.
+The file identifier of the dataset should not be used to describe
+the physical content of the file. The dataset file metadata that accompanies
+the file will inform the user of the name and purpose of the file.
+
+S-123 dataset files for new, reissue, new editions, and cancellation
+datasets are named according to the specifications given below:
+
+123CCCCXXXXXXXXXX.GML
+
+The main part forms an identifier where:
+
+* The first three characters are always "123" and identify the dataset
+as an S-123 dataset.
+* The next four characters identify the issuing agency by its alphanumeric
+agency code in the IHO producer code register in the IHO GI Registry.
+Where the agency code consists of fewer than four characters, sufficient
+zeros must be suffixed to make the length exactly four characters.
+* The subsequent characters can be used in any way by the producer
+to provide a unique file name for the dataset. The following characters
+are allowed in the dataset name, A to Z, 0 to 9 and the special character
+++_++ (underscore).
+* The ninth and subsequent characters are optional (i.e., at least
+one character must be used after the producer code).
+* The maximum length of the file name must be 64 characters including
+the extension and its preceding '." character. Note that since update
+datasets must follow the same rule, allowing for updates lowers this
+limit (e.g., allowing for 999 updates reduces the limit for base datasets
+by 4 characters).
+
+[[sec_8.2.3]]
+==== Update dataset naming convention
+
+All update dataset files will have an identical name to the base dataset,
+aside from the separator and update number sequence.
+
+S-123 update dataset files are named according to the specifications
+given below:
+
+123CCCCXXXXXXXXXX_XXX.GML
+
+The main part forms an identifier where:
+
+* The first character up to the final underscore character are the
+same as the dataset being updated.
+* The next character must be an underscore "_".
+* The next three characters must be numerical (0-9) characters to
+indicate the place of the update dataset in the update sequence.
+* The maximum length of the name must be 64 characters including the
+extension and its preceding "." character.
+
+[[sec_8.2.4]]
+==== Dataset size
+
+MRS datasets shall not exceed 20MB. Update datasets shall not exceed
+500KB.
+
+[[sec_8.2.5]]
+==== New Editions, re-issues, updates and cancellations
+
+This section defines the sequencing of S-123 datasets for New Editions,
+updates and re-issues. In order to ensure that feature type updates
+are incorporated into an end user system in the correct sequence without
+any omission, a number of parameters encoded in the data are used
+in the following way:
+
+*Edition number*:: When a dataset is initially created (Base dataset),
+the Edition number 1 is assigned to it. The Edition number is increased
+by 1 at each New Edition.
+
+*Update number*:: Update number 0 is assigned to a new dataset and
+a New Edition. The first update dataset file associated with this
+new dataset must have update number 1. The update number must be increased
+by one for each subsequent update, until a New Edition is released.
++
+--
+A re-issue of a dataset must have the update number of the last update
+applied to the dataset, and use the same Edition number.
+--
+
+*Update comment*:: Comment for describing the change introduced by
+an update.
+
+*Issue date*:: Date up to which the Data Producer has incorporated
+all applicable changes. The issue date must be greater than the previous
+issue date of the dataset.
+
+In order to cancel a dataset, an update dataset file is created for
+which the Edition number must be set to 0. This message is only used
+to cancel a dataset. Where a dataset is cancelled and its name is
+reused at a later date, the issue date must be greater than the issue
+date of the cancelled dataset. When the dataset is cancelled it must
+be removed from the system.
+
+An Exchange Set may contain Base dataset files and update dataset
+files for the same datasets. Under these circumstances the update
+dataset files must follow on in the correct sequential order from
+the last update applied to the Base dataset file.
+
+[[sec_8.2.6]]
+==== Dataset loading
+
+Datasets must always be loaded in the order of base dataset first,
+then update datasets in the corrected sequential order. Systems are
+not to load updates out of order, for example if update 1-5 is present,
+then 6 is missing, update 7 must not be loaded.
+
+When a new edition of a dataset is received, the system must replace
+the previous edition, along with any updates with the new edition
+of the dataset. Loading of subsequent updates follow the same rule
+as above.
+
+[[sec_8.3]]
+=== Support Files
+
+Dataset support files offer supplementary information that can be
+included in an MRS Exchange Set.
+
+* Plain text files must contain only general text as defined by this
+standard (text consisting only of printable characters and without
+HTML, XML, or other markup). The extension must be TXT.
+* HTML and XML files must contain only text and markup as defined
+in the relevant W3C standards. Files must use the UTF-8 character
+set encoding. References in datasets to HTML and XML support files
+must treat them as text files (i.e., they should not be referenced
+using attributes intended for picture files). The extension must be
+HTM for HTML files and XML for general XML files.
+* Picture files must be in TIFF (6.0 specification) and use the extension
+TIF.
+
+[[table_8.2]]
+.Support file formats and extensions
+[cols="3"]
+|===
+h| File Types h| Extensions h| Comment
+
+.3+| *Text* | TXT | Plain-text files (UTF-8 text excluding control codes)
+| HTM | HTML files must only include inline or embedded Cascading
+Style Sheet (CSS) information and must not contain embedded Javascript
+or other dynamic content, for example DHTML, Flash etc.
+| XML | XML documents must only be included in accordance with guidance
+provided within the Data Classification and Encoding Guide (<<AnnexA>>).
+This may include a Schema for the validation of XML documents.
+| *Picture* | TIF | Baseline TIFF 6.0.
+|===
+
+[[sec_8.3.1]]
+==== Support File Naming Convention
+
+All support files must have unique file identifiers. The support file
+metadata that accompanies the file will inform the user of the name
+and purpose of the file (that is new, replacement and deletion).
+
+In this encoding the support files are named according to the specifications
+given below:
+
+123CCCCØØØØØØØØØØ.EEE
+
+The main part forms an identifier where:
+
+* 123 -- the first 3 characters identify the support file as applicable
+to an S-123 dataset (mandatory).
+
+* CCCC -- the fourth to seventh characters identify the Producer Code
+of the issuing agency (mandatory).
+
+* ØØØØØØØØØØ -- the eighth and following characters are optional and
+can be used in any way by the Producer to provide the unique support
+file name. The following characters are allowed in the support file
+name: A to Z, 0 to 9 and the special character ++_++ (underscore).
+
+* .EEE -- support file extension. (TXT, HTM, XML or TIF).
+
+* The maximum length of the file name (including the extension and
+preceding ".") is 64 characters.
+
+[[sec_8.3.2]]
+==== Support file management
+
+When a support file is created or a subsequent version is issued it
+must carry its own issue date and be supported with a digital signature
+which authenticates it against the Producer's public key included
+in the Exchange Set metadata.
+
+The type of support file is indicated in the "purpose" field of the
+discovery metadata. Three types: new, replacement and deletion are
+defined. Support files carrying the "deletion" flag must be removed
+from the system. When a feature pointing to a text, picture or application
+file is deleted or updated so that it no longer references the file,
+the system software must check to see whether any other feature references
+the same file, before that file is deleted.
+
+Each support file required must be included only once in the Exchange
+Set.
+
+Support files must be stored in a separate folder within the Exchange
+Set.
+
+Re-use of a support file name after a deletion period is possible
+only if the support file edition number is higher than the previous
+edition number before deletion.
+
+Only the latest edition of a support file can be used. As soon as
+a New Edition is created and installed, the older version is retired
+and can no longer be used by any feature.
+
+If a support file is associated with multiple features in one or several
+datasets, a New Edition of the file will immediately be used by all
+associated features.
+
+Picture and text files are treated differently with respect to changes
+not applicable to all features or information types referencing the
+support file.
+
+. *Picture files*: If a New Edition of a picture support file contains
+changes not applicable to all features or information type instances
+that reference the original picture, a completely new picture file
+must be created. Updates changing the file reference in the feature
+or information type instances that use the new picture must be generated
+and distributed as updates to the appropriate datasets.
+
+. *Text files*: The possibility that different feature or information
+type instances reference different portions of the file (by means
+of _fileLocator_ attributes) must be taken into account.
+
+.. For plain-text files (TXT), since users may see additional portions
+of the file as well as the specific section referenced, the same criteria
+as picture files must be applied and a new TXT file created if there
+are objects that still need the old information.
+.. For HTML and XML files, instances may have _fileLocator_ attributes
+that point to specific sections identified by an "id" attribute. If
+some instances still need to reference the old information, there
+are two possible solutions:
+
+... An updated support file can be created with the new information
+added in a new section of the file, identified by a new "HTML anchor"
+or "id" attribute. Feature and information type instances that need
+to reference the changed information must have their _fileLocator_
+values updated to reference the new section or bookmark.
+... A new support file can be created and feature and information
+type instances that need to reference the new information must have
+their _fileReference_ and _fileLocator_ attributes updated.
+
+.. If there are no _fileLocator_ attributes in referencing instances,
+a new support file may be created or the existing support file may
+be updated to add the new information and facilitate locator attributes
+by adding HTML anchors or XML id attributes. The affected feature
+or information type instances must be updated accordingly.
+. In all cases, the file content must be reviewed and updated to ensure
+that there is no possibility of reader confusion. For example, if
+a regulation changes only for some regions, a sentence to the effect
+that "Revised for regions X, Y, and Z effective from (date)" may be
+added.
+
+The potential necessity of appropriate changes in referencing instances
+should also be considered, for example to picture caption or _headline_
+attributes.
+
+In deciding between options, producers should consider the expected
+lifetime of support files and the effects on update frequency for
+both datasets and support files, especially in connection with removal
+of obsolete information from the system as a whole as well as the
+removal of obsolete sections within support files.
+
+[[sec_8.4]]
+=== Exchange catalogue
+
+The Exchange Catalogue acts as the table of contents for the Exchange
+Set. The Catalogue file of the Exchange Set must be named CATALOG.XML.
+No other file in the Exchange Set may be named CATALOG.XML. The contents
+of the S-123 Exchange Catalogue are described in <<sec_10>>.

@@ -1,0 +1,169 @@
+
+[[sec_7]]
+== Data Product Format (Encoding)
+
+[[sec_7.1]]
+=== Introduction
+
+The format for datasets must conform to the S-123 GML schema specified.
+See <<IHO_S_100,part=10b>> and the S-123 GML schema documentation
+for a complete description of the data encoding.
+
+[[table_7.1]]
+.Format specification information
+[cols="2"]
+|===
+h| Name h| Value
+
+| Format name               | GML
+| Version                   | 3.2.1
+| Specification description | S-100 profile of GML (<<IHO_S_100,part=10b>>)
+| Language                  | English
+| Character set             | 004 -- utf8
+| Additional Information    | GML schema for S-123 Edition 1.1.0 (https://schemas.s100dev.net)
+|===
+
+[[sec_7.2]]
+=== Encoding of latitude and longitude
+
+Values of latitude and longitude must be accurate to 7 decimal places.
+Coordinates must be encoded as decimals in the format described below.
+
+* Values should be coded as decimal numbers with 7 or fewer digits
+after the decimal. The normative encoding is in degrees, with an accuracy
+of stem:[10^{-7}] degrees, i.e., 7 digits after the decimal point.
+* The decimal point must be indicated by the "." character.
+* Trailing zeroes after the decimal point (and the decimal point itself
+if appropriate) may be omitted at producer discretion, but the accuracy
+must still be as indicated (e.g., stem:[10^{-7}] degrees for coordinates
+of default accuracy).
+
+[[sec_7.3]]
+=== Numeric Attribute Encoding
+
+Integer attribute values must not contain leading zeros.
+
+Floating point attributes must not contain leading zeros. Values in
+the interval (-1, 1) may use a single zero before the decimal point.
+
+Floating point attribute values must not contain non-significant trailing
+zeros exceeding the attribute's precision as specified in the feature
+catalogue.
+
+[[sec_7.4]]
+=== Text Attribute Values
+
+Character strings must be encoded using the character set defined
+in ISO 10646-1, in Unicode Transformation Format-8 (UTF-8).
+
+[[sec_7.5]]
+=== Mandatory Attribute Values
+
+There are four reasons why attribute values may be considered mandatory:
+
+* They determine whether a feature is in the display base,
+* Certain features make no logical sense without specific attributes,
+* Some attributes are necessary to determine which symbol is to be
+displayed,
+* Some attributes are required for safety of navigation.
+
+All mandatory attributes are identified in the Feature Catalogue.
+
+[[sec_7.6]]
+=== Unknown Attribute Values
+
+Mandatory attributes in an S-123 dataset are not permitted to contain
+a nil value. All mandatory attributes must contain meaningful data.
+
+Optional attributes must be omitted altogether if the value is unknown
+or missing. They must not be "nilled."
+
+[[sec_7.7]]
+=== Object identifiers
+
+Features, information types, collection objects, meta features, and
+geometries (inline or external) are all required by the schema to
+have a gml:id attribute with a value that is unique within the dataset.
+The gml:id values must be used as the reference for the object from
+another object in the same dataset.
+
+[[sec_7.8]]
+=== Data coverage
+
+All areas of a dataset must be covered by a *DataCoverage* meta feature.
+
+An update dataset must not change the limit of a *DataCoverage* feature
+for the base dataset. Where the limit of a *DataCoverage* feature
+for a base dataset is to be changed, this must be done by issuing
+a new edition of the dataset.
+
+[[sec_7.9]]
+=== Data overlap
+
+S-123 datasets may overlap other S-123 datasets.
+
+[[sec_7.10]]
+=== Data quality meta-features
+
+One or more *QualityOfNonbathymetricData* features shall cover the
+dataset.
+
+[[sec_7.11]]
+=== Data extent
+
+Datasets must not cross the stem:[180"unitsml(deg)"] meridian of longitude.
+
+[[sec_7.12]]
+=== Sequence of objects
+
+The following sequence of objects is recommended:
+
+[pseudocode%unnumbered]
+====
+Spatial records for by-reference geometries
+    Point
+    Multi point
+    Curve
+    Composite Curve
+    Surface
+Information objects
+Feature objects
+    Meta features
+    Geo features
+====
+
+[[sec_7.13]]
+=== Content of update datasets
+
+Update datasets can only contain replacements, deletions, and additions
+of whole feature instances or information instances. This means that
+when a feature or information instance is updated, the new version
+must contain all the attributes of the old instance, including any
+inline spatial attributes (i.e., inline geometry), except those attributes
+that are being removed.
+
+An association to an instance of a feature or information type is
+treated as an attribute of the referring instance, and therefore adding
+or deleting an association means the original referring instance must
+be replaced with a new version. The instance at the other end of the
+association needs to be replaced if and only if it contains a reference
+to the first instance.
+
+Spatial objects that are not inline (i.e., geometry that is encoded
+as an independent spatial object in the dataset) is treated like any
+other object, i.e., it needs to be updated if and only if the primitive
+has changed (e.g., a coordinate is updated).
+
+[[sec_7.14]]
+=== Attribute multiplicity
+
+In general, if all the sub-attributes of a complex attribute are optional,
+at least one of them should be present and have a value that is not
+empty (or white space, for attributes of type "text" or types derived
+from "text").
+
+Similarly, if all the attributes of an information type are optional,
+at least one of them should be present and have a non-empty value.
+
+Note that there is no such general rule for features, though the DCEG
+may require it for specific features.

@@ -1,0 +1,49 @@
+[.preface]
+== metanorma-extension
+
+[.boilerplate]
+--
+Changes to this Product Specification are coordinated by the IHO Nautical
+Information Provision Working Group (NIPWG). New editions will be
+made available via the IHO web site. Maintenance of the Product Specification
+shall conform to IHO Technical Resolution 2/2007 (revised 2010).
+--
+
+=== document history
+
+[source,yaml]
+----
+- date:
+  - type: updated
+    value: 2017-07-14
+  edition: "1.0.0 draft 2"
+  contributor:
+  - person:
+      name:
+        completename: EM
+        abbreviation: EM
+  amend:
+    - description: Apply revisions from NIPWG review
+- date:
+  - type: updated
+    value: 2017-08-20
+  edition: "1.0.0 Release Candidate 1"
+  contributor:
+  - person:
+      name:
+        completename: RM
+        abbreviation: RM
+  amend:
+    - description: Update datasets, updated application schema according to NIPWG review
+- date:
+  - type: updated
+    value: 2025-05-31
+  edition: "1.1.0 draft 1"
+  contributor:
+  - person:
+      name:
+        completename: Shwu-Jing Chang
+        abbreviation: SJC
+  amend:
+    - description: Apply NIPWG approved change package of data model revision, and align with IHO S-100 Edition 5.2.0.
+----

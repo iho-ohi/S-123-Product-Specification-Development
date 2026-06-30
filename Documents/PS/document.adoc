@@ -1,0 +1,38 @@
+= Marine Radio Services Product Specification
+:series: S
+:docnumber: 123
+:doctype: specification
+:edition: 1.1.0
+:language: en
+:published-date: 2025-05-01
+:copyright-year: 2025
+:draft:
+:committee: HSSC
+:workgroup: NIPWG
+:mn-document-class: iho
+:mn-output-extensions: xml,html,doc,pdf,rxl
+:local-cache-only:
+:data-uri-image:
+:imagesdir: images
+
+include::sections/00-preface.adoc[]
+
+include::sections/01-overview.adoc[]
+
+include::sections/02-scope.adoc[]
+
+include::sections/03-production-identification.adoc[]
+
+include::sections/04-content_and_structure.adoc[]
+
+include::sections/05-quality.adoc[]
+
+include::sections/06-capture-and-classification.adoc[]
+
+include::sections/07-product-format.adoc[]
+
+include::sections/08-product-delivery.adoc[]
+
+include::sections/09-portrayal.adoc[]
+
+include::sections/10-metadata.adoc[]

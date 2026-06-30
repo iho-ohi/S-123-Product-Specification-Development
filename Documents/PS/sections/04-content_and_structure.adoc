@@ -1,0 +1,840 @@
+
+
+[[sec_4]]
+== Data Content and Structure
+
+[[sec_4.1]]
+=== Introduction
+
+The S-123 product is based on the S-100 General Feature Model (GFM),
+and is a feature-based vector product. All S-123 features and information
+classes are derived from one of the abstract classes *FeatureType*
+and *InformationType* defined in the S-123 application schema, which
+realize the GFM meta-classes S100_GF_FeatureType and S100_GF_InformationType
+respectively.
+
+This section contains the Application Schema expressed in UML and
+an associated Feature Catalogue. The Feature Catalogue is included
+in Annex C, and provides a full description of each feature type including
+its attributes, attribute values and relationships in the data product.
+
+The classes comprising the S-123 application schema are divided into
+four packages. The first package, the Domain model, contains the features
+and information types that model the MRS application domain specifically.
+Meta-features that provide quality and coverage information are contained
+within their own package as well as cartographic features, which allow
+dataset creators to provide cartographically necessary placements
+where required. A fourth package contains features used for modeling
+approximate areas.
+
+Geographic features in all four packages use the spatial types from
+<<IHO_S_100,part=7>>, which are imported as-is into the S-123 spatial types
+package and therefore can be used as types for S-123 spatial attributes.
+The spatial types package also contains definitions of 'union types'
+(combinations of the S-100 spatial types). S-100 allows features to
+have different kinds of geometry, however UML does not allow an attribute
+of a class to have multiple types. The S-123 application schema models
+spatial attributes as attributes of feature classes.
+
+[[sec_4.2]]
+=== Application Schema
+
+The UML models shown below are segments of the overall S-123 application
+schema, and include overviews of the feature classes, information
+classes, meta features, spatial types, and the relationships between
+them.
+
+This section contains a general overview of the classes and relationships
+in the S-123 application schema. Detailed information about how to
+use the feature types and information types to encode Marine Radio
+Services information is provided in the S-123 Data Classification
+and Encoding Guide (DCEG).
+
+The following conventions are used in the UML diagrams depicting the
+application schema:
+
+* Standard UML conventions for classes, associations, inheritance,
+roles, and multiplicities apply. These conventions are described in
+<<IHO_S_100,part=1>>.
+* _Italic_ font for a class name indicates an abstract class.
+* Feature classes are depicted with green background.
+* Information type classes are depicted with blue background.
+* Association classes are depicted with a white background.
+* Complex attributes are depicted with a pink background.
+* Enumeration lists and codelists are depicted with a tan background.
+The numeric code corresponding to each listed value is shown to its
+right following an '=' sign.
+* No significance attaches to the color of associations.
+
+[[sec_4.2.1]]
+==== Domain model
+
+The S-123 domain model has two base classes ('root classes') from
+which all the domain-specific geographic features and information
+type classes are derived. The base classes are shown in <<fig_4-1>>
+below. The base class for geographic features is *FeatureType* and
+the base class for information types is *InformationType*. Each of
+the two base classes has a set of attributes which are therefore inherited
+by all domain-specific features. Both base classes are abstract classes
+and do not have direct instances in S-123 data -- instead, S-123 feature
+and information type data objects are instantiations of a non-abstract
+class derived from one of these base classes.
+
+S-123 meta- and cartographic features are not derived from these base
+classes -- S-123 instead incorporates meta- and cartographic feature
+definitions originally prepared for S-101 in the interests of harmonization
+and interoperability with other S-100-based data products, especially
+S-101 ENCs.
+
+[[fig_4-1]]
+.Base classes in S-123 and their attributes
+image::figure-1.png[]
+
+[[sec_4.2.1.1]]
+===== Overview of domain features and information types
+
+Marine Radio services data products include marine radio stations
+and services as well as safety and information broadcasts and radiocommunications.
+The scope of the S-123 domain model therefore includes NAVTEX, weather or ice
+forecasts and warnings, NAVAREAs and METAREAs defined by IMO and WMO, GMDSS sea areas
+declared by Coastal States. In addition, radio services providing IP-connectivity
+coverage are included in the domain model of S-123.
+
+[[fig_4-2]]
+.Overview of S-123 Feature Types
+image::figure-2.png[]
+
+The abstract class *FeatureType* is an abstract class from which the
+geographic feature classes in the application schema are derived.
+*FeatureType* has attributes for fixed and periodic date ranges indicating
+the effective dates of the feature, name of the feature, source information,
+and a *textContent* attribute that allows text notes or references
+to be provided for individual feature instances where appropriate.
+The attributes defined in *FeatureType* are inherited by all S-123
+geographic feature types. All the attributes in *FeatureType* are
+optional.
+
+Geographic features use spatial types defined in the geometry package
+for spatial attributes. Datasets comprised of S-123 features are described
+by metadata as defined in the S-123 metadata package. Metadata uses
+selected spatial types (specifically, it uses the polygon type to
+describe the coverage of a dataset).
+
+The S-123 application schema also includes modeling of locations where
+the availability of a service is intermittent or uncertain, usually
+dependent on atmospheric and weather conditions. This modeling is
+currently provided by aggregating areas of different reliabilities
+using a feature association to an aggregation feature.
+
+[[fig_4-3]]
+.Overview of S-123 Information Types
+image::figure-3.png[]
+
+The abstract class *InformationType* is an abstract class from which
+the information type classes in the S-123 domain model are derived.
+*InformationType* has attributes for fixed and periodic date ranges,
+name associated with the individual information object if any, and
+source information. The attributes defined in *InformationType* are
+inherited by all S-123 information type classes. All the attributes
+of *InformationType* are optional.
+
+[[sec_4.2.1.2]]
+===== Radio stations and services
+
+Marine radio stations and service areas are in general modeled by
+the *RadioStation* and *RadioServiceArea* features. MRCCs and MRSCs
+are modeled by the boolean attribute *isMRCC* of *RadioControlCenter*
+information type.
+
+[[fig_4-4]]
+.The RadioStation feature type
+image::figure-4.png[]
+
+The IHO definition for the *RadioStation* feature type is "a place
+equipped to transmit radio waves..., and may also be provided with a
+radio receiver". A radio station could be remote controlled, which
+is modeled by using the boolean type attribute *remoteControlled*
+of the *RadioStation* feature type and an association to a *RadioControlCenter*
+information object.
+
+Detailed description of the radiocommunication service provision with
+respect to the radio method and radio channels is modeled by an associated
+*TransmissionDetails* information type (see <<fig_4-5>>). Description
+of the content and schedule of the service using broadcast technology
+of radiocommunications is modeled by an associated *BroadcastDetails*
+information type (see <<fig_4-6>>).
+
+[[fig_4-5]]
+.The TransmissionDetails information type
+image::figure-5.png[]
+
+[[fig_4-6]]
+.The BroadcastDetails information type
+image::figure-6.png[]
+
+The S-123 model allows a radio service area to be encoded with or
+without the station from which the service is provided, and vice versa.
+
+If a radio station and its service area(s) are both encoded, the relationship
+between them is modeled by the _serviceProvisionArea_ feature association.
+
+Additional information about the service operating schedule for the
+station or service as a whole is modeled by a _locationHours_ association
+between the feature and a *ServiceHours* object. Similarly, contact
+information for the operator, control center or responsible authority
+of the station or service area as a whole is modeled using a _srvContact_
+association to a *ContactDetails* object.
+
+<<fig_4-7>> shows the services which may have service times and operator/controller contact details encoded.
+
+[[fig_4-7]]
+.S-123 Radio service features with contact information and service hours
+image::figure-7.png[]
+
+The *ContactDetails* class contains attributes describing the contact
+methods and identifiers for various contact methods for the operating
+or controlling authority, ranging from radiocommunications, to postal
+addresses. It is linked to the relevant instance of *RadioServiceArea*,
+*RadioStation* by the _srvContact_ association, and to the *RadioControlCenter*
+by the _authorityContact_ association.
+
+*ContactDetails* may be repeated if an agency or office has more than
+one call name, call sign, or MMSI code. Other attributes such as communication
+channel, contact address, and telecommunications may be repeated within
+the same instance, e.g., if the contact could be made via multiple
+telecommunication services such as email, voice, and facsimile. Further
+instructions may be provided in the attribute *contactInstructions*.
+
+If an operating schedule for the station or service area as a whole
+is to be encoded, it is done using an associated *ServiceHours* class,
+linked to the service feature by the _locationHours_ association.
+Schedules that are specific to particular broadcasts from a radio
+station or within a single service area are modeled by means of attributes,
+e.g., *timesOfTransmission* and *timeIntervalsByDayOfWeek*, of associated
+*BroadcastDetails* information objects.
+
+Indications about the specific controlling or responsible authority
+for a specific radio service area are provided by means of associations
+from the service feature to the *Authority* information type.
+All the service features in S-123 can be associated to a controlling
+or operating organization, i.e., an *Authority* object, using the
+_controlAuthority_ association. The authority should be encoded only
+if its presence in the dataset conveys information that is useful
+to the end user.
+
+If required, service hours and contact details of the authority may
+be provided by binding corresponding *ServiceHours* and *ContactDetails*
+information objects via the _authorityHours_ association and _authorityContact_
+association, respectively. This is analogous to the case of *RadioControlCenter*
+illustrated in <<fig_4-7>>.
+
+[[sec_4.2.1.3]]
+===== Daily schedules and business hours
+
+Operating schedules and business hours of organizations are modeled
+by associating the *ServiceHours* class to an *Authority* or *RadioControlCenter*. The *ServiceHours* class is a container for the complex attribute describing daily schedules for different weekdays (*scheduleByDayOfWeek*). This complex attribute contains another complex attribute for time intervals and the days to which they apply, and category sub-attribute to model whether the schedule describes opening hours, closures, etc. Exceptions to the schedule such as fixed or movable holidays are modeled by a *NonStandardWorkingDay* class with attributes allowing indication of the dates or days which are holidays or exceptions.
+
+Working times and schedules for service features are modeled by an
+analogous association from the feature object (association *locationHours*).
+When a *ServiceHours* is thus linked to a service feature, the service
+hour information applies to the feature as a whole (e.g., all services
+offered by a *RadioStation* or in a *RadioServiceArea*). (See <<fig_4-7>>)
+
+The attribute *hoursOfWatch* is a simplified alternative to the ServiceHour
+information binding for common situations such as a 24 hour service.
+Attribute binding of *hoursOfWatch* is included in *RadioStation*,
+*RadioServiceArea*, and the *radioChannelDetails* attribute of
+*TransmissionDetails*.
+
+[[sec_4.2.1.4]]
+===== Specific service area types
+
+<<fig_4-8>> shows more specific types of service areas in S-123 domain
+model. <<table_4.1>> indicates the aspects of the service areas modelled
+in S-123.
+
+To allow encoding of radio stations pertaining to more specific types
+of radio services, the _serviceProvisionArea_ association is also
+permitted between more specific service area types and *RadioStation*.
+Both *TransmissionDetails* and *BroadcastDetails* information types
+may be associated not only to the radio station(s) but also to the
+various types of service area(s).
+
+[[fig_4-8]]
+.Service areas and provider(s)
+image::figure-8.png[]
+
+[[table_4.1]]
+.Aspects of service areas modelled in S-123
+[cols="4"]
+|===
+h| S-123 Feature type h| Responsible, intended, or declared service area h| Radio coverage h| Content coverage
+
+| RadioServiceArea              ^| &#x1F5F8; &#x1F5F8; ^| &#x1F5F8; ^| &#x1F5F8;
+| GMDSSArea                     ^| &#x1F5F8;           ^|           ^|
+| NavArea                       ^| &#x1F5F8; &#x1F5F8; ^|           ^| &#x1F5F8;
+| MetArea                       ^| &#x1F5F8; &#x1F5F8; ^|           ^| &#x1F5F8;
+| NavtexServiceArea             ^| &#x1F5F8;           ^|           ^| &#x1F5F8;
+| WeatherForecastAndWarningArea ^| &#x1F5F8;           ^|           ^| &#x1F5F8; &#x1F5F8;
+| ConnectivitySubsciptionArea   ^| &#x1F5F8;           ^| &#x1F5F8; ^|
+|===
+
+RadioServiceArea is a general-purpose service feature. With combination
+of attributes as well as associated BoardcastDetails and TransmissionDetails,
+RadioServiceArea may be used to encode radio services of various types
+and characteristics. (See <<fig_4-9>>)
+
+[[fig_4-9]]
+.RadioServiceArea for encoding various type of services
+image::figure-9.png[]
+
+When it is impractical to encode the radio coverage, e.g., in HF band,
+extent of the radio service may be encoded by using *estimatedRangeOfTransmission*
+attribute of *RadioStation*. Then, if required, encode the intended
+coverage area as a *RadioServiceArea* associated with the *RadioStation*,
+both features sharing the *TransmissionDetails* and *BroadcastDetails*.
+Maximum power (in Watt) the radio service uses or is authorized to
+use for radio transmission is encoded in the *transmissionPower* attribute
+of *RadioServiceArea.*
+
+*GMDSSArea* is for encoding the GMDSS sea areas defined or designated
+by the government and where the government has established radiocommunication
+services for the GMDSS. (See <<fig_4-10>>)
+
+GMDSS sea areas also serve the purpose of defining the requirement
+of GMDSS radio installations onboard SOLAS vessels. The definition
+of sea area A3 in SOLAS convention has been revised (MSC.496(105))
+as "an area, excluding sea areas A1 and A2, within the coverage of
+a recognized mobile satellite service (RMSS) supported by the ship
+earth station carried on board, in which continuous alerting is available."
+Such mobile satellite service for sea area A3 may be encoded by using
+*areaA3ServiceDescription* attribute, in which satellite ocean region
+and MSI coastal warning areas (if applicable) may also be included
+with their identifiers.
+
+[[fig_4-10]]
+.GMDSS sea areas and services
+image::figure-10.png[]
+
+*NavArea* feature type is for encoding the NAVAREAs defined by IMO.
+NAVAREA link to the navigation warnings on the web may be provided
+using the *onlineResource* attribute.
+
+In addition to *idNAVAREA* attribute, *featureName* (inherited from
+the abstract _*FeatureType*_) should also be encoded for identification
+of sub-area, such as Baltic Sea sub-Area.
+
+NAVAREA or sub-area coordinator is encoded by associating *Authority*
+to *NavArea*. *ContactDetails* may be associated directly to *NavArea*.
+(See <<fig_4-11>>)
+
+Analogous to the case of NAVAREAs, *MetArea* feature type is for encoding
+the METAREAs defined by WMO. (See <<fig_4-12>>)
+
+*WeatherForecastAndWarningArea* feature type (see <<fig_4-13>>) is
+for encoding an area for which weather forecasts and warnings are
+provided. Such areas may be defined by WMO or nationally by governments,
+thus categorized based on source of warnings and forecasts.
+
+The area name may be encoded in the *featureName* (inherited from
+abstract _*FeatureType*_). The code or number of (NAVTEX or SafetyNET)
+forecast areas, to be referred to in MSI messages, should be encoded
+in *forecastAreaIdentifier* attribute.
+
+Details of the service may be provided by using *Authority*, *RadioStation*,
+*BroadcastDetails* and *TransmissionDetails* associated to the *WeatherForecastAndWarningArea* feature.
+
+[[fig_4-11]]
+.NAVAREA and the coordinator
+image::figure-11.png[]
+
+[[fig_4-12]]
+.METAREA and the coordinator
+image::figure-12.png[]
+
+[[fig_4-13]]
+.Weather forecast and warning area
+image::figure-13.png[]
+
+S-123 models NAVTEX service based on definitions in the Joint IMO/IHO/WMO
+Manual on Maritime Safety Information (MSC.1/Circ.1310/Rev.2 or
+IHO S-53), as follows:
+
+* "NAVTEX service area means a unique and precisely defined sea area,
+wholly contained within the NAVTEX coverage area, for which maritime
+safety information is provided from a particular NAVTEX transmitter.".
+* "NAVTEX coverage area means an area defined by an arc of a circle
+having a radius from the transmitter calculated according to the method
+and criteria given in IMO resolution A.801(19), as amended.".
+* "Broadcast times for NAVTEX are defined by the (allocated) B1 transmitter
+identification character of the station."
+
+*NavtextServiceArea* uses *idNAVAREA* and *transmitterIdentificationCharacter*
+to uniquely identify a NAVTEX service area and allocated time slots
+(for transmission from the associated *RadioStation*). Schedule of
+different types of broadcast content may be encoded in the associated
+*BroadcastDetails*. Encoding of national NAVTEX service in national
+language and different radio channel is also supported by using
+*typeOfNAVTEXService*, *nationality*, *radioChannelDetails*, and
+*language*. (See <<fig_4-14>>)
+
+[[fig_4-14]]
+.NAVTEX service area
+image::figure-14.png[]
+
+NAVTEX coverage area is indicated by the associated *RadioStation*
+and its *estimatedRangeOfTransmission* attribute. If required,
+*RadioServiceArea* may also be used to define the radio coverage area
+of NAVTEX service. *BroadcastDetails* and *TransmissionDetails*
+(with *typeORadioService*=9 (NAVTEX)), should be shared by relevant
+features.
+
+*ConnectivitySubscriptionArea* feature type is for encoding an area
+of connectivity coverage available for the subscription of IP-connectivity
+service. Provide relevant information in the associated *ConnectivityQualityOfService*,
+*Authority* and *ContactDetails*. Name of the service or company should
+be entered in the *featureName* (inherited attribute) of relevant
+objects. (See <<fig_4-15>>)
+
+[[fig_4-15]]
+.Connectivity subscription area
+image::figure-15.png[]
+
+[[sec_4.2.1.5]]
+===== Regulations, information notes, etc.
+
+There are three information types which represent regulations, restrictions,
+and recommendations respectively, and a fourth information type for
+general or unclassifiable information.
+
+* The *Regulations* class represents information derived from laws,
+national shipping regulations, navigation rules, etc.
+* Class *Restrictions* is intended for restrictions that are not derived
+from regulatory sources.
+* Class *Recommendations* is intended for information that is recommendatory
+in nature; in S-123 this may be recommendations for maintenance of
+listening watches, AMVER reporting, etc., that are either voluntary
+or have not been issued as formal regulations.
+* The fourth class, *NauticalInformation*, is intended for general
+notes or other information that cannot be categorized as one of the
+other three classes.
+
+These four information types will hereafter be referred to collectively
+as RxN, which all inherit the attributes of their immediate abstract
+superclass *AbstractRxN*. *AbstractRxN* provides attributes *textContent*
+and *graphic* for textual and pictorial material respectively.
+The sub-attributes of its complex attribute *rxNCode* allow optional
+classification of the material encoded in *textContent*/*graphic*
+according to the type of material and the kind of nautical activity
+affected by it. RxN information types also inherit attributes of abstract
+superclass *InformationType*, which allows encoding of the effective
+and expiry dates, if any, and source of information, if it is necessary
+to encode that data. (See <<fig_4-16>>)
+
+[[fig_4-16]]
+.Structure of regulations and note information types
+image::figure-16.png[]
+
+[[sec_4.2.1.6]]
+===== Regulations applying in specific geographic features
+
+RxN classes are intended primarily for encoding text information,
+such as that derived from textual source material, e.g., national
+or local laws or official publications. Where specific attributes
+such as the simple attribute *restriction* are permitted, they must
+be used. For example, if a geographic feature class has the *restriction*
+attribute, it should be used instead (explanations, details, paragraphs
+from regulations, etc., can be provided in an associated RxN object).
+
+The *associatedRxN* association between a feature type and a *Regulations*,
+*Restrictions*, *Recommendations*, or *NauticalInformation* object
+indicates that the Regulation, etc., is applicable within the associated
+feature. If it is necessary to identify an authority or organization
+related to a particular regulation (restriction, etc.) object, this
+may be done using the *relatedOrganisation* association between *Regulations*,
+etc., and an *Authority* object. This should be included only when
+the connection to the *Authority* conveys useful information to the
+end user -- it is not intended to encode the issuing or controlling
+authority for every regulation. Note also that while *Authority* can
+be associated to geographic features as well as *Regulations*, etc.,
+encoding both associations is not mandatory even when the same *Authority*
+is associated to a service area as well as a *Regulations* object
+(or *NauticalInformation*, etc.).
+
+[[fig_4-17]]
+.Regulations, etc., relevant to specific features
+image::figure-17.png[]
+
+[[sec_4.2.1.7]]
+===== Regulations applying only to vessels with specific characteristics or cargoes
+
+Certain regulations apply only to vessels of specified dimensions,
+types, or carrying specified cargo, etc.
+
+This is modelled by first defining the relevant subset of vessels
+according to the dimension, type, cargo, etc., and then associating
+that subset to the appropriate feature or information type. The subset
+of vessels is modelled using the *Applicability* class, which contains
+attributes for the most common vessel characteristics used in nautical
+publications. These include measurements (length, beam, draught),
+type of cargo, displacement, etc. Constraints which cannot be modeled
+using the attributes of *Applicability* can be described in plain
+text in its *information* attribute.
+
+Conditions relating to vessel dimensions are modelled by the complex
+attribute *vesselsMeasurements*, which has sub-attributes for naming
+the dimension and indicating the limit (whether the condition applies
+to a vessel which exceeds or falls below the limit). For example,
+the combinations below describe the condition "length overall > 50 m"
+(Condition 1) and "length overall < 90 m" (Condition 2):
+
+[[table_4.2]]
+.Conditions relating to vessel dimensions
+[cols="183,112,112,111"]
+|===
+| h| Condition 1 h| Condition 2 h| Condition 3
+
+| vesselsCharacteristics      | length overall | length overall | breadth
+| vesselsCharacteristicsUnit  | metre          | metre          | metre
+| comparisonOperator          | greater than   | less than      | greater than
+| vesselsCharacteristicsValue | 50             | 90             | 20
+|===
+
+The *logicalConnectives* attribute is used to indicate how to interpret
+the case where multiple conditions are encoded using attributes of
+measurements - whether the conditions described by condition attributes
+are cumulative (conjunctive, AND) or alternatives (disjunctive, OR).
+A logicalConnectives=AND combined with Conditions 1 and 2 above describes
+a vessel of length between 50 and 90 metres; logicalConnectives=OR
+combined with conditions 1 and 3 describes a vessel of length greater
+than 50 metres or beam greater than 20 metres.
+
+This modeling cannot represent subsets defined by both AND and OR
+combinations of conditions, but it is always possible to convert such
+complex conditions into multiple combinations each using only AND
+('conjunctive normal form') or OR ('disjunctive normal form'), and
+model the subset using more than one *Applicability* object.
+
+[[fig_4-18]]
+.Vessel subsets characterized by cargo and dimensions
+image::figure-18.png[]
+
+Given the relevant subset of vessels, it can be associated to the
+appropriate feature, regulation, or report by a *PermissionType*,
+or *InclusionType* association. These are association classes, whose
+single attribute models the nature of the relationship between the
+vessel subset and feature or information type.
+
+The association classes *PermissionType* and *InclusionType* basically
+characterize the relationship. For example, a specified set of vessels
+is COVERED by a regulation and another set of vessels is EXEMPT from
+the regulation.
+
+"COVERED" and "EXEMPT" are different kinds of relationship between
+different subsets of vessels characterized by different dimensional
+limits, etc., and a given regulation.
+
+"MUST use", "RECOMMENDED to use", and "EXEMPT from use" are relationships
+between different subsets of vessels characterized by different dimensional
+limits, etc., and a given feature or service.
+
+*PermissionType* links a feature to an *Applicability*, and models
+a requirement, recommendation or prohibition on using a (service)
+feature, by the specified subset of vessels.
+
+*InclusionType* links a *Regulation*, *Recommendation*, *Restriction*,
+or *NauticalInformation* instance to a subset defined by an *Applicability*
+object, and indicates whether the content of the Regulation, etc.,
+applies to the vessels (_membership=included_), or explicitly does
+not apply to the vessels (_membership=excluded_).
+
+[[fig_4-19]]
+.Applicability of requirements, rules, etc. to vessel categories
+image::figure-19.png[]
+
+[[sec_4.2.1.8]]
+===== Fuzzy areas in the S-123 application schema
+
+Fuzzy areas are areas where the applicability of information described
+by a specific feature is uncertain, intermittent, or possible.
+The basic information concept can be the availability of a service,
+the existence of a natural phenomenon, etc. An example is an area
+where radio reception cannot be asserted with sufficiently high confidence
+to encode it as a definitely within the service area, but reception
+is sometimes or often possible under good conditions. Associating
+uncertainty values to boundary points is not sufficient for this concept.
+
+Areas of uncertainty are modeled by an *IndeterminateZone* geographic
+feature. A 'fuzzy area' will therefore consist of a 'core' feature
+of the appropriate geographic feature type and the appropriate geometry
+(e.g., a *RadioServiceArea* area feature) and one or more 'fuzzy'
+Indeterminate Zone features (with surface geometry). Each *IndeterminateZone*
+feature has a thematic attribute expressing the level of confidence
+that the service described by the core feature will be available in
+the region demarcated by its spatial primitive(s). To provide for
+properties of the collection of core and fuzzy features (e.g., a collective
+name for the totality of core and fuzzy areas), an abstract aggregation
+feature is defined, associated to the indeterminate zone features.
+This abstract aggregation feature is sub-classed by type-specific
+aggregation features corresponding to the geographic feature types
+which can be fuzzy. Type-specific attributes for aggregates can be
+added to these features.
+
+S-123 modeling of fuzzy areas is used for radio service area features.
+S-123 uses the generic model of fuzzy areas described above and subclasses
+the abstract *FuzzyAreaAggregate* class into the aggregate class
+*RadioServiceAreaAggregate*.
+
+[[fig_4-20]]
+.Fuzzy areas in S-123
+image::figure-20.png[]
+
+[[sec_4.2.1.9]]
+===== Uncategorized additional information
+
+The domain model also provides a method for attaching to any feature
+or information type data in the form of a text note, graphic, or Internet
+reference which cannot be categorized using an appropriate specific
+feature or information type. This consists of defining a *NauticalInformation*
+object and referencing it from the feature or information type using
+the *additionalInformation* association.
+
+This method is intended to be a last resort and every effort should
+be made to use a more specific feature or information type to encode
+the information to be attached, including splitting the information
+in question across more than one type of feature or information object
+as needed and/or using the *associatedRxN* association instead of
+*additionalInformation*, wherever the nature of the content
+allows it.
+
+The *additionalInformation* association must not be used to chain
+*NauticalInformation*, *Regulations*, *Restrictions*, or *Recommendations*
+objects, whether they are of the same class or different classes.
+
+[[fig_4-21]]
+.Attachment of uncategorized information to any feature or information type
+image::figure-21.png[]
+
+[[sec_4.2.2]]
+==== Meta features
+
+S-123 has two meta feature classes. One is *QualityOfNonbathymetricData*,
+the other is *DataCoverage*.
+
+[[fig_4-22]]
+.Overview of Meta feature classes
+image::figure-22.png[]
+
+[[sec_4.2.3]]
+==== Spatial quality information type
+
+S-123 spatial quality attributes are carried in an information type
+called *SpatialQuality*. The attributes are for qualitative horizontal
+measurement quality and quantitative spatial accuracy. (See <<fig_4-23>>)
+
+[[fig_4-23]]
+.Spatial quality
+image::figure-23.png[]
+
+[[sec_4.3]]
+=== Feature catalogue
+
+[[sec_4.3.1]]
+==== Introduction
+
+The Feature Catalogue describes the feature types, information types,
+attributes, attribute values, associations and roles which may be
+used in the product. The S-123 Feature Catalogue is available in an
+XML document which conforms to the S-100 XML Feature Catalogue Schema
+and can be downloaded from the IHO website (http://www.iho.int/).
+
+*Name:*:: Marine Radio Services Feature Catalogue
+
+*Scope:*:: Ocean, Coastal, Ports, Harbors and Inland waters
+
+*Version Number:*:: 1.1.0
+
+*Version Date:*:: 2025-05-31
+
+*Producer:*::
++
+--
+International Hydrographic Organization Secretariat, +
+4 quai Antoine 1er, +
+B.P. 445 +
+MC 98011 MONACO CEDEX +
+Telephone: +377 93 10 81 00 +
+Telefax: + 377 93 10 81 40 +
+URL http://www.iho.int
+--
+
+*Language:*:: English
+
+[[sec_4.3.2]]
+==== Feature types
+
+Feature types contain descriptive attributes that characterize real-world
+entities. The word 'feature' may be used in one of two senses -- feature
+type and feature instance. A feature type is a class and is defined
+in a Feature Catalogue. A feature instance is a single occurrence
+of the feature type and represented as an object in a dataset. A feature
+instance is located by a relationship to one or more spatial instances.
+A feature instance may exist without referencing a spatial instance.
+
+[[sec_4.3.2.1]]
+===== Geographic
+
+Geographic (geo) feature types carries the descriptive characteristics
+of a real-world entity (a location or place on the surface of the
+Earth). In the context of hydrographic products, this includes the
+adjacent regions from the sea floor to elevations of landforms and
+structures above the Earth's surface.
+
+[[sec_4.3.2.2]]
+===== Meta
+
+Meta features contain information about other features within a dataset.
+Information defined by meta features override the default metadata
+values defined by the dataset descriptive records. Meta attribution
+on individual features overrides attribution on meta features.
+
+[[sec_4.3.2.3]]
+===== Cartographic
+
+Cartographic features contain information about the cartographic representation
+(including text) of real world entities.
+
+[[sec_4.3.3]]
+==== Information Types
+
+Information types are identifiable pieces of information in a dataset
+that can be shared between other features. They have attributes but
+have no relationship to any geometry; information types may reference
+other information types.
+
+[[sec_4.3.4]]
+==== Feature and information relationships
+
+A feature relationship links instances of one feature type with instances
+of the same or a different feature type.
+
+An information relationship links instances of feature types or information
+types to instances of information types.
+
+[[sec_4.3.5]]
+==== Attributes
+
+S-123 defines attributes as either simple or complex.
+
+[[sec_4.3.5.1]]
+===== Simple Attributes
+
+The types of simple attributes used in S-123 are listed in <<AnnexA,clause=2.4.2>>.
+Descriptions
+of the simple attributes included in S-123 can also be found in
+<<AnnexA>>.
+
+[[sec_4.3.5.2]]
+===== Complex Attributes
+
+Complex attributes are aggregations of other attributes that are either
+simple or complex. The aggregation is defined by means of attribute
+bindings.
+
+[[sec_4.4]]
+=== Geometric Representation
+
+Geometric representation is the digital description of the spatial
+component of an object as described in <<IHO_S_100>> and <<ISO_19107_2019>>.
+This product specification uses two types of geometries: GM_Point
+and GM_Surface.
+
+[[sec_4.5]]
+=== Coordinate Reference System (CRS)
+
+[[sec_4.5.1]]
+==== Horizontal Coordinate Reference System
+
+The coordinate reference system used for this product specification
+is World Geodetic System 1984 (WGS 84) which is defined by the European
+Petroleum Survey Group (EPSG) code 4326.Datasets conforming to this
+product specification are not projected.
+
+[[sec_4.5.2]]
+==== Projection
+
+Datasets conforming to this product specification are not projected.
+
+[[sec_4.5.3]]
+==== Temporal reference system
+
+Time is measured by reference to Calendar dates and Clock time in
+accordance with <<ISO_19108_2002,clause=5.4.4>>.
+
+[[sec_4.6]]
+=== Geometry
+
+[[sec_4.6.1]]
+==== S-123 geometry
+
+Marine Radio Services (MRS) features are encoded as vector entities
+which conform to S-100 geometry configuration level 3a
+(<<IHO_S_100,clause=7-4.3>>).
+
+Level 3a is a set of point, curve and surface primitives with the
+following constraints:
+
+* Each curve must reference a start and end point
+(they may be the same).
+* Curves must not self-intersect. See <<IHO_S_100,figure=7-5>>.
+* Areas are represented by a closed loop of curves beginning and ending
+at a common point.
+* In the case of areas with holes, all internal boundaries must be
+completely contained within the external boundary and the internal
+boundaries must not intersect each other or the external boundary.
+Internal boundaries may touch other internal boundaries or the external
+boundary tangentially (that is at one point) as shown in <<IHO_S_100,figure=7-6>>.
+* The outer boundary of a surface must be in a clockwise direction
+(surface to the right of the curve) and the curve orientation positive.
+The inner boundary of a surface must be in a counter-clockwise direction
+(surface to the right of the curve) and the curve orientation negative.
+See <<IHO_S_100,figure=7-7>>.
+
+S-123 further constrains Level 3a with the following:
+
+* Coincident linear geometry must be avoided when there is a dependency
+between features.
+* The interpolation of _GM_CurveSegment_ must be loxodromic.
+* Linear geometry is defined by curves which are made of curve segments.
+Each curve segment contains the geographic coordinates as control
+points and defines an interpolation method between them. Coordinate
+density can have a significant impact on file size and system performance.
+A rule of thumb is to limit the coordinate density to 0.3 mm at maximum
+permitted display scale.
+* For a scale-less product, the producer should keep in mind the expected
+scale range for typical use and the density of coordinates needed
+to suit the needs of the product.
+
+The following exception applies to S-123:
+
+* The use of coordinates is restricted to two dimensions
+(_DirectPosition_ is restricted to two coordinates).
+
+[[sec_4.6.2]]
+==== MRS data and scale
+
+MRS data must be compiled in the best applicable scale. The use of
+the data itself is "scale independent". That means that the data can
+be used at any scale.
+
+[[sec_4.6.3]]
+==== Coordinate encoding in spatial primitives
+
+Geometry may be encoded either inline or by reference to a spatial
+primitives located elsewhere in the dataset that encodes the actual
+coordinate values. The GML conventions for references and axis order
+must be followed.
+
+The CRS shall be EPSG code 4326 and identified using the URI convention
+for SRS specified by OGC, which is http://www.opengis.net/def/crs/EPSG/0/4326"
+(Quote <<IHO_S_100,clause=10b-11.7>>.). The axis order is latitude/longitude.

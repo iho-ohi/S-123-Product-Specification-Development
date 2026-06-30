@@ -1,0 +1,457 @@
+
+[[sec_1]]
+== Overview
+
+[[sec_1.1]]
+=== Introduction
+
+This document has been produced by the IHO Nautical Information Provision
+Working Group (NIPWG) in response to a requirement to produce a data
+product that can be used within an Electronic Chart Display and Information
+Systems (ECDIS). It is based on the IHO S-100 framework specification
+and the ISO 19100 series of standards. It is a vector product specification
+primarily intended for encoding the extent and nature of Radio Services,
+for navigational purposes.
+
+Radio services describe the availability and reliability of radio
+stations and services offering navigational warnings and weather forecasts.
+This includes their service areas, services offered and instructions
+for contacting or utilizing these services.
+
+[[sec_1.2]]
+=== Scope
+
+This document describes an <<IHO_S_100>> compliant Product Specification for
+Marine Radio Services, which will form an overlay layer for an S-100
+based marine navigation system. It specifies the content, structure,
+and metadata needed for creating a fully compliant S-123 product and
+for its portrayal within an S-100 system. This Product Specification
+includes the content model, the encoding, the Feature Catalogue, Portrayal
+Catalogue, and metadata.
+
+[[sec_1.3]]
+[bibliography]
+=== References
+
+* [[[IHO_S_100,IHO S-100]]] _IHO Universal Hydrographic Data Model, Edition 5.2.0_
+
+* [[[ISO_639_2_T,ISO 639-2]]] _Codes for the representation of names of languages -- Part 2: Alpha-3 code_
+
+* [[[ISO_3166_1,ISO 3166-1]]] _Codes for the representation of names of countries and their subdivisions -- Part 1:_ _Country code_
+
+* [[[ISO_8601_2004,ISO 8601:2004]]] _Data elements and interchange formats -- Information interchange -- Representation of dates and times_
+
+* [[[ISO_19101_1_2014,ISO 19101-1:2014]]] _Geographic information -- Reference Model --Part 1: Fundamentals_
+
+* [[[ISO_19107_2019,ISO 19107:2019]]] _Geographic information -- Spatial schema_
+
+* [[[ISO_19109_2015,ISO 19109:2015]]] _Geographic information -- Rules for application schema_
+
+* [[[ISO_19115_1_2014,ISO 19115-1:2014]]] _Geographic information -- Metadata -- Part 1 - Fundamentals_
+
+* [[[ISO_19115_3_2023,ISO 19115-3:2023]]] _Geographic information - Metadata - XML schema implementation for fundamental concepts_
+
+* [[[ISO_19117_2012,ISO 19117:2012]]] _Geographic information -- Portrayal_
+
+* [[[ISO_19123_2005,ISO 19123:2005]]] _Geographic information - Schema for coverage geometry and functions_
+
+* [[[ISO_19136_1_2020,ISO 19136-1:2020]]] _Geographic information -- Geography Markup Language (GML) -- Part 1 - Fundamentals_
+
+* [[[ISO_19136_2_2015,ISO 19136-2:2015]]] _Geographic information -- Geography Markup Language (GML) -- Part 2 -- Extended schemas and encoding rules_
+
+* [[[ISO_TS_19139_1_2019,ISO/TS 19139-1:2019]]] _Geographic information -- XML schema implementation -- Part 1 -- Encoding rules_
+
+* [[[ISO_19157_2013,ISO 19157:2013]]] _Geographic Information -- Data Quality_
+
+* [[[ISO_IEC_19501_2005,ISO/IEC 19501:2005]]] _Information technology -- Unified Modelling Language (UML)_, Version 1.4.2
+
+* [[[ISO_19101,hidden(ISO 19101)]]]
+
+* [[[ISO_19115,hidden(ISO 19115)]]]
+
+* [[[ISO_TS_19103,hidden(ISO/TS 19103)]]]
+
+* [[[ISO_19110,hidden(ISO 19110)]]]
+
+* [[[ISO_19108_2002,hidden(ISO 19108:2002)]]]
+
+* [[[ISO_10646_1,hidden(ISO/IEC 10646-1)]]]
+
+* [[[S97,hidden(IHO S-97)]]]
+
+* [[[AnnexA,dropid(repo:(current-metanorma-collection/IHO S-123 Annex A))]]],
+span:title[S-123 -- Annex A: Data Classification and Encoding Guide],
+span:edition[1.1.0],
+span:organization[International Hydrographic Organization]
+
+[[sec_1.4]]
+=== Terms, definitions and abbreviations
+
+[[sec_1.4.1]]
+==== Use of language
+
+Within this document:
+
+* "Must" indicates a mandatory requirement.
+* "Should" indicates an optional requirement, that is the recommended
+process to be followed, but is not mandatory.
+* "May" means "allowed to" or "could possibly", and is not mandatory.
+
+[[sec_1.4.2]]
+[heading="terms and definitions"]
+==== Terms and definitions
+
+The S-100 framework is based on the ISO 19100 series of geographic
+standards. The terms and definitions provided here are used to standardize
+the nomenclature found within that framework, whenever possible. They
+are taken from the references cited in <<sec_1.3>>. Modifications have
+been made when necessary.
+
+===== application
+
+manipulation and processing of data in support of user requirements
+
+[.source]
+<<ISO_19101>>
+
+===== application schema
+
+{{conceptual schema}} for data required by one or more {{application,applications}}
+
+[.source]
+<<ISO_19101>>
+
+===== conceptual model
+
+model that defines concepts of a {{universe of discourse}}
+
+[.source]
+<<ISO_19101>>
+
+===== conceptual schema
+
+formal description of a {{conceptual model}}
+
+[.source]
+<<ISO_19101>>
+
+===== coverage
+
+{{feature}} that acts as a function to return values from its range
+for any direct position within its spatial, temporal or spatiotemporal
+{{domain}}
+
+[.source]
+<<ISO_19123_2005>>
+
+[example]
+Raster image, polygon overlay, digital elevation matrix.
+
+===== data product
+
+{{dataset}} or {{dataset series}} that conforms to a
+{{data product specification}}
+
+===== data product specification
+
+detailed description of a {{dataset}} or {{dataset series}} together
+with additional information that will enable it to be created, supplied
+to and used by another party
+
+NOTE: A data product specification provides a description of the universe
+of discourse and a specification for mapping the universe of discourse
+to a dataset. It may be used for production, sales, end-use or other
+purpose.
+
+===== dataset
+
+identifiable collection of data
+
+[.source]
+<<ISO_19115>>
+
+NOTE: A dataset may be a smaller grouping of data which, though limited
+by some constraint such as spatial extent or feature type, is located
+physically within a larger dataset. Theoretically, a dataset may be
+as small as a single feature or feature attribute contained within
+a larger dataset. A hardcopy map or chart may be considered a dataset.
+
+===== dataset series
+
+collection of {{dataset,datasets}} sharing the same product specification
+
+[.source]
+<<ISO_19115>>
+
+===== domain
+
+well-defined set
+
+[.source]
+<<ISO_TS_19103>>
+
+NOTE: Well-defined means that the definition is both necessary and
+sufficient, as everything that satisfies the definition is in the
+set and everything that does not satisfy the definition is necessarily
+outside the set.
+
+===== feature
+
+abstraction of real world phenomena
+
+[.source]
+<<ISO_19101>>
+
+NOTE: A feature may occur as a type or an instance. Feature type or
+feature instance shall be used when only one is meant.
+
+===== feature association
+
+relationship that links instances of one {{feature}} type with instances
+of the same or a different {{feature}} type
+
+[.source]
+<<ISO_19110>>
+
+NOTE: A feature association may occur as a type or an instance. Feature
+association type or feature association instance is used when only
+one is meant.
+
+NOTE: Feature associations include aggregation of features.
+
+===== feature attribute
+
+characteristic of a {{feature}}
+
+[.source]
+<<ISO_19101>>
+
+NOTE: A feature attribute may occur as a type or an instance. Feature
+attribute type or feature attribute instance is used when only one
+is meant.
+
+NOTE: A feature attribute type has a name, a data type and a domain
+associated to it. A feature attribute for a feature instance has an
+attribute value taken from the domain.
+
+===== geographic data
+
+data with implicit or explicit reference to a location relative to
+the Earth
+
+[.source]
+<<ISO_19109_2015>>
+
+NOTE: Geographic information is also used as a term for information
+concerning phenomena implicitly or explicitly associated with a location
+relative to the Earth.
+
+===== metadata
+
+data about data
+
+[.source]
+<<ISO_19115>>
+
+===== model
+
+abstraction of some aspects of reality
+
+[.source]
+<<ISO_19109_2015>>
+
+===== portrayal
+
+presentation of information to humans
+
+[.source]
+<<ISO_19117_2012>>
+
+===== quality
+
+totality of characteristics of a product that bear on its ability
+to satisfy stated and implied needs
+
+[.source]
+<<ISO_19101>>
+
+===== universe of discourse
+
+view of the real or hypothetical world that includes everything of
+interest (ISO 19101)
+
+[[sec_1.4.3]]
+==== Abbreviations
+
+This product specification adopts the following convention for symbols
+and abbreviated terms:
+
+ASCII:: American Standard Code for Information Interchange
+
+ECDIS:: Electronic Chart Display and Information Systems
+
+ENC:: Electronic Navigational Chart
+
+GML:: Geography Markup Language
+
+IHO:: International Hydrographic Organization
+
+IMO:: International Maritime Organization
+
+ISO:: International Organization for Standardization
+
+ITU:: International Telecommunication Union
+
+MRCC:: Marine Rescue and Coordination Centre
+
+MRSC:: Marine Rescue Sub-Centre
+
+MSI:: Maritime Safety Information
+
+NIPWG:: Nautical Information Provision Working Group
+
+UML:: Unified Modelling Language
+
+URI:: Uniformed Resource Identifier
+
+URL:: Uniform Resource Locator
+
+www:: World Wide Web
+
+WGS:: World Geodetic System
+
+WMO:: World Meteorological Organization
+
+XML:: Extensible Markup Language
+
+[[sec_1.5]]
+=== General data product description
+
+This clause contains general information about the data product.
+
+*Title:*:: Marine Radio Services
+
+*Abstract:*:: Marine radio services product specification describe
+the means to capture availability and reliability of radio stations,
+radio position fixing systems, radio beacons, services offering navigational
+warnings and weather forecasts in the maritime domain. This may include
+details on the service areas, services offered and instructions for
+contacting or utilizing these services.
+
+*Content:*:: Datasets conforming to this specification will contain
+all relevant maritime radio service information for the area of coverage.
+Additionally, there will be relevant metadata data quality, production
+authority, data sources and publication date.
+
+*Spatial Extent:*:: Global coverage of maritime areas.
+
+*Purpose:*:: Describing radio services in the maritime domain for
+utilization in ECDIS, and to allow the producer to exchange radio
+services information with interested stakeholders.
+
+[[sec_1.6]]
+=== Data product specification metadata
+
+This information uniquely identifies this Product Specification and
+provides information about its creation and maintenance. For further
+information on dataset metadata see the metadata clause.
+
+*Title:*:: Marine Radio Services
+
+*S-100 Version:*:: 5.2.0
+
+*S-123 Version:*:: 1.1.0
+
+*Date:*:: May 2025
+
+*Language:*:: English
+
+*Classification:*:: Unclassified
+
+*Contact:*::
++
+--
+International Hydrographic Organization, +
+4 quai Antoine 1er, +
+B.P. 445 +
+MC 98011 MONACO CEDEX +
+Telephone: +377 93 10 81 00 +
+Fax: + 377 93 10 81 40
+--
+
+*URL:*:: http://www.iho.int/[http://www.iho.int]
+
+*Identifier:*:: S-123
+
+*Maintenance:*:: Amendments to this specification will be produced
+on a needs basis. For reporting issues with this specification which
+need correction, use the contact information.
+
+[[sec_1.7]]
+=== IHO product specification maintenance
+
+[[sec_1.7.1]]
+==== Introduction
+
+Changes to S-123 will be released by the IHO as a new edition, a revision,
+or as a document that includes clarification. These are described
+below.
+
+[[sec_1.7.2]]
+==== New Edition
+
+New Editions introduce significant changes. New Editions enable new
+concepts, such as the ability to support new functions or applications,
+or the introduction of new constructs or data types. New Editions
+are likely to have a significant impact on either existing users or
+future users of S-123.
+
+[[sec_1.7.3]]
+==== Revisions
+
+Revisions are defined as substantive semantic changes. Typically,
+revisions will introduce change to correct factual errors; introduce
+necessary changes that have become evident as a result of practical
+experience or changing circumstances. A revision must not be classified
+as a clarification. Revisions could have an impact on either existing
+users or future users of this specification. All cumulative clarifications
+will be included with the release of approved corrections revisions.
+
+Changes in a revision are minor and ensure backward compatibility
+with the previous versions within the same Edition. Newer revisions,
+for example, introduce new features and attributes. Within the same
+Edition, a dataset of one version could always be processed with a
+later version of the feature and portrayal catalogues. In most cases
+a new feature or portrayal catalogue will result in a revision of
+this specification.
+
+[[sec_1.7.4]]
+==== Clarification
+
+Clarifications are non-substantive changes. Typically, clarifications:
+remove ambiguity; correct grammatical and spelling errors; amend or
+update cross references; insert improved graphics in spelling, punctuation
+and grammar. Clarification must not cause any substantive semantic
+changes.
+
+Changes in a clarification are minor and ensure backward compatibility
+with the previous versions within the same Edition. Within the same
+Edition, a dataset of one clarification version could always be processed
+with a later version of the feature and portrayal catalogues, and
+a portrayal catalogue can always rely on earlier versions of the feature
+catalogues.
+
+Changes in a clarification are minor and ensure backward compatibility
+with the previous versions.
+
+[[sec_1.7.5]]
+==== Version Numbers
+
+The associated version control numbering to identify changes (n) to
+this specification must be as follows:
+
+New Editions denoted as *n*.0.0
+
+Revisions denoted as n.*n*.0
+
+Clarifications denoted as n.n.*n*

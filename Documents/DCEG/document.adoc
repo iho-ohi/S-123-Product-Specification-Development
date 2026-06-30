@@ -1,0 +1,49 @@
+= Data Classification and Encoding Guide - Annex A
+:series: S
+:docnumber: 123
+:doctype: specification
+:annex-id: A
+:title: Marine Radio Services Product Specification
+:title-annex: Data Classification and Encoding Guide
+:edition: 1.1.0
+:language: en
+:published-date: 2025-05-01
+:copyright-year: 2025
+:draft:
+:committee: HSSC
+:workgroup: NIPWG
+:mn-document-class: iho
+:mn-output-extensions: xml,html,doc,pdf,rxl
+:local-cache-only:
+:data-uri-image:
+:imagesdir: images
+
+include::sections/00-preface.adoc[]
+
+include::sections/01-overview.adoc[]
+
+include::sections/02-general.adoc[]
+
+include::sections/03-description.adoc[]
+
+include::sections/04-metadata-features.adoc[]
+
+include::sections/05-geographic-features.adoc[]
+
+include::sections/06-cartographic-features.adoc[]
+
+include::sections/07-information-types.adoc[]
+
+include::sections/08-association-class.adoc[]
+
+include::sections/09-regulation-and-notes.adoc[]
+
+include::sections/10-assciation-names.adoc[]
+
+include::sections/11-association-roles.adoc[]
+
+include::sections/12-descriptions.adoc[]
+
+include::sections/13-complex-attributes.adoc[]
+
+include::sections/99-bibliography.adoc[]

@@ -1,0 +1,81 @@
+<bibdata type="standard" schema-version="v1.5.6">
+  <fetched>2026-06-30</fetched>
+  <title language="en" script="Latn" type="title-intro">Geographic information</title>
+  <title language="en" script="Latn" type="title-main">XML schema implementation</title>
+  <title language="en" script="Latn" type="title-part">Part 1: Encoding rules</title>
+  <title language="en" script="Latn" type="main">Geographic information - XML schema implementation - Part 1: Encoding rules</title>
+  <title language="fr" script="Latn" type="title-intro">Information géographique</title>
+  <title language="fr" script="Latn" type="title-main">Implémentation de schémas XML</title>
+  <title language="fr" script="Latn" type="title-part">Partie 1: Règles de codage</title>
+  <title language="fr" script="Latn" type="main">Information géographique - Implémentation de schémas XML - Partie 1: Règles de codage</title>
+  <uri type="src">https://www.iso.org/standard/67253.html</uri>
+  <uri type="obp">https://www.iso.org/obp/ui/en/#!iso:std:67253:en</uri>
+  <uri type="rss">https://www.iso.org/contents/data/standard/06/72/67253.detail.rss</uri>
+  <docidentifier type="ISO" primary="true">ISO/TS 19139-1:2019</docidentifier>
+  <docidentifier type="iso-reference">ISO/TS 19139-1:2019(E)</docidentifier>
+  <docidentifier type="URN">urn:iso:std:iso:ts:19139:-1:stage-90.93</docidentifier>
+  <docnumber>19139</docnumber>
+  <date type="published">
+    <on>2019-02-25</on>
+  </date>
+  <contributor>
+    <role type="publisher"/>
+    <organization>
+      <name>International Organization for Standardization</name>
+      <abbreviation>ISO</abbreviation>
+      <uri>www.iso.org</uri>
+    </organization>
+  </contributor>
+  <contributor>
+    <role type="author">
+      <description>committee</description>
+    </role>
+    <organization>
+      <name>International Organization for Standardization</name>
+      <subdivision type="technical-committee" subtype="TC">
+        <name>Geographic information/Geomatics</name>
+        <identifier>ISO/TC 211</identifier>
+      </subdivision>
+      <abbreviation>ISO</abbreviation>
+    </organization>
+  </contributor>
+  <edition>1</edition>
+  <language>en</language>
+  <script>Latn</script>
+  <abstract language="en" script="Latn">This document defines XML based encoding rules for conceptual schemas specifying types that describe geographic resources. The encoding rules support the UML profile as used in the UML models commonly used in the standards developed by ISO/TC 211. The encoding rules use XML schema for the output data structure schema. The encoding rules described in this document are not applicable for encoding UML application schema for geographic features (see ISO 19136 for those rules).</abstract>
+  <status>
+    <stage>90</stage>
+    <substage>93</substage>
+  </status>
+  <copyright>
+    <from>2019</from>
+    <owner>
+      <organization>
+        <name>ISO/TS</name>
+      </organization>
+    </owner>
+  </copyright>
+  <relation type="obsoletes">
+    <bibitem>
+      <formattedref>ISO/TS 19139:2007</formattedref>
+      <docidentifier type="ISO" primary="true">ISO/TS 19139:2007</docidentifier>
+      <date type="published">
+        <on>2007-04-17</on>
+      </date>
+    </bibitem>
+  </relation>
+  <place>
+    <city>Geneva</city>
+  </place>
+  <ext schema-version="v1.1.2">
+    <doctype>technical-specification</doctype>
+    <flavor>iso</flavor>
+    <ics>
+      <code>35.240.70</code>
+      <text>IT applications in science</text>
+    </ics>
+    <structuredidentifier type="ISO">
+      <project-number>67253</project-number>
+    </structuredidentifier>
+  </ext>
+</bibdata>

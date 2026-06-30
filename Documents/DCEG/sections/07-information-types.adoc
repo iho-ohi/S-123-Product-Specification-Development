@@ -1,0 +1,1254 @@
+
+
+[[sec_7]]
+== Information types
+
+[[sec_7.1]]
+=== Information Type
+
+[cols="a,a,a,a,a",options="unnumbered"]
+|===
+5+| [underline]#IHO Definition:# Generalized information type which
+carries all the common attributes.
+5+| *[underline]#S-123 Information Type:# Information Type*
+5+| *[underline]#Super Type:#*
+5+| *[underline]#Primitives:# None*
+
+2+| _Real World_ 2+| _Paper Chart Symbol_ | _ECDIS Symbol_
+
+h| S-123 Attribute h| S-57 Acronym h| Allowable Encoding Value h| Type h| Multiplicity
+
+| Fixed Date Range    |                   |             | C      | 0, 1
+| Date Start          | (DATSTA)          |             | (S) TD | 0, 1
+| Date End            | (DATEND)          |             | (S) TD | 0, 1
+| Time of Day Start   |                   |             | (S) TI | 0, 1
+| Time of Day End     |                   |             | (S) TI | 0, 1
+| Periodic Date Range |                   |             | C      | 0, ++*++
+| Date Start          | (DATSTA)          |             | (S) TD | 1, 1
+| Date End            | (DATEND)          |             | (S) TD | 1, 1
+| Feature Name        |                   |             | C      | 0, ++*++
+| Language            |                   | ISO 639-2/T | (S) TE | 1, 1
+| Name
+| (OBJNAM)
+
+(NOBJNM) | | (S) TE | 1, 1
+
+| Name Usage |
+|
+1: Default Name Display +
+2: Alternate Name Display +
+3: No Chart Display
+| (S) EN | 0, 1
+
+| Source        |          | | TE | 0, 1
+| Reported Date | (SORDAT) | | TD | 0, 1
+
+5+|
+[underline]#INT 1 Reference:#
+
+|===
+
+[[sec_7.1.1]]
+==== Information types in general
+
+The InformationType is an abstract type. An abstract type cannot be
+used directly, but define attributes inherited by its sub-types. The
+encoding remarks of an abstract type apply to its sub-types but may
+be overridden by remarks in the sub-type.
+
+Where a complex attribute to be used has all its sub-attributes optional
+(e.g., multiplicity 0..1 or 0..++*++), at least one of the sub-attributes
+must be populated.
+
+The *featureName* attribute of an instance of an information type
+can be used for a short title that is either a proper name
+(if such is relevant) or which describes the instance. For example,
+the *featureName* attribute of an *Authority* information type can
+be the name of a government agency.
+
+FeatureName attributes of information types should not duplicate the
+geographic feature name of an associated feature, but should pertain
+to the information instance itself.
+
+The *featureName* attribute should be populated only if the value
+conveys useful information to the end user. Some examples of such
+situations are:
+
+* providing the name of an organisation, such as the name of an *Authority*.
+
+* distinguishing between instances -- if multiple instances of the
+same information type are associated to the same feature type (or
+another information type), the different instances may be given descriptive
+names to make it easier for the mariner to distinguish their content.
+Some information instances are associated to multiple features, in
+which case its name should be general enough to be relevant to all
+the features.
+
+For example, if naming *Regulations* instances describing radio watch
+regulations for a service area, consider whether (for example) there
+is a general regulation applicable to all such areas in a jurisdiction
+and an exceptional *Regulations* object associated to a single area
+or a subset of areas in the jurisdiction. In this situation, the general
+regulations may be encoded with the name "General radio watch regulations"
+and associated to several features, while a specific service area
+feature can also have a specific regulation whose name is "Special
+radio regulations for (named area)".
+
+[underline]#Remarks:#
+
+[underline]#Distinction:#
+
+[cols="a,a,a,a,a",options="unnumbered"]
+|===
+5+h| [underline]#Feature/Information associations#
+.2+h| Type .2+h| Association Name h| Association Ends 2+h|
+h| Class h| Role h| Mult
+
+|===
+
+[[sec_7.2]]
+=== AbstractRxN
+
+[cols="a,a,a,a,a",options="unnumbered"]
+|===
+5+| [underline]#IHO Definition:# An abstract superclass for information
+types that encode rules, recommendations, and general information
+in text or graphic form.
+5+| *[underline]#S-123 Information Type:# AbstractRxN*
+5+| *[underline]#Super Type:# InformationType*
+5+| *[underline]#Primitives:# None*
+
+2+| _Real World_ 2+| _Paper Chart Symbol_ | _ECDIS Symbol_
+
+h| S-123 Attribute h| S-57 Acronym h| Allowable Encoding Value h| Type h| Multiplicity
+
+| Category of Authority | (CATAUT)
+|
+2: Border Control +
+3: Police +
+4: Port +
+5: Immigration +
+6: Health +
+7: Coast Guard +
+8: Agricultural +
+9: Military +
+10: Private Company +
+11: Maritime Police +
+12: Environmental +
+13: Fishery +
+14: Finance +
+15: Maritime +
+16: Customs
+| EN | 0, 1
+
+| Text Content | (TXTCON) | | C | 1, ++*++
+
+| Category of Text | (CATTXT)
+|
+1: Abstract or Summary +
+2: Extract +
+3: Full Text
+| (S) EN | 0, 1
+
+| Information              | (INFORM)          |             | (S) C  | 0, ++*++
+| File Locator             |                   |             | (S) TE | 0, 1
+| File Reference
+| (TXTDSC)
+
+(NTXTDS) | | (S) TE | 0, 1
+| Headline                 |                   |             | (S) TE | 0, 1
+| Language                 |                   | ISO 639-2/T | (S) TE | 1, 1
+| Text
+| (INFORM)
+
+(NINFOM) | | (S) TE | 0, 1
+| Online Resource          |                   |             | (S) C  | 0, 1
+| Headline                 |                   |             | (S) TE | 0, 1
+| Linkage                  |                   |             | (S) UI | 1, 1
+| Name of Resource         |                   |             | (S) TE | 0, 1
+| Source                   |                   |             | (S) TE | 0, 1
+| Reported Date            | (SORDAT)          |             | (S) TD | 0, 1
+| Graphic                  |                   |             | C      | 0, ++*++
+| Pictorial Representation | (PICREP)          |             | (S) TE | 1, 1
+| Picture Caption          |                   |             | (S) TE | 0, 1
+| Source Date              | (SORDAT)          |             | (S) DA | 0, 1
+| Picture Information      |                   |             | (S) TE | 0, 1
+| Bearing Information      |                   |             | (S) C  | 0, 1
+| Distance                 |                   |             | (S) RE | 0, 1
+| Information              | (INFORM)          |             | (S) C  | 0, 1
+| File Locator             |                   |             | (S) TE | 0, 1
+| File Reference
+| (TXTDSC)
+
+(NTXTDS) | | (S) TE | 0, 1
+| Headline                 |                   |             | (S) TE | 0, 1
+| Language                 |                   | ISO 639-2/T | (S) TE | 1, 1
+| Text
+| (INFORM)
+
+(NINFOM) | | (S) TE | 0, 1
+| Orientation              |                   |             | (S) C  | 0, 1
+| Orientation Uncertainty  |                   |             | (S) RE | 0, 1
+| Orientation Value        | (ORIENT)          |             | (S) RE | 1, 1
+| Sector Limit             |                   |             | (S) C  | 0, 1
+| Sector Limit One         | (SECTR1)          |             | (S) C  | 1, 1
+| Sector Bearing
+| (SECTR1)
+
+(SECTR2) | | (S) RE | 1, 1
+| Sector Line Length       |                   |             | (S) RE | 0, 1
+| Sector Limit Two         | (SECTR2)          |             | (S) C  | 1, 1
+| Sector Bearing
+| (SECTR1)
+
+(SECTR2) | | (S) RE | 1, 1
+| Sector Line Length       |                   |             | (S) RE | 0, 1
+| RxN Code                 |                   |             | C      | 0, ++*++
+| Headline                 |                   |             | (S) TE | 0, 1
+| Category of RxN          |                   |             | (S) CL | 0, 1
+| Action or Activity       |                   |             | (S) CL | 0, 1
+
+5+|
+
+[underline]#INT 1 Reference:#
+
+[underline]#Remarks:#
+
+* Subtypes of *AbstractRxN* carry the same attributes, but differ
+in the nature of information they encode. There are currently four
+such subtypes: *Regulations*, *Restrictions*, *Recommendations*, and
+*NauticalInformation*.
+
+* At least one attribute *textContent* must be populated.
+
+* The complex attribute *rxNCode* can be used to classify regulations
+(or recommendations, etc.) according to their principal subject
+(sub-attribute *categoryOfRxN*) and the type of vessel activity affected
+(sub-attribute *actionOrActivity*), as well as provide a sequence
+of brief topic headings (sub-attribute *headline*).
+
+[underline]#Distinction:#
+
+|===
+
+[cols="a,a,a,a,a",options="unnumbered"]
+|===
+5+h| [underline]#Feature/Information associations#
+.2+h| Type .2+h| Association Name h| Association Ends 2+|
+h| Class h| Role h| Mult
+
+| association | InclusionType | *Applicability* | isApplicableTo | 0, ++*++
+|===
+
+[[sec_7.3]]
+=== Applicability
+
+[cols="a,a,a,a,a",options="unnumbered"]
+|===
+5+| [underline]#IHO Definition:# Describes the relationship between
+vessel characteristics and: (i) the applicability of an associated
+information object or feature to the vessel; or, (ii) the use of a
+facility, place, or service by the vessel; or, (iii) passage of the
+vessel through an area.
+5+| *[underline]#S-123 Information Type:# Applicability*
+5+| *[underline]#Super Type:# InformationType*
+5+| *[underline]#Primitives:# None*
+
+2+| _Real World_ 2+| _Paper Chart Symbol_ | _ECDIS Symbol_
+
+h| S-123 Attribute h| S-57 Acronym h| Allowable Encoding Value h| Type h| Multiplicity
+
+| In Ballast | | | BO | 0, 1
+
+| Category of Vessel | |
+1: General Cargo Vessel +
+2: Container Carrier +
+3: Tanker +
+4: Bulk Carrier +
+5: Passenger Vessel +
+6: Roll-On Roll-Off +
+7: Refrigerated Cargo Vessel +
+8: Fishing Vessel +
+9: Service +
+10: Warship +
+11: Towed or Pushed Composite Unit +
+12: Tug and Tow +
+13: Light Recreational +
+14: Semi-Submersible Offshore Installation +
+15: Jack-Up Exploration or Project Installation +
+16: Livestock Carrier +
+17: Sport Fishing
+| CL | 0, ++*++
+
+| Category of Vessel Registry | |
+1: Domestic +
+2: Foreign
+| EN | 0, 1
+
+| Category of Cargo | (CATCGO) |
+1: Bulk +
+2: Container +
+3: General +
+4: Liquid +
+5: Passenger +
+6: Livestock +
+7: Dangerous or Hazardous +
+8: Heavy Lift +
+9: Ballast +
+10: Dry Bulk Cargo +
+11: Liquid Bulk Cargo +
+12: Reefer Container Cargo +
+13: Ro-Ro Cargo +
+14: Project Cargo +
+15: Break Bulk Cargo | EN | 0, ++*++
+
+| Category Of Dangerous Or Hazardous Cargo | (CATDHC) |
+1: IMDG Code Class 1 Div. 1.1 +
+2: IMDG Code Class 1 Div. 1.2 +
+3: IMDG Code Class 1 Div. 1.3 +
+4: IMDG Code Class 1 Div. 1.4 +
+5: IMDG Code Class 1 Div. 1.5 +
+6: IMDG Code Class 1 Div. 1.6 +
+7: IMDG Code Class 2 Div. 2.1 +
+8: IMDG Code Class 2 Div. 2.2 +
+9: IMDG Code Class 2 Div. 2.3 +
+10: IMDG Code Class 3 +
+11: IMDG Code Class 4 Div. 4.1 +
+12: IMDG Code Class 4 Div. 4.2 +
+13: IMDG Code Class 4 Div. 4.3 +
+14: IMDG Code Class 5 Div. 5.1 +
+15: IMDG Code Class 5 Div. 5.2 +
+16: IMDG Code Class 6 Div. 6.1 +
+17: IMDG Code Class 6 Div. 6.2 +
+18: IMDG Code Class 7 +
+19: IMDG Code Class 8 +
+20: IMDG Code Class 9 +
+21: Harmful Substances in Packaged Form | EN | 0, ++*++
+
+| Logical Connectives | (LOGCON) |
+1: Logical Conjunction +
+2: Logical Disjunction | EN | 0, 1
+
+| Thickness of Ice Capability       | | | IN | 0, 1
+| Vessel Performance                | | | TE | 0, 1
+| Vessel Measurements Specification | | | C  | 0, ++*++
+
+| Vessels Characteristics | (VSLCAR) |
+1: Length Overall +
+2: Length at Waterline +
+3: Breadth +
+4: Draught +
+6: Displacement Tonnage +
+7: Displacement Tonnage, Light +
+8: Displacement Tonnage, Loaded +
+9: Deadweight Tonnage +
+10: Gross Tonnage +
+11: Net Tonnage +
+12: Panama Canal/Universal Measurement System Net Tonnage +
+13: Suez Canal Net Tonnage | (S) EN | 1, 1
+
+| Vessels Characteristics Value | | | (S) RE | 1, 1
+
+| Vessels Characteristics Unit | (VSLUNT) |
+1: Metres +
+3: Metric Ton +
+4: Ton +
+5: Short Ton +
+6: Gross Ton +
+7: Net Ton +
+9: Suez Canal Net Tonnage | (S) EN | 1, 1
+
+| Comparison Operator | (COMPOP) |
+1: Greater Than +
+2: Greater Than or Equal To +
+3: Less Than +
+4: Less Than or Equal To +
+5: Equal To +
+6: Not Equal To | (S) EN | 1, 1
+
+| Information    | (INFORM)          |             | C      | 0, ++*++
+| File Locator   |                   |             | (S) TE | 0, 1
+| File Reference
+| (TXTDSC)
+
+(NTXTDS) | | (S) TE | 0, 1
+| Headline       |                   |             | (S) TE | 0, 1
+| Language       |                   | ISO 639-2/T | (S) TE | 1, 1
+| Text
+| (INFORM)
+
+(NINFOM) | | (S) TE | 0, 1
+
+5+a|
+[underline]#INT 1 Reference:#
+|===
+
+==== The use of the Applicability information type
+
+The *Applicability* information type is intended for defining sets
+of vessels according to their dimensions, capabilities, and cargo.
+Its attributes are intended for defining different limitation conditions,
+as described by their definitions. Multiple instances of *Applicability*
+associated to the same feature or regulation are treated as
+"inclusive OR", that is, each *Applicability* defines an independent
+set of vessels to which the regulation, permission or requirement
+applies (or which is specifically exempted, depending on the attribute
+encoded in the association class).
+
+[underline]#Remarks:#
+
+* Multiple values of *Category of Cargo* and of
+*Category of Dangerous Or Hazardous Cargo* should be treated as
+"inclusive OR" (i.e., if _Category of Cargo_=1 and 2, then it means
+vessels with either bulk or container cargo or both).
+
+* Limitations which cannot be expressed using more specific attributes
+should be encoded in text form in the *_information_* attribute.
+
+* It is acceptable for an *Applicability* to have only the *information*
+attribute populated.
+
+* Vessel types which do not conform to any of the listed *categoryOfVessel*
+values should be encoded as "other: <text>" where <text> is a producer-supplied
+type name.
+
+* The attribute *logicalConnectives* has multiplicity lower
+bound 0 for the case where there is only a single limiting condition
+(for example, if the only condition is "length overall > 100m") and
+must be omitted in such a situation. If there is more than one condition,
+*logicalConnectives* must be encoded. If *logicalConnectives* is omitted
+and there is more than one condition, the default value assumed is
+logical conjunction.
+
+* Mutually inconsistent measurements (e.g., draught > 10m and draught
+< 5m) are an error.
+
+* The *fixedDateRange* and *periodicDateRange* must not be used to
+define the commencement, termination, season, etc., of the regulation
+or feature to which *Applicability* is associated (fixed and periodic
+date ranges should be encoded in the regulation or feature instance
+instead).
+
+[underline]#Distinction:#
+
+[cols="a,a,a,a,a",options="unnumbered"]
+|===
+5+h| [underline]#Feature/Information associations#
+.2+h| Type .2+h| Association Name h| Association Ends 2+|
+h| Class h| Role h| Mult
+
+| association | InclusionType | *AbstractRxN* | theApplicableRxN | 0, ++*++
+
+|===
+
+[[sec_7.4]]
+=== Authority
+
+[cols="a,a,a,a,a",options="unnumbered"]
+|===
+5+| [underline]#IHO Definition:# A person or organisation having political or administrative power and control.
+5+| *[underline]#S-123 Information Type:# Authority*
+5+| *[underline]#Super Type:# InformationType*
+5+| *[underline]#Primitives:# None*
+
+2+| _Real World_ 2+| _Paper Chart Symbol_ | _ECDIS Symbol_
+
+h| S-123 Attribute h| S-57 Acronym h| Allowable Encoding Value h| Type h| Multiplicity
+| Category of Authority | (CATAUT) |
+2: Border Control +
+3: Police +
+4: Port +
+5: Immigration +
+6: Health +
+7: Coast Guard +
+8: Agricultural +
+9: Military +
+10: Private Company +
+11: Maritime Police +
+12: Environmental +
+13: Fishery +
+14: Finance +
+15: Maritime +
+16: Customs | EN | 0, 1
+
+| Text Content | (TXTCON) | | C | 0, 1
+
+| Category of Text | (CATTXT) |
+1: Abstract or Summary +
+2: Extract +
+3: Full Text | (S) EN | 0, 1
+
+| Information      | (INFORM)          |             | (S) C  | 0, ++*++
+| File Locator     |                   |             | (S) TE | 0, 1
+| File Reference
+| (TXTDSC)
+
+(NTXTDS) | | (S) TE | 0, 1
+| Headline         |                   |             | (S) TE | 0, 1
+| Language         |                   | ISO 639-2/T | (S) TE | 1, 1
+| Text
+| (INFORM)
+
+(NINFOM) | | (S) TE | 0, 1
+| Online Resource  |                   |             | (S) C  | 0, 1
+| Headline         |                   |             | (S) TE | 0, 1
+| Linkage          |                   |             | (S) UI | 1, 1
+| Name of Resource |                   |             | (S) TE | 0, 1
+| Source           |                   |             | (S) TE | 0, 1
+| Reported Date    | (SORDAT)          |             | (S) TD | 0, 1
+
+5+|
+[underline]#INT 1 Reference:#
+|===
+
+==== The use of the Authority information type
+
+The *Authority* information type is used for encoding information
+about organizations, including official authorities as well as private
+organizations. For encoding the contact details for an organization,
+use an associated *ContactDetails* information type (see the information
+associations table below). For encoding the general operating hours
+of an organization, use an associated *ServiceHours* information type.
+
+[underline]#Remarks:#
+
+[underline]#Distinction:#
+
+[cols="a,a,a,a,a",options="unnumbered"]
+|===
+5+h| [underline]#Feature/Information associations#
+.2+h| Type .2+h| Association Name h| Association Ends 2+| h| Class h| Role h| Mult
+
+| association | Authority contact | *ContactDetails* | theContactDetails | 0, ++*++
+| association | Authority hours | *ServiceHours* | theServiceHours | 0, 1
+
+|===
+
+[[sec_7.5]]
+=== Broadcast Details
+
+[cols="a,a,a,a,a",options="unnumbered"]
+|===
+5+| [underline]#IHO Definition:# Description of the content and schedule
+of a service using broadcast technology of radiocommunications to
+deliver information (to every receiver within a direct range).
+Online resource to access the content may also be included.
+5+| *[underline]#S-123 Information Type:# Broadcast Details*
+5+| *[underline]#Super Type:# InformationType*
+5+| *[underline]#Primitives:# None*
+
+2+| _Real World_ 2+| _Paper Chart Symbol_ | _ECDIS Symbol_
+
+h| S-123 Attribute h| S-57 Acronym h| Allowable Encoding Value h| Type h| Multiplicity
+
+| Language | | ISO 639-2/T | TE | 0, ++*++
+
+| Category of Broadcast/Communication | |
+1: Commercial +
+2: Non-Commercial +
+3: Public +
+4: Non-Public
+| EN | 0, 1
+
+| Broadcast Content | | | C | 1, ++*++
+
+| Type of Broadcast Content | |
+1: Navigational warnings +
+2: Meteorological warnings and forecasts +
+3: Search and rescue information +
+4: Marine security or piracy warnings +
+5: Tsunamis or natural phenomena warnings +
+6: Pilot and VTS service messages +
+7: Military information +
+8: Special service or application specific messages
+| (S) EN | 1, ++*++
+
+| Subject Indicator Character |          | | (S) TE | 0, 1
+| Subject Description         |          | | (S) TE | 0, 1
+| Observation Time            | (OBSTIM) | | (S) TI | 0, 1
+
+| Transmission Regularity | (TRMREG) |
+1: Continuous +
+2: Regular +
+3: On Receipt +
+4: As Required +
+5: On Request | (S) EN | 0, 1
+
+| Times of Transmission         |          | | C      | 0, ++*++
+| Minute Past Even Hours        | (MNTEVN) | | (S) IN | 0, 1
+| Minute Past Odd Hours         | (MNTODD) | | (S) IN | 0, 1
+| Minute Past Every Hour        | (MNTALL) | | (S) IN | 0, 1
+| Transmission Time             |          | | (S) TI | 0, ++*++
+| Time Intervals by Day of Week |          | | C      | 0, ++*++
+
+| Day of Week | |
+1: Sunday +
+2: Monday +
+3: Tuesday +
+4: Wednesday +
+5: Thursday +
+6: Friday +
+7: Saturday
+| (S) EN | 0, 7 (ordered)
+
+| Day of Week is Range | | | (S) BO | 0, 1
+| Time of Day Start    | | | (S) TI | 0, ++*++ (ordered)
+| Time of Day End      | | | (S) TI | 0, ++*++ (ordered)
+| Online Resource      | | | C      | 0, 1
+| Headline             | | | (S) TE | 0, 1
+| Linkage              | | | (S) UI | 1, 1
+| Name of Resource     | | | (S) TE | 0, 1
+
+5+|
+[underline]#INT 1 Reference:#
+
+[underline]#Remarks:#
+
+* In addition to using the *typeOfBroadcastContent* attribute,
+*subjectDescription* attribute may be used to describe the broadcast
+content of a specific service.
+
+* The *subjectIndicatorCharacter* is for encoding the B~2~ technical
+character used to indicate the subject group of the maritime safety
+information (MSI) message. B~2~ subject indicator character is used
+by the MSI receiver to identify the different classes of messages
+(MSC.1/Circ.1403/Rev.2).
+
+[underline]#Distinction:#
+
+|===
+
+[cols="a,a,a,a,a",options="unnumbered"]
+|===
+5+h| [underline]#Feature/Information associations#
+.2+h| Type .2+h| Association Name h| Association Ends 2+| h| Class h| Role h| Mult
+
+| association | Broadcast Transmission | *TransmissionDetails* | theTransmissionDetails | 0, ++*++
+
+|===
+
+[[sec_7.6]]
+=== Connectivity Quality of Service
+
+[cols="a,a,a,a,a",options="unnumbered"]
+|===
+5+| [underline]#IHO Definition:# Information related to the Quality
+of Service (QoS) of the connectivity.
+5+| *[underline]#S-123 Information Type:# Connectivity Quality of Service*
+5+| *[underline]#Super Type:# InformationType*
+5+| *[underline]#Primitives:# None*
+
+2+| _Real World_ 2+| _Paper Chart Symbol_ | _ECDIS Symbol_
+
+h| S-123 Attribute h| S-57 Acronym h| Allowable Encoding Value h| Type h| Multiplicity
+
+| Type of Connectivity Resource | |
+1: Guaranteed Bit Rate +
+2: Non-Guaranteed Bit Rate +
+3: Delay Critical Guaranteed Bit Rate +
+4: Best Effort
+| EN | 0, ++*++
+
+| Uplink Bandwidth          | | | RE | 0, 1
+| Downlink Bandwidth        | | | RE | 0, 1
+| Packet Delay              | | | RE | 0, 1
+| Maximum Data Burst Volume | | | IN | 0, 1
+
+| Status | (STATUS) |
+1: Permanent +
+2: Occasional +
+4: Not in Use +
+5: Periodic/Intermittent +
+7: Temporary +
+8: Private +
+14: Public +
+16: Watched +
+17: Unwatched +
+25: Good +
+26: Moderately +
+27: Poor | EN | 0, ++*++
+
+| Information    | (INFORM)          |             | C      | 0, ++*++
+| File Locator   |                   |             | (S) TE | 0, 1
+| File Reference
+| (TXTDSC)
+
+(NTXTDS) | | (S) TE | 0, 1
+| Headline       |                   |             | (S) TE | 0, 1
+| Language       |                   | ISO 639-2/T | (S) TE | 1, 1
+| Text
+| (INFORM)
+
+(NINFOM) | | (S) TE | 0, 1
+
+5+|
+[underline]#INT 1 Reference:#
+
+[underline]#Remarks:#
+
+For attribute values of *ConnectivityQualityOfService* information
+type instances, the unit is Mbps for bandwidth, ms for packet delay,
+bytes for maximum data burst volume.
+
+[underline]#Distinction:#
+
+|===
+
+[[sec_7.7]]
+=== Contact Details
+
+[cols="a,a,a,a,a",options="unnumbered"]
+|===
+5+| [underline]#IHO Definition:# Information on how to reach a person
+or organisation by postal, internet, telephone, telex and radio systems.
+5+| *[underline]#S-123 Information Type:# Contact Details*
+5+| *[underline]#Super Type:# InformationType*
+5+| *[underline]#Primitives:# None*
+
+2+| _Real World_ 2+| _Paper Chart Symbol_ | _ECDIS Symbol_
+
+h| S-123 Attribute h| S-57 Acronym h| Allowable Encoding Value h| Type h| Multiplicity
+
+| Contact Instructions              |                                |             | TE     | 0, 1
+| Contact Address                   |                                |             | C      | 0, ++*++
+| Delivery Point                    | (DELPNT)                       |             | (S) TE | 0, 1
+| City Name                         | (CITYNM)                       |             | (S) TE | 0, 1
+| Administrative Division           |                                |             | (S) TE | 0, 1
+| Country Name                      |                                |             | (S) TE | 0, 1
+| Postal Code                       | (POSCOD) (Postcode) (ZIP Code) |             | (S) TE | 0, 1
+| Frequency Pair                    |                                |             | C      | 0, ++*++
+| Frequency Shore Station Receives  | (FRQRXV)                       |             | (S) IN | 0, 1
+| Frequency Shore Station Transmits | (SIGFRQ) (FRQTXM)              |             | (S) IN | 1, 1
+| Information                       | (INFORM)                       |             | C      | 0, 1
+| File Locator                      |                                |             | (S) TE | 0, 1
+| File Reference                    | (TXTDSC) (NTXTDS)              |             | (S) TE | 0, 1
+| Headline                          |                                |             | (S) TE | 0, 1
+| Language                          |                                | ISO 639-2/T | (S) TE | 1, 1
+| Text                              | (INFORM) (NINFOM)              |             | (S) TE | 0, 1
+| Online Resource                   |                                |             | C      | 0, ++*++
+| Headline                          |                                |             | (S) TE | 0, 1
+| Linkage                           |                                |             | (S) UI | 1, 1
+| Name of Resource                  |                                |             | (S) TE | 0, 1
+| Telecommunications                |                                |             | C      | 0, ++*++
+| Contact Instructions              |                                |             | (S) TE | 0, 1
+| Telecommunication Identifier      |                                |             | (S) TE | 1, 1
+
+| Telecommunication Service | |
+1: Voice +
+2: Facsimile +
+3: SMS +
+4: Data +
+5: Streamed Data +
+6: Telex +
+7: Telegraph +
+8: Email
+| (S) EN | 0, 1
+
+| Call Name             |          |             | TE | 0, 1
+| Call Sign             | (CALSGN) |             | TE | 0, 1
+| Communication Channel | (COMCHA) |             | TE | 0, ++*++
+| MMSI Code             |          |             | TE | 0, 1
+| Language              |          | ISO 639-2/T | TE | 0, 1
+
+5+a|
+[underline]#INT 1 Reference:#
+|===
+
+==== General
+
+The *ContactDetails* information type may be associated to:
+
+* An *Authority* information type via an information association
+(_AuthorityContact_), in which case it encodes the contact information
+for the organization in general.
+
+* A geo feature via a feature association _ServiceContact_, in which
+case it encodes contact information particular to the specific feature,
+either because further information about the controlling authority
+is not available or because the contact is specific to the feature.
+
+[underline]#Remarks:#
+
+* If it is required to provide contact details and instructions in
+different languages, this must be done by associating an instance
+of *ContactDetails* per language, with the originating instance.
+The *Language* attribute must be used to designate the language of
+the instance.
+
+* The name of the contact (for example, the name of the agency, service,
+office, etc.) should be encoded in the *featureName* attribute, which
+is inherited from *InformationType*.
+
+[underline]#Distinction:#
+
+[cols="a,a,a,a,a",options="unnumbered"]
+|===
+5+h| [underline]#Feature/Information associations#
+.2+h| Type .2+h| Association Name h| Association Ends 2+| h| Class h| Role h| Mult
+
+| association | Authority contact | *Authority, RadioControlCentre* | theAuthority | 0, 1
+
+|===
+
+[[sec_7.8]]
+=== Nautical Information
+
+[cols="a,a,a,a,a",options="unnumbered"]
+|===
+5+| [underline]#IHO Definition:# Nautical information about a related
+area or facility.
+5+| *[underline]#S-123 Information Type:# Nautical Information*
+5+| *[underline]#Super Type:# AbstractRxN*
+5+| *[underline]#Primitives:# None*
+
+2+| _Real World_ 2+| _Paper Chart Symbol_ | _ECDIS Symbol_
+
+h| S-123 Attribute h| S-57 Acronym h| Allowable Encoding Value h| Type h| Multiplicity
+
+5+|
+[underline]#INT 1 Reference:# *NauticalInformation* is intended for
+material that is largely informative in nature, of which does not
+fit into the category of regulation, recommendation, or restriction.
+
+[underline]#Remarks:#
+
+[underline]#Distinction:#
+
+|===
+
+[[sec_7.9]]
+=== Non-Standard Working Day
+
+[cols="a,a,a,a,a",options="unnumbered"]
+|===
+5+| [underline]#IHO Definition:# Days when many services are not available.
+Often days of festivity or recreation or public holidays when normal
+working hours are limited, especially a national or religious festival,
+etc.
+5+| *[underline]#S-123 Information Type:# Non-Standard Working Day*
+5+| *[underline]#Super Type:# InformationType*
+5+| *[underline]#Primitives:# None*
+
+2+| _Real World_ 2+| _Paper Chart Symbol_ | _ECDIS Symbol_
+
+h| S-123 Attribute h| S-57 Acronym h| Allowable Encoding Value h| Type h| Multiplicity
+
+| Information    | (INFORM)          |             | C      | 0, ++*++
+| File Locator   |                   |             | (S) TE | 0, 1
+| File Reference
+| (TXTDSC)
+
+(NTXTDS) | | (S) TE | 0, 1
+| Headline       |                   |             | (S) TE | 0, 1
+| Language       |                   | ISO 639-2/T | (S) TE | 1, 1
+| Text
+| (INFORM)
+
+(NINFOM) | | (S) TE | 0, 1
+| Date Fixed     |                   |             | TD     | 0, ++*++
+| Date Variable  |                   |             | TE     | 0, ++*++
+
+5+a|
+[underline]#INT 1 Reference:#
+
+|===
+
+==== Exceptions to usual workdays
+
+This information type is used to indicate days that are exceptions
+to a usual weekly office opening schedule or service availability
+schedule. It should be used to indicate holidays or similar exceptions
+to the normal weekly schedule described by an associated *ServiceHours*
+instance.*NonStandardWorkingDay* should not be used to indicate days
+of the week when the office is normally closed or the service is normally
+unavailable. Regular weekly schedules can be described by *ServiceHours*
+alone. The attribute *periodicDateRange* of *NonStandardWorkingDay*
+can be used in the event that service hours are the same but the variation
+in holidays or partial working days is seasonal -- e.g., if an office
+is closed on "second Saturdays" only in December. To encode working
+hours that vary seasonally, encode multiple instances of *ServiceHours*
+instead, each with the appropriate *periodicDateRange*.
+
+Attribute *periodicDateRange* should not be encoded if *fixedDate*
+or *variableDate* provide enough information to determine the day.
+
+[example]
+If the *variableDate* is "U.S. Thanksgiving", *periodicDateRange*
+need not be encoded (the formula for determining the date of the Thanksgiving
+holiday is fixed as "the fourth Thursday in November" for the foreseeable
+future. (This information may be encoded as part the *variableDate*,
+thus: "U.S. Thanksgiving - fourth Thursday in November".)
+
+[underline]#Remarks:#
+
+* Non-standard workdays which cannot be represented using fixed or
+variable dates should be encoded using the *information* complex attribute,
+preferably as a short description in the *text* sub-attribute of *information*.
+The information attribute can also be used for encoding any additional
+explanatory information if the explanation is essential knowledge
+for specifying the day.
+* The two date range attributes (*fixedDateRange* and *periodicDateRange*)
+inherited from *InformationType* should be used if the non-standard
+day applies only in specific years or periods (e.g., seasonally).
+
+[underline]#Distinction:#
+
+[cols="a,a,a,a,a",options="unnumbered"]
+|===
+5+h| [underline]#Feature/Information associations#
+.2+h| Type .2+h| Association Name h| Association Ends 2+| h| Class h| Role h| Mult
+
+| association | Exceptional workday | *ServiceHours* | theServiceHours_nsdy | 0, ++*++
+
+|===
+
+[[sec_7.10]]
+=== Radio Control Centre
+
+[cols="a,a,a,a,a",options="unnumbered"]
+|===
+5+| [underline]#IHO Definition:# The control centre of the radio service
+or radio stations
+5+| *[underline]#S-123 Information Type:# Radio Control Centre*
+5+| *[underline]#Super Type:# InformationType*
+5+| *[underline]#Primitives:# None*
+
+2+| _Real World_ 2+| _Paper Chart Symbol_ | _ECDIS Symbol_
+
+h| S-123 Attribute h| S-57 Acronym h| Allowable Encoding Value h| Type h| Multiplicity
+
+| Is MRCC | | | BO | 0, 1
+| Accept AMVER | | | BO | 0, 1
+| Information | (INFORM) | | C | 0, ++*++
+| File Locator | | | (S) TE | 0, 1
+| File Reference
+| (TXTDSC)
+
+(NTXTDS) | | (S) TE | 0, 1
+| Headline | | | (S) TE | 0, 1
+| Language | | ISO 639-2/T | (S) TE | 1, 1
+| Text
+| (INFORM)
+
+(NINFOM) | | (S) TE | 0, 1
+| Hours of Watch | | | TE | 0, 1
+
+5+|
+
+[underline]#INT 1 Reference:#
+
+[underline]#Remarks:#
+
+* Maritime Rescue and Coordination Centres (MRCC) or Sub-centres are
+part of a constantly manned communications watch system. If it is
+required to encode a MRCC (or Sub-centres), it should be done using
+*RadioControlCentre*, with the Boolean attribute *isMRCC* = True.
+The name of the centre may be populated using the complex attribute
+feature name (sub-attribute name), for example MRCC Swansea
+* For the *Hours of Watch* attribute, the hours are given in UTC or
+by using a service symbol. Examples from ITU List IV: "0000-0030 0730-0800",
+"H24" ("H24" means a continuous service)
+
+[underline]#Distinction:#
+
+|===
+
+[cols="a,a,a,a,a",options="unnumbered"]
+|===
+5+h| [underline]#Feature/Information associations#
+.2+h| Type .2+h| Association Name h| Association Ends 2+| h| Class h| Role h| Mult
+
+| association | Authority contact | *ContactDetails* | theContactDetails | 0, ++*++
+| association | Authority hours | *ServiceHours* | theServiceHours | 0, 1
+
+|===
+
+[[sec_7.11]]
+=== Recommendations
+
+[cols="a,a,a,a,a",options="unnumbered"]
+|===
+5+| [underline]#IHO Definition:# Recommendations for a related area
+or facility.
+5+| *[underline]#S-123 Information Type:# Recommendations (RCMDTS)*
+5+| *[underline]#Super Type:# AbstractRxN*
+5+| *[underline]#Primitives:# None*
+
+2+| _Real World_ 2+| _Paper Chart Symbol_ | _ECDIS Symbol_
+
+h| S-123 Attribute h| S-57 Acronym h| Allowable Encoding Value h| Type h| Multiplicity
+
+5+|
+[underline]#INT 1 Reference:#
+
+|===
+
+[[sec_7.11.1]]
+==== General
+
+*Recommendations* is intended for encoding suggestions, limitations,
+or preferred procedures that are not mandatory.
+
+[underline]#Remarks:#
+
+[underline]#Distinction:#
+
+[[sec_7.12]]
+=== Regulations
+
+[cols="a,a,a,a,a",options="unnumbered"]
+|===
+5+| [underline]#IHO Definition:# Regulations for a related area or
+facility.
+5+| *[underline]#S-123 Information Type:# Regulations (REGLTS)*
+5+| *[underline]#Super Type:# AbstractRxN*
+5+| *[underline]#Primitives:# None*
+
+2+| _Real World_ 2+| _Paper Chart Symbol_ | _ECDIS Symbol_
+
+h| S-123 Attribute h| S-57 Acronym h| Allowable Encoding Value h| Type h| Multiplicity
+
+5+|
+[underline]#INT 1 Reference:#
+
+|===
+
+[[sec_7.12.1]]
+==== General
+
+*Regulations* is intended to be used for official rules, laws, and
+similar source material, i.e., sources that have the force of law
+or are mandated by a controlling authority. They will generally originate
+from some kind of administration or authority.
+
+[underline]#Remarks:#
+
+[underline]#Distinction:#
+
+[[sec_7.13]]
+=== Restrictions
+
+[cols="a,a,a,a,a",options="unnumbered"]
+|===
+5+| [underline]#IHO Definition:# Restrictions for a related area or
+facility.
+5+| *[underline]#S-123 Information Type:# Restrictions (RESDES)*
+5+| *[underline]#Super Type:# AbstractRxN*
+5+| *[underline]#Primitives:# None*
+
+2+| _Real World_ 2+| _Paper Chart Symbol_ | _ECDIS Symbol_
+
+h| S-123 Attribute h| S-57 Acronym h| Allowable Encoding Value h| Type h| Multiplicity
+
+5+|
+[underline]#INT 1 Reference:#
+
+|===
+
+[[sec_7.13.1]]
+==== General
+
+*Restrictions* is intended for restrictions that constrain the activities
+of vessels temporarily with or without the legal force, or for longer
+terms without the force of law; they may be issued by a local authority.
+
+[underline]#Remarks:#
+
+[underline]#Distinction:#
+
+[[sec_7.14]]
+=== Service Hours
+
+[cols="a,a,a,a,a",options="unnumbered"]
+|===
+5+| [underline]#IHO Definition:# The time when a service is available
+and known exceptions.
+5+| *[underline]#S-123 Information Type:# Service Hours*
+5+| *[underline]#Super Type:# InformationType*
+5+| *[underline]#Primitives:# None*
+
+2+| _Real World_ 2+| _Paper Chart Symbol_ | _ECDIS Symbol_
+
+h| S-123 Attribute h| S-57 Acronym h| Allowable Encoding Value h| Type h| Multiplicity
+
+| Schedule by Day of Week | | | C | 1, ++*++
+
+| Category of Schedule | |
+1: Normal Operation +
+2: Closure +
+3: Unmanned Operation
+| (S) EN | 0, 1
+
+| Time Intervals by Day of Week | | | (S) C | 1, 10
+
+| Day of Week | |
+1: Sunday +
+2: Monday +
+3: Tuesday +
+4: Wednesday +
+5: Thursday +
+6: Friday +
+7: Saturday
+| (S) EN | 0, 7 (ordered)
+
+| Day of Week is Range |          | | (S) BO | 0, 1
+| Time of Day End      |          | | (S) TI | 0, ++*++ (ordered)
+| Time of Day Start    |          | | (S) TI | 0, ++*++ (ordered)
+| Information          | (INFORM) | | C      | 0, ++*++
+| File Locator         |          | | (S) TE | 0, 1
+| File Reference
+| (TXTDSC)
+
+(NTXTDS) | | (S) TE | 0, 1
+| Headline | | | (S) TE | 0, 1
+| Language | | ISO 639-2/T | (S) TE | 1, 1
+| Text
+| (INFORM)
+
+(NINFOM) | | (S) TE | 0, 1
+
+5+|
+
+[underline]#INT 1 Reference:#
+
+[underline]#Remarks:#
+
+Seasonal variations in service hours can be encoded using multiple
+*Service Hours* instances with appropriate valuesof the *periodicDateRange*
+attribute inherited from the *InformationType*.
+
+[underline]#Distinction:#
+
+|===
+
+[cols="a,a,a,a,a",options="unnumbered"]
+|===
+5+h| [underline]#Feature/Information associations#
+.2+h| Type .2+h| Association Name h| Association Ends 2+| h| Class h| Role h| Mult
+
+| association | Authority hours | *Authority, RadioControlCentre* | theAuthority | 0, ++*++
+| association | Exceptional workday | *NonStandardWorkingDay* | partialWorkingDay | 0, ++*++
+
+|===
+
+[[sec_7.15]]
+=== Spatial Quality
+
+[cols="a,a,a,a,a",options="unnumbered"]
+|===
+5+| [underline]#IHO Definition:# The indication of the quality of
+the locational information for features in a dataset.
+5+| *[underline]#S-123 Information Type:# Spatial Quality*
+5+| *[underline]#Super Type:#*
+5+| *[underline]#Primitives:# None*
+
+2+| _Real World_ 2+| _Paper Chart Symbol_ | _ECDIS Symbol_
+
+h| S-123 Attribute h| S-57 Acronym h| Allowable Encoding Value h| Type h| Multiplicity
+
+| Quality of Horizontal Measurement | (QUAPOS) | 4: Approximate | EN | 0, 1
+| Spatial Accuracy | | | C | 0, ++*++
+| Fixed Date Range | | | (S) C | 0, 1
+| Date Start | (DATSTA) | | (S) TD | 0, 1
+| Date End | (DATEND) | | (S) TD | 0, 1
+| Time of Day Start | | | (S) TI | 0, 1
+| Time of Day End | | | (S) TI | 0, 1
+| Horizontal Position Uncertainty | | | (S) C | 0, 1
+| Uncertainty Fixed | | | (S) RE | 1, 1
+| Uncertainty Variable Factor | | | (S) RE | 0, 1
+| Vertical Uncertainty
+| (SOUACC)
+
+(VERACC) | | (S) C | 0, 1
+| Uncertainty Fixed | | | (S) RE | 1, 1
+| Uncertainty Variable Factor | | | (S) RE | 0, 1
+
+5+|
+
+[underline]#INT 1 Reference:#
+
+[underline]#Remarks:#
+
+* *SpatialQuality* is not to be associated with Surface spatial objects.
+* *SpatialQuality* associated to Curve or Composite Curve spatial
+objects cannot have vertical uncertainty attributes
+
+[underline]#Distinction:#
+
+|===
+
+[[sec_7.16]]
+=== Transmission Details
+
+[cols="a,a,a,a,a",options="unnumbered"]
+|===
+5+| [underline]#IHO Definition:# Description of the radiocommunication
+service with respect to the radio method and radio channels for the
+transfer of information by means of signals.
+5+| *[underline]#S-123 Information Type:# Transmission Details*
+5+| *[underline]#Super Type:# InformationType*
+5+| *[underline]#Primitives:# None*
+
+2+| _Real World_ 2+| _Paper Chart Symbol_ | _ECDIS Symbol_
+
+h| S-123 Attribute h| S-57 Acronym h| Allowable Encoding Value h| Type h| Multiplicity
+
+| Type of Radio Service | |
+1: Digital Selective Calling (DSC) +
+2: Radio Telephony (RT) +
+3: Public correspondence service (CP) +
+4: Radio Telegraphy (WT) +
+5: Radiotelex (NBDP telegraphy)
+6: Radio facsimile +
+7: Digital +
+8: Data +
+9: NAVTEX +
+10: Enhanced Group Call (EGC) +
+11: AIS +
+12: ASM +
+13: Satellite communication
+| EN | 0, 1
+
+| Frequency Band | |
+1: LF +
+2: MF +
+3: MF/HF +
+4: HF +
+5: VHF +
+6: UHF
+| EN | 0, 1
+
+| Class of Emission                |          | | TE     | 0, 1
+| Communication Standard           |          | | TE     | 0, 1
+| Radio Channel Details            |          | | C      | 1, ++*++
+| Communication Channel            | (COMCHA) | | (S) TE | 0, ++*++
+| Frequency Pair                   |          | | (S) C  | 0, ++*++
+| Frequency Shore Station Receives | (FRQRXV) | | (S) IN | 0, 1
+| Frequency Shore Station Transmits
+| (SIGFRQ)
+
+(FRQTXM) | | (S) IN | 1, 1
+| Transmission of Traffic Lists | | | (S) BO | 1, 1
+| Hours of Watch | | | (S) TE | 0, 1
+
+5+|
+[underline]#INT 1 Reference:#
+
+[underline]#Remarks:#
+
+* For the *Hours of Watch* attribute, the hours are given in UTC or
+by using a service symbol. Examples from ITU List IV: "0000-0030 0730-0800",
+"H24" ( "H24" means a continuous service)
+
+[underline]#Distinction:#
+
+|===
+
+[cols="a,a,a,a,a",options="unnumbered"]
+|===
+5+h| [underline]#Feature/Information associations#
+.2+h| Type .2+h| Association Name h| Association Ends 2+| h| Class h| Role h| Mult
+
+| association | Broadcast Transmission | *BroadcastDetails* | theBroadcastDetails | 0, ++*++
+
+|===

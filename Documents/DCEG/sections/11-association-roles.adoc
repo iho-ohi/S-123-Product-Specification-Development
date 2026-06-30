@@ -1,0 +1,295 @@
+
+[[sec_11]]
+== Association Roles
+
+[[sec_11.1]]
+=== Applies in location
+
+[cols=1,options="unnumbered,noheader"]
+|===
+| [underline]#IHO Definition:# The location in which the information
+item applies
+|===
+
+[[sec_11.2]]
+=== Authority
+
+[cols=1,options="unnumbered,noheader"]
+|===
+| [underline]#IHO Definition:# A pointer to an Authority object
+|===
+
+[[sec_11.3]]
+=== Authority service hours
+
+[cols=1,options="unnumbered,noheader"]
+|===
+| [underline]#IHO Definition:# The authority for which service hours
+are given
+|===
+
+[[sec_11.4]]
+=== Connectivity Service Area
+
+[cols=1,options="unnumbered,noheader"]
+|===
+| [underline]#IHO Definition:# The area where the connectivity service
+is provided.
+|===
+
+[[sec_11.5]]
+=== Connectivity Service Provider
+
+[cols=1,options="unnumbered,noheader"]
+|===
+| [underline]#IHO Definition:# The provider of the connectivity service.
+|===
+
+[[sec_11.6]]
+=== Contact details
+
+[cols=1,options="unnumbered,noheader"]
+|===
+| [underline]#IHO Definition:# A pointer to a Contact Details object
+|===
+
+[[sec_11.7]]
+=== Coordinated Service
+
+[cols=1,options="unnumbered,noheader"]
+|===
+| [underline]#IHO Definition:# The coordinated service area.
+|===
+
+[[sec_11.8]]
+=== Coordinating Authority
+
+[cols=1,options="unnumbered,noheader"]
+|===
+| [underline]#IHO Definition:# The authority coordinating the service
+provision.
+|===
+
+[[sec_11.9]]
+=== Is applicable to
+
+[cols=1,options="unnumbered,noheader"]
+|===
+| [underline]#IHO Definition:# The object or class of objects to which
+the regulation, restriction, recommendation, or nautical information
+applies
+|===
+
+[[sec_11.10]]
+=== Location service hours
+
+[cols=1,options="unnumbered,noheader"]
+|===
+| [underline]#IHO Definition:# The location for which service hours
+are given
+|===
+
+[[sec_11.11]]
+=== Partial working day
+
+[cols=1,options="unnumbered,noheader"]
+|===
+| [underline]#IHO Definition:# The work hours for a non-standard workday
+|===
+
+[[sec_11.12]]
+=== Permission
+
+[cols=1,options="unnumbered,noheader"]
+|===
+| [underline]#IHO Definition:# Association class for associations
+describing whether the subsets of vessels determined by the ship characteristics
+specified in Applicability may (or must, etc.) transit, enter, or
+use a feature.
+|===
+
+[[sec_11.13]]
+=== Service area
+
+[cols=1,options="unnumbered,noheader"]
+|===
+| [underline]#IHO Definition:# The area served by a service provider
+|===
+
+[[sec_11.14]]
+=== Service Hours (reference)
+
+[cols=1,options="unnumbered,noheader"]
+|===
+| [underline]#IHO Definition:# Service hours for an authority ore
+service provider
+|===
+
+[[sec_11.15]]
+=== Service place
+
+[cols=1,options="unnumbered,noheader"]
+|===
+| [underline]#IHO Definition:# Pointer to service or facility
+|===
+
+[[sec_11.16]]
+=== Service provider
+
+[cols=1,options="unnumbered,noheader"]
+|===
+| [underline]#IHO Definition:# Pointer to a feature from where a provider
+supplies a service
+|===
+
+[[sec_11.17]]
+=== The applicable RxN
+
+[cols=1,options="unnumbered,noheader"]
+|===
+| [underline]#IHO Definition:# The applicable regulation, restriction,
+recommendation or nautical information
+|===
+
+[[sec_11.18]]
+=== The Broadcast Details
+
+[cols=1,options="unnumbered,noheader"]
+|===
+| [underline]#IHO Definition:# The details of the broadcast service,
+such as the content and schedule.
+|===
+
+[[sec_11.19]]
+=== The Cartographic Text
+
+[cols=1,options="unnumbered,noheader"]
+|===
+| [underline]#IHO Definition:# A pointer to a specific cartographically
+positioned location for text.
+|===
+
+[[sec_11.20]]
+=== The Collection
+
+[cols=1,options="unnumbered,noheader"]
+|===
+| [underline]#IHO Definition:# A pointer to the aggregate in a whole-part
+relationship.
+|===
+
+[[sec_11.21]]
+=== The Component
+
+[cols=1,options="unnumbered,noheader"]
+|===
+| [underline]#IHO Definition:# A pointer to a part in a whole-part
+relationship.
+|===
+
+[[sec_11.22]]
+=== The Control Centre
+
+[cols=1,options="unnumbered,noheader"]
+|===
+| [underline]#IHO Definition:# A pointer to the centre controlling
+or operating the service.
+|===
+
+[[sec_11.23]]
+=== The Controlled Service
+
+[cols=1,options="unnumbered,noheader"]
+|===
+| [underline]#IHO Definition:# A pointer to the controlled or operated
+service.
+|===
+
+[[sec_11.24]]
+=== The Information
+
+[cols=1,options="unnumbered,noheader"]
+|===
+| [underline]#IHO Definition:# A pointer to an object that provides
+more information about the referencing feature or information type.
+|===
+
+[[sec_11.25]]
+=== The organisation
+
+[cols=1,options="unnumbered,noheader"]
+|===
+| [underline]#IHO Definition:# The organisation to which information
+relates
+|===
+
+[[sec_11.26]]
+=== The Position Provider
+
+[cols=1,options="unnumbered,noheader"]
+|===
+| [underline]#IHO Definition:# A pointer to a specific feature(s).
+|===
+
+[[sec_11.27]]
+=== The QoS
+
+[cols=1,options="unnumbered,noheader"]
+|===
+| [underline]#IHO Definition:# The connectivity QoS information for
+the area.
+|===
+
+[[sec_11.28]]
+=== The QoS Area
+
+[cols=1,options="unnumbered,noheader"]
+|===
+| [underline]#IHO Definition:# The area where the connectivity QoS
+information applies.
+|===
+
+[[sec_11.29]]
+=== The Quality Information
+
+[cols=1,options="unnumbered,noheader"]
+|===
+| [underline]#IHO Definition:# A pointer to an information type providing
+spatial quality information.
+|===
+
+[[sec_11.30]]
+=== The RxN
+
+[cols=1,options="unnumbered,noheader"]
+|===
+| [underline]#IHO Definition:# The regulation, restriction, recommendation,
+or nautical information
+|===
+
+[[sec_11.31]]
+=== The service hours for a non-standard workday
+
+[cols=1,options="unnumbered,noheader"]
+|===
+| [underline]#IHO Definition:# The usual service hours to which an
+exception applies
+|===
+
+[[sec_11.32]]
+=== The Transmission Details
+
+[cols=1,options="unnumbered,noheader"]
+|===
+| [underline]#IHO Definition:# The details of the radio transmission
+service.
+|===
+
+[[sec_11.33]]
+=== Vessel location
+
+[cols=1,options="unnumbered,noheader"]
+|===
+| [underline]#IHO Definition:# The location to which the permission
+statement applies
+|===

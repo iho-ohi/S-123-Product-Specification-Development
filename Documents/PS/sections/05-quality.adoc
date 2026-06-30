@@ -1,0 +1,448 @@
+
+[[sec_5]]
+== Data Quality
+
+[[sec_5.1]]
+=== Introduction
+
+Data quality allows users and user systems to assess fitness for use
+of the provided data. Data quality measures and the associated evaluation
+are reported as metadata of a data product. This metadata improves
+interoperability with other data products and provides scope for usage
+by user groups that the data product was not originally intended for.
+The secondary users can make assessments of the data product usefulness
+in their application based on the reported data quality measures.
+
+For S-123 the following data quality elements have been included:
+
+* Conformance to this Product Specification;
+* Intended purpose of the data product;
+* Completeness of the data product in terms of coverage;
+* Logical consistency;
+* Positional uncertainty and accuracy;
+* Thematic accuracy;
+* Temporal quality;
+* Aggregation measures;
+* Validation checks or conformance checks including:
+** General tests for dataset integrity; and
+** Specific tests for compliance against the S-123 data model.
+
+[[sec_5.2]]
+=== Quality measure elements
+
+The data quality measures recommended in <<S97,part=C>> and their applicability
+in S-123 are indicated in <<table_5.1>> below. NA indicates the measure
+is not applicable. This table reproduces the first 4 columns of the
+data quality checklist recommended elements and replaces the final
+column with descriptions of the scope of the element in the context
+of S-123 datasets.
+
+[[table_5.1]]
+.Quality measure elements
+[cols="6"]
+|===
+h| No. h| Data quality element and sub element h| Definition h| DQ measure / description h| Evaluation scope h| Scope in S-123
+
+| 1 | Completeness / Commission | Excess data present in a dataset, as described by the scope. | numberOfExcessItems / This data quality measure indicates the number of items in the dataset, that should not have been present in the dataset. | dataset/dataset series | All features and information types
+
+| 2 | Completeness / Commission | Excess data present in a dataset, as described by the scope. | numberOfDuplicateFeatureInstances / This data quality measure indicates the total number of exact duplications of feature instances within the data. | dataset/dataset series | All features and information types
+| 3 | Completeness / Omission | Data absent from the dataset, as described by the scope. | numberOfMissingItems / This data quality measure is an indicator that shows that a specific item is missing in the data. | dataset/dataset series/ spatial object type | All features and information types
+| 4 | Logical Consistency / Conceptual Consistency | Adherence to the rules of a conceptual schema. | numberOfInvalidSurfaceOverlaps / This data quality measure is a count of the total number of erroneous overlaps within the data. Which surfaces may overlap and which must not is application dependent. Not all overlapping surfaces are necessarily erroneous. | spatial object / spatial object type | Features with surface geometry; spatial objects of type surface
+| 5 | Logical Consistency / Domain Consistency | Adherence of the values to the value domains. | numberOfNonconformantItems / This data quality measure is a count of all items in the dataset that are not in conformance with their value domain. | spatial object / spatial object type | All features and information types
+| 6 | Logical Consistency / Format Consistency | Degree to which data is stored in accordance with the physical structure of the data set, as described by the scope | physicalStructureConflictsNumber / This data quality measure is a count of all items in the dataset that are stored in conflict with the physical structure of the dataset. | dataset/dataset series | All features and information types
+
+| 7 | Logical Consistency / Topological Consistency
+| Correctness of the explicitly encoded topological characteristics
+of the dataset, as described by the scope.
+| rateOfFaultyPointCurveConnections / This data quality measure indicates
+the number of faulty link-node connections in relation to the number
+of supposed link-node connections. This data quality measure gives
+the erroneous point-curve connections in relation to the total number
+of point-curve connections.
+| spatial object / spatial object type
+a| NA S-123 does not use curve type geometry.
+Features with curve geometry; spatial objects of curve types
+
+| 8 | Logical Consistency / Topological Consistency
+| Correctness of the explicitly encoded topological characteristics
+of the dataset, as described by the scope.
+| numberOfMissingConnectionsUndershoots / This data quality measure
+is a count of items in the dataset within the parameter tolerance
+that are mismatched due to undershoots.
+| spatial object / spatial object type
+a| NA S-123 does not use curve type geometry.
+Features with curve geometry; spatial objects of curve types
+
+| 9 | Logical Consistency / Topological Consistency
+| Correctness of the explicitly encoded topological characteristics
+of the dataset, as described by the scope.
+| numberOfMissingConnectionsOvershoots / This data quality measure
+is a count of items in the dataset within the parameter tolerance
+that are mismatched due to overshoots.
+| spatial object / spatial object type
+a| NA S-123 does not use curve type geometry.
+Features with curve geometry; spatial objects of curve types
+
+| 10 | Logical Consistency / Topological Consistency
+| Correctness of the explicitly encoded topological characteristics
+of the dataset, as described by the scope.
+| numberOfInvalidSlivers / This data quality measure is a count of
+all items in the dataset that are invalid sliver surfaces. A sliver
+is an unintended area that occurs when adjacent surfaces are not digitized
+properly. The borders of the adjacent surfaces may unintentionally
+gap or overlap to cause a topological error.
+| dataset / dataset series
+| Features with surface geometry; spatial objects of type surface
+
+| 11 | Logical Consistency / Topological Consistency
+| Correctness of the explicitly encoded topological characteristics
+of the dataset, as described by the scope.
+| numberOfInvalidSelfIntersects / This data quality measure is a count
+of all items in the dataset that illegally intersect with themselves.
+| spatial object / spatial object type
+a| Features with surface geometry; spatial objects of type surface
+or curve S-123 does not use curve type geometry.
+
+| 12 | Logical Consistency / Topological Consistency
+| Correctness of the explicitly encoded topological characteristics
+of the dataset, as described by the scope.
+| numberOfInvalidSelfOverlap / This data quality measure is a count
+of all items in the dataset that illegally self-overlap.
+| spatial object / spatial object type
+a| Features with surface geometry; spatial objects of type surface
+or curve S-123 does not use curve type geometry
+
+| 13 | Positional Accuracy / Absolute or External Accuracy
+| Closeness of reported coordinative values to values accepted as
+or being true.
+| Root Mean Square Error / Standard deviation, where the true value
+is not estimated from the observations but known a priori.
+| spatial object / spatial object type | objects that have coordinative values associated.
+
+| 14 | Positional Accuracy / Vertical Position Accuracy
+| Closeness of reported coordinative values to values accepted as
+or being true.
+| linearMapAccuracy2Sigma / Half length of the interval defined by
+an upper and lower limit in which the true value lies with probability
+95%.
+| spatial object / spatial object type | N/A S-123 does not use 3-D coordinates..
+
+| 15 | Positional Accuracy / Horizontal Position Accuracy
+| Closeness of reported coordinative values to values accepted as
+or being true.
+| linearMapAccuracy2Sigma / Half length of the interval defined by
+an upper and lower limit in which the true value lies with probability
+95%.
+| spatial object / spatial object type
+| objects that have a horizontal coordinate values associated.
+
+| 16 | Positional Accuracy / Gridded Data Position Accuracy
+| Closeness of reported coordinative values to values accepted as
+or being true.
+| Root mean square error of planimetry / Radius of a circle around
+the given point, in which the true value lies with probability P.
+| spatial object / spatial object type
+| NA. S-123 does not have features with gridded geometry
+
+| 17 | Temporal Quality / Temporal Consistency | Consistency with time.
+| Correctness of ordered events or sequences, if reported.
+| dataset/dataset series/ spatial object type
+| Features with time intervals, fixed/periodic date ranges, schedules.
+
+| 18 | Thematic Accuracy / ThematicClassificationCorrectness
+| Comparison of the classes assigned to features or their attributes
+to a universe of discourse.
+| miscalculationRate / This data quality measure indicates the number
+of incorrectly classified features in relation to the number of features
+that are supposed to be there. [Adapted from ISO 19157] This is a
+RATE which is a ratio, and is expressed as a REAL number representing
+the rational fraction corresponding to the numerator and denominator
+of the ratio. For example, if there are 1 items that are classified
+incorrectly and there are 100 of the items in the dataset then the
+ratio is 1/100 and the reported rate = 0.01.
+| dataset/dataset series/ spatial object type | All features and info types
+
+| 19 | Aggregation Measures / AggregationMeasures
+| In a data product specification, several requirements are set up
+for a product to conform to the specification.
+| DataProductSpecificationPassed / This data quality measure is a
+boolean indicating that all requirements in the referred data product
+specification are fulfilled.
+| dataset/dataset series/ spatial object type | Dataset as a whole
+
+| 20 | Aggregation Measures / AggregationMeasures
+| In a data product specification, several requirements are set up
+for a product to conform to the specification.
+| DataProductSpecificationFailRate / This data quality measure is
+a number indicating the number of data product specification requirements
+that are not fulfilled by the current product/dataset in relation
+to the total number of data product specification requirements.
+| dataset/dataset series/ spatial object type | Dataset as a whole
+
+|===
+
+[[sec_5.2.1]]
+==== Completeness
+
+[[sec_5.2.1.1]]
+===== Commission
+
+Commission is applicable for S-123. Data Producers must verify that
+no excess items have been included in the dataset. This includes duplicate
+items, which must be removed.
+
+IHO Publications S-158:100 -- _S-100 Validation Checks_ and/or S-158:123
+-- _S-123 Validation Checks_, include data validation check(s) intended
+to identify excess and/or duplicate items.
+
+If no excess or duplicate items are present the dataset PASSES this
+test.
+
+[[sec_5.2.1.2]]
+===== Omission
+
+Omission is applicable for S-123. Data Producers must verify that
+no items that should have been included in the dataset have been missed.
+This includes missing features specified as mandatory in S-123; and
+missing support files referenced by the dataset.
+
+IHO Publications S-158:100 -- _S-100 Validation Checks_ and/or S-158:123
+-- _S-123 Validation Checks_, include data validation check(s) intended
+to detect missing items.
+
+If no items have been omitted the dataset PASSES this test.
+
+[[sec_5.2.2]]
+==== Logical consistency
+
+[[sec_5.2.2.1]]
+===== Conceptual consistency
+
+Conceptual Consistency is applicable for S-123 and follows the guidelines
+from <<IHO_S_100,part=1 - Conceptual Schema Language>>.
+
+Data Producers must verify that the dataset conforms to the S-100
+General Feature Model. IHO Publications S-158:100 -- _S-100 Validation Checks_
+and/or S-158:123 -- _S-123 Validation Checks_, provide validation
+checks which verify this conformance.
+
+If no conceptual consistency checks classified as Critical in S-158:100
+or S-158:123 are reported the dataset PASSES this test.
+
+[[sec_5.2.2.2]]
+===== Domain consistency
+
+Domain consistency is applicable for S-123 and follows the guidelines
+from <<IHO_S_100,part=5 -- Feature Catalogue>>.
+
+Data Producers must verify that the dataset conforms to the S-123
+Feature Catalogue and rules described in <<AnnexA>>. IHO Publications S-158:100
+-- _S-100 Validation Checks_ and/or S-158:123 -- _S-123 Validation Checks_,
+provide validation checks which verify this conformance.
+
+If no domain consistency checks classified as Critical in S-158:100
+or S-158:123 are reported the dataset PASSES this test.
+
+[[sec_5.2.2.3]]
+===== Format consistency
+
+Format Consistency is applicable for S-123 and follows the guidelines
+from <<IHO_S_100,part=10b -- GML Encoding>>.
+
+Data Producers must verify that the dataset conforms to S-123 data
+product format (encoding). IHO Publications S-158:100 --
+_S-100 Validation Checks_ and/or S-158:123 -- _S-123 Validation Checks_,
+provide validation checks which verify this conformance.
+
+If no format consistency checks classified as Critical in S-158:100
+or S-158:123 are reported the dataset PASSES this test.
+
+[[sec_5.2.2.4]]
+===== Topological consistency
+
+Topological consistency is applicable for S-123 and follows the guidelines
+from <<IHO_S_100,part=7 -- Spatial Schema>>.
+
+Data Producers must verify that the dataset conforms to the requirements
+for topology set out in <<sec_4>>. IHO Publications
+S-158:100 -- _S-100 Validation Checks_ and/or S-158:123 --
+_S-123 Validation Checks_, provide validation checks which verify
+this conformance.
+
+If no topological consistency checks classified as Critical in S-158:100
+or S-158:123 are reported the dataset PASSES this test.
+
+[[sec_5.2.3]]
+==== Positional accuracy
+
+[[sec_5.2.3.1]]
+===== Absolute or external accuracy
+
+Absolute or external accuracy is applicable for S-123 and follows
+the guidelines from <<IHO_S_100,part=4c>>.
+
+Data Producers must verify the absolute accuracy of S-123 datasets
+and ensure that they achieve an adequate accuracy. Additionally,
+the relevant metadata features and attributes as described in <<AnnexA>>,
+must be populated where applicable.
+
+Accuracy computations for Positional Accuracy / Absolute or External
+Accuracy should use the following recommendations:
+
+Maximum RMSE (horizontal) = E / 10000
+
+Where
+
+E = Denominator of intended scale of mapping
+
+[[sec_5.2.3.2]]
+===== Horizontal position accuracy
+
+Data Producers must verify the horizontal position accuracy of S-123
+datasets and ensure that they achieve an adequate accuracy.
+The relevant metadata features and attributes as described in <<AnnexA>>,
+should be populated
+to reflect the horizontal position accuracy.
+
+[[sec_5.2.4]]
+==== Thematic accuracy
+
+[[sec_5.2.4.1]]
+===== Thematic classification correctness
+
+Thematic classification correctness is applicable for S-123 and follows
+the guidelines from <<IHO_S_100,part=4c>>.
+
+Data Producers must verify that features have been encoded correctly
+when included in the S-123 dataset. Encoded features must conform
+to the S-123 Feature Catalogue and the rules described in the
+<<AnnexA>>. IHO Publications
+S-158:100 -- _S-100 Validation Checks_ and/or S-158:123 --
+_S-123 Validation Checks_, provide validation checks which verify
+this conformance.
+
+If no thematic classification correctness checks classified as Critical
+in S-158:100 or S-158:123 are reported the dataset PASSES this test.
+
+[[sec_5.2.4.2]]
+===== Non-quantitative attribute accuracy
+
+Non-quantitative attribute accuracy is applicable for S-123 and follows
+the guidelines from <<IHO_S_100,part=4c - Metadata - Data Quality>>.
+
+Data Producers must verify that non-quantitative attributes have been
+populated correctly when included in the S-123 dataset. Non-quantitative
+attributes must conform to the S-123 Feature Catalogue and the rules
+described in <<AnnexA>>.
+IHO Publications S-158:100 -- _S-100 Validation Checks_ and/or S-158:123
+-- _S-123 Validation Checks_, provide validation checks which verify
+this conformance.
+
+If no non-quantitative attribute checks classified as Critical in
+S-158:100 or S-158:123 are reported the dataset PASSES this test.
+
+[[sec_5.2.4.3]]
+===== Quantitative attribute accuracy
+
+Quantitative attribute accuracy is applicable for S-123 and follows
+the guidelines from <<IHO_S_100,part=4c - Metadata - Data Quality>>.
+
+Data Producers must verify that quantitative attributes have been
+populated correctly when included in the S-123 dataset. Quantitative
+attributes must conform to the S-123 Feature Catalogue and the rules
+described in <<AnnexA>>.
+Relevant metadata features and attributes must be used to indicate
+the accuracy where applicable. IHO Publications S-158:100 --
+_S-100 Validation Checks_ and/or S-158:123 -- _S-123 Validation Checks_,
+provide validation checks which verify this conformance.
+
+If no quantitative attribute checks classified as Critical in S-158:100
+or S-158:123 are reported the dataset PASSES this test.
+
+[[sec_5.2.5]]
+==== Temporal quality
+
+[[sec_5.2.5.1]]
+===== Temporal consistency
+
+Temporal consistency is applicable for S-123 and follows the guidelines
+from <<IHO_S_100,part=4c - Metadata - Data Quality>>.
+
+Data Producers must verify that the dataset conforms to rules described
+in <<AnnexA>>.
+IHO Publications S-158:100 -- _S-100 Validation Checks_ and/or S-158:123
+-- _S-123 Validation Checks_, provide validation checks which verify
+this conformance.
+
+If no temporal consistency checks classified as Critical in S-158:100
+or S-158:123 are reported the dataset PASSES this test.
+
+[[sec_5.2.5.2]]
+===== Temporal validity
+
+Temporal validity is applicable for S-123 and follows the guidelines
+from <<IHO_S_100,part=4c - Metadata - Data Quality>>.
+
+Data Producers must verify that the dataset conforms to rules described
+in <<AnnexA>>.
+IHO Publications S-158:100 -- _S-100 Validation Checks_ and/or S-158:123
+-- _S-123 Validation Checks_, provide validation checks which verify
+this conformance.
+
+If no temporal validity checks classified as Critical in S-158:100
+or S-158:123 are reported the dataset PASSES this test.
+
+[[sec_5.2.5.3]]
+===== Temporal accuracy
+
+Temporal accuracy is applicable for S-123 and follows the guidelines
+from <<IHO_S_100,part=4c>>.
+
+The Data Producer must verify the temporal accuracy of the S-123 dataset.
+
+[[sec_5.2.6]]
+==== Aggregation
+
+Aggregation is applicable for S-123 dataset as a whole. The aggregated
+data quality result provides a result if the dataset has passed conformance
+to the Product Specification.
+
+Data Producers must ensure that all applicable data quality aspects
+are checked and only if all of these checks are PASSED can the dataset
+be considered a valid S-123 dataset. This is indicated by the Data
+Producer signing the dataset.
+
+[[sec_5.3]]
+=== Data compliance and usability
+
+All S-123 datasets must be validated against the above data quality
+elements using conformance checks that are located in IHO Publications
+S-158:100 -- _S-100 Validation Checks_ and/or S-158:123 --
+_S-123 Validation Checks_. As a minimum requirement, all datasets
+must conform to all checks that are categorized as "Critical" in S-158:100
+and S-158:123.
+
+S-123 datasets must conform to all mandatory elements of <<AnnexA>>,
+where the word 'must' is used.
+
+In addition to the above, dataset usability must be assessed against:
+
+* Intended user requirements in regard to coverage, scale and specific
+content requirements as defined by the Producing Agency and key stakeholders;
+* Conformance to established maintenance processes; and
+* Overall compliance with the S-123 Product Specification, including
+context-specific evaluation of individual encoding instances for requirement
+of conformance to checks classified as "Error" and "Warning" in S-158:100
+and S-158:123.
+
+Test methods for evaluating data compliance consist of executing the
+relevant tests from the Validation Checks (S-158:100 and S-158:123)
+for each quality element in <<table_5.1>> and counting the number
+of instances in the dataset which fail the checks for that quality
+element.
+
+Note that in some cases "executing the relevant test" may involve
+comparing the encoded S-123 dataset to the source material by visual
+means. For tests requiring visual comparison of encoded data to source
+material, sampling methods may be used if the volume of data precludes
+checking all the relevant data objects.

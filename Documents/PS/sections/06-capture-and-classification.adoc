@@ -1,0 +1,7 @@
+
+[[sec_6]]
+== Data capture and classification
+
+The S-123 MRS Data Classification and Encoding Guide (DCEG) describes
+how data describing the real world should be captured using the types
+defined in the S-123 Feature Catalogue. This Guide is located at <<AnnexA>>.

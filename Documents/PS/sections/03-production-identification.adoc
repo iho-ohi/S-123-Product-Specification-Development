@@ -1,0 +1,32 @@
+
+[[sec_3]]
+== Data Product Identification
+
+This section describes how to identify data sets that conform to the
+specification. A dataset that conforms to this Product Specification
+may be identified by its discovery metadata as defined in <<sec_10>>
+of this specification. The information identifying the data product
+may include the following items from <<IHO_S_100,clause=11-6>>.
+
+*title*:: Marine Radio Services
+
+*abstract*:: Radio Services dataset is a vector dataset containing
+all maritime navigationally relevant information regarding the radio
+services within a defined geographical area.
+
+*acronym*:: MRS
+
+*topicCategory*:: utilitiesCommunication
+
+*geographicDescription*:: Areas specific to marine radio services
+
+*spatialResolution*:: All scales
+
+*purpose*:: Describing radio services in the maritime domain for utilization
+in ECDIS, and to allow the producer to exchange radio services information
+with interested stakeholders.
+
+*language*:: eng Additional values if any. Use CharacterString values
+(alpha-3 code) from ISO 639-2.
+
+*spatialRepresentationType*:: Vector
