@@ -1,0 +1,393 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+
+<pc:portrayalCatalog xmlns:pc="http://www.iho.int/S100PortrayalCatalog/5.2" xmlns:xsl="http://www.w3.org/2001/XMLSchema" productId="S-123" version="2.0.0">
+  <pixmaps/>
+  <colorProfiles>
+      <colorProfile id="1">
+         <description>
+            <name>Color Profile</name>
+            <description>Color profile with day, dusk, and night color palettes</description>
+            <language>eng</language>
+         </description>
+         <fileName>colorProfile.xml</fileName>
+         <fileType>ColorProfile</fileType>
+         <fileFormat>XML</fileFormat>
+      </colorProfile>
+  </colorProfiles>
+	<symbols>
+		<symbol id="CHDATD01">
+			<description>
+				<name>CHDATD01</name>
+				<description>CHDATD01</description>
+				<language>en</language>
+			</description>
+			<fileName>CHDATD01.svg</fileName>
+			<fileType>Symbol</fileType>
+			<fileFormat>SVG</fileFormat>
+		</symbol>
+		<symbol id="INFORM01">
+			<description>
+				<name>INFORM01</name>
+				<description>INFORM01</description>
+				<language>en</language>
+			</description>
+			<fileName>INFORM01.svg</fileName>
+			<fileType>Symbol</fileType>
+			<fileFormat>SVG</fileFormat>
+		</symbol>
+		<symbol id="QUESMRK1">
+			<description>
+				<name>QUESMRK1</name>
+				<description>object which is not sufficiently described to be symbolized, or for which no symbol exists in the symbol library</description>
+				<language>en</language>
+			</description>
+			<fileName>QUESMRK1.svg</fileName>
+			<fileType>Symbol</fileType>
+			<fileFormat>SVG</fileFormat>
+		</symbol>
+		<symbol id="RDOSTA02">
+			<description>
+				<name>RDOSTA02</name>
+				<description>RDOSTA02</description>
+				<language>en</language>
+			</description>
+			<fileName>RDOSTA02.svg</fileName>
+			<fileType>Symbol</fileType>
+			<fileFormat>SVG</fileFormat>
+		</symbol>
+		<symbol id="TOWERS15">
+			<description>
+				<name>TOWERS15</name>
+				<description>TOWERS15</description>
+				<language>en</language>
+			</description>
+			<fileName>TOWERS15.svg</fileName>
+			<fileType>Symbol</fileType>
+			<fileFormat>SVG</fileFormat>
+		</symbol>
+	</symbols>
+   <styleSheets>
+      <styleSheet id="daySvgStyle">
+         <description>
+            <name>Day</name>
+            <description>CSS file for day palette</description>
+            <language>eng</language>
+         </description>
+         <fileName>daySvgStyle.css</fileName>
+         <fileType>StyleSheet</fileType>
+         <fileFormat>XML</fileFormat> <!-- fileFormat will need to be updated when Part 9 is updated to include CSS file format. -->
+      </styleSheet>
+      <styleSheet id="duskSvgStyle">
+         <description>
+            <name>Dusk</name>
+            <description>CSS file for dusk palette</description>
+            <language>eng</language>
+         </description>
+         <fileName>duskSvgStyle.css</fileName>
+         <fileType>StyleSheet</fileType>
+         <fileFormat>XML</fileFormat> <!-- fileFormat will need to be updated when Part 9 is updated to include CSS file format. -->
+      </styleSheet>
+      <styleSheet id="nightSvgStyle">
+         <description>
+            <name>Night</name>
+            <description>CSS file for night palette</description>
+            <language>eng</language>
+         </description>
+         <fileName>nightSvgStyle.css</fileName>
+         <fileType>StyleSheet</fileType>
+         <fileFormat>XML</fileFormat> <!-- fileFormat will need to be updated when Part 9 is updated to include CSS file format. -->
+      </styleSheet>
+   </styleSheets>
+   <lineStyles>
+		<lineStyle id="QUESMRK1">
+			<description>
+				<name>QUESMRK1</name>
+				<description>object which is not sufficiently described to be symbolized, or for which no symbol exists in the symbol library</description>
+				<language>eng</language>
+			</description>
+			<fileName>QUESMRK1.xml</fileName>
+			<fileType>LineStyle</fileType>
+			<fileFormat>XML</fileFormat>
+		</lineStyle>
+	</lineStyles>
+  <areaFills/>
+  <fonts/>
+  <viewingGroups>
+    <viewingGroup id="11">
+        <description>
+          <name>Text: Important</name>
+          <description>Various important text: Bearings, Clearances, Recommendations, Radio info</description>
+          <language>eng</language>
+        </description>
+      </viewingGroup>
+    <viewingGroup id="38010">
+         <description>
+            <name>radar station (RADSTA), radio station (RDOSTA)</name>
+            <description>Other: T, U - Services and Small craft facilities</description>
+            <language>eng</language>
+         </description>
+	</viewingGroup>
+  </viewingGroups>
+  <foundationMode>
+  </foundationMode>
+  <viewingGroupLayers>
+      <viewingGroupLayer id="1">
+         <description>
+            <name>Display Base</name>
+            <description>Base Display elements</description>
+            <language>eng</language>
+         </description>
+         <viewingGroup>38010</viewingGroup>
+	 </viewingGroupLayer>
+  </viewingGroupLayers>
+<displayModes>
+      <displayMode id="DisplayBase">
+         <description>
+            <name>Display Base</name>
+            <description>Always on display</description>
+            <language>eng</language>
+         </description>
+		 <viewingGroupLayer>1</viewingGroupLayer>
+      </displayMode>
+      <displayMode id="StandardDisplay">
+         <description>
+            <name>Standard Display</name>
+            <description>ECDIS default display</description>
+            <language>eng</language>
+         </description>
+		 <viewingGroupLayer>1</viewingGroupLayer>
+	 </displayMode>
+	 <displayMode id="OtherInformation">
+         <description>
+            <name>Other Information</name>
+            <description>All other objects in the SENC</description>
+            <language>eng</language>
+         </description>
+         <viewingGroupLayer>1</viewingGroupLayer>
+      </displayMode>
+  </displayModes>
+  <displayPlanes>
+      <displayPlane id="OverRadar" order="1">
+         <description>
+            <name>Over radar</name>
+            <description>Content displayed on top of Radar image</description>
+            <language>eng</language>
+         </description>
+      </displayPlane>
+      <displayPlane id="UnderRadar" order="-1">
+         <description>
+            <name>Under radar</name>
+            <description>Content displayed underneath Radar image</description>
+            <language>eng</language>
+         </description>
+      </displayPlane>
+  </displayPlanes>
+  <context>
+    <parameter id="NationalLanguage">
+       <description>
+         <name>National language</name>
+         <description>3-letter language code. Selects preferred language for chart text.</description>
+         <language>eng</language>
+       </description>
+       <type>text</type>
+       <default>eng</default>
+	   <validate>
+		<regex>^[a-z]{3}$</regex>
+		<errorMessage>
+			<text>Must be three lower-case characters</text>
+		</errorMessage>
+	   </validate>
+     </parameter>
+  </context>
+  <rules>
+      <ruleFile id="main">
+         <description>
+            <name>main</name>
+            <description>Top level rule</description>
+            <language>eng</language>
+         </description>
+         <fileName>main.lua</fileName>
+         <fileType>Rule</fileType>
+         <fileFormat>LUA</fileFormat>
+         <ruleType>TopLevelTemplate</ruleType>
+      </ruleFile>
+	  <ruleFile id="Default">
+			<description>
+			  <name>Default</name>
+			  <description>Default</description>
+			  <language>eng</language>
+			</description>
+			<fileName>Default.lua</fileName>
+			<fileType>Rule</fileType>
+			<fileFormat>lua</fileFormat>
+			<ruleType>SubTemplate</ruleType>
+	  </ruleFile>
+      <ruleFile id="S100Scripting">
+         <description>
+            <name>S100Scripting</name>
+            <description>Scripting support</description>
+            <language>eng</language>
+         </description>
+         <fileName>S100Scripting.lua</fileName>
+         <fileType>Rule</fileType>
+         <fileFormat>LUA</fileFormat>
+         <ruleType>SubTemplate</ruleType>
+      </ruleFile>
+      <ruleFile id="PortrayalAPI">
+         <description>
+            <name>PortrayalAPI</name>
+            <description>Portrayal API</description>
+            <language>eng</language>
+         </description>
+         <fileName>PortrayalAPI.lua</fileName>
+         <fileType>Rule</fileType>
+         <fileFormat>LUA</fileFormat>
+         <ruleType>SubTemplate</ruleType>
+      </ruleFile>
+      <ruleFile id="PortrayalModel">
+         <description>
+            <name>PortrayalModel</name>
+            <description>Portrayal Model</description>
+            <language>eng</language>
+         </description>
+         <fileName>PortrayalModel.lua</fileName>
+         <fileType>Rule</fileType>
+         <fileFormat>LUA</fileFormat>
+         <ruleType>SubTemplate</ruleType>
+      </ruleFile>
+    <ruleFile id="ConnectivitySubscriptionArea">
+		<description>
+            <name>Connectivity Subscription Area</name>
+            <description>Rules for feature type ConnectivitySubscriptionArea</description>
+            <language>eng</language>
+        </description>
+        <fileName>ConnectivitySubscriptionArea.lua</fileName>
+        <fileType>Rule</fileType>
+        <fileFormat>LUA</fileFormat>
+        <ruleType>SubTemplate</ruleType>
+    </ruleFile>
+	<ruleFile id="RadioStation">
+		<description>
+            <name>Radio Station</name>
+            <description>Rules for feature type RadioStation</description>
+            <language>eng</language>
+        </description>
+        <fileName>RadioStation.lua</fileName>
+        <fileType>Rule</fileType>
+        <fileFormat>LUA</fileFormat>
+        <ruleType>SubTemplate</ruleType>
+    </ruleFile>
+	<ruleFile id="RadioServiceArea">
+		<description>
+            <name>Radio Service Area</name>
+            <description>Rules for feature type RadioServiceArea</description>
+            <language>eng</language>
+        </description>
+        <fileName>RadioServiceArea.lua</fileName>
+        <fileType>Rule</fileType>
+        <fileFormat>LUA</fileFormat>
+        <ruleType>SubTemplate</ruleType>
+    </ruleFile>
+    <ruleFile id="SectorLimit">
+        <description>
+            <name>Sector Limit</name>
+            <description>Custom rules for creating sector limit</description>
+            <language>eng</language>
+        </description>
+        <fileName>SectorLimit.lua</fileName>
+        <fileType>Rule</fileType>
+        <fileFormat>LUA</fileFormat>
+        <ruleType>SubTemplate</ruleType>
+    </ruleFile>
+	<ruleFile id="DataCoverage">
+		<description>
+			<name>Data Coverage</name>
+			<description>Data Coverage</description>
+		</description>
+		<fileName>DataCoverage.lua</fileName>
+		<fileType>Rule</fileType>
+		<fileFormat>LUA</fileFormat>
+		<ruleType>SubTemplate</ruleType>
+	</ruleFile>
+	<ruleFile id="GMDSSArea">
+		<description>
+			<name>GMDSSArea</name>
+			<description>GMDSSArea</description>
+		</description>
+		<fileName>GMDSSArea.lua</fileName>
+		<fileType>Rule</fileType>
+		<fileFormat>LUA</fileFormat>
+		<ruleType>SubTemplate</ruleType>
+	</ruleFile>
+	<ruleFile id="IndeterminateZone">
+		<description>
+			<name>IndeterminateZone</name>
+			<description>IndeterminateZone</description>
+		</description>
+		<fileName>IndeterminateZone.lua</fileName>
+		<fileType>Rule</fileType>
+		<fileFormat>LUA</fileFormat>
+		<ruleType>SubTemplate</ruleType>
+	</ruleFile>
+	<ruleFile id="METAREA">
+		<description>
+			<name>METAREA</name>
+			<description>METAREA</description>
+		</description>
+		<fileName>METAREA.lua</fileName>
+		<fileType>Rule</fileType>
+		<fileFormat>LUA</fileFormat>
+		<ruleType>SubTemplate</ruleType>
+	</ruleFile>
+	<ruleFile id="NAVAREA">
+		<description>
+			<name>NAVAREA</name>
+			<description>NAVAREA</description>
+		</description>
+		<fileName>NAVAREA.lua</fileName>
+		<fileType>Rule</fileType>
+		<fileFormat>LUA</fileFormat>
+		<ruleType>SubTemplate</ruleType>
+	</ruleFile>
+	<ruleFile id="NAVTEXServiceArea">
+		<description>
+			<name>NAVTEXServiceArea</name>
+			<description>NAVTEXServiceArea</description>
+		</description>
+		<fileName>NAVTEXServiceArea.lua</fileName>
+		<fileType>Rule</fileType>
+		<fileFormat>LUA</fileFormat>
+		<ruleType>SubTemplate</ruleType>
+	</ruleFile>
+	<ruleFile id="QualityOfNonBathymetricData">
+		<description>
+			<name>QualityOfNonBathymetricData</name>
+			<description>QualityOfNonBathymetricData</description>
+		</description>
+		<fileName>QualityOfNonBathymetricData.lua</fileName>
+		<fileType>Rule</fileType>
+		<fileFormat>LUA</fileFormat>
+		<ruleType>SubTemplate</ruleType>
+	</ruleFile>
+	<ruleFile id="WeatherForecastAndWarningArea">
+		<description>
+			<name>WeatherForecastAndWarningArea</name>
+			<description>WeatherForecastAndWarningArea</description>
+		</description>
+		<fileName>WeatherForecastAndWarningArea.lua</fileName>
+		<fileType>Rule</fileType>
+		<fileFormat>LUA</fileFormat>
+		<ruleType>SubTemplate</ruleType>
+	</ruleFile>
+	<ruleFile id="SearchAndRescueRegion">
+		<description>
+			<name>SearchAndRescueRegion</name>
+		   <description>SearchAndRescueRegion</description>
+		</description>
+	   <fileName>SearchAndRescueRegion.lua</fileName>
+		<fileType>Rule</fileType>
+		<fileFormat>LUA</fileFormat>
+		<ruleType>SubTemplate</ruleType>
+	</ruleFile>
+  </rules>
+</pc:portrayalCatalog>
