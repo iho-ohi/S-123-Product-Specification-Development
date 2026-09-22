@@ -20,7 +20,7 @@ h| Name h| Value
 | Specification description | S-100 profile of GML (<<IHO_S_100,part=10b>>)
 | Language                  | English
 | Character set             | 004 -- utf8
-| Additional Information    | GML schema for S-123 Edition 1.1.0 (https://schemas.s100dev.net)
+| Additional Information    | GML schema for S-123 Edition 2.0.0 (https://schemas.s100dev.net)
 |===
 
 [[sec_7.2]]
@@ -112,7 +112,7 @@ dataset.
 === Data extent
 
 Datasets must not cross the stem:[180"unitsml(deg)"] meridian of longitude.
-
+////
 [[sec_7.12]]
 === Sequence of objects
 
@@ -131,8 +131,8 @@ Feature objects
     Meta features
     Geo features
 ====
-
-[[sec_7.13]]
+////
+[[sec_7.12]]
 === Content of update datasets
 
 Update datasets can only contain replacements, deletions, and additions
@@ -154,7 +154,7 @@ as an independent spatial object in the dataset) is treated like any
 other object, i.e., it needs to be updated if and only if the primitive
 has changed (e.g., a coordinate is updated).
 
-[[sec_7.14]]
+[[sec_7.13]]
 === Attribute multiplicity
 
 In general, if all the sub-attributes of a complex attribute are optional,

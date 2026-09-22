@@ -5,10 +5,10 @@
 :annex-id: A
 :title: Marine Radio Services Product Specification
 :title-annex: Data Classification and Encoding Guide
-:edition: 1.1.0
+:edition: 2.0.0
 :language: en
-:published-date: 2025-05-01
-:copyright-year: 2025
+:published-date: 2026-03-13
+:copyright-year: 2026
 :draft:
 :committee: HSSC
 :workgroup: NIPWG

@@ -1,679 +1,631 @@
-
 [[sec_13]]
 == Complex Attributes
 
 [[sec_13.1]]
 === Area A3 Service Description
 
-[cols="a",options="unnumbered"]
+[width="100%",cols="100%",]
 |===
-| [underline]#IHO Definition:# Description of the radio service for
-area A3 of the Global Maritime Distress and Safety System (GMDSS).
+a|
+[.underline]#IHO Definition:# Description of the radio service for area
+A3 of the Global Maritime Distress and Safety System (GMDSS).
 
-[underline]#Sub-attributes:#
+[.underline]#Sub-attributes:#
 
-*Serving Mobile Satellite Service* (see <<sec_12.92>>)
+*Serving Mobile Satellite Service* (see clause 12.86)
 
-*Satellite Ocean Region* (see <<sec_12.87>>)
+*Satellite Ocean Region* (see clause 12.82)
 
-*MSI Coastal Warning Area* (see <<sec_12.70>>)
+*MSI Coastal Warning Area* (see clause 12.66)
 
-[underline]#Remarks:#
+[.underline]#Remarks:#
 
 |===
 
 [[sec_13.2]]
-=== Bearing Information
+=== Broadcast Content
 
-[cols="a",options="unnumbered"]
+[width="100%",cols="100%",]
 |===
-| [underline]#IHO Definition:# A bearing is the direction one object
-is from another object.
+a|
+[.underline]#IHO Definition:# Details related to the content of the
+broadcast.
 
-[underline]#Sub-attributes:#
+[.underline]#Sub-attributes:#
 
-*Distance* (see <<sec_12.36>>)
+*Type of Broadcast Content* (see clause 12.104)
 
-*Information* (see <<sec_13.12>>)
+*Subject or Message Type Code* (see clause 12.91)
 
-*Orientation* (see <<sec_13.14>>)
+*Subject Description* (see clause 12.90)
 
-*Sector Limit* (see <<sec_13.20>>)
+*Observation Time* (see clause 12.71)
 
-[underline]#Remarks:#
+*Transmission Regularity* (see clause 12.102)
+
+[.underline]#Remarks:#
 
 |===
 
 [[sec_13.3]]
-=== Broadcast Content
+=== Coverage Indication
 
-[cols="a",options="unnumbered"]
+[width="100%",cols="100%",]
 |===
-| [underline]#IHO Definition:# Details related to the content of the
-broadcast.
+a|
+[.underline]#IHO Definition:# Details related to the indication of the
+radio coverage.
 
-[underline]#Sub-attributes:#
+[.underline]#Sub-attributes:#
 
-*Type of Broadcast Content* (see <<sec_12.114>>)
+*Minimum Received Power* (see clause 12.60)
 
-*Subject Indicator Character* (see <<sec_12.97>>)
+*Presumed Receiver Antenna Height* (see clause 12.78)
 
-*Subject Description* (see <<sec_12.96>>)
+*Minimum Signal to Interference Noise Ratio* (see clause 12.61)
 
-*Observation Time* (see <<sec_12.75>>)
+*Status* (see clause 12.89)
 
-*Transmission Regularity* (see <<sec_12.112>>)
+*Text* (see clause 12.94)
 
-[underline]#Remarks:#
+[.underline]#Remarks:#
 
 |===
 
 [[sec_13.4]]
-=== Contact Address
+=== Feature Name
 
-[cols="a",options="unnumbered"]
+[width="100%",cols="100%",]
 |===
-| [underline]#IHO Definition:# Direction or superscription of a letter,
-package, etc., specifying the name of the place to which it is directed,
-and optionally a contact person or organisation who should receive
-it.
+a|
+[.underline]#IHO Definition:# Provides the name of an entity, defines
+the national language of the name, and provides the option to display
+the name at various system display settings.
 
-[underline]#Sub-attributes:#
+[.underline]#Sub-attributes:#
 
-*Delivery Point* (see <<sec_12.35>>)
+*Language* (see clause 12.52)
 
-*City Name* (see <<sec_12.28>>)
+*Name* (see clause 12.67)
 
-*Administrative Division* (see <<sec_12.3>>)
+*Name Usage* (see clause 12.69)
 
-*Country Name* (see <<sec_12.27>>)
-
-*Postal Code* (see <<sec_12.82>>)
-
-[underline]#Remarks:#
+[.underline]#Remarks:#
 
 |===
 
 [[sec_13.5]]
-=== Coverage Indication
-
-[cols="a",options="unnumbered"]
-|===
-| [underline]#IHO Definition:# Details related to the indication of
-the radio coverage.
-
-[underline]#Sub-attributes:#
-
-*Minimum Received Power* (see <<sec_12.64>>)
-
-*Presumed Receiver Antenna Height* (see <<sec_12.83>>)
-
-*Minimum Signal to Interference Noise Ratio* (see <<sec_12.65>>)
-
-*Status* (see <<sec_12.95>>)
-
-*Text* (see <<sec_12.100>>)
-
-[underline]#Remarks:#
-
-|===
-
-[[sec_13.6]]
-=== Feature Name
-
-[cols="a",options="unnumbered"]
-|===
-| [underline]#IHO Definition:# Provides the name of an entity, defines
-the national language of the name, and provides the option to display
-the name at various system display settings.
-
-[underline]#Sub-attributes:#
-
-*Language* (see <<sec_12.56>>)
-
-*Name* (see <<sec_12.71>>)
-
-*Name Usage* (see <<sec_12.73>>)
-
-[underline]#Remarks:#
-
-|===
-
-[[sec_13.7]]
 === Fixed Date Range
 
-[cols="a",options="unnumbered"]
+[width="100%",cols="100%",]
 |===
-| [underline]#IHO Definition:# An active period of a single fixed
-event or occurrence, as the date range between discrete start and
-end dates.
+a|
+[.underline]#IHO Definition:# An active period of a single fixed event
+or occurrence, as the date range between discrete start and end dates.
 
-[underline]#Sub-attributes:#
+[.underline]#Sub-attributes:#
 
-*Date Start* (see <<sec_12.31>>)
+*Date Start* (see clause 12.29)
 
-*Date End* (see <<sec_12.29>>)
+*Date End* (see clause 12.27)
 
-*Time of Day Start* (see <<sec_12.107>>)
-
-*Time of Day End* (see <<sec_12.106>>)
-
-[underline]#Remarks:#
+[.underline]#Remarks:#
 
 Dates must be encoded in the format YYYYMMDD; using 4 digits for the
-calendar year (YYYY) and, optionally, 2 digits for the month (MM)
-(for example April = 04) and 2 digits for the day (DD). When no specific
+calendar year (YYYY) and, optionally, 2 digits for the month (MM) (for
+example April = 04) and 2 digits for the day (DD). When no specific
 month and/or day is required/known, the values are replaced with dashes
 (-). The date range of a recurring event or occurrence must be encoded
 using *periodicDateRange*.
 
 |===
 
-[[sec_13.8]]
+[[sec_13.6]]
 === Frequency Pair
 
-[cols="a",options="unnumbered"]
+[width="100%",cols="100%",]
 |===
-| [underline]#IHO Definition:# A pair of frequencies for transmitting
-and receiving radio signals. The shore station transmits and receives
-on the frequencies indicated.
+a|
+[.underline]#IHO Definition:# A pair of frequencies for transmitting and
+receiving radio signals. The shore station transmits and receives on the
+frequencies indicated.
 
-[underline]#Sub-attributes:#
+[.underline]#Sub-attributes:#
 
-*Frequency Shore Station Receives* (see <<sec_12.43>>)
+*Frequency Shore Station Receives* (see clause 12.39)
 
-*Frequency Shore Station Transmits* (see <<sec_12.44>>)
+*Frequency Shore Station Transmits* (see clause 12.40)
 
-[underline]#Remarks:#
+[.underline]#Remarks:#
+
+|===
+
+[[sec_13.7]]
+=== Frequency Range
+
+[width="100%",cols="100%",]
+|===
+a|
+[.underline]#IHO Definition:# Frequency range of the electromagnetic
+spectrum in which the transmission is provided.
+
+[.underline]#Sub-attributes:#
+
+*Frequency Limit Lower* (see clause 12.41)
+
+*Frequency Limit Upper* (see clause 12.42)
+
+[.underline]#Remarks:#.
+
+|===
+
+[[sec_13.8]]
+=== Graphic
+
+[width="100%",cols="100%",]
+|===
+a|
+[.underline]#IHO Definition:# Pictorial information such as a
+photograph, sketch or other graphic, optionally accompanied by
+descriptive information about the graphic and the location relative to
+its subject from which it was made.
+
+[.underline]#Sub-attributes:#
+
+*Pictorial Representation* (see clause 12.75)
+
+*Picture Caption* (see clause 12.76)
+
+*Source Date* (see clause 12.87)
+
+*Picture Information* (see clause 12.77)
+
+[.underline]#Remarks:#
+
+•No remarks.
 
 |===
 
 [[sec_13.9]]
-=== Frequency Range
+=== Horizontal Position Uncertainty
 
-[cols="a",options="unnumbered"]
+[width="100%",cols="100%",]
 |===
-| [underline]#IHO Definition:# Frequency range of the electromagnetic
-spectrum in which the transmission is provided.
+a|
+[.underline]#IHO Definition:# The best estimate of the accuracy of a
+position.
 
-[underline]#Sub-attributes:#
+[.underline]#Sub-attributes:#
 
-*Frequency Limit Lower* (see <<sec_12.45>>)
+*Uncertainty Fixed* (see clause 12.108)
 
-*Frequency Limit Upper* (see <<sec_12.46>>)
+*Uncertainty Variable Factor* (see clause 12.109)
 
-[underline]#Remarks:#.
+[.underline]#Remarks:#
 
 |===
 
 [[sec_13.10]]
-=== Graphic
+=== Information
 
-[cols="a",options="unnumbered"]
+[width="100%",cols="100%",]
 |===
-| [underline]#IHO Definition:# Pictorial information such as a photograph,
-sketch or other graphic, optionally accompanied by descriptive information
-about the graphic and the location relative to its subject from which
-it was made.
+a|
+[.underline]#IHO Definition:# Textual information about the feature. The
+information may be provided as a string of text or as a file name of a
+single external text file that contains the text.
 
-[underline]#Sub-attributes:#
+[.underline]#Sub-attributes:#
 
-*Pictorial Representation* (see <<sec_12.79>>)
+*File Locator* (see clause 12.36)
 
-*Picture Caption* (see <<sec_12.80>>)
+*File Reference* (see clause 12.37)
 
-*Source Date* (see <<sec_12.93>>)
+*Headline* (see clause 12.43)
 
-*Picture Information* (see <<sec_12.81>>)
+*Language* (see clause 12.52)
 
-*Bearing Information* (see <<sec_13.2>>)
+*Text* (see clause 12.94)
 
-[underline]#Remarks:#
+[.underline]#Remarks:#
 
-* No remarks.
+At least one of the sub-attributes file reference or text must be
+populated. The sub-attribute file reference is generally used for long
+text strings or those that require formatting, however, there is no
+restriction on the type of text (except for lexical level) that can be
+held in files referenced by sub-attribute file reference.
 
 |===
 
 [[sec_13.11]]
-=== Horizontal Position Uncertainty
+=== Online Resource
 
-[cols="a",options="unnumbered"]
+[width="100%",cols="100%",]
 |===
-| [underline]#IHO Definition:# The best estimate of the accuracy of
-a position.
+a|
+[.underline]#IHO Definition:# Information about online sources from
+which a resource or data can be obtained.
 
-[underline]#Sub-attributes:#
+[.underline]#Sub-attributes:#
 
-*Uncertainty Fixed* (see <<sec_12.118>>)
+*Headline* (see clause 12.43)
 
-*Uncertainty Variable Factor* (see <<sec_12.119>>)
+*Linkage* (see clause 12.54)
 
-[underline]#Remarks:#
+*Name of Resource* (see clause 12.68)
+
+[.underline]#Remarks:#
 
 |===
 
 [[sec_13.12]]
-=== Information
+=== Periodic Date Range
 
-[cols="a",options="unnumbered"]
+[width="100%",cols="100%",]
 |===
-| [underline]#IHO Definition:# Textual information about the feature.
-The information may be provided as a string of text or as a file name
-of a single external text file that contains the text.
+a|
+[.underline]#IHO Definition:# The active period of a recurring event or
+occurrence.
 
-[underline]#Sub-attributes:#
+[.underline]#Sub-attributes:#
 
-*File Locator* (see <<sec_12.40>>)
+*Date Start* (see clause 12.29)
 
-*File Reference* (see <<sec_12.41>>)
+*Date End* (see clause 12.27)
 
-*Headline* (see <<sec_12.47>>)
-
-*Language* (see <<sec_12.56>>)
-
-*Text* (see <<sec_12.100>>)
-
-[underline]#Remarks:#
-
-At least one of the sub-attributes file reference or text must be
-populated. The sub-attribute file reference is generally used for
-long text strings or those that require formatting, however, there
-is no restriction on the type of text (except for lexical level) that
-can be held in files referenced by sub-attribute file reference.
+[.underline]#Remarks:#
 
 |===
 
 [[sec_13.13]]
-=== Online Resource
+=== Radio Channel Details
 
-[cols="a",options="unnumbered"]
+[width="100%",cols="100%",]
 |===
-| [underline]#IHO Definition:# Information about online sources from
-which a resource or data can be obtained.
+a|
+[.underline]#IHO Definition:# Details related to the radio channel used
+in the radio service.
 
-[underline]#Sub-attributes:#
+[.underline]#Sub-attributes:#
 
-*Headline* (see <<sec_12.47>>)
+*Communication Channel* (see clause 12.23)
 
-*Linkage* (see <<sec_12.58>>)
+*Frequency Pair* (see clause 13.6)
 
-*Name of Resource* (see <<sec_12.72>>)
+*Data Transmission Rate* (see clause 12.26)
 
-[underline]#Remarks:#
+*Transmission of Traffic Lists* (see clause 12.100)
+
+*Hours of Watch* (see clause 12.44)
+
+[.underline]#Remarks:#
 
 |===
 
 [[sec_13.14]]
-=== Orientation
+=== Radiocommunication Identifier
 
-[cols="a",options="unnumbered"]
+[width="100%",cols="100%",]
 |===
-| [underline]#IHO Definition:# (1) The angular distance measured from
-true north to the major axis of the feature. (2) In ECDIS, the mode
-in which information on the ECDIS is being presented. Typical modes
-include: north-up - as shown on a nautical chart, north is at the
-top of the display; Ships head-up - based on the actual heading of
-the ship, (e.g. Ships gyrocompass); course-up display - based on the
-course or route being taken.
+a|
+[.underline]#IHO Definition:# Identifiers of the radio station in
+various maritime radiocommunication services.
 
-[underline]#Sub-attributes:#
+[.underline]#Sub-attributes:#
 
-*Orientation Uncertainty* (see <<sec_12.76>>)
+*Call Sign* (see clause 12.5)
 
-*Orientation Value* (see <<sec_12.77>>)
+*MMSI Code* (see clause 12.65)
 
-[underline]#Remarks:#
+*Selective Call Number* (see clause 12.85)
+
+*Coast Station Identification Code* (see clause 12.115)
+
+[.underline]#Remarks:#
 
 |===
 
 [[sec_13.15]]
-=== Periodic Date Range
+=== RxN Code
 
-[cols="a",options="unnumbered"]
+[width="100%",cols="100%",]
 |===
-| [underline]#IHO Definition:# The active period of a recurring event
-or occurrence.
+a|
+[.underline]#IHO Definition:# A summary of the impact of the most common
+types of regulation, restriction, recommendation and nautical
+information on a vessel.
 
-[underline]#Sub-attributes:#
+[.underline]#Sub-attributes:#
 
-*Date Start* (see <<sec_12.31>>)
+*Headline* (see clause 12.43)
 
-*Date End* (see <<sec_12.29>>)
+*Category of RxN* (see clause 12.15)
 
-[underline]#Remarks:#
+*Action or Activity* (see clause 12.2)
+
+[.underline]#Remarks:#
 
 |===
 
 [[sec_13.16]]
-=== Radio Channel Details
+=== Schedule by Day of Week
 
-[cols="a",options="unnumbered"]
+[width="100%",cols="100%",]
 |===
-| [underline]#IHO Definition:# Details related to the radio channel
-used in the radio service.
+a|
+[.underline]#IHO Definition:# The nature and timings of a daily schedule
+by days of the week.
 
-[underline]#Sub-attributes:#
+[.underline]#Sub-attributes:#
 
-*Communication Channel* (see <<sec_12.24>>)
+*Category of Schedule* (see clause 12.16)
 
-*Frequency Pair* (see <<sec_13.8>>)
+*Time Intervals by Day of Week* (see clause 13.24)
 
-*Transmission of Traffic Lists* (see <<sec_12.110>>)
-
-*Hours of Watch* (see <<sec_12.48>>)
-
-[underline]#Remarks:#
+[.underline]#Remarks:#
 
 |===
 
 [[sec_13.17]]
-=== Radiocommunication Identifier
-
-[cols="a",options="unnumbered"]
-|===
-| [underline]#IHO Definition:# Identifiers of the radio station in
-various maritime radiocommunication services.
-
-[underline]#Sub-attributes:#
-
-*Call Sign* (see <<sec_12.6>>)
-
-*MMSI Code* (see <<sec_12.69>>)
-
-*Selective Call Number* (see <<sec_12.91>>)
-
-[underline]#Remarks:#
-
-|===
-
-[[sec_13.18]]
-=== RxN Code
-
-[cols="a",options="unnumbered"]
-|===
-| [underline]#IHO Definition:# A summary of the impact of the most
-common types of regulation, restriction, recommendation and nautical
-information on a vessel.
-
-[underline]#Sub-attributes:#
-
-*Headline* (see <<sec_12.47>>)
-
-*Category of RxN* (see <<sec_12.16>>)
-
-*Action or Activity* (see <<sec_12.2>>)
-
-[underline]#Remarks:#
-
-|===
-
-[[sec_13.19]]
-=== Schedule by Day of Week
-
-[cols="a",options="unnumbered"]
-|===
-| [underline]#IHO Definition:# The nature and timings of a daily schedule
-by days of the week.
-
-[underline]#Sub-attributes:#
-
-*Category of Schedule* (see <<sec_12.17>>)
-
-*Time Intervals by Day of Week* (see <<sec_13.27>>)
-
-[underline]#Remarks:#
-
-|===
-
-[[sec_13.20]]
 === Sector Limit
 
-[cols="a",options="unnumbered"]
+[width="100%",cols="100%",]
 |===
-| [underline]#IHO Definition:# A sector is the part of a circle between
+a|
+[.underline]#IHO Definition:# A sector is the part of a circle between
 two straight lines drawn from the centre to the circumference. The
 sector limit specifies the limits of the sector In a clockwise direction
 around the central feature (for example a light).
 
-[underline]#Sub-attributes:#
+[.underline]#Sub-attributes:#
 
-*Sector Limit One* (see <<sec_13.21>>)
+*Sector Limit One* (see clause 13.18)
 
-*Sector Limit Two* (see <<sec_13.22>>)
+*Sector Limit Two* (see clause 13.19)
 
-[underline]#Remarks:#
+[.underline]#Remarks:#
 
 |===
 
-[[sec_13.21]]
+[[sec_13.18]]
 === Sector Limit One
 
-[cols="a",options="unnumbered"]
+[width="100%",cols="100%",]
 |===
-| [underline]#IHO Definition:# A sector is the part of a circle between
+a|
+[.underline]#IHO Definition:# A sector is the part of a circle between
 two straight lines drawn from the centre to the circumference. Sector
 limit one specifies the first limit of the sector. The order of sector
 limit one and sector limit two is clockwise around the central feature
 (for example a light).
 
-[underline]#Sub-attributes:#
+[.underline]#Sub-attributes:#
 
-*Sector Bearing* (see <<sec_12.89>>)
+*Sector Bearing* (see clause 12.83)
 
-*Sector Line Length* (see <<sec_12.90>>)
+*Sector Line Length* (see clause 12.84)
 
-[underline]#Remarks:#
+[.underline]#Remarks:#
 
 |===
 
-[[sec_13.22]]
+[[sec_13.19]]
 === Sector Limit Two
 
-[cols="a",options="unnumbered"]
+[width="100%",cols="100%",]
 |===
-| [underline]#IHO Definition:# A sector is the part of a circle between
+a|
+[.underline]#IHO Definition:# A sector is the part of a circle between
 two straight lines drawn from the centre to the circumference. Sector
 limit two specifies the second limit of the sector. The order of sector
 limit one and sector limit two is clockwise around the central feature
 (for example a light).
 
-[underline]#Sub-attributes:#
+[.underline]#Sub-attributes:#
 
-*Sector Bearing* (see <<sec_12.89>>)
+*Sector Bearing* (see clause 12.83)
 
-*Sector Line Length* (see <<sec_12.90>>)
+*Sector Line Length* (see clause 12.84)
 
-[underline]#Remarks:#
+[.underline]#Remarks:#
+
+|===
+
+[[sec_13.20]]
+=== Spatial Accuracy
+
+[width="100%",cols="100%",]
+|===
+a|
+[.underline]#IHO Definition:# Provides an indication of the vertical and
+horizontal positional uncertainty of bathymetric data, optionally within
+a specified date range.
+
+[.underline]#Sub-attributes:#
+
+*Fixed Date Range* (see clause 13.5)
+
+*Horizontal Position Uncertainty* (see clause 13.9)
+
+*Vertical Uncertainty* (see clause 13.26)
+
+[.underline]#Remarks:#
+
+|===
+
+[[sec_13.21]]
+=== Survey Date Range
+
+[width="100%",cols="100%",]
+|===
+a|
+[.underline]#IHO Definition:# The complex attribute describes the period
+of the hydrographic survey, as the time between its sub-attributes.
+
+[.underline]#Sub-attributes:#
+
+*Date Start* (see clause 12.29)
+
+*Date End* (see clause 12.27)
+
+[.underline]#Remarks:#
+
+|===
+
+[[sec_13.22]]
+=== Telecommunications
+
+[width="100%",cols="100%",]
+|===
+a|
+[.underline]#IHO Definition:# A means or channel of communicating at a
+distance by electrical or electromagnetic means such as telegraphy,
+telephony, or broadcasting.
+
+[.underline]#Sub-attributes:#
+
+*Contact Instructions* (see clause 12.6)
+
+*Telecommunication Identifier* (see clause 12.92)
+
+*Telecommunication Service* (see clause 12.93)
+
+[.underline]#Remarks:#
+
+If no value is populated for the sub-attribute telecommunication
+service, this means the service is by voice communication. If no value
+is populated for the sub-attribute telecommunication carrier, this means
+the service is by land line communication.
 
 |===
 
 [[sec_13.23]]
-=== Spatial Accuracy
-
-[cols="a",options="unnumbered"]
-|===
-| [underline]#IHO Definition:# Provides an indication of the vertical
-and horizontal positional uncertainty of bathymetric data, optionally
-within a specified date range.
-
-[underline]#Sub-attributes:#
-
-*Fixed Date Range* (see <<sec_13.7>>)
-
-*Horizontal Position Uncertainty* (see <<sec_13.11>>)
-
-*Vertical Uncertainty* (see <<sec_13.29>>)
-
-[underline]#Remarks:#
-
-|===
-
-[[sec_13.24]]
-=== Survey Date Range
-
-[cols="a",options="unnumbered"]
-|===
-| [underline]#IHO Definition:# The complex attribute describes the
-period of the hydrographic survey, as the time between its sub-attributes.
-
-[underline]#Sub-attributes:#
-
-*Date Start* (see <<sec_12.31>>)
-
-*Date End* (see <<sec_12.29>>)
-
-[underline]#Remarks:#
-
-|===
-
-[[sec_13.25]]
-=== Telecommunications
-
-[cols="a",options="unnumbered"]
-|===
-| [underline]#IHO Definition:# A means or channel of communicating
-at a distance by electrical or electromagnetic means such as telegraphy,
-telephony, or broadcasting.
-
-[underline]#Sub-attributes:#
-
-*Contact Instructions* (see <<sec_12.7>>)
-
-*Telecommunication Identifier* (see <<sec_12.98>>)
-
-*Telecommunication Service* (see <<sec_12.99>>)
-
-[underline]#Remarks:#
-
-If no value is populated for the sub-attribute telecommunication service,
-this means the service is by voice communication. If no value is populated
-for the sub-attribute telecommunication carrier, this means the service
-is by land line communication.
-
-|===
-
-[[sec_13.26]]
 === Text Content
 
-[cols="a",options="unnumbered"]
+[width="100%",cols="100%",]
 |===
-| [underline]#IHO Definition:# Textual material, or a pointer to a
-resource providing textual material. May be accompanied by basic information
-about its source and relationship to the source.
+a|
+[.underline]#IHO Definition:# Textual material, or a pointer to a
+resource providing textual material. May be accompanied by basic
+information about its source and relationship to the source.
 
-[underline]#Sub-attributes:#
+[.underline]#Sub-attributes:#
 
-*Category of Text* (see <<sec_12.19>>)
+*Category of Text* (see clause 12.18)
 
-*Information* (see <<sec_13.12>>)
+*Information* (see clause 13.10)
 
-*Online Resource* (see <<sec_13.13>>)
+*Online Resource* (see clause 13.11)
 
-*Source* (see <<sec_12.94>>)
+*Source* (see clause 12.88)
 
-*Reported Date* (see <<sec_12.86>>)
+*Reported Date* (see clause 12.81)
 
-[underline]#Remarks:#
+[.underline]#Remarks:#
 
 Exactly one of sub-attributes onlineResource or information must be
 completed in one instance of textContent. Product specifications may
 restrict the use or content of onlineResource for security. For example,
 a product specification may forbid populating onlineResource. Product
-specification authors must consider whether applications using the
-data product may be prevented from accessing off-system resources
-by security policies.
+specification authors must consider whether applications using the data
+product may be prevented from accessing off-system resources by security
+policies.
+
+|===
+
+[[sec_13.24]]
+=== Time Intervals by Day of Week
+
+[width="100%",cols="100%",]
+|===
+a|
+[.underline]#IHO Definition:# The regular weekly operation times of a
+service or schedule.
+
+[.underline]#Sub-attributes:#
+
+*Day of Week* (see clause 12.31)
+
+*Day of Week is Range* (see clause 12.32)
+
+*Time of Day End* (see clause 12.96)
+
+*Time of Day Start* (see clause 12.97)
+
+[.underline]#Remarks:#
+
+|===
+
+[[sec_13.25]]
+=== Times of Transmission
+
+[width="100%",cols="100%",]
+|===
+a|
+[.underline]#IHO Definition:# One or more times in the day when the
+radio station starts a routine transmission, normally expressed in UTC
+or local time.
+
+[.underline]#Sub-attributes:#
+
+*Minute Past Even Hours* (see clause 12.62)
+
+*Minute Past Odd Hours* (see clause 12.64)
+
+*Minute Past Every Hour* (see clause 12.63)
+
+*Transmission Time* (see clause 12.103)
+
+[.underline]#Remarks:#
+
+|===
+
+[[sec_13.26]]
+=== Vertical Uncertainty
+
+[width="100%",cols="100%",]
+|===
+a|
+[.underline]#IHO Definition:# The best estimate of the vertical accuracy
+of depths, heights, vertical distances and vertical clearances.
+
+[.underline]#Sub-attributes:#
+
+*Uncertainty Fixed* (see clause 12.108)
+
+*Uncertainty Variable Factor* (see clause 12.109)
+
+[.underline]#Remarks:#
 
 |===
 
 [[sec_13.27]]
-=== Time Intervals by Day of Week
-
-[cols="a",options="unnumbered"]
-|===
-| [underline]#IHO Definition:# The regular weekly operation times
-of a service or schedule.
-
-[underline]#Sub-attributes:#
-
-*Day of Week* (see <<sec_12.33>>)
-
-*Day of Week is Range* (see <<sec_12.34>>)
-
-*Time of Day End* (see <<sec_12.106>>)
-
-*Time of Day Start* (see <<sec_12.107>>)
-
-[underline]#Remarks:#
-
-|===
-
-[[sec_13.28]]
-=== Times of Transmission
-
-[cols="a",options="unnumbered"]
-|===
-| [underline]#IHO Definition:# One or more times in the day when the
-radio station starts a routine transmission, normally expressed in
-UTC or local time.
-
-[underline]#Sub-attributes:#
-
-*Minute Past Even Hours* (see <<sec_12.66>>)
-
-*Minute Past Odd Hours* (see <<sec_12.68>>)
-
-*Minute Past Every Hour* (see <<sec_12.67>>)
-
-*Transmission Time* (see <<sec_12.113>>)
-
-[underline]#Remarks:#
-
-|===
-
-[[sec_13.29]]
-=== Vertical Uncertainty
-
-[cols="a",options="unnumbered"]
-|===
-| [underline]#IHO Definition:# The best estimate of the vertical accuracy
-of depths, heights, vertical distances and vertical clearances.
-
-[underline]#Sub-attributes:#
-
-*Uncertainty Fixed* (see <<sec_12.118>>)
-
-*Uncertainty Variable Factor* (see <<sec_12.119>>)
-
-[underline]#Remarks:#
-
-|===
-
-[[sec_13.30]]
 === Vessel Measurements Specification
 
-[cols="a",options="unnumbered"]
+[width="100%",cols="100%",]
 |===
-| [underline]#IHO Definition:# Combinations of values of measurable
+a|
+[.underline]#IHO Definition:# Combinations of values of measurable
 characteristics or dimensions of vessels, used to specify size and
 tonnage ranges.
 
-[underline]#Sub-attributes:#
+[.underline]#Sub-attributes:#
 
-*Vessels Characteristics* (see <<sec_12.121>>)
+*Vessels Characteristics* (see clause 12.111)
 
-*Vessels Characteristics Value* (see <<sec_12.123>>)
+*Vessels Characteristics Value* (see clause 12.113)
 
-*Vessels Characteristics Unit* (see <<sec_12.122>>)
+*Vessels Characteristics Unit* (see clause 12.112)
 
-*Comparison Operator* (see <<sec_12.26>>)
+*Comparison Operator* (see clause 12.25)
 
-[underline]#Remarks:#
+[.underline]#Remarks:#
 
 Combines (i) specifications of vessels' measurable characteristics
 (length, beam, tonnages, etc.), (ii) limit values for the specified
 characteristics (with units), (iii) arithmetical comparison operators
-(greater than, etc.), and (iv) logical operators (AND/OR) to define
-a subset of vessels characterized by the specified ranges. For example,
+(greater than, etc.), and (iv) logical operators (AND/OR) to define a
+subset of vessels characterized by the specified ranges. For example,
 the combination (draught, 10.5, metres, greaterThan) describes "vessels
 with draught greater than 10.5 metres".
 

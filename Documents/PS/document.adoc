@@ -2,10 +2,10 @@
 :series: S
 :docnumber: 123
 :doctype: specification
-:edition: 1.1.0
+:edition: 2.0.0
 :language: en
-:published-date: 2025-05-01
-:copyright-year: 2025
+:published-date: 2026-03-23
+:copyright-year: 2026
 :draft:
 :committee: HSSC
 :workgroup: NIPWG

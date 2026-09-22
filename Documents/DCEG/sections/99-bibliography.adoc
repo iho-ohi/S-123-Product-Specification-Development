@@ -3,7 +3,7 @@
 
 * [[[S123,dropid(repo:(current-metanorma-collection/IHO S-123))]]],
 span:title[S-123 -- Marine Radio Services Product Specification],
-span:edition[1.1.0],
+span:edition[2.0.0],
 span:organization[International Hydrographic Organization]
 
 * [[[S100, IHO S-100]]]

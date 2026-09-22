@@ -1,384 +1,407 @@
-
 [[sec_10]]
 == Association Names
 
 [[sec_10.1]]
-=== Additional information
+=== Additional Information
 
-[cols="a,a,a,a",options="unnumbered"]
+[width="100%",cols="25%,17%,38%,20%",]
 |===
-4+| [underline]#IHO Definition:# A feature association for the binding
-between at least one instance of a geo feature and an instance of
-an information type.
+a|
+[.underline]#IHO Definition:# A feature association for the binding
+between at least one instance of a geo feature and an instance of an
+information type.
 
-[underline]#Remarks:#
-h| Role Type h| Role h| Associated With h| Multiplicity
+[.underline]#Remarks:#
 
-.2+| Association | | *Information Type, Feature Type* |
-| The Information | *Information Type* | 0, ++*++
+| | |
 
+|*Role Type* |*Role* |*Associated With* |*Multiplicity*
+
+|Association |theInformation |*Nautical Information* |0, *
 |===
 
 [[sec_10.2]]
 === Associated RxN
 
-[cols="a,a,a,a",options="unnumbered"]
+[width="100%",cols="25%,17%,39%,19%",]
 |===
-4+| [underline]#IHO Definition:# Association between a geographic
-location and a regulation, restriction, recommendation, or nautical
-information
+a|
+[.underline]#IHO Definition:# Association between a geographic location
+and a regulation, restriction, recommendation, or nautical information
 
-[underline]#Remarks:#
+[.underline]#Remarks:#
 
-h| Role Type h| Role h| Associated With h| Multiplicity
+| | |
 
-.2+| Association | Applies in location | *Feature Type* |
-| The RxN | *Abstract RxN* | 0, ++*++
+|*Role Type* |*Role* |*Associated With* |*Multiplicity*
 
+|Association |theRxN |*Abstract RxN* |0, *
 |===
 
 [[sec_10.3]]
-=== Authority contact
+=== Authority Contact
 
-[cols="a,a,a,a",options="unnumbered"]
+[width="100%",cols="25%,22%,34%,19%",]
 |===
-4+| [underline]#IHO Definition:# Contact information for an authority
+a|
+[.underline]#IHO Definition:# Contact information for an authority
 
-[underline]#Remarks:#
+[.underline]#Remarks:#
 
-h| Role Type h| Role h| Associated With h| Multiplicity
-
-.2+| Association | Authority | *Authority, Radio Control Centre* |
-| Contact details | *Contact Details* | 0, ++*++
-
+| | |
+|*Role Type* |*Role* |*Associated With* |*Multiplicity*
+|Association |theAuthority |*Authority, Radio Control Centre* |
+| |theContactDetails |*Contact Details* |0, *
 |===
 
 [[sec_10.4]]
 === Authority hours
 
-[cols="a,a,a,a",options="unnumbered"]
+[width="100%",cols="15%,25%,41%,19%",]
 |===
-4+| [underline]#IHO Definition:# Service hours for an authority
+a|
+[.underline]#IHO Definition:# Service hours for an authority
 
-[underline]#Remarks:#
+[.underline]#Remarks:#
 
-h| Role Type h| Role h| Associated With h| Multiplicity
-
-.2+| Association | Authority service hours | *Authority, Radio Control Centre* |
-| Service Hours (reference) | *Service Hours* | 0, 1
-
+| | |
+|*Role Type* |*Role* |*Associated With* |*Multiplicity*
+|Association |theAuthority_srvHrs |*Authority, Radio Control Centre* |
+| |theServiceHours |*Service Hours* |0, 1
 |===
 
 [[sec_10.5]]
 === Available Quality of Service
 
-[cols="a,a,a,a",options="unnumbered"]
+[width="100%",cols="15%,25%,41%,19%",]
 |===
-4+| [underline]#IHO Definition:# Available Quality of Service (QoS)
-within the area.
+a|
+[.underline]#IHO Definition:# Available Quality of Service (QoS) within
+the area.
 
-[underline]#Remarks:#
-h| Role Type h| Role h| Associated With h| Multiplicity
+[.underline]#Remarks:#
 
-.2+| Association | The QoS | *Connectivity Quality of Service* | 0, 1
-| The QoS Area | *Connectivity Subscription Area* |
+| | |
 
+|*Role Type* |*Role* |*Associated With* |*Multiplicity*
+
+|Association |theQoS |*Connectivity Quality of Service* |0, 1
 |===
 
 [[sec_10.6]]
 === Broadcast Service
 
-[cols="a,a,a,a",options="unnumbered"]
+[width="100%",cols="15%,22%,44%,19%",]
 |===
-4+| [underline]#IHO Definition:# The broadcast content and schedule
-of a service area or facility
+a|
+[.underline]#IHO Definition:# The broadcast content and schedule of a
+service area or facility
 
-[underline]#Remarks:#
+[.underline]#Remarks:#
 
-h| Role Type h| Role h| Associated With h| Multiplicity
-.2+| Association
+| | |
 
-| Service place
-| *METAREA, NAVAREA, NAVTEX Service Area, Radio Service Area, Radio
-Station, Weather Forecast and Warning Area*
-| | The Broadcast Details | *Broadcast Details* | 0, ++*++
+|*Role Type* |*Role* |*Associated With* |*Multiplicity*
 
+|Association |theBroadcastDetails |*Broadcast Details* |0, *
 |===
 
 [[sec_10.7]]
 === Broadcast Transmission
 
-[cols="a,a,a,a",options="unnumbered"]
+[width="100%",cols="15%,25%,41%,19%",]
 |===
-4+| [underline]#IHO Definition:# The transmission details for the
-broadcast or the broadcast details available from the transmission
+a|
+[.underline]#IHO Definition:# The transmission details for the broadcast
+or the broadcast details available from the transmission
 
-[underline]#Remarks:#
+[.underline]#Remarks:#
 
-h| Role Type h| Role h| Associated With h| Multiplicity
+| | |
 
-.2+| Association              | The Broadcast Details  | *Broadcast Details* | 0, ++*++
-   | The Transmission Details | *Transmission Details* | 0, ++*++
+|*Role Type* |*Role* |*Associated With* |*Multiplicity*
 
+|Association |theBroadcastDetails |*Broadcast Details* |0, *
+
+| |theTransmissionDetails |*Transmission Details* |0, *
 |===
 
 [[sec_10.8]]
 === Connectivity Service
 
-[cols="a,a,a,a",options="unnumbered"]
+[width="100%",cols="16%,28%,36%,20%",]
 |===
-4+| [underline]#IHO Definition:# The service that allows users to
-connect to the internet.
+a|
+[.underline]#IHO Definition:# The service that allows users to connect
+to the internet.
 
-[underline]#Remarks:#
+[.underline]#Remarks:#
 
-h| Role Type h| Role h| Associated With h| Multiplicity
+| | |
 
-.2+| Association | Connectivity Service Area | *Connectivity Subscription Area*
-| | Connectivity Service Provider | *Authority* | 0, ++*++
+|*Role Type* |*Role* |*Associated With* |*Multiplicity*
 
+|Association |connectivityServiceProvider |*Authority* |0, *
 |===
 
 [[sec_10.9]]
-=== Exceptional workday
+=== Exceptional Workday
 
-[cols="a,a,a,a",options="unnumbered"]
+[width="100%",cols="16%,28%,44%,12%",]
 |===
-4+| [underline]#IHO Definition:# Exception to the usual working day
+a|
+[.underline]#IHO Definition:# Exception to the usual working day
 
-[underline]#Remarks:#
+[.underline]#Remarks:#
 
-h| Role Type h| Role h| Associated With h| Multiplicity
-.2+| Association | The service hours for a non-standard workday | *Service Hours* | 0, ++*++
-| Partial working day | *Non-Standard Working Day* | 0, ++*++
-
+| | |
+|*Role Type* |*Role* |*Associated With* |*Multiplicity*
+|Association |theServiceHours_nsdy |*Service Hours* |0, *
+| |partialWorkingDay |*Non-Standard Working Day* |0, *
 |===
 
 [[sec_10.10]]
 === InclusionType
 
-[cols="a,a,a,a",options="unnumbered"]
+[width="100%",cols="16%,27%,45%,12%",]
 |===
-4+| [underline]#IHO Definition:# Association class specifying the
+a|
+[.underline]#IHO Definition:# Association class specifying the
 relationship between the subset of vessels described by an Applicability
 data object and a regulation (restriction, recommendation, or nautical
 information).
 
-[underline]#Remarks:#
-h| Role Type h| Role h| Associated With h| Multiplicity
-.2+| Association | Is applicable to | *Applicability* | 0, ++*++
-| The applicable RxN | *AbstractRxN* | 0, ++*++
+[.underline]#Remarks:#
 
+| | |
+
+|*Role Type* |*Role* |*Associated With* |*Multiplicity*
+
+|Association |isApplicableTo |*Applicability* |0, *
+
+| |theApplicableRxN |*AbstractRxN* |0, *
 |===
 
 [[sec_10.11]]
-=== Location hours
+=== Location Hours
 
-[cols="a,a,a,a",options="unnumbered"]
+[width="100%",cols="13%,21%,54%,12%",]
 |===
-4+| [underline]#IHO Definition:# Working hours for a service or facility
+a|
+[.underline]#IHO Definition:# Working hours for a service or facility
 described by a geographic location
 
-[underline]#Remarks:#
+[.underline]#Remarks:#
 
-h| Role Type h| Role h| Associated With h| Multiplicity
-.2+| Association
-| Location service hours
-| *Connectivity Subscription Area, GMDSS Area, METAREA, NAVAREA, NAVTEX
-Service Area, Radio Service Area, Radio Station, Weather Forecast
-and Warning Area*
-| | Service Hours (reference) | *Service Hours* | 0, 1
+| | |
 
+|*Role Type* |*Role* |*Associated With* |*Multiplicity*
+
+|Association |theServiceHours |*Service Hours* |0, 1
 |===
 
 [[sec_10.12]]
 === Permission Type
 
-[cols="a,a,a,a",options="unnumbered"]
+[width="99%",cols="13%,20%,53%,14%",]
 |===
-4+| [underline]#IHO Definition:# Association class for associations
-describing whether the subsets of vessels determined by the ship characteristics
-specified in Applicability may (or must, etc.) transit, enter, or
-use a feature.
+a|
+[.underline]#IHO Definition:# Association class for associations
+describing whether the subsets of vessels determined by the ship
+characteristics specified in Applicability may (or must, etc.) transit,
+enter, or use a feature.
 
-[underline]#Remarks:#
-h| Role Type h| Role h| Associated With h| Multiplicity
-.2+| Association | Permission | *Applicability* | 0, ++*++
-| Vessel location | *Feature Type* |
+[.underline]#Remarks:#
 
+| | |
+
+|*Role Type* |*Role* |*Associated With* |*Multiplicity*
+
+|Association |permission |*Applicability* |0, *
 |===
 
 [[sec_10.13]]
 === Radio Service Control
 
-[cols="a,a,a,a",options="unnumbered"]
+[width="100%",cols="13%,25%,50%,12%",]
 |===
-4+| [underline]#IHO Definition:# The radio control centre for a marine
+a|
+[.underline]#IHO Definition:# The radio control centre for a marine
 radio service
 
-[underline]#Remarks:#
+[.underline]#Remarks:#
 
-h| Role Type h| Role h| Associated With h| Multiplicity
-.2+| Association
-| The Controlled Service | *GMDSS Area, Radio Service Area, Radio Station*
-| | The Control Centre | *Radio Control Centre* | 0, ++*++
+| | |
 
+|*Role Type* |*Role* |*Associated With* |*Multiplicity*
+
+|Association |theControlCentre |*Radio Control Centre* |0, *
 |===
 
 [[sec_10.14]]
-=== Related organisation
+=== Related Organisation
 
-[cols="a,a,a,a",options="unnumbered"]
+[width="100%",cols="16%,27%,45%,12%",]
 |===
-4+| [underline]#IHO Definition:# Related organisation
+a|
+[.underline]#IHO Definition:# Related organisation
 
-[underline]#Remarks:#
+[.underline]#Remarks:#
 
-h| Role Type h| Role h| Associated With h| Multiplicity
-.2+| Association | The organisation | *Authority* | 0, ++*++
-| The Information
-| *AbstractRxN*
-|
-
+| | |
+|*Role Type* |*Role* |*Associated With* |*Multiplicity*
+|Association |theOrganisation |*Authority* |0, *
 |===
 
 [[sec_10.15]]
-=== Service contact
+=== Service Contact
 
-[cols="a,a,a,a",options="unnumbered"]
+[width="100%",cols="15%,20%,53%,12%",]
 |===
-4+| [underline]#IHO Definition:# Contact details for a service or
-facility
+a|
+[.underline]#IHO Definition:# Contact details for a service or facility
 
-[underline]#Remarks:#
+[.underline]#Remarks:#
 
-h| Role Type h| Role h| Associated With h| Multiplicity
-.2+| Association
-| Service place
-| *Connectivity Subscription Area, GMDSS Area, METAREA, NAVAREA, NAVTEX
-Service Area, Radio Service Area, Radio Station, Weather Forecast
-and Warning Area*
-| | Contact details | *Contact Details* | 0, ++*++
-
+| | |
+|*Role Type* |*Role* |*Associated With* |*Multiplicity*
+|Association |theContactDetails |*Contact Details* |0, *
 |===
 
 [[sec_10.16]]
 === Service Coordination
 
-[cols="a,a,a,a",options="unnumbered"]
+[width="100%",cols="14%,21%,53%,12%",]
 |===
-4+| [underline]#IHO Definition:# The coordinating authority for a
-service area
+a|
+[.underline]#IHO Definition:# The coordinating authority for a service
+area
 
-[underline]#Remarks:#
+[.underline]#Remarks:#
 
-h| Role Type h| Role h| Associated With h| Multiplicity
-.2+| Association
-| Coordinated Service
-| *GMDSS Area, METAREA, NAVAREA, NAVTEX Service Area, Radio Service
-Area, Radio Station, Weather Forecast and Warning Area*
-| | Coordinating Authority | *Authority* | 0, ++*++
+| | |
 
+|*Role Type* |*Role* |*Associated With* |*Multiplicity*
+
+|Association |coordinatingAuthority |*Authority* |0, *
 |===
 
 [[sec_10.17]]
 === Spatial Association
 
-[cols="a,a,a,a",options="unnumbered"]
+[width="100%",cols="17%,29%,40%,14%",]
 |===
-4+| [underline]#IHO Definition:# An association for the binding between
-a spatial type and its spatial quality information.
+a|
+[.underline]#IHO Definition:# An association for the binding between a
+spatial type and its spatial quality information.
 
-[underline]#Remarks:#
-h| Role Type h| Role h| Associated With h| Multiplicity
-| association | The Quality Information | *Spatial Quality* | 0, 1
+[.underline]#Remarks:#
 
+| | |
+
+|*Role Type* |*Role* |*Associated With* |*Multiplicity*
+
+|association |theQualityInformation |*Spatial Quality* |0, 1
 |===
 
 [[sec_10.18]]
-=== Transmission Service
+=== Available Telemedical Assistance Service
 
-[cols="a,a,a,a",options="unnumbered"]
+[width="100%",cols="17%,23%,46%,14%",]
 |===
-4+| [underline]#IHO Definition:# The radio transmission of a service
-area or facility
+a|
+[.underline]#IHO Definition:# Available Telemedical Assistance Service
+and related coordination centre.
 
-[underline]#Remarks:#
+[.underline]#Remarks:#
 
-h| Role Type h| Role h| Associated With h| Multiplicity
-.2+| Association
-| Service place
-| *METAREA, NAVAREA, NAVTEX Service Area, Radio Service Area, Radio
-Station, Weather Forecast and Warning Area*
-| | The Transmission Details | | 0, ++*++
+| | |
 
+|*Role Type* |*Role* |*Associated With* |*Multiplicity*
+
+|association |theTMAS |*Telemedical Assistance Service* |0, *
 |===
 
 [[sec_10.19]]
-=== Core aggregation
+=== Transmission Service
 
-[cols="a,a,a,a",options="unnumbered"]
+[width="100%",cols="15%,25%,46%,14%",]
 |===
-4+| [underline]#IHO Definition:# A feature association for the binding
-between an aggregation feature that describes areas of varying uncertainty
-about a service or phenomenon and a geographic feature describing
-the service or phenomenon.
+a|
+[.underline]#IHO Definition:# The radio transmission of a service area
+or facility
 
-[underline]#Remarks:#
-h| Role Type h| Role h| Associated With h| Multiplicity
-.2+| Aggregation
-| The Component | *Radio Service Area* |
-| The Collection | *Radio Service Area Aggregate* | 0, 1
+[.underline]#Remarks:#
 
+| | |
+
+|*Role Type* |*Role* |*Associated With* |*Multiplicity*
+
+|Association |theTransmissionDetails |*Transmission Details* |0, *
 |===
 
 [[sec_10.20]]
-=== Fuzzy zone aggregation
+=== Core Aggregation
 
-[cols="a,a,a,a",options="unnumbered"]
+[width="100%",cols="15%,26%,45%,14%",]
 |===
-4+| [underline]#IHO Definition:# A feature association for the binding
-between an aggregation feature that describes areas of varying uncertainty
-about a service or phenomenon and zones of uncertainty about the service
-or phenomenon.
+a|
+[.underline]#IHO Definition:# A feature association for the binding
+between an aggregation feature that describes areas of varying
+uncertainty about a service or phenomenon and a geographic feature
+describing the service or phenomenon.
 
-[underline]#Remarks:#
-h| Role Type h| Role h| Associated With h| Multiplicity
-.2+| Composition | The Component | *Indeterminate Zone* | 1, ++*++
-| The Collection | *Fuzzy Area Aggregate* | 1, 1
+[.underline]#Remarks:#
 
+| | |
+
+|*Role Type* |*Role* |*Associated With* |*Multiplicity*
+
+|Aggregation |theComponent |*Radio Service Area* |
+
+| |theCollection |*Radio Service Area Aggregate* |0, 1
 |===
 
 [[sec_10.21]]
-=== Service provision area
+=== Fuzzy Zone Aggregation
 
-[cols="a,a,a,a",options="unnumbered"]
+[width="100%",cols="15%,23%,45%,17%",]
 |===
-4+| [underline]#IHO Definition:# Association linking the location
-from which a service is provided and the area(s) served.
+a|
+[.underline]#IHO Definition:# A feature association for the binding
+between an aggregation feature that describes areas of varying
+uncertainty about a service or phenomenon and zones of uncertainty about
+the service or phenomenon.
 
-[underline]#Remarks:#
-h| Role Type h| Role h| Associated With h| Multiplicity
-.2+| Association | Service provider | *Radio Station* | 0, ++*++
-| Service area
-| *Connectivity Subscription Area, GMDSS Area, METAREA, NAVAREA, NAVTEX
-Service Area, Radio Service Area, Weather Forecast and Warning Area*
-| 0, ++*++
+[.underline]#Remarks:#
 
+| | |
+
+|*Role Type* |*Role* |*Associated With* |*Multiplicity*
+
+|Composition |theFuzzyComponent |*Indeterminate Zone* |1, *
+
+| |theCollection |*Fuzzy Area Aggregate* |1, 1
 |===
 
 [[sec_10.22]]
-=== Text association
+=== Service Provision Area
 
-[cols="a,a,a,a",options="unnumbered"]
+[width="100%",cols="14%,15%,59%,12%",]
 |===
-4+| [underline]#IHO Definition:# A feature association for the binding
-between a geo feature and the cartographically positioned location
-for text.
+a|
+[.underline]#IHO Definition:# Association linking the location from
+which a service is provided and the area(s) served.
 
-[underline]#Remarks:#
-h| Role Type h| Role h| Associated With h| Multiplicity
-.2+| Composition | The Position Provider | *Feature Type* | 0, 1
-| The Cartographic Text | *Text Placement* | 0, 1
+[.underline]#Remarks:#
 
+| | |
+
+|*Role Type* |*Role* |*Associated With* |*Multiplicity*
+
+|Association |serviceProvider |*Radio Station* |0, *
+
+| |serviceArea |*Connectivity Subscription Area, GMDSS Area, METAREA,
+NAVAREA, NAVTEX Service Area, Radio Service Area, Weather Forecast and
+Warning Area* |0, *
 |===
