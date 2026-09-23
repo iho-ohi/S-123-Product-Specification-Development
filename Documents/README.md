@@ -6,7 +6,7 @@ The adoc-sources and related image files were later updated in September 2026, t
 
 The latest generated Metanorma-versions of the PS and DCEG are found in sub-folders PS and DCEG.
 
+* [DCEG](DCEG/document.pdf?raw=1)
+* [PS](PS/document.pdf?raw=1)
+
 > **Note:** These versions are updated to reflect the ed. 2.0.0, but are not verified for full similarity.
- 
-[DCEG](DCEG/document.pdf)
-[PS](PS/document.pdf)
