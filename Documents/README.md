@@ -1,4 +1,4 @@
-#/Documents contains the Metanorma sources and generated output for PS and DCEG
+# Folder /Documents contains the Metanorma sources and generated output for PS and DCEG
 
 This folder contain the Metanorma- version of the Product specification and DCEG.
 Initial versions uploaded were created based on the 1.1.0 version by the IHO-project.
