@@ -1,96 +1,126 @@
-
 [[sec_3]]
 == Description of table format for feature and information types
 
 *X.X Clause heading*
 
-[cols="a,a,a,a,a,a,a,a",options="unnumbered"]
+[width="100%",cols="19%,11%,5%,14%,2%,7%,9%,12%,7%,14%",options="header",]
 |===
-8+| [underline]#IHO Definition:# *FEATURE:* Definition.
-(Authority for definition).
-8+| *S-123 [Geo Feature/Information Type]: Feature (S-57 Acronym)*
-S-123 feature and corresponding S-57 acronym (if applicable)
-8+| *Super-Type:* super-type (clause reference, should be hyperlink when published)
-8+| *Sub-Types:* sub-types (clause references, should be hyperlinks when published)
-8+| *[underline]#Primitives:#* Allowable geometric primitive(s) [*Point, Curve, Surface]*
+|[.underline]#IHO Definition:# *FEATURE:* Definition. (Authority for
+definition). | | | | | | | | |
+|*[.underline]#S-123[Geo Feature/Information Type]:# Feature (S-57
+Acronym)* S-123 feature and corresponding S-57 acronym (if applicable) |
+| | | | | | | |
 
-3+| _Real World_
+|[.underline]#*Super-Type:* super-type (clause reference, should be
+hyperlink when published)# | | | | | | | | |
+
+|[.underline]#*Sub-Types:* sub-types (clause references, should be
+hyperlinks when published)# | | | | | | | | |
+
+|*[.underline]#Primitives:#* Allowable geometric primitive(s) [*Point,
+Curve, Surface]* | | | | | | | | |
+
+a|
+_Real World_
 
 (Reserved)
 
-3+| _Paper Chart Symbol_
+| a|
+_Paper Chart Symbol_
 
 (Reserved)
 
-2+| _ECDIS Symbol_
+| | | | a|
+_ECDIS Symbol_
 
 (Reserved)
 
-2+h| S-123 Attribute 2+h| S-57 Acronym 2+h| Allowable Encoding Value h| Type h| Multiplicity
+| |
 
-2+| This section lists the allowable *local* attributes for the S-123 feature or information type.
-2+| 2+| | |
+|*S-123 Attribute* | | |*S-57 Acronym* | |*Allowable Encoding Value* | |
+|*Type* |*Multiplicity*
 
-8+|
+|This section lists the allowable *local* attributes for the S-123
+feature or information type. | | | | | | | | |
 
-8+| *[underline]#Feature/information associations#* (allowable *local* associations)
-h| Type h| Association Name h| Class h| Role h| Mult. h| Class h| Role h| Mult.
+| | | | | | | | | |
 
-| association, aggregation, or composition | Name
-| The name of the feature class (same as at the head of this table).
-| Role of this class. |
-| Name of the other class to which this class is linked.
-| Role of the other class. |
+|[.underline]#*Feature/information associations* (allowable *local*
+associations)# | | | | | | | | |
 
-8+| If the class, role, and multiplicity for one end are missing,
-it means the association is unidirectional, that is, the binding for
-the association is only in one of the participating features or information
-types. This is sometimes the case for information associations that
-link a feature to an information type - the feature type has a binding
-to the information type, but not vice versa.
+|*Type* |*Association Name* | a|
+____
+*Class*
+____
 
-8+|
+a|
+____
+*Role*
+____
 
-[underline]#INT 1 Reference:# The INT 1 location(s) of the Feature
--- by INT1 Section and Section Number (if applicable).
+| |*Mult.* |*Class* |*Role* |*Mult.*
 
-*X.X.X Sub-clause heading(s) (see S-4 -- B-YYY.Y)*
+|association, aggregation, or composition |Name | |The name of the
+feature class (same as at the head of this table). a|
+____
+Role of this class.
+____
+
+| | |Name of the other class to which this class is linked. |Role of the
+other class. |
+
+|If the class, role, and multiplicity for one end are missing, it means
+the association is unidirectional, that is, the binding for the
+association is only in one of the participating features or information
+types. This is sometimes the case for information associations that link
+a feature to an information type - the feature type has a binding to the
+information type, but not vice versa. | | | | | | | | |
+
+a|
+[.underline]#INT 1 Reference:# The INT 1 location(s) of the Feature – by
+INT1 Section and Section Number (if applicable).
+
+*X.X.X Sub-clause heading(s) (see S-4 – B-YYY.Y)*
 
 Introductory remarks. Includes information regarding the real world
-entity/situation requiring the encoding of the Feature in the ENC,
-and where required nautical cartographic principles relevant to the
-Feature to aid the compiler in determining encoding requirements.
+entity/situation requiring the encoding of the Feature in the ENC, and
+where required nautical cartographic principles relevant to the Feature
+to aid the compiler in determining encoding requirements.
 
 Specific instructions to encode the feature.
 
-[underline]#Remarks:#
+[.underline]#Remarks:#
 
 * Additional encoding guidance relevant to the feature.
 
-*X.X.X.X Sub-sub-clause heading(s) (see S-4 -- B-CCC.C)*
+*X.X.X.X Sub-sub-clause heading(s) (see S-4 – B-CCC.C)*
 
-Clauses related to specific encoding scenarios for the Feature (if required).
+Clauses related to specific encoding scenarios for the Feature (if
+required).
 
-[underline]#Remarks:#
+[.underline]#Remarks:#
 
 * Additional encoding guidance relevant to the scenario (if required).
 
-[underline]#Distinction:# List of features in the Product Specification distinct from the Feature.
+[.underline]#Distinction:# List of features in the Product Specification
+distinct from the Feature.
 
+| | | | | | | | |
 |===
 
-[underline]#Remarks:#
+Remarks:
 
-The clause references in the super-type and sub-types fields should
-be hyperlinks when this DCEG is published, allowing navigation back
-and forth between a feature type and its super-type. This can be used
-to access guidance encoded in the feature table for a feature's super-types.
+The clause references in the super-type and sub-types fields should be
+hyperlinks when this DCEG is published, allowing navigation back and
+forth between a feature type and its super-type. This can be used to
+access guidance encoded in the feature table for a feature’s
+super-types.
 
-S-123 Attribute: Indentation of attributes indicates sub-attributes
-of complex attributes. Complex attributes may also be sub-attributes
-of complex attributes, which is indicated by further indentation of
-the attribute name in the tables. Inherited attributes are not shown
-in the table, only locally defined attributes.
+S-123 Attribute: Indentation of attributes indicates sub-attributes of
+complex attributes. Complex attributes may also be sub-attributes of
+complex attributes, which is indicated by further indentation of the
+attribute name in the tables. Inherited attributes are not shown in the
+table, only locally defined attributes.
 
 S-57 Acronym: S-57 attribute acronyms shown in italic style text have
 been re-modelled in S-101 from S-57.
@@ -98,39 +128,38 @@ been re-modelled in S-101 from S-57.
 Allowable Encoding Value: For (EN) type attributes, the enumerates
 listed are only those allowable for the particular occurrence of the
 attribute relevant to the feature. Allowable values may vary for the
-attribute depending on the feature to which the attribute is bound.
-Such bindings are defined in the S-123 Feature Catalogue. The full
-list of enumerates that may be assigned to an attribute in S-123 can
-be found in the Simple Attributes section of the printed feature catalogue
-document.
+attribute depending on the feature to which the attribute is bound. Such
+bindings are defined in the S-123 Feature Catalogue. The full list of
+enumerates that may be assigned to an attribute in S-123 can be found in
+the Simple Attributes section of the printed feature catalogue document.
 
-Type: The prefix pass-format:metanorma[(C)] indicates that the attribute
-is a complex attribute. Complex attributes are aggregates of other
-attributes that can be simple type or complex type (see
-<<S123,clause=12.3>>). The prefix (S) indicates that the attribute
-is a sub-attribute of a complex attribute. Complex attributes that
-are sub-attributes of a complex attribute, and their sub-attributes,
-are indicated by indentation of the attribute name in the S-123 Attribute
+Type: The prefix (C) indicates that the attribute is a complex
+attribute. Complex attributes are aggregates of other attributes that
+can be simple type or complex type (see Product Specification main
+document clause 12.3). The prefix (S) indicates that the attribute is a
+sub-attribute of a complex attribute. Complex attributes that are
+sub-attributes of a complex attribute, and their sub-attributes, are
+indicated by indentation of the attribute name in the S-123 Attribute
 column.
 
 Introductory clauses may depict associations using a UML diagram showing
 the relationships that apply to the class and its super-classes
 (generalizations). Relationships which are inherited from super-classes
-are shown by including the super-classes and their associations in
-the diagram.
+are shown by including the super-classes and their associations in the
+diagram.
 
 The usual UML conventions apply. For explanations of standard UML
-notations, see <<S100,part=1>>. For explanations of the conventions used
-for associations, see <<sec_2.5>> in this DCEG.
+notations, see S-100 Part 1. For explanations of the conventions used
+for associations, see clause 2.5 in this DCEG.
 
-Association ends and multiplicities: A lower bound of 0 in the multiplicity
-at any end of an association indicates only that the association is
-not mandatory for any particular instance of the feature at the other
-end (i.e., it is not mandatory for an instance of "that" feature type
-to have an association to a feature of "this" type). A lower bound
-of "1" means that if an instance of "that" type exists, it must be
-associated to an instance of "this" type. If the association is actually
-encoded then it amounts to saying that "this relationship exists between
-these two instances" and there must be an appropriate instance at
-both ends. Associations that are not mandatory should be encoded if
-and only if they convey useful information.
+Association ends and multiplicities: A lower bound of 0 in the
+multiplicity at any end of an association indicates only that the
+association is not mandatory for any particular instance of the feature
+at the other end (i.e., it is not mandatory for an instance of “that”
+feature type to have an association to a feature of “this” type). A
+lower bound of “1” means that if an instance of “that” type exists, it
+must be associated to an instance of “this” type. If the association is
+actually encoded then it amounts to saying that “this relationship
+exists between these two instances” and there must be an appropriate
+instance at both ends. Associations that are not mandatory should be
+encoded if and only if they convey useful information.

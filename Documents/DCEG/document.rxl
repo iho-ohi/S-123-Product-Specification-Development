@@ -6,7 +6,7 @@
 <title language="en" type="title-annex">Annex A Data Classification and Encoding Guide</title>
 
 <title language="en" type="title-annex-prefix">Annex A</title>
-<docidentifier primary="true" type="IHO">S-123 Annex A</docidentifier><docidentifier type="IHO-parent-document">S-123</docidentifier><docnumber>123</docnumber><date type="published"><on>2025-05-01</on></date><contributor><role type="author"/><organization>
+<docidentifier primary="true" type="IHO">S-123 Annex A</docidentifier><docidentifier type="IHO-parent-document">S-123</docidentifier><docnumber>123</docnumber><date type="published"><on>2026-03-13</on></date><contributor><role type="author"/><organization>
 <name>International Hydrographic Organization</name>
 <abbreviation>IHO</abbreviation></organization></contributor><contributor><role type="author"><description>committee</description></role><organization>
 <name>International Hydrographic Organization</name>
@@ -16,7 +16,7 @@
 <name>NIPWG</name>
 </subdivision></organization></contributor><contributor><role type="publisher"/><organization>
 <name>International Hydrographic Organization</name>
-<abbreviation>IHO</abbreviation></organization></contributor><edition>1.1.0</edition><language>en</language><script>Latn</script><status><stage>in-force</stage></status><copyright><from>2025</from><owner><organization>
+<abbreviation>IHO</abbreviation></organization></contributor><edition>2.0.0</edition><language>en</language><script>Latn</script><status><stage>in-force</stage></status><copyright><from>2026</from><owner><organization>
 <name>International Hydrographic Organization</name>
 <abbreviation>IHO</abbreviation></organization></owner></copyright><relation type="updatedBy"><bibitem schema-version="v1.5.6">
   <docidentifier type="IHO">S-123</docidentifier>

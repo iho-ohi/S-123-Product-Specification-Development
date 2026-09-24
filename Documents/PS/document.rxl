@@ -1,6 +1,6 @@
 <bibdata type="standard">
 <title language="en" type="main">Marine Radio Services Product Specification</title>
-<docidentifier primary="true" type="IHO">S-123</docidentifier><docnumber>123</docnumber><date type="published"><on>2025-05-01</on></date><contributor><role type="author"/><organization>
+<docidentifier primary="true" type="IHO">S-123</docidentifier><docnumber>123</docnumber><date type="published"><on>2026-03-23</on></date><contributor><role type="author"/><organization>
 <name>International Hydrographic Organization</name>
 <abbreviation>IHO</abbreviation></organization></contributor><contributor><role type="author"><description>committee</description></role><organization>
 <name>International Hydrographic Organization</name>
@@ -10,7 +10,7 @@
 <name>NIPWG</name>
 </subdivision></organization></contributor><contributor><role type="publisher"/><organization>
 <name>International Hydrographic Organization</name>
-<abbreviation>IHO</abbreviation></organization></contributor><edition>1.1.0</edition><language>en</language><script>Latn</script><status><stage>in-force</stage></status><copyright><from>2025</from><owner><organization>
+<abbreviation>IHO</abbreviation></organization></contributor><edition>2.0.0</edition><language>en</language><script>Latn</script><status><stage>in-force</stage></status><copyright><from>2026</from><owner><organization>
 <name>International Hydrographic Organization</name>
 <abbreviation>IHO</abbreviation></organization></owner></copyright><relation type="updatedBy"><bibitem schema-version="v1.5.6">
   <docidentifier type="IHO">S-123</docidentifier>
@@ -48,6 +48,66 @@
   </contributor>
   <edition>1.1.0 draft 1</edition>
 <amend change="modify"><description><p id="_cc8435c1-73b2-84cd-70fe-4fd61ad76649">Apply NIPWG approved change package of data model revision, and align with IHO S-100 Edition 5.2.0.</p>
+</description></amend></bibitem></relation><relation type="updatedBy"><bibitem schema-version="v1.5.6">
+  <docidentifier type="IHO">S-123</docidentifier>
+  <date type="updated">
+    <on>2025-07-05</on>
+  </date>
+  <contributor>
+    <person>
+      <name>          <abbreviation>SJC</abbreviation>          <completename>Shwu-Jing Chang</completename>       </name>
+    </person>
+  </contributor>
+  <edition>1.2.0 draft 1</edition>
+<amend change="modify"><description><p id="_ffa25584-e93c-2b51-7998-2177607fb872">Include SAR region, TMAS, Ice Report, NAVDAT to data model. Revise or add generic attributes for encoding radionavigation services.</p>
+</description></amend></bibitem></relation><relation type="updatedBy"><bibitem schema-version="v1.5.6">
+  <docidentifier type="IHO">S-123</docidentifier>
+  <date type="updated">
+    <on>2025-12-10</on>
+  </date>
+  <contributor>
+    <person>
+      <name>          <abbreviation>SJC</abbreviation>          <completename>Shwu-Jing Chang</completename>       </name>
+    </person>
+  </contributor>
+  <edition>2.0.0 draft 1</edition>
+<amend change="modify"><description><p id="_430d84f3-f9d3-a9ad-f6fc-a7e86853d840">Update figures and contents to align with renamed items accepted in GI Registry; Correct typo in 10.2.6.3 PT_Locale.</p>
+</description></amend></bibitem></relation><relation type="updatedBy"><bibitem schema-version="v1.5.6">
+  <docidentifier type="IHO">S-123</docidentifier>
+  <date type="updated">
+    <on>2025-12-11</on>
+  </date>
+  <contributor>
+    <person>
+      <name>          <abbreviation>SJC</abbreviation>          <completename>Shwu-Jing Chang</completename>       </name>
+    </person>
+  </contributor>
+  <edition>2.0.0 draft 2</edition>
+<amend change="modify"><description><p id="_88cbe95a-718c-aae7-58b6-2c88095b34a7">Change one of the theComponent roles to theFuzzyComponent</p>
+</description></amend></bibitem></relation><relation type="updatedBy"><bibitem schema-version="v1.5.6">
+  <docidentifier type="IHO">S-123</docidentifier>
+  <date type="updated">
+    <on>2026-01-19</on>
+  </date>
+  <contributor>
+    <person>
+      <name>          <abbreviation>SJC</abbreviation>          <completename>Shwu-Jing Chang</completename>       </name>
+    </person>
+  </contributor>
+  <edition>2.0.0 draft 3</edition>
+<amend change="modify"><description><p id="_a956f11b-e13f-c828-1bc5-b934cec09cd9">Refine the document and relax some multiplicity restrictions on discovery metadata.</p>
+</description></amend></bibitem></relation><relation type="updatedBy"><bibitem schema-version="v1.5.6">
+  <docidentifier type="IHO">S-123</docidentifier>
+  <date type="updated">
+    <on>2026-03-23</on>
+  </date>
+  <contributor>
+    <person>
+      <name>          <abbreviation>SJC</abbreviation>          <completename>Shwu-Jing Chang</completename>       </name>
+    </person>
+  </contributor>
+  <edition>2.0.0 draft 4</edition>
+<amend change="modify"><description><p id="_e7557107-ed38-8d35-db95-0e1cb92fe237">Apply revisions from NIPWG review</p>
 </description></amend></bibitem></relation><series type="main">
 <title>Standards and Specifications</title>
 <abbreviation>S</abbreviation></series><ext><doctype>specification</doctype><flavor>iho</flavor><structuredidentifier><docnumber>123</docnumber></structuredidentifier></ext></bibdata>

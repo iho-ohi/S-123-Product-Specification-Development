@@ -108,7 +108,7 @@ h| Feature h| P h| C h| S h| N
 | GMDSSArea                     |   | | S |
 | ConnectivitySubscriptionArea  | P | | S |
 | IndeterminateZone             |   | | S |
-| ForecastAreaAggregate         |   | |   | N
+| SearchAndRescueRegion         |   | | S |
 | RadioServiceAreaAggregate     |   | |   | N
 
 5+| *Meta Features*
@@ -125,15 +125,14 @@ h| Feature h| P h| C h| S h| N
 ==== Capture density guideline
 
 Coordinate density can have a significant impact on file size and
-system performance. A rule of thumb is to limit the coordinate density
-to 0.3 mm at maximum permitted display scale. For a scaleless product,
-the producer should keep in mind the expected scale range for typical
-use and the density of coordinates needed to suit the needs of the
-product.
+system performance. For a scaleless product, the producer should keep
+in mind the expected scale range for typical use and the density of
+coordinates needed to suit the needs of the product.
 
-The capture density will follow the recommendation of the S-101 (ENC)
-DCEG, which states curves and surface boundaries should not be encoded
-at a point density greater than 0.3 mm at permitted display scale.
+The capture density could follow the recommendation of the S-101 (ENC)
+DCEG, which states that curves and surface boundaries should not be
+encoded at a point density greater than 0.3 mm at the optimum display
+scale for the data.
 
 A curve consists of one or more curve segments. Each curve segment
 is defined as a loxodromic line on WGS84, or as an arc or circle.
@@ -243,9 +242,14 @@ including accents and special characters from a repertoire of one
 of the adopted character sets.
 
 | TI | Time
-| A time is given by an hour, minute, and second. Time zone according
-to UTC is optional. Character encoding of a time is a string that
-follows the local time. Example: 183059 or 183059+0100 or 183059Z
+| A 24-hour time given by an hour, minute, and second. Time zone
+according to UTC is optional. In XML formats the XML Schema standard
+type should be used instead of the ISO 8601 basic representation (which
+is not a standard type in XML). EXAMPLES:
+
+18:30:59Z (time in UTC); +
+18:30:59+01:00 (local time with given offset); +
+18:30:59 (local time without an offset to UTC).
 
 | UI | URL
 | A uniform resource locator (URL) is a URI that provides a means
@@ -281,9 +285,6 @@ in the description of each feature class.
 
 ==== Conditional attributes
 
-The MRS feature classes or information types do not contain conditional
-attributes.
-
 Complex attributes which are assigned to feature classes or information
 types have at least one sub-attribute which is mandatory (or conditionally
 mandatory). Where the sub-attribute of a complex attribute is conditional,
@@ -297,8 +298,8 @@ must be populated.
 [[sec_2.4.4]]
 ==== Missing attribute values
 
-Where a value of a mandatory attribute is not known, the attribute
-must be populated with an empty (null) value.
+Mandatory attributes in an S-123 dataset are not permitted to contain
+a nil value. All mandatory attributes must contain meaningful data.
 
 Where the value of a non-mandatory attribute is not known, the attribute
 must not be included in the dataset.

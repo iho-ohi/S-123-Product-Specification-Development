@@ -224,7 +224,7 @@ _False_ indicates the dataset is intended to be used for navigation
 |
 
 | Attribute | encodingFormat | The encoding format of the dataset | 1 | S100_EncodingFormat | Enumeration value: "GML"
-| Attribute | dataCoverage | Provides information about data coverages within the dataset | *1* | S100_DataCoverage | 0..++*++ multiplicity in S-100 restricted to 1 in S-123
+| Attribute | dataCoverage | Provides information about data coverages within the dataset | *1..++*++* | S100_DataCoverage | 0..++*++ multiplicity in S-100 restricted to 1 in S-123
 
 | Attribute | comment | Any additional information | 0..1 | CharacterString |
 
@@ -337,7 +337,7 @@ See <<IHO_S_100,part=4a,clause=4a-5.5>>
 |===
 
 [[sec_10.2.4.4]]
-===== S100_CompiancyCategory
+===== S100_CompliancyCategory
 
 [cols="9,17,32,5,37",options="unnumbered"]
 |===
@@ -568,9 +568,9 @@ is not populated
 |===
 h| Role Name h| Name h| Description h| Mult h| Type h| Remarks
 | Class | PT_Locale | description of a locale | - | - | From ISO 19115-1
-| Value | language | designation of the locale language | 1 | LanguageCode | ISO 639-2/T 3-letter language codes.
-| Value | country | designation of the specific country of the locale language | 0..1 | CountryCode | ISO 3166-1 2-letter country codes
-| Value | characterEncoding | designation of the character set to be used to encode the textual value of the locale | 1 | MD_CharacterSetCode | UTF-8 is used in S-100
+| Attribute | language | designation of the locale language | 1 | LanguageCode | ISO 639-2/T 3-letter language codes.
+| Attribute | country | designation of the specific country of the locale language | 0..1 | CountryCode | ISO 3166-1 2-letter country codes
+| Attribute | characterEncoding | designation of the character set to be used to encode the textual value of the locale | 1 | MD_CharacterSetCode | UTF-8 is used in S-100
 |===
 
 [[sec_10.2.6.4]]

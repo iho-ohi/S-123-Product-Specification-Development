@@ -2,10 +2,10 @@
 :series: S
 :docnumber: 123
 :doctype: specification
-:edition: 1.1.0
+:edition: 2.0.0
 :language: en
-:published-date: 2025-05-01
-:copyright-year: 2025
+:published-date: 2026-03-23
+:copyright-year: 2026
 :draft:
 :committee: HSSC
 :workgroup: NIPWG
@@ -63,6 +63,61 @@ shall conform to IHO Technical Resolution 2/2007 (revised 2010).
         abbreviation: SJC
   amend:
     - description: Apply NIPWG approved change package of data model revision, and align with IHO S-100 Edition 5.2.0.
+- date:
+  - type: updated
+    value: 2025-07-05
+  edition: "1.2.0 draft 1"
+  contributor:
+  - person:
+      name:
+        completename: Shwu-Jing Chang
+        abbreviation: SJC
+  amend:
+    - description:  Include SAR region, TMAS, Ice Report, NAVDAT to data model. Revise or add generic attributes for encoding radionavigation services.
+- date:
+  - type: updated
+    value: 2025-12-10
+  edition: "2.0.0 draft 1"
+  contributor:
+  - person:
+      name:
+        completename: Shwu-Jing Chang
+        abbreviation: SJC
+  amend:
+    - description:  Update figures and contents to align with renamed items accepted in GI Registry; Correct typo in 10.2.6.3 PT_Locale.
+- date:
+  - type: updated
+    value: 2025-12-11
+  edition: "2.0.0 draft 2"
+  contributor:
+  - person:
+      name:
+        completename: Shwu-Jing Chang
+        abbreviation: SJC
+  amend:
+    - description:  Change one of the theComponent roles to theFuzzyComponent
+- date:
+  - type: updated
+    value: 2026-01-19
+  edition: "2.0.0 draft 3"
+  contributor:
+  - person:
+      name:
+        completename: Shwu-Jing Chang
+        abbreviation: SJC
+  amend:
+    - description:  Refine the document and relax some multiplicity restrictions on discovery metadata.
+- date:
+  - type: updated
+    value: 2026-03-23
+  edition: "2.0.0 draft 4"
+  contributor:
+  - person:
+      name:
+        completename: Shwu-Jing Chang
+        abbreviation: SJC
+  amend:
+    - description:  Apply revisions from NIPWG review
 ----
 
 
@@ -427,9 +482,9 @@ information on dataset metadata see the metadata clause.
 
 *S-100 Version:*:: 5.2.0
 
-*S-123 Version:*:: 1.1.0
+*S-123 Version:*:: 2.0.0
 
-*Date:*:: May 2025
+*Date:*:: March 2026
 
 *Language:*:: English
 
@@ -587,9 +642,9 @@ realize the GFM meta-classes S100_GF_FeatureType and S100_GF_InformationType
 respectively.
 
 This section contains the Application Schema expressed in UML and
-an associated Feature Catalogue. The Feature Catalogue is included
-in Annex C, and provides a full description of each feature type including
-its attributes, attribute values and relationships in the data product.
+an associated Feature Catalogue. The Feature Catalogue provides a
+full description of each feature type including its attributes,
+attribute values and relationships in the data product.
 
 The classes comprising the S-123 application schema are divided into
 four packages. The first package, the Domain model, contains the features
@@ -599,6 +654,12 @@ within their own package as well as cartographic features, which allow
 dataset creators to provide cartographically necessary placements
 where required. A fourth package contains features used for modeling
 approximate areas.
+
+The classes comprising the S-123 application schema are divided into packages.
+The Domain model package contains the features and information types that
+model the MRS application domain specifically. Meta-features that provide
+quality and coverage information are contained within their own package.
+Features used for modeling approximate areas are contained within another package.
 
 Geographic features in all four packages use the spatial types from
 <<IHO_S_100,part=7>>, which are imported as-is into the S-123 spatial types
@@ -653,7 +714,7 @@ and do not have direct instances in S-123 data -- instead, S-123 feature
 and information type data objects are instantiations of a non-abstract
 class derived from one of these base classes.
 
-S-123 meta- and cartographic features are not derived from these base
+S-123 meta- features are not derived from these base
 classes -- S-123 instead incorporates meta- and cartographic feature
 definitions originally prepared for S-101 in the interests of harmonization
 and interoperability with other S-100-based data products, especially
@@ -974,6 +1035,39 @@ objects. (See <<fig_4-15>>)
 image::figure-15.png[]
 
 [[sec_4.2.1.5]]
+===== SAR and Telemedical Assistance Service
+
+SearchAndRescueRegion feature type and TelemedicalAssistanceService
+information type are for encoding the Search and Rescue (SAR)
+responsibility regions or sub-regions, the associated Rescue
+Coordination Center (Maritime Rescue Coordination Centre or
+sub-Centre), as well as the available Telemedical Assistance
+Service (TMAS) and SAR service.
+
+(See <<fig_4-16>>)
+
+[[fig_4-16]]
+.Search and Rescue Region and Telemedical Assistance Service
+image::figure-16.png[]
+
+[[sec_4.2.1.6]]
+===== Radionavigation Service such as DGNSS
+
+In this edition of S-123, radionavigation services are modelled in a generic way
+mainly by using *RadioStation, TransmissionDetails, BroadcastDetails*. A *RadioServiceArea*
+may also be associated, if the coverage geometry is required.
+
+For a beacon DGNSS station, the transmitting station ID should be encoded
+in the sub-attribute *coastStationIdentificationCode* of *radiocommunicationIdentifier*.
+ The transmission frequency, frequencyBand (MF), *dataTransmissionRate*,
+ *communicationStandard* (ITU-R M.823-3), *classOfEmission* (G1D) may be encoded in
+ the associated *TransmissionDetails*. Transmitted DGNSS message types may be
+ described in the *transmissionContent* attribute of *RadioStation* or encoded by
+ using the *subjectOrMessageTypeCode* of an associated *BroadcastDetails*.
+
+ (See 4.2.1.2 for related data models)
+
+[[sec_4.2.1.7]]
 ===== Regulations, information notes, etc.
 
 There are three information types which represent regulations, restrictions,
@@ -1004,11 +1098,11 @@ superclass *InformationType*, which allows encoding of the effective
 and expiry dates, if any, and source of information, if it is necessary
 to encode that data. (See <<fig_4-16>>)
 
-[[fig_4-16]]
+[[fig_4-17]]
 .Structure of regulations and note information types
 image::figure-16.png[]
 
-[[sec_4.2.1.6]]
+[[sec_4.2.1.8]]
 ===== Regulations applying in specific geographic features
 
 RxN classes are intended primarily for encoding text information,
@@ -1034,11 +1128,11 @@ encoding both associations is not mandatory even when the same *Authority*
 is associated to a service area as well as a *Regulations* object
 (or *NauticalInformation*, etc.).
 
-[[fig_4-17]]
+[[fig_4-18]]
 .Regulations, etc., relevant to specific features
 image::figure-17.png[]
 
-[[sec_4.2.1.7]]
+[[sec_4.2.1.9]]
 ===== Regulations applying only to vessels with specific characteristics or cargoes
 
 Certain regulations apply only to vessels of specified dimensions,
@@ -1088,7 +1182,7 @@ complex conditions into multiple combinations each using only AND
 ('conjunctive normal form') or OR ('disjunctive normal form'), and
 model the subset using more than one *Applicability* object.
 
-[[fig_4-18]]
+[[fig_4-19]]
 .Vessel subsets characterized by cargo and dimensions
 image::figure-18.png[]
 
@@ -1121,11 +1215,11 @@ object, and indicates whether the content of the Regulation, etc.,
 applies to the vessels (_membership=included_), or explicitly does
 not apply to the vessels (_membership=excluded_).
 
-[[fig_4-19]]
+[[fig_4-20]]
 .Applicability of requirements, rules, etc. to vessel categories
 image::figure-19.png[]
 
-[[sec_4.2.1.8]]
+[[sec_4.2.1.10]]
 ===== Fuzzy areas in the S-123 application schema
 
 Fuzzy areas are areas where the applicability of information described
@@ -1158,11 +1252,11 @@ S-123 uses the generic model of fuzzy areas described above and subclasses
 the abstract *FuzzyAreaAggregate* class into the aggregate class
 *RadioServiceAreaAggregate*.
 
-[[fig_4-20]]
+[[fig_4-21]]
 .Fuzzy areas in S-123
 image::figure-20.png[]
 
-[[sec_4.2.1.9]]
+[[sec_4.2.1.11]]
 ===== Uncategorized additional information
 
 The domain model also provides a method for attaching to any feature
@@ -1184,7 +1278,7 @@ The *additionalInformation* association must not be used to chain
 *NauticalInformation*, *Regulations*, *Restrictions*, or *Recommendations*
 objects, whether they are of the same class or different classes.
 
-[[fig_4-21]]
+[[fig_4-22]]
 .Attachment of uncategorized information to any feature or information type
 image::figure-21.png[]
 
@@ -1194,7 +1288,7 @@ image::figure-21.png[]
 S-123 has two meta feature classes. One is *QualityOfNonbathymetricData*,
 the other is *DataCoverage*.
 
-[[fig_4-22]]
+[[fig_4-23]]
 .Overview of Meta feature classes
 image::figure-22.png[]
 
@@ -1205,7 +1299,7 @@ S-123 spatial quality attributes are carried in an information type
 called *SpatialQuality*. The attributes are for qualitative horizontal
 measurement quality and quantitative spatial accuracy. (See <<fig_4-23>>)
 
-[[fig_4-23]]
+[[fig_4-24]]
 .Spatial quality
 image::figure-23.png[]
 
@@ -1220,7 +1314,7 @@ attributes, attribute values, associations and roles which may be
 used in the product. The S-123 Feature Catalogue is available in an
 XML document which conforms to the S-100 XML Feature Catalogue Schema
 and can be downloaded from the IHO website (link:++http://www.iho.int/++[]).
-
+////
 *Name:*:: Marine Radio Services Feature Catalogue
 
 *Scope:*:: Ocean, Coastal, Ports, Harbors and Inland waters
@@ -1231,6 +1325,7 @@ and can be downloaded from the IHO website (link:++http://www.iho.int/++[]).
 
 *Producer:*::
 +
+
 --
 International Hydrographic Organization Secretariat, +
 4 quai Antoine 1er, +
@@ -1238,10 +1333,11 @@ B.P. 445 +
 MC 98011 MONACO CEDEX +
 Telephone: +377 93 10 81 00 +
 Telefax: + 377 93 10 81 40 +
-URL link:++http://www.iho.int++[]
+URL http://www.iho.int
 --
 
 *Language:*:: English
+////
 
 [[sec_4.3.2]]
 ==== Feature types
@@ -1891,7 +1987,7 @@ h| Name h| Value
 | Specification description | S-100 profile of GML (<<IHO_S_100,part=10b>>)
 | Language                  | English
 | Character set             | 004 -- utf8
-| Additional Information    | GML schema for S-123 Edition 1.1.0 (link:++https://schemas.s100dev.net++[])
+| Additional Information    | GML schema for S-123 Edition 2.0.0 (link:++https://schemas.s100dev.net++[])
 |===
 
 [[sec_7.2]]
@@ -1983,7 +2079,7 @@ dataset.
 === Data extent
 
 Datasets must not cross the stem:[180"unitsml(deg)"] meridian of longitude.
-
+////
 [[sec_7.12]]
 === Sequence of objects
 
@@ -2002,8 +2098,8 @@ Feature objects
     Meta features
     Geo features
 ====
-
-[[sec_7.13]]
+////
+[[sec_7.12]]
 === Content of update datasets
 
 Update datasets can only contain replacements, deletions, and additions
@@ -2025,7 +2121,7 @@ as an independent spatial object in the dataset) is treated like any
 other object, i.e., it needs to be updated if and only if the primitive
 has changed (e.g., a coordinate is updated).
 
-[[sec_7.14]]
+[[sec_7.13]]
 === Attribute multiplicity
 
 In general, if all the sub-attributes of a complex attribute are optional,
@@ -2656,7 +2752,7 @@ _False_ indicates the dataset is intended to be used for navigation
 |
 
 | Attribute | encodingFormat | The encoding format of the dataset | 1 | S100_EncodingFormat | Enumeration value: "GML"
-| Attribute | dataCoverage | Provides information about data coverages within the dataset | *1* | S100_DataCoverage | 0..++*++ multiplicity in S-100 restricted to 1 in S-123
+| Attribute | dataCoverage | Provides information about data coverages within the dataset | *1..++*++* | S100_DataCoverage | 0..++*++ multiplicity in S-100 restricted to 1 in S-123
 
 | Attribute | comment | Any additional information | 0..1 | CharacterString |
 
@@ -2769,7 +2865,7 @@ See <<IHO_S_100,part=4a,clause=4a-5.5>>
 |===
 
 [[sec_10.2.4.4]]
-===== S100_CompiancyCategory
+===== S100_CompliancyCategory
 
 [cols="9,17,32,5,37",options="unnumbered"]
 |===
@@ -3000,9 +3096,9 @@ is not populated
 |===
 h| Role Name h| Name h| Description h| Mult h| Type h| Remarks
 | Class | PT_Locale | description of a locale | - | - | From ISO 19115-1
-| Value | language | designation of the locale language | 1 | LanguageCode | ISO 639-2/T 3-letter language codes.
-| Value | country | designation of the specific country of the locale language | 0..1 | CountryCode | ISO 3166-1 2-letter country codes
-| Value | characterEncoding | designation of the character set to be used to encode the textual value of the locale | 1 | MD_CharacterSetCode | UTF-8 is used in S-100
+| Attribute | language | designation of the locale language | 1 | LanguageCode | ISO 639-2/T 3-letter language codes.
+| Attribute | country | designation of the specific country of the locale language | 0..1 | CountryCode | ISO 3166-1 2-letter country codes
+| Attribute | characterEncoding | designation of the character set to be used to encode the textual value of the locale | 1 | MD_CharacterSetCode | UTF-8 is used in S-100
 |===
 
 [[sec_10.2.6.4]]

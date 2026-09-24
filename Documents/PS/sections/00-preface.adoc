@@ -46,4 +46,59 @@ shall conform to IHO Technical Resolution 2/2007 (revised 2010).
         abbreviation: SJC
   amend:
     - description: Apply NIPWG approved change package of data model revision, and align with IHO S-100 Edition 5.2.0.
+- date:
+  - type: updated
+    value: 2025-07-05
+  edition: "1.2.0 draft 1"
+  contributor:
+  - person:
+      name:
+        completename: Shwu-Jing Chang
+        abbreviation: SJC
+  amend:
+    - description:  Include SAR region, TMAS, Ice Report, NAVDAT to data model. Revise or add generic attributes for encoding radionavigation services.
+- date:
+  - type: updated
+    value: 2025-12-10
+  edition: "2.0.0 draft 1"
+  contributor:
+  - person:
+      name:
+        completename: Shwu-Jing Chang
+        abbreviation: SJC
+  amend:
+    - description:  Update figures and contents to align with renamed items accepted in GI Registry; Correct typo in 10.2.6.3 PT_Locale.
+- date:
+  - type: updated
+    value: 2025-12-11
+  edition: "2.0.0 draft 2"
+  contributor:
+  - person:
+      name:
+        completename: Shwu-Jing Chang
+        abbreviation: SJC
+  amend:
+    - description:  Change one of the theComponent roles to theFuzzyComponent
+- date:
+  - type: updated
+    value: 2026-01-19
+  edition: "2.0.0 draft 3"
+  contributor:
+  - person:
+      name:
+        completename: Shwu-Jing Chang
+        abbreviation: SJC
+  amend:
+    - description:  Refine the document and relax some multiplicity restrictions on discovery metadata.
+- date:
+  - type: updated
+    value: 2026-03-23
+  edition: "2.0.0 draft 4"
+  contributor:
+  - person:
+      name:
+        completename: Shwu-Jing Chang
+        abbreviation: SJC
+  amend:
+    - description:  Apply revisions from NIPWG review
 ----
