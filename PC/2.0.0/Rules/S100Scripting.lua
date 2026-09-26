@@ -27,7 +27,7 @@ function EncodeString(str, fmt)
 	else
 		str = tostring(str)
 	end
-	
+
 	return EncodeDEFString(str)
 end
 
@@ -59,7 +59,7 @@ end
 
 function ProcessFixedDateRange(featurePortrayal, fixedDateRange)
 	local dateDependent = false
-	
+
 	if fixedDateRange then
 		local dateStart = fixedDateRange.dateStart
 		local dateEnd = fixedDateRange.dateEnd
@@ -74,20 +74,20 @@ function ProcessFixedDateRange(featurePortrayal, fixedDateRange)
 
 		dateDependent = true
 	end
-	
+
 	return dateDependent
 end
 
 function ProcessFixedAndPeriodicDates(feature, featurePortrayal)
 	local periodicDependent = ProcessPeriodicDateRanges(feature, featurePortrayal, feature['!periodicDateRange'])
 	local fixedDependent = ProcessFixedDateRange(featurePortrayal, feature['!fixedDateRange'])
-	
+
 	return periodicDependent or fixedDependent
 end
 
 function AddDateDependentSymbol(feature, featurePortrayal, contextParameters, viewingGroup)
-	
-	-- #367, Do not add symbol to feature with no geometry	
+
+	-- #367, Do not add symbol to feature with no geometry
 	if feature.PrimitiveType == PrimitiveType.None then
 		return
 	end
@@ -96,7 +96,7 @@ function AddDateDependentSymbol(feature, featurePortrayal, contextParameters, vi
 
 	featurePortrayal:AddInstructions('Hover:true')
 
-	local displayPlane = contextParameters.RadarOverlay and 'DisplayPlane:OverRadar' or 'DisplayPlane:UnderRadar'
+	local displayPlane = 'DisplayPlane:UnderRadar'
 
 	featurePortrayal:AddInstructions(displayPlane)
 	featurePortrayal:AddInstructions('ViewingGroup:' .. viewingGroup .. ',90022;DrawingPriority:24;PointInstruction:CHDATD01')
@@ -150,7 +150,7 @@ function ProcessNauticalInformation(feature, featurePortrayal, contextParameters
 
 		featurePortrayal:AddInstructions('Hover:true')
 
-		local displayPlane = contextParameters.RadarOverlay and 'DisplayPlane:OverRadar' or 'DisplayPlane:UnderRadar'
+		local displayPlane = 'DisplayPlane:UnderRadar'
 
 		if vg90020 then
 			featurePortrayal:AddInstructions(displayPlane)
@@ -407,7 +407,7 @@ function SD(value, scale)
 
 		scaledDecimals[value] = sd
 	end
-		
+
 	return sd
 end
 
@@ -448,7 +448,7 @@ function TypeSystemChecks(enabled)
 	if enabled then
 		function CheckSelf(object, typeName, errorDepth)
 			local objectType = type(object)
-	
+
 			if objectType == 'table' and object.Type == typeName then
 				return
 			end
@@ -458,7 +458,7 @@ function TypeSystemChecks(enabled)
 
 		function CheckNotSelf(object, typeName, errorDepth)
 			local objectType = type(object)
-	
+
 			if objectType == 'table' and object.Type == typeName then
 				error('Function call on object of type ' .. typeName .. ' was not in the form of "object.function()"', errorDepth or 3)
 			end
@@ -567,7 +567,7 @@ function GetTypeInfo()
 		local roleCodes = HostGetRoleTypeCodes()
 		local informationAssociationCodes = HostGetInformationAssociationTypeCodes()
 		local featureAssociationCodes = HostGetFeatureAssociationTypeCodes()
-		
+
 		Debug.StartPerformance('Lua Code - Total')
 
 		ti.FeatureTypeInfos = {}
@@ -691,12 +691,16 @@ unknownAttributeValueString = '13BD40516CF742E886D5B4125DBB89742A043D0050E44B568
 --
 
 function contains(value, array)
+	if type(array) ~= "table" then
+        return false
+    end
+
 	for i = 1, #array do
 		if array[i] == value then
 			return true
 		end
 	end
-	
+
 	if type(value) == 'table' then
 		for i = 1, #array do
 			for j = 1, #value do
@@ -715,7 +719,7 @@ function safeConcat(t, s)
 	if t == nil then
 		return ''
 	end
-	
+
 	return table.concat(t, s)
 end
 
@@ -767,6 +771,8 @@ end
 
 scaledDecimalZero = CreateScaledDecimal(0, 0)
 scaledDecimalOne = CreateScaledDecimal(1, 0)
+
+
 
 --
 -- Unit tests
