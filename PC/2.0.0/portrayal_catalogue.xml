@@ -19,7 +19,7 @@
 			<description>
 				<name>CHDATD01</name>
 				<description>CHDATD01</description>
-				<language>en</language>
+				<language>eng</language>
 			</description>
 			<fileName>CHDATD01.svg</fileName>
 			<fileType>Symbol</fileType>
@@ -29,7 +29,7 @@
 			<description>
 				<name>INFORM01</name>
 				<description>INFORM01</description>
-				<language>en</language>
+				<language>eng</language>
 			</description>
 			<fileName>INFORM01.svg</fileName>
 			<fileType>Symbol</fileType>
@@ -39,7 +39,7 @@
 			<description>
 				<name>QUESMRK1</name>
 				<description>object which is not sufficiently described to be symbolized, or for which no symbol exists in the symbol library</description>
-				<language>en</language>
+				<language>eng</language>
 			</description>
 			<fileName>QUESMRK1.svg</fileName>
 			<fileType>Symbol</fileType>
@@ -49,7 +49,7 @@
 			<description>
 				<name>RDOSTA02</name>
 				<description>RDOSTA02</description>
-				<language>en</language>
+				<language>eng</language>
 			</description>
 			<fileName>RDOSTA02.svg</fileName>
 			<fileType>Symbol</fileType>
@@ -59,7 +59,7 @@
 			<description>
 				<name>TOWERS15</name>
 				<description>TOWERS15</description>
-				<language>en</language>
+				<language>eng</language>
 			</description>
 			<fileName>TOWERS15.svg</fileName>
 			<fileType>Symbol</fileType>
@@ -219,7 +219,7 @@
 			</description>
 			<fileName>Default.lua</fileName>
 			<fileType>Rule</fileType>
-			<fileFormat>lua</fileFormat>
+			<fileFormat>LUA</fileFormat>
 			<ruleType>SubTemplate</ruleType>
 	  </ruleFile>
       <ruleFile id="S100Scripting">
@@ -303,6 +303,7 @@
 		<description>
 			<name>Data Coverage</name>
 			<description>Data Coverage</description>
+		   <language>eng</language>
 		</description>
 		<fileName>DataCoverage.lua</fileName>
 		<fileType>Rule</fileType>
@@ -313,6 +314,7 @@
 		<description>
 			<name>GMDSSArea</name>
 			<description>GMDSSArea</description>
+		   <language>eng</language>
 		</description>
 		<fileName>GMDSSArea.lua</fileName>
 		<fileType>Rule</fileType>
@@ -323,6 +325,7 @@
 		<description>
 			<name>IndeterminateZone</name>
 			<description>IndeterminateZone</description>
+		   <language>eng</language>
 		</description>
 		<fileName>IndeterminateZone.lua</fileName>
 		<fileType>Rule</fileType>
@@ -333,6 +336,7 @@
 		<description>
 			<name>METAREA</name>
 			<description>METAREA</description>
+		   <language>eng</language>
 		</description>
 		<fileName>METAREA.lua</fileName>
 		<fileType>Rule</fileType>
@@ -343,6 +347,7 @@
 		<description>
 			<name>NAVAREA</name>
 			<description>NAVAREA</description>
+		   <language>eng</language>
 		</description>
 		<fileName>NAVAREA.lua</fileName>
 		<fileType>Rule</fileType>
@@ -353,6 +358,7 @@
 		<description>
 			<name>NAVTEXServiceArea</name>
 			<description>NAVTEXServiceArea</description>
+		   <language>eng</language>
 		</description>
 		<fileName>NAVTEXServiceArea.lua</fileName>
 		<fileType>Rule</fileType>
@@ -363,6 +369,7 @@
 		<description>
 			<name>QualityOfNonBathymetricData</name>
 			<description>QualityOfNonBathymetricData</description>
+		   <language>eng</language>
 		</description>
 		<fileName>QualityOfNonBathymetricData.lua</fileName>
 		<fileType>Rule</fileType>
@@ -373,6 +380,7 @@
 		<description>
 			<name>WeatherForecastAndWarningArea</name>
 			<description>WeatherForecastAndWarningArea</description>
+		   <language>eng</language>
 		</description>
 		<fileName>WeatherForecastAndWarningArea.lua</fileName>
 		<fileType>Rule</fileType>
@@ -383,6 +391,7 @@
 		<description>
 			<name>SearchAndRescueRegion</name>
 		   <description>SearchAndRescueRegion</description>
+		   <language>eng</language>
 		</description>
 	   <fileName>SearchAndRescueRegion.lua</fileName>
 		<fileType>Rule</fileType>

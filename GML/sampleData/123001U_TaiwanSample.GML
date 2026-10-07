@@ -5,7 +5,7 @@
     xmlns:xlink="http://www.w3.org/1999/xlink" 
     xmlns:s100_profile="http://www.iho.int/S-100/profile/s100_gmlProfile"
     xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"  
-    xsi:schemaLocation="http://www.iho.int/s123/2.0"
+    xsi:schemaLocation="http://www.iho.int/s123/2.0 https://schemas.s100dev.net/schemas/S123/2.0.0/20260901/123_2.0.0.xsd"
     gml:id="urn.mrn.iho.s123.2.0.0">
     <gml:boundedBy>
                     
